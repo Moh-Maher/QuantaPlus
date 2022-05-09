@@ -12,7 +12,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<string>
 #include<sstream>
 #include <algorithm> // for using : str.find_first_not_of( "string" ) == std::string::npos
-
+#include <complex>
 /* colors */
 #define RST  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -35,6 +35,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #define UNDL(x)	"\x1B[4m" x RST
 
 //namespace QUANTAx{
+void cplx_print(std::complex<double> a);
 long long gcd(long long a, long long b);
 void decimalToFraction(double number); // convert decimal to fraction
 void StringMatrix(int r, int c, double *array); // print array elements in fractions form

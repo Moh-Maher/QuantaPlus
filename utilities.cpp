@@ -10,6 +10,32 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<cmath>
 #include"utilities.h"
 
+
+void cplx_print(std::complex<double> a)
+{
+	double x = std::real(a);
+	double y = std::imag(a);   
+	if(x!=0 and y!=0)
+    	{
+        	if(y<0)
+        	{
+            		std::cout<<x<<y<<"i"<<"\t";
+        	}
+
+        	else if(y>0)
+        	{	
+            		std::cout<<x<<"+" <<y<<"i"<<"\t";
+        	}
+	}
+   	else if(y==0)
+    	{   
+        	std::cout<<x<<"\t";
+    	}
+    	else if(x==0)
+    	{
+        	std::cout<<y<<"i"<<"\t"; 
+    	}    
+}	
  
 long long gcd(long long a, long long b)
 {
