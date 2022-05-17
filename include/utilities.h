@@ -13,6 +13,9 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<sstream>
 #include <algorithm> // for using : str.find_first_not_of( "string" ) == std::string::npos
 #include <complex>
+#include<iostream>
+#include<cmath>
+#include"utilities.h"
 /* colors */
 #define RST  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -82,6 +85,6 @@ void MatrixToString(T &mat)
         std::cout<<std::endl;
     }
 }
- 
+#include"utilities.tpp"
 //}//end of namespace QUANTAx
 #endif

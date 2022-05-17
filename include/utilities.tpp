@@ -6,9 +6,10 @@ by:  Mohammed Maher Abdelrahim Mohammed
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
+#pragma once
 #include<iostream>
 #include<cmath>
-#include"utilities.h"
+//#include"utilities.h"
 
 /*
 void cplx_print(std::complex<double> a)
