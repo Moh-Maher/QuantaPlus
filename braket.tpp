@@ -27,31 +27,74 @@ inline void cplx_print(std::complex<double> a)
         	if(y<0)
         	{
             		std::cout<<x<<y<<"i"<<"\t";
+            		//decimalToFraction(x);
+            		//decimalToFraction(y);
+            		//std::cout<<"i"<<"\t";
         	}
 
         	else if(y>0)
-        	{	
+        	{
             		std::cout<<x<<"+" <<y<<"i"<<"\t";
+            		//decimalToFraction(x);
+            		//std::cout<<"+";
+            		//decimalToFraction(y);
+            		//std::cout<<"i"<<"\t";
         	}
 	}
    	else if(y==0)
     	{   
         	std::cout<<x<<"\t";
+        	//decimalToFraction(x);
+        	//std::cout<<"\t";
+           
     	}
     	else if(x==0)
     	{
         	std::cout<<y<<"i"<<"\t"; 
+        	
+		//decimalToFraction(y);
+    		//std::cout<<"i"<<"\t";
     	}    
 }	
 //--------------------------------------------------------------------------
 //		print  matrix elements in symbolic form
 //--------------------------------------------------------------------------
-template <typename U,int Q,int W>
-void cplx_show(Eigen::Matrix<U,Q,W>& mt)
+template <typename U>
+void cplx_show(bra<U>& mt)
 {
-	for(int i =0; i<Q; i++)
+	for(int i =0; i<mt.rows(); i++)
     	{
-        	for(int j =0; j<W; j++)
+        	for(int j =0; j<mt.cols(); j++)
+        	{
+			cplx_print(mt(i,j));
+        	}
+        	std::cout<<std::endl;
+    	}
+}
+//--------------------------------------------------------------------------
+//		print  ket elements in symbolic form
+//--------------------------------------------------------------------------
+template <typename U>
+void cplx_show(ket<U>& mt)
+{
+	for(int i =0; i<mt.rows(); i++)
+    	{
+        	for(int j =0; j<mt.cols(); j++)
+        	{
+			cplx_print(mt(i,j));
+        	}
+        	std::cout<<std::endl;
+    	}
+}
+//--------------------------------------------------------------------------
+//		print  bra elements in symbolic form
+//--------------------------------------------------------------------------
+template <typename U>
+void cplx_show(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt)
+{
+	for(int i =0; i<mt.rows(); i++)
+    	{
+        	for(int j =0; j<mt.cols(); j++)
         	{
 			cplx_print(mt(i,j));
         	}
@@ -64,6 +107,7 @@ void cplx_show(Eigen::Matrix<U,Q,W>& mt)
 void cplx_show(const std::complex<double> &a)
 {
 	cplx_print(a);
+	std::cout<<std::endl;
 }
 //##########################################################################
 // class ket:
@@ -71,13 +115,13 @@ void cplx_show(const std::complex<double> &a)
 //--------------------------------------------------------------------------
 //		defult constructor
 //--------------------------------------------------------------------------
-template <class T, int R>
-ket<T,R>::ket():Eigen::Matrix<T,R,1>(){}
+template <class T>
+ket<T>::ket():Eigen::Matrix<T,Eigen::Dynamic,1>(){}
 //--------------------------------------------------------------------------
 //		Constructor for ket vector of a given rows
 //--------------------------------------------------------------------------
-template <class T, int R>
-ket<T,R>::ket(int row):Eigen::Matrix<T,R,1>(row,1){}
+template <class T>
+ket<T>::ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){}
 //--------------------------------------------------------------------------
 //		2nd overloded constructor
 //--------------------------------------------------------------------------
@@ -86,8 +130,8 @@ ket<T,R>::ket(int row):Eigen::Matrix<T,R,1>(row,1){}
 //--------------------------------------------------------------------------
 //		destructor
 //--------------------------------------------------------------------------
-template <class T, int R>
-ket<T,R>::~ket(){}
+template <class T>
+ket<T>::~ket(){}
 
  
 //##########################################################################
@@ -96,13 +140,13 @@ ket<T,R>::~ket(){}
 //--------------------------------------------------------------------------
 //		defult constructor
 //--------------------------------------------------------------------------
-template <class T, int C>
-bra<T,C>::bra():Eigen::Matrix<T,1,C>(){}
+template <class T>
+bra<T>::bra():Eigen::Matrix<T,1,Eigen::Dynamic>(){}
 //--------------------------------------------------------------------------
 //		Constructor for bra vector of a given rows
 //--------------------------------------------------------------------------
-template <class T, int C>
-bra<T,C>::bra(int col):Eigen::Matrix<T,1,C>(1,col){}
+template <class T>
+bra<T>::bra(int col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col){}
 //--------------------------------------------------------------------------
 //		2nd overloded constructor
 //--------------------------------------------------------------------------
@@ -111,8 +155,8 @@ bra<T,C>::bra(int col):Eigen::Matrix<T,1,C>(1,col){}
 //--------------------------------------------------------------------------
 //		destructor
 //--------------------------------------------------------------------------
-template <class T, int C>
-bra<T,C>::~bra(){}
+template <class T>
+bra<T>::~bra(){}
  
 //------------------------------------------------------------------------------------
 // compute the Eigen vectors for Eigen::Matrix
@@ -141,10 +185,10 @@ T QuantxEigenValue(Eigen::Matrix<T, R, C>  &mat,const int& i)
 //--------------------------------------------------------------------------
 //##############	ket dual Conjugate	#########################
 //--------------------------------------------------------------------------
-template <typename T, int R>
-bra<T,R> DualConj(const ket<T,R> &kt)
+template <typename T>
+bra<T> DualConj(const ket<T> &kt)
 {
-	bra<T,R> res(kt.rows());
+	bra<T> res(kt.rows());
 
 	for (int i=0; i<kt.rows(); i++)
     	{
@@ -155,10 +199,10 @@ bra<T,R> DualConj(const ket<T,R> &kt)
 //--------------------------------------------------------------------------
 //#############	bra dual Conjugate	#########################
 //--------------------------------------------------------------------------
-template <typename T, int C>
-ket<T,C> DualConj(const bra<T,C> &b)
+template <typename T>
+ket<T> DualConj(const bra<T> &b)
 {
-	ket<T,C> res(b.cols());
+	ket<T> res(b.cols());
 
 	for (int i=0; i<b.cols(); i++)
 	{
@@ -169,8 +213,8 @@ ket<T,C> DualConj(const bra<T,C> &b)
 //--------------------------------------------------------------------------
 //#############	Bra-Ket		#########################
 //--------------------------------------------------------------------------
-template <typename T, int R,int C> 
-T BraKet(const bra<T,C> &b, const ket<T,R> &kt)
+template <typename T> 
+T BraKet(const bra<T> &b, const ket<T> &kt)
 {     
 	if(b.cols()!=kt.rows()){ throw std::invalid_argument("dimensions do not match."); }
 	

@@ -13,17 +13,68 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #pragma once
 #ifndef OPERATORS_H
 #define OPERATORS_H
+//#include <unsupported/Eigen/MatrixFunctions>
 #include <Eigen/Dense>
 #include"utilities.h"
-
-template <class T, int R, int C>
-class Q_operator: public Eigen::Matrix<T, R, C> 
+ 
+template<class T>
+class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
 {
 public:
-	Q_operator();
-	Q_operator(int row,int col); 
-	~Q_operator();      
+	QM_operator();
+	QM_operator(int row,int col);
+	~QM_operator();
 };
+
+template <class T>
+class Angular_Momentum : public QM_operator<T> 
+{
+public:
+	Angular_Momentum();
+	Angular_Momentum(int row, int col); 
+	//Angular_Momentum(const T *data );
+	//Angular_Momentum(const Angular_Momentum<T,R,C> &amo); 
+	//Angular_Momentum(const double j); 
+	~Angular_Momentum();
+
+	// Angular_Momentum<T,R,C> operator= (const Angular_Momentum<T,R,C> &amo);
+	//Angular_Momentum<T,R,C> operator * (const Angular_Momentum<T,R,C> &amo) const;
+
+	Angular_Momentum<T> Angular_Momentum_OperatorJSqr(const double &j);
+	Angular_Momentum<T> Angular_Momentum_OperatorJx(const double &j);
+	Angular_Momentum<T> Angular_Momentum_OperatorJy(const double &j);
+	Angular_Momentum<T> Angular_Momentum_OperatorJz(const double &j);
+
+	Angular_Momentum<T> Angular_Momentum_OperatorJPlus(const double &j);
+	Angular_Momentum<T> Angular_Momentum_OperatorJMinus(const double &j);
+
+	Angular_Momentum<T> RotationByAngle(const double &a);
+
+
+};
+//--------------------------------------------------------------------------
+//		defult constructor
+//--------------------------------------------------------------------------
+template <class T>
+Angular_Momentum<T>::Angular_Momentum():QM_operator<T>(){}
+//--------------------------------------------------------------------------
+//		Constructor for oam vector of a given rows
+//--------------------------------------------------------------------------
+template <class T>
+Angular_Momentum<T>::Angular_Momentum(int row, int col):QM_operator<T>(row,col){}
+ 
+//---------------------------------------------------------------------------
+//  test  
+//---------------------------------------------------------------------------
+//template <class T, int R, int C>
+//Angular_Momentum<T,R,C>::Angular_Momentum(const double j)
+//:matrix<T,R,C>(2*j+1,2*j+1){}
+//--------------------------------------------------------------------------
+//		destructor
+//--------------------------------------------------------------------------
+template <class T>
+Angular_Momentum<T>::~Angular_Momentum(){ }
+
 
 void   Magnetic_Quantum_Number(const double &j);  
 double KroneckerDelta (double i, double j);                          // δ[ij].

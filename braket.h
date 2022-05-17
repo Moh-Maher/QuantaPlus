@@ -18,8 +18,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //####################################################################################
 // ket class:
 //####################################################################################
-template <class T, int R>
-class ket : public Eigen::Matrix<T, R, 1> 
+template <class T>
+class ket : public Eigen::Matrix<T,Eigen::Dynamic,1> 
 {
 public:
 	ket();
@@ -30,8 +30,8 @@ public:
 //####################################################################################
 // bra class:
 //####################################################################################
-template <class T, int C>
-class bra : public Eigen::Matrix<T, 1, C>  
+template <class T>
+class bra : public Eigen::Matrix<T,1, Eigen::Dynamic> 
 {
 public:
 	bra();

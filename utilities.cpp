@@ -10,7 +10,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<cmath>
 #include"utilities.h"
 
-
+/*
 void cplx_print(std::complex<double> a)
 {
 	double x = std::real(a);
@@ -36,7 +36,7 @@ void cplx_print(std::complex<double> a)
         	std::cout<<y<<"i"<<"\t"; 
     	}    
 }	
- 
+ */
 long long gcd(long long a, long long b)
 {
     if (a == 0)
