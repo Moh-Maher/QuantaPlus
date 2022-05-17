@@ -1,5 +1,5 @@
 /*******************************************************************************************
-testing "amo.h".
+testing "amo".
 
 by:  Mohammed Maher Abdelrahim Mohammed
      UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA

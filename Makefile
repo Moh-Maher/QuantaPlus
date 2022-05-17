@@ -1,4 +1,4 @@
-# This is a Make file to build and run QUANTA-x package files  
+# This is a Make file to build and run QUANTAPLUS package files  
 
  
 # in both testing and library
@@ -10,9 +10,7 @@ CFLAGSTEST = -std=c++17 -Wall -Wextra -Wconversion
 
 #OBJECTSQNTXLIB = utilities.o \
  #       operators.o ClebschGordon.o \
-         
-	 
-	 
+         	 
 INCLUDEQUANTAPLUS = include/constants.h \
                  include/operators.h \
                  include/utilities.h
@@ -22,8 +20,6 @@ EXAMPLES = example1\
 		AMO_test \
 		Braket_test
            
-
- 
 # making examples
 
 $(EXAMPLES): %: examples/%.cpp   

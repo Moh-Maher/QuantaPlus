@@ -1,5 +1,5 @@
 /**************************************************************************************
-BraKet.h is a part of QUANTA-x library. 
+BraKet.h is a part of QUANTAPLUS library. 
 
 usage: define and handle some fundamental operations on bra and ket vectors.
 

@@ -1,5 +1,5 @@
 /****************************************************************************
-BraKet.tpp is a part of QUANTA-x library. 
+BraKet.tpp is a part of QUANTAPLUS library. 
 
 usage: provides implementation details for bra and ket spaces.
 

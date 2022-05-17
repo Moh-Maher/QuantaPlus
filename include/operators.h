@@ -1,5 +1,5 @@
 /*******************************************************************************************
-@operator.h is a part of QUANTA-x library. 
+@operator.h is a part of QUANTAPLUS library. 
 
 usage: define and handle some fundamental quantum operators.
 

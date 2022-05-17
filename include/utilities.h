@@ -1,5 +1,5 @@
 /**************************************************************************************
-utilities.h is a part of QUANTA-x library. 
+utilities.h is a part of QUANTAPLUS library. 
 
 by:  Mohammed Maher Abdelrahim Mohammed
      UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
