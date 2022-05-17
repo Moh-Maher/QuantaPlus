@@ -27,7 +27,7 @@ EXAMPLES = example1\
 # making examples
 
 $(EXAMPLES): %: examples/%.cpp   
-	$(CC) $(CFLAGSTEST)  -o QUANTx.out $< -I/home/mohammed/Downloads/eigen-3.4.0/ 
+	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/home/mohammed/Downloads/eigen-3.4.0/ 
 
 clean:
 	rm *.out        	
