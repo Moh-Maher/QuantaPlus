@@ -38,6 +38,53 @@ void cplx_print(std::complex<double> a)
     	}    
 }	
  */
+//--------------------------------------------------------------------------
+// convert latex output
+//--------------------------------------------------------------------------
+template <typename T>
+void TolaTex(std::string fname, T data)
+{
+	
+	std::ofstream outfile;
+	std::string output_path (fname + ".tex"); ///<-- path to the output file and its name.
+	outfile.open(output_path);
+	outfile<<"\\documentclass[10pt,a4paper]{article}\n";
+	outfile<<"\\usepackage[utf8]{inputenc}\n";
+	outfile<<"\\usepackage[T1]{fontenc}\n";
+	outfile<<"\\usepackage{amsmath}\n";
+	outfile<<"\\usepackage{amssymb}\n";
+	outfile<<"\\usepackage{graphicx}\n";
+	outfile<<"\\begin{document}\n";
+		
+	
+	double x = std::real(data);
+	double y = std::imag(data);   
+	if(x!=0 and y!=0)
+    	{
+        	if(y<0)
+        	{
+            		outfile<<"$"<<x<<y<<"i$"<<"\t";
+        	}
+
+        	else if(y>0)
+        	{
+            		outfile<<"$"<<x<<"+"<<y<<"i$"<<"\t";
+        	}
+	}
+   	else if(y==0)
+    	{   
+        	outfile<<"$"<<x<<"$"<<"\t";
+    	}
+    	else if(x==0)
+    	{
+        	outfile<<"$"<<y<<"i$"<<"\t";
+    	}    
+	
+	outfile<<"\n";
+	outfile<<"\\end{document}\n";
+	outfile.close();
+}
+//----------------------------------------------------------------------------
 long long gcd(long long a, long long b)
 {
     if (a == 0)

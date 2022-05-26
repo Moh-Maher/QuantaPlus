@@ -15,7 +15,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include <complex>
 #include<iostream>
 #include<cmath>
-#include"utilities.h"
+ #include<fstream>
+//#include"utilities.h"
 /* colors */
 #define RST  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -45,6 +46,8 @@ void StringMatrix(int r, int c, double *array); // print array elements in fract
 
 bool isNumber(const std::string& str); // gives True if str is an integer, and False otherwise. 
 void Warning(const std::string & str);
+
+//void TolaTex(std::string fname, std::string data);
 //--------------------------------------------------------------------------
 // convert numbers to string
 //--------------------------------------------------------------------------
@@ -55,6 +58,21 @@ std::string ToString(T numb)
     ss << numb;
     return ss.str();
 }
+
+//--------------------------------------------------------------------------
+// convert to latex output
+//--------------------------------------------------------------------------
+/*
+template <typename T>
+std::string toLaTeX(T numb) const 
+{
+	std::string res;
+ 
+	res = " " + ToString(numb) + " ";
+
+	return res;
+}
+*/
 //--------------------------------------------------------------------------
 // convert to numbers to fraction form
 //--------------------------------------------------------------------------

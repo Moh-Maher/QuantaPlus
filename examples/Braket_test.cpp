@@ -9,6 +9,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<complex>
 #include"braket.h"
 #include"operators.h"
+#include"utilities.h"
 //using namespace QUANTAx;
 	typedef std::complex<double>  complex;
 	using std::cout;
@@ -47,6 +48,7 @@ int main()
     	cplx_show(braketAA);   	 
     	cout<<"--------<B|B>--------"<<endl;
     	cplx_show(braketBB);
+    	TolaTex("test",braketAB );
     	 
 	return 0;
 }
