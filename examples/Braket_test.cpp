@@ -9,6 +9,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<complex>
 #include"braket.h"
 #include"operators.h"
+ #include<ctime>  
 #include"utilities.h"
 //using namespace QUANTAx;
 	typedef std::complex<double>  complex;
@@ -17,6 +18,11 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 int main()
 { 
+	///<--clock stuff
+	std::clock_t start;
+	double duration;
+ 	start = std::clock();
+ 	///<--stop clock stuff 
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
   
 	ket<complex> ktA(3),ktB;
@@ -48,7 +54,18 @@ int main()
     	cplx_show(braketAA);   	 
     	cout<<"--------<B|B>--------"<<endl;
     	cplx_show(braketBB);
-    	TolaTex("test",braketAB );
+    	//TolaTex("test",braketAB );
+    	
+    	///<--clock stuff again
+	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
+ 
+	if (duration < 60.0) {
+		std::cout << "Elapsed time: " << duration << " seconds" << std::endl;
+	}
+ 
+	else {
+		std::cout << "Elapsed time: " << duration/60.0 << " mins" << std::endl;
+	}
     	 
 	return 0;
 }
