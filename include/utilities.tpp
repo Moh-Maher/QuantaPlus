@@ -42,12 +42,68 @@ void cplx_print(std::complex<double> a)
 // convert latex output
 //--------------------------------------------------------------------------
 template <typename T>
-void TolaTex(std::string fname, T data)
+void KetTolaTex(std::string fname, const T &mt,std::string input, bool append)
 {
-	
+	//std::string str[cons];
+	std::string res;
 	std::ofstream outfile;
 	std::string output_path (fname + ".tex"); ///<-- path to the output file and its name.
-	outfile.open(output_path);
+	
+	if(append) {outfile.open(output_path,std::ios_base::app);}
+	else outfile.open(output_path);
+	outfile<<"\\documentclass[10pt,a4paper]{article}\n";
+	outfile<<"\\usepackage[utf8]{inputenc}\n";
+	outfile<<"\\usepackage[T1]{fontenc}\n";
+	outfile<<"\\usepackage{amsmath}\n";
+	outfile<<"\\usepackage{amssymb}\n";
+	outfile<<"\\usepackage{graphicx}\n";
+	outfile<<"\\usepackage{braket}\n";
+	outfile<<"\\begin{document}\n";
+	//for(int i=0; i<cons;i++){
+	if(mt.cols() ==1) outfile<<"$\\ket{"<<input<<"}=$\n";
+	else if(mt.cols() > 1) outfile<<"$\\bra{"<<input<<"}=$\n";
+	for(int i =0; i<mt.rows(); i++)
+    	{
+        	for(int j =0; j<mt.cols(); j++){
+        	//for(int i=0; i<cons;i++){ 
+	double x = std::real(mt(i,j));
+	double y = std::imag(mt(i,j));   
+	if(x!=0 and y!=0)
+    	{
+        	if(y<0)
+        	{
+            		outfile<<"$"<<x<<y<<"i$"<<"\t";
+            		//outfile<<"$"+ToString(x)+ToString(y)+"i$\t";
+        	}
+
+        	else if(y>0)
+        	{
+            		outfile<<"$"<<x<<"+"<<y<<"i$"<<"\t";
+            		//outfile<<"$"+ToString(x)+"+"+ToString(y)+"i$\t";
+        	}
+	}
+   	else if(y==0)
+    	{   
+        	outfile<<"$"<<x<<"$"<<"\t";
+        	//outfile<< "$"+ToString(x)+"$\t";
+    	}
+    	else if(x==0)
+    	{
+        	outfile<<"$"<<y<<"i$"<<"\t";
+        	//outfile<< "$"+ToString(y)+"i$\t";
+    	}   
+    		std::cout<<std::endl;
+    		//outfile<<res;//}
+    	}
+    	
+    	}//-------
+    	
+   	
+   
+	
+	
+	
+	/*
 	outfile<<"\\documentclass[10pt,a4paper]{article}\n";
 	outfile<<"\\usepackage[utf8]{inputenc}\n";
 	outfile<<"\\usepackage[T1]{fontenc}\n";
@@ -56,7 +112,7 @@ void TolaTex(std::string fname, T data)
 	outfile<<"\\usepackage{graphicx}\n";
 	outfile<<"\\begin{document}\n";
 		
-	
+	 
 	double x = std::real(data);
 	double y = std::imag(data);   
 	if(x!=0 and y!=0)
@@ -78,8 +134,10 @@ void TolaTex(std::string fname, T data)
     	else if(x==0)
     	{
         	outfile<<"$"<<y<<"i$"<<"\t";
-    	}    
-	
+    	}    */
+	//for(int i=0; i< cons; i++){
+	//outfile<<str[i]<<"\\newline\n";
+	//}
 	outfile<<"\n";
 	outfile<<"\\end{document}\n";
 	outfile.close();
