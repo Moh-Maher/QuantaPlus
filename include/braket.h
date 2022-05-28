@@ -25,7 +25,7 @@ class ket : public Eigen::Matrix<T,Eigen::Dynamic,1>
 public:
 	ket();
 	ket(int row); 
-   // ket(const T *data ); 
+   	//ket(const T *data ); 
 	~ket();
 	//ket<T>& operator= (const ket<T>& kt);
 	/*ket<T>& operator+=(const ket<T>& rhs_ket)
@@ -43,9 +43,8 @@ class bra : public Eigen::Matrix<T,1, Eigen::Dynamic>
 public:
 	bra();
 	bra(int col); 
-   // bra(const T *data ); 
-	~bra();
-     
+   	// bra(const T *data ); 
+	~bra();  
 };
 #include"braket.tpp"
 //} //end of namespace QuantaPlus

@@ -28,7 +28,7 @@
  
 int main()
 {
-	const double j = 1.5; ///<--- j = 3./2.
+	const double j = 3./2.; ///<--- j = 3./2. or 1.5
 
 	Angular_Momentum<complex> J2, J_x, J_y, J_z;
 

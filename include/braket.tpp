@@ -273,4 +273,5 @@ T BraKet(const bra<T> &br, const ket<T> &kt)
 	*/
 	return br*kt;   
 }
+ 
 #endif // BRAKET_TPP

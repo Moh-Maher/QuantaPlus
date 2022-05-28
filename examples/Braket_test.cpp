@@ -57,7 +57,7 @@ int main()
     	//complex fun[4] = {braketAB,braketBA,braketAA,braketBB};
     	
     	//KetTolaTex("test",brA,"A",false);
-    	KetTolaTex("test",ktA,"A",false);
+    	//KetTolaTex("test",ktA,"A",false);
     	
     	///<--clock stuff again
 	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
