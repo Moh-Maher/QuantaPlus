@@ -10,13 +10,13 @@ by:  Mohammed Maher Abdelrahim Mohammed
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
-#pragma once
+//#pragma once
 #ifndef OPERATORS_H
 #define OPERATORS_H
 //#include <unsupported/Eigen/MatrixFunctions>
 #include <Eigen/Dense>
 #include"utilities.h"
- 
+//namespace QuantaPlus{
 template<class T>
 class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
 {
@@ -87,4 +87,5 @@ double Jminus(double j, double j1, double m1, double j2, double m2);
 bool SpinValidation(double &j);
 
 #include"operators.tpp"
+//} //end of namespace QuantaPlus
 #endif

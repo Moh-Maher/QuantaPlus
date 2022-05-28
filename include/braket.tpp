@@ -132,8 +132,41 @@ ket<T>::ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){}
 //--------------------------------------------------------------------------
 template <class T>
 ket<T>::~ket(){}
+//--------------------------------------------------------------------------
+//		Overloaded Operator "=" : |ket> = |ket>
+//--------------------------------------------------------------------------
+/*
+template <class T>
+ket<T>& ket<T>::operator=(const ket<T>& kt)
+{	
+	ket<T> res(kt.rows());
+    	if(this!=&kt)
+    		for(int i =0; i<kt.rows(); i++)
+        	{
+            		for(int j =0; j<kt.cols(); j++)
+            		{
+  	          		res(i,j)=kt(i,j);
+            		}
+        	} 
+    	    
+	return res;  
+	
+	//return *this;     
+}
+*/
+//--------------------------------------------------------------------------
+// Overloading the  + OPERATOR: result in |A>+ |B>
+//--------------------------------------------------------------------------
+/*
+template <class T>
+inline ket<T> operator+(ket<T> lhs_ket, const ket<T>& rhs_ket) 
+{
+	return lhs_ket += rhs_ket;
+	//return lhs_ket;
+}
+*/
+//************************************************************************** 
 
- 
 //##########################################################################
 // class bra :
 //##########################################################################
@@ -189,47 +222,55 @@ template <typename T>
 bra<T> DualConj(const ket<T> &kt)
 {
 	bra<T> res(kt.rows());
-
+        /*
 	for (int i=0; i<kt.rows(); i++)
     	{
 		res(i) = std::conj(kt(i));
 	}
+	return res;
+	*/
+	res << kt.adjoint();
 	return res;
 }
 //--------------------------------------------------------------------------
 //#############	bra dual Conjugate	#########################
 //--------------------------------------------------------------------------
 template <typename T>
-ket<T> DualConj(const bra<T> &b)
+ket<T> DualConj(const bra<T> &br)
 {
-	ket<T> res(b.cols());
-
+	ket<T> res(br.cols());
+        /*
 	for (int i=0; i<b.cols(); i++)
 	{
 		res(i) = std::conj(b(i));
 	}
+	return res;
+	*/
+	res<<br.adjoint();
 	return res;
 }
 //--------------------------------------------------------------------------
 //#############	Bra-Ket		#########################
 //--------------------------------------------------------------------------
 template <typename T> 
-T BraKet(const bra<T> &b, const ket<T> &kt)
+T BraKet(const bra<T> &br, const ket<T> &kt)
 {     
-	if(b.cols()!=kt.rows()){ throw std::invalid_argument("dimensions do not match."); }
-	
+	if(br.cols()!=kt.rows()){ throw std::invalid_argument("dimensions do not match."); }
+	/*
 	T sum = static_cast<T>(0.0);
 
-	for(int i = 0; i < b.rows(); ++i)
+	for(int i = 0; i < br.rows(); ++i)
 	{
 		for(int j = 0; j < kt.cols(); ++j)
 		{
-			for(int k = 0; k < (b.rows()*b.cols()); ++k)
+			for(int k = 0; k < (br.rows()*br.cols()); ++k)
     			{
-   	        		sum += b(i,k) * kt(k,j);
+   	        		sum += br(i,k) * kt(k,j);
             		}	
         	}
     	}
-	return sum;    
+	return sum; 
+	*/
+	return br*kt;   
 }
 #endif // BRAKET_TPP

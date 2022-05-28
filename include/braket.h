@@ -8,13 +8,14 @@ by:  Mohammed Maher Abdelrahim Mohammed
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
      mohammed.maher@unical.it                                          
 **************************************************************************************/
-#pragma once
+//#pragma once
 #ifndef BRAKET_H
 #define BRAKET_H
 #include <Eigen/Dense>
+#include <algorithm>
 //#include"matrix.h"
   
-//namespace QUANTAx {
+//namespace QuantaPlus {
 //####################################################################################
 // ket class:
 //####################################################################################
@@ -25,7 +26,13 @@ public:
 	ket();
 	ket(int row); 
    // ket(const T *data ); 
-	~ket();      
+	~ket();
+	//ket<T>& operator= (const ket<T>& kt);
+	/*ket<T>& operator+=(const ket<T>& rhs_ket)
+  	{
+    		// actual addition of rhs_ket to *this
+		return *this;
+  	}*/      
 };
 //####################################################################################
 // bra class:
@@ -41,5 +48,5 @@ public:
      
 };
 #include"braket.tpp"
-//} //end of namespace QUANTAx
+//} //end of namespace QuantaPlus
 #endif

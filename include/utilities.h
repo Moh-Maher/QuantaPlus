@@ -6,7 +6,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
      mohammed.maher@unical.it                                          
 **************************************************************************************/
-#pragma once
+//#pragma once
 #ifndef UTILITIES_H
 #define UTILITIES_H
 #include<string>
@@ -15,7 +15,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include <complex>
 #include<iostream>
 #include<cmath>
- #include<fstream>
+#include<fstream>
 //#include"utilities.h"
 /* colors */
 #define RST  "\x1B[0m"
@@ -38,7 +38,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #define BOLD(x)	"\x1B[1m" x RST
 #define UNDL(x)	"\x1B[4m" x RST
 
-//namespace QUANTAx{
+//namespace QuantaPlus{
 void cplx_print(std::complex<double> a);
 long long gcd(long long a, long long b);
 void decimalToFraction(double number); // convert decimal to fraction
@@ -58,7 +58,6 @@ std::string ToString(T numb)
     ss << numb;
     return ss.str();
 }
-
 //--------------------------------------------------------------------------
 // convert to latex output
 //--------------------------------------------------------------------------
@@ -104,5 +103,5 @@ void MatrixToString(T &mat)
     }
 }
 #include"utilities.tpp"
-//}//end of namespace QUANTAx
+//}//end of namespace QuantaPlus
 #endif
