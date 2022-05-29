@@ -8,30 +8,28 @@
 \usepackage{amsmath}
 \begin{document}
 \begin{align}
-\ket{ket}&=\begin{bmatrix}
-$1-2i$\\
-$1i$\\
-$-1i$\\
-\end{bmatrix}
+\ket{\psi} = \begin{pmatrix}
+$-1+1i$\\$3$\\$2+3i$\\\end{pmatrix}
+\bra{\phi} = \begin{pmatrix}
+6\quad-1i\quad5\quad\end{pmatrix}A = \begin{pmatrix}
+5&3+2i &3i &\\-1i &3i &8&\\1-1i &1&4&\\\end{pmatrix}
 \end{align}
+\begin{align}
+A\ket{\psi} = \begin{pmatrix}
+5&3+2i &3i &\\-1i &3i &8&\\1-1i &1&4&\\\end{pmatrix}\begin{pmatrix}
+$-1+1i$\\
+$3$\\
+$2+3i$\\
+\end{pmatrix}=\begin{pmatrix}
+$-5+17i$\\
+$17+34i$\\
+$11+14i$\\
+\end{pmatrix}\end{align}
 
 \begin{align}
-\bra{bra}=[\,\quad1+2i\quad-1i\quad1i\quad\,]
-\end{align}
-\begin{align}
-\ket{ket}&=\begin{bmatrix}
-$6$\\
-$3-1i$\\
-$5$\\
-\end{bmatrix}
-\end{align}
-
-\begin{align}
-\bra{bra}=[\,\quad6\quad3+1i\quad5\quad\,]
-\end{align}
-\begin{align}
-\begin{pmatrix}
-1&3i &0&\\0&-1i &0&\\2-5i &0&1&\\\end{pmatrix}
-\end{align}
+\bra{\phi}A = \begin{pmatrix}
+6\quad-1i\quad5\quad\end{pmatrix}\begin{pmatrix}
+5&3+2i &3i &\\-1i &3i &8&\\1-1i &1&4&\\\end{pmatrix}=\begin{pmatrix}
+34-5i\quad26+12i\quad20+10i\quad\end{pmatrix}\end{align}
 
 \end{document}

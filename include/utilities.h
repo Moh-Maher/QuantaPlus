@@ -9,6 +9,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //#pragma once
 #ifndef UTILITIES_H
 #define UTILITIES_H
+
 #include<string>
 #include<sstream>
 #include <algorithm> // for using : str.find_first_not_of( "string" ) == std::string::npos
@@ -16,7 +17,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<cmath>
 #include<fstream>
-//#include"utilities.h"
+
+
 /* colors */
 #define RST  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -39,6 +41,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #define UNDL(x)	"\x1B[4m" x RST
 
 //namespace QuantaPlus{
+
 void cplx_print(std::complex<double> a);
 long long gcd(long long a, long long b);
 void decimalToFraction(double number); // convert decimal to fraction
@@ -48,60 +51,7 @@ bool isNumber(const std::string& str); // gives True if str is an integer, and F
 void Warning(const std::string & str);
 
 //void TolaTex(std::string fname, std::string data);
-//--------------------------------------------------------------------------
-// convert numbers to string
-//--------------------------------------------------------------------------
-template <typename T>
-std::string ToString(T numb)
-{
-    std::stringstream ss;
-    ss << numb;
-    return ss.str();
-}
-//--------------------------------------------------------------------------
-// convert to latex output
-//--------------------------------------------------------------------------
-/*
-template <typename T>
-std::string toLaTeX(T numb) const 
-{
-	std::string res;
- 
-	res = " " + ToString(numb) + " ";
 
-	return res;
-}
-*/
-//--------------------------------------------------------------------------
-// convert to numbers to fraction form
-//--------------------------------------------------------------------------
-template <typename T1, typename T2>
-std::string ToFraction(T1 numer, T2 denom)
-{
-    std::string res = ToString<T1>(numer);
-    if(denom != 1)
-    {
-        res += "/";
-        res += ToString<T2>(denom);
-    }
-    return res;
-}
-//--------------------------------------------------------------------------
-// print the elements of QUANTx::matrix<T, R,C> in fractions form
-//--------------------------------------------------------------------------
-template <typename T>
-void MatrixToString(T &mat)
-{
- for(int i =0; i<mat.GetRow(); i++)
-    {
-        for(int j =0; j<mat.GetCol(); j++)
-        {
-            decimalToFraction(mat.table[i][j]);
-            std::cout<<"\t";
-        }
-        std::cout<<std::endl;
-    }
-}
 #include"utilities.tpp"
 //}//end of namespace QuantaPlus
 #endif

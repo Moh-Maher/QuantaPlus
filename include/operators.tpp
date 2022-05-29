@@ -16,23 +16,47 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //#error __FILE__ should only be included from operators.h.
 //#endif // OPERATORS_H
 
-template<class T>
-QM_operator<T>::QM_operator():Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(){};
 //--------------------------------------------------------------------------
-//	 
+//		QM_operator defult constructor
 //--------------------------------------------------------------------------
 template<class T>
-QM_operator<T>::QM_operator(int row, int col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col){};
+QM_operator<T>::QM_operator(): 
+	Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>(){};
+//--------------------------------------------------------------------------
+//	 QM_operator constructor with a given rows and cols
+//--------------------------------------------------------------------------
+template<class T>
+QM_operator<T>::QM_operator(int row, int col):
+	Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col){};
 //--------------------------------------------------------------------------
 //	 
 //--------------------------------------------------------------------------
 template<class T>
 QM_operator<T>::~QM_operator(){};
+
+
+//--------------------------------------------------------------------------
+//		Angular_Momentum defult constructor
+//--------------------------------------------------------------------------
+template <class T>
+Angular_Momentum<T>::Angular_Momentum():QM_operator<T>(){}
+//--------------------------------------------------------------------------
+//	Constructor for Angular_Momentum matrix of a given rows and cols
+//--------------------------------------------------------------------------
+template <class T>
+Angular_Momentum<T>::Angular_Momentum(int row, int col):
+	QM_operator<T>(row,col){} 
+//--------------------------------------------------------------------------
+//		Angular_Momentum destructor
+//--------------------------------------------------------------------------
+template <class T>
+Angular_Momentum<T>::~Angular_Momentum(){ }
 //---------------------------------------------------------------------------
 //		commutation relation: [A,B] = A*B - B*A
 //---------------------------------------------------------------------------
-template<class T>
-Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Commute(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt1, Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &mt2)
+template<class T> Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> 
+Commute(Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>& mt1, 
+	Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &mt2)
 {  
 	return (mt1*mt2 - mt2*mt1);
 }
@@ -40,7 +64,9 @@ Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Commute(Eigen::Matrix<T,Eigen::Dy
 //		compute structure constants
 //---------------------------------------------------------------------------
 template <typename U>
-U StructureConstant(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt1, Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt2, Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt3 )
+U StructureConstant( Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt1, 
+		     Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt2, 
+		     Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt3 )
 {
 	U sum = static_cast<U>(0.0);
 	const std::complex<double> I{0.,1.};
@@ -61,12 +87,11 @@ U StructureConstant(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt1, Eigen::
 	}
 	return std::real(-0.25*I*sum);
 }
- 
-//using namespace QUANTAx;
+//***************************************************************************** 
 const double hBar = 1.; //6.58211899 * 1.e-16;
-/*-------------------------------------------------------------------------------------------
-           Magnatic_Quantum_Number : m which is run from -j to j. (-j<= m <= j).                      
--------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------
+//           Magnatic_Quantum_Number : m which is run from -j to j. (-j<= m <= j).                      
+//-------------------------------------------------------------------------------------------
 void Magnetic_Quantum_Number(const double &j)
 {    
 	double sp = j;
@@ -89,16 +114,18 @@ void Magnetic_Quantum_Number(const double &j)
 		std::cout<<"the system has physically invalid spin!"<<std::endl;
 	}
 }
-/*-------------------------------------------------------------------------------------------
- The square of the angular momentum J^2 :  <j',m'|J^2|j, m> = ℏ^2 j(j+1) δ[j'j] * δ[m'm].             
--------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------
+//		The square of the angular momentum J^2 :  
+//			<j',m'|J^2|j, m> = ℏ^2 j(j+1) δ[j'j] * δ[m'm].             
+//-------------------------------------------------------------------------------------------
 double Jsqr(double j, double j1, double m1, double j2, double m2)
 {
 	return hBar*hBar*j*(j+1) * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);
 }
-/*-------------------------------------------------------------------------------------------
- The x-component of the angular momentum operator J: Eq (5.70) of N. Zettili.                                   
--------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------
+//		The x-component of the angular momentum operator J: 
+//			Eq (5.70) of N. Zettili.                                   
+//-------------------------------------------------------------------------------------------
 double Jx(double j, double j1,double m1, double j2,double m2)
 { 
 	double res1,res2;
@@ -107,9 +134,10 @@ double Jx(double j, double j1,double m1, double j2,double m2)
 	res2 =   sqrt(j*(j+1)-m2*(m2-1))*  KroneckerDelta(m1,m2-1);
 	return hBar*0.5*(res1+res2)*KroneckerDelta(j1,j2);
 }
-/*-------------------------------------------------------------------------------------------
- The y-component of the angular momentumo peratorJ: Eq (5.71) of N. Zettili.                                    
--------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------
+// 		The y-component of the angular momentumo peratorJ: 
+//			Eq (5.71) of N. Zettili.                                    
+//-------------------------------------------------------------------------------------------
 std::complex<double>  Jy(double j, double j1,double m1, double j2,double m2)
 {
     std::complex<double> Im(0.,1.);
@@ -119,16 +147,18 @@ std::complex<double>  Jy(double j, double j1,double m1, double j2,double m2)
 	res2 =   sqrt(j*(j+1)-m2*(m2-1))*  KroneckerDelta(m1,m2-1);
 	return hBar*(-0.5*Im)*(res1-res2)*KroneckerDelta(j1,j2);
 }
-/*-------------------------------------------------------------------------------------------
- The z-component of the angular momentum operator J:  <j',m'|J_Z|j, m> =  mℏ δ[j'j] * δ[m'm]. 
--------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------
+// 		The z-component of the angular momentum operator J: 
+//			 <j',m'|J_Z|j, m> =  mℏ δ[j'j] * δ[m'm]. 
+//-------------------------------------------------------------------------------------------
 double Jz(double j, double j1, double m1, double j2, double m2)
 {
 	return hBar*m2 * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);
 }
-/*-------------------------------------------------------------------------------------------
- The J+ angular momentum operator J: Eq (5.69) of N. Zettili.                                   
--------------------------------------------------------------------------------------------*/
+//-------------------------------------------------------------------------------------------
+// 		The J+ angular momentum operator J: 
+//			Eq (5.69) of N. Zettili.                                   
+//-------------------------------------------------------------------------------------------
 double Jplus(double j, double j1,double m1, double j2,double m2)
 { 
 	double res;
@@ -136,7 +166,7 @@ double Jplus(double j, double j1,double m1, double j2,double m2)
 	return hBar*(res)*KroneckerDelta(j1,j2);
 }
 /*-------------------------------------------------------------------------------------------
- The J- angular momentum operator J: Eq (5.69) of N. Zettili.                                   
+ 		The J- angular momentum operator J: Eq (5.69) of N. Zettili.                                   
 -------------------------------------------------------------------------------------------*/
 double Jminus(double j, double j1,double m1, double j2,double m2)
 { 
@@ -169,7 +199,6 @@ bool SpinValidation(double &j)
 
 	return flag; 
 }
-
 //--------------------------------------------------------------------------
 //		J- Angular Momentum perator
 //--------------------------------------------------------------------------

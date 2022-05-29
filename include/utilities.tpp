@@ -9,170 +9,47 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #pragma once
 #include<iostream>
 #include<cmath>
-//#include"utilities.h"
 
- 
 //--------------------------------------------------------------------------
-// convert latex output
+// convert numbers to string
 //--------------------------------------------------------------------------
-//template <typename T>
-//void KetTolaTex(std::string fname, const T &mt,std::string input, bool append)
-/*
-void KetTolaTex(const char* fmt...)
-{	
-	std::ofstream outfile;
-	std::string output_path ("test.tex"); ///<-- path to the output file and its name.
-	va_list args;
-	va_start(args, fmt);
-
-	//std::string str[cons];
-	//std::string res;
-	 
-	
-	
-	//if(append) {outfile.open(output_path,std::ios_base::app);}
-	//else outfile.open(output_path);
-	outfile.open(output_path);
-	outfile<<"\\documentclass[10pt,a4paper]{article}\n";
-	outfile<<"\\usepackage[utf8]{inputenc}\n";
-	outfile<<"\\usepackage[T1]{fontenc}\n";
-	outfile<<"\\usepackage{amsmath}\n";
-	outfile<<"\\usepackage{amssymb}\n";
-	outfile<<"\\usepackage{graphicx}\n";
-	outfile<<"\\usepackage{braket}\n";
-	outfile<<"\\usepackage{amsmath}\n";
-	outfile<<"\\begin{document}\n";
-	
-while (*fmt != '\0') 
-{       if (*fmt == 'k') {
-	ket<std::complex<double>> mt = va_arg(args, ket<std::complex<double>>);
-	//if(mt.cols() ==1 && mt.rows()>=1)
-	//{
-		//outfile<<"$\\ket{"<<input<<"}=$\n";
-		outfile<<"\\begin{align}\n";
-    		outfile<<"\\ket{ket}&=\\begin{bmatrix}\n";
-		for(int i =0; i<mt.rows(); i++)
-	    	{
-			for(int j =0; j<mt.cols(); j++){
-			 
-				double x = std::real(mt(i,j));
-				double y = std::imag(mt(i,j));   
-				if(x!=0 and y!=0) {
-					
-					if(y<0) {		
-		    				outfile<<"$"<<x<<y<<"i$"<<"\\\\";
-					}
-
-					else if(y>0) {
-		    				outfile<<"$"<<x<<"+"<<y<<"i$"<<"\\\\";
-					}
-				}
-	   			else if(y==0) {   
-					outfile<<"$"<<x<<"$"<<"\\\\";
-	    			}
-	    			else if(x==0){
-					outfile<<"$"<<y<<"i$"<<"\\\\";
-	    			}   
-	    			outfile<<"\n";
-	    		}
-	    	}
-		 	outfile<<"\\end{bmatrix}\n";
-	  		outfile<<"\\end{align}\n";
-	  		outfile<<"\n";
-	//}
-	}
-	
-	else if (*fmt == 'b') {
-	bra<std::complex<double>> mt = va_arg(args, bra<std::complex<double>>);
-	//if(mt.cols() >= 1 && mt.rows()==1)
-	//{ 	
-		outfile<<"\\begin{align}\n";
-		outfile<<"\\bra{bra}=[\\,\\quad";
-		for(int i =0; i<mt.rows(); i++)
-	    	{
-			for(int j =0; j<mt.cols(); j++) {
-			 
-			double x = std::real(mt(i,j));
-			double y = std::imag(mt(i,j));   
-			if(x!=0 and y!=0) {
-			
-				if(y<0) {
-		    			outfile<<x<<y<<"i\\quad";
-		    		//outfile<<"$"+ToString(x)+ToString(y)+"i$\t";
-				}
-
-				else if(y>0) {
-		    			outfile<<x<<"+"<<y<<"i\\quad";
-		    		//outfile<<"$"+ToString(x)+"+"+ToString(y)+"i$\t";
-				}
-			}
-	   		else if(y==0) {   
-				outfile<<x<<"\\quad";
-			//outfile<< "$"+ToString(x)+"$\t";
-	    		}
-	    		else if(x==0) {
-				outfile<<y<<"i\\quad";
-			//outfile<< "$"+ToString(y)+"i$\t";
-	    		}	   
-	    		
-	    	}
-	    	
-	    	}//-------
-	    	outfile<<"\\,]\n";
-	    	outfile<<"\\end{align}\n";
-    	//}
-    	}
-	else if (*fmt == 'o') {
-	QM_operator<std::complex<double>> mt = va_arg(args, QM_operator<std::complex<double>>);
-	//if(mt.cols() >= 1 && mt.rows()==1)
-	//{ 	
-
-		outfile<<"\\begin{align}\n";
-		outfile<<"\\begin{pmatrix}\n";
-		//outfile<<"\\bra{bra}=[\\,\\quad";
-		for(int i =0; i<mt.rows(); i++)
-	    	{
-			for(int j =0; j<mt.cols(); j++) {
-			 
-			double x = std::real(mt(i,j));
-			double y = std::imag(mt(i,j));   
-			if(x!=0 and y!=0) {
-			
-				if(y<0) {
-		    			outfile<<x<<y<<"i &";
-		    		//outfile<<"$"+ToString(x)+ToString(y)+"i$\t";
-				}
-
-				else if(y>0) {
-		    			outfile<<x<<"+"<<y<<"i &";
-		    		//outfile<<"$"+ToString(x)+"+"+ToString(y)+"i$\t";
-				}
-			}
-	   		else if(y==0) {   
-				outfile<<x<<"&";
-			//outfile<< "$"+ToString(x)+"$\t";
-	    		}
-	    		else if(x==0) {
-				outfile<<y<<"i &";
-			//outfile<< "$"+ToString(y)+"i$\t";
-	    		}	   
-	    	
-	    	}
-	    		outfile<<"\\\\";
-	    	}//-------
-	    	
-	    	outfile<<"\\end{pmatrix}\n";
-	    	outfile<<"\\end{align}\n";
-    	//}
-    	}
-    	++fmt;
+template <typename T>
+std::string ToString(T numb)
+{
+    std::stringstream ss;
+    ss << numb;
+    return ss.str();
 }
- 	va_end(args);  	
-	outfile<<"\n";
-	outfile<<"\\end{document}\n";
-	outfile.close();
-
-}*/
+//--------------------------------------------------------------------------
+// convert to numbers to fraction form
+//--------------------------------------------------------------------------
+template <typename T1, typename T2>
+std::string ToFraction(T1 numer, T2 denom)
+{
+    std::string res = ToString<T1>(numer);
+    if(denom != 1)
+    {
+        res += "/";
+        res += ToString<T2>(denom);
+    }
+    return res;
+}
+//--------------------------------------------------------------------------
+// print the elements of QUANTx::matrix<T, R,C> in fractions form
+//--------------------------------------------------------------------------
+template <typename T>
+void MatrixToString(T &mat)
+{
+ for(int i =0; i<mat.GetRow(); i++)
+    {
+        for(int j =0; j<mat.GetCol(); j++)
+        {
+            decimalToFraction(mat.table[i][j]);
+            std::cout<<"\t";
+        }
+        std::cout<<std::endl;
+    }
+}
 //----------------------------------------------------------------------------
 long long gcd(long long a, long long b)
 {

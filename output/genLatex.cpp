@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
         
     	 system(result);
     	 system("clear");
-    	 system("make clean")
+    	 system("make clean");
     	//system("xdg-open latex_results.pdf");
     //cout<<result<<endl;
 }

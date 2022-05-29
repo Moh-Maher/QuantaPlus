@@ -16,6 +16,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //#include <unsupported/Eigen/MatrixFunctions>
 #include <Eigen/Dense>
 #include"utilities.h"
+
 //namespace QuantaPlus{
 template<class T>
 class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
@@ -52,28 +53,6 @@ public:
 
 
 };
-//--------------------------------------------------------------------------
-//		defult constructor
-//--------------------------------------------------------------------------
-template <class T>
-Angular_Momentum<T>::Angular_Momentum():QM_operator<T>(){}
-//--------------------------------------------------------------------------
-//		Constructor for oam vector of a given rows
-//--------------------------------------------------------------------------
-template <class T>
-Angular_Momentum<T>::Angular_Momentum(int row, int col):QM_operator<T>(row,col){}
- 
-//---------------------------------------------------------------------------
-//  test  
-//---------------------------------------------------------------------------
-//template <class T, int R, int C>
-//Angular_Momentum<T,R,C>::Angular_Momentum(const double j)
-//:matrix<T,R,C>(2*j+1,2*j+1){}
-//--------------------------------------------------------------------------
-//		destructor
-//--------------------------------------------------------------------------
-template <class T>
-Angular_Momentum<T>::~Angular_Momentum(){ }
 
 
 void   Magnetic_Quantum_Number(const double &j);  

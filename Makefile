@@ -19,7 +19,8 @@ EXAMPLES = example1\
 		QCD_example\
 		AMO_test \
 		Braket_test\
-		latex_test
+		latex_test \
+		latexmluti
 
 OUTPUT = genLatex
           
