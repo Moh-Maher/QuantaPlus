@@ -12,14 +12,15 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 
 class latex {
-	public:
+	private:
 		std::ofstream ofile;
 		std::string file_path;
-		
+
+	public: 
+				
 		latex(): file_path("output/default.tex") {}
+		latex(std::string filename): file_path(filename) {}	
 		
-		latex(std::string filename): file_path(filename) {}
-	
 		void begin() 
 		{	
 			ofile.open(file_path);
@@ -48,67 +49,27 @@ class latex {
 			ofile<<text;
 			ofile.close();
 		}
+		void TolaTex(const char* fmt...);
+		void operation(const char* fmt...);
 };
-
-
-//=================================================================================
-std::ofstream outfile, myfile;
-std::string output_path ("output/latex_results.tex"); ///<-- path to the output file and its name.
-//std::string filename;
-
-void begin()
-{
-outfile.open(output_path);
-
-outfile<<"\\documentclass[10pt,a4paper]{article}\n";
-	outfile<<"\\usepackage[utf8]{inputenc}\n";
-	outfile<<"\\usepackage[T1]{fontenc}\n";
-	outfile<<"\\usepackage{amsmath}\n";
-	outfile<<"\\usepackage{amssymb}\n";
-	outfile<<"\\usepackage{graphicx}\n";
-	outfile<<"\\usepackage{braket}\n";
-	outfile<<"\\usepackage{amsmath}\n";
-	outfile<<"\\begin{document}\n";
-	outfile.close();
-
-}
-void end()
-{
-outfile.open(output_path,std::ios_base::app);
-outfile<<"\\end{document}\n";
-outfile.close();
-
-}
 //=================================================================================
 //--------------------------------------------------------------------------
 // convert latex output
 //--------------------------------------------------------------------------
-void TolaTex(const char* fmt...)
+void latex::TolaTex(const char* fmt...)
 {	
-	//std::ofstream outfile;
-	//std::string output_path ("output/latex_results.tex"); ///<-- path to the output file and its name.
 	va_list args;
 	va_start(args, fmt);
  
-	outfile.open(output_path,std::ios_base::app);
-	/*
-	outfile<<"\\documentclass[10pt,a4paper]{article}\n";
-	outfile<<"\\usepackage[utf8]{inputenc}\n";
-	outfile<<"\\usepackage[T1]{fontenc}\n";
-	outfile<<"\\usepackage{amsmath}\n";
-	outfile<<"\\usepackage{amssymb}\n";
-	outfile<<"\\usepackage{graphicx}\n";
-	outfile<<"\\usepackage{braket}\n";
-	outfile<<"\\usepackage{amsmath}\n";
-	*/
-	//outfile<<"\\begin{document}\n";
-	outfile<<"\\begin{align}\n";
+	ofile.open(file_path,std::ios_base::app);
+ 
+	ofile<<"\\begin{align}\n";
 	while (*fmt != '\0') {       
 		if (*fmt == 'k') {
 			
 			ket<std::complex<double>> mt = va_arg(args, ket<std::complex<double>>);
-			//outfile<<"\\begin{align}\n";
-	    		outfile<<"\\begin{pmatrix}\n";
+
+	    		ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
 		    	{
 				for(int j =0; j<mt.cols(); j++){
@@ -118,32 +79,29 @@ void TolaTex(const char* fmt...)
 					if(x!=0 and y!=0) {
 						
 						if(y<0) {		
-			    				outfile<<"$"<<x<<y<<"i$"<<"\\\\";
+			    				ofile<<"$"<<x<<y<<"i$"<<"\\\\";
 						}
 
 						else if(y>0) {
-			    				outfile<<"$"<<x<<"+"<<y<<"i$"<<"\\\\";
+			    				ofile<<"$"<<x<<"+"<<y<<"i$"<<"\\\\";
 						}
 					}
 		   			else if(y==0) {   
-						outfile<<"$"<<x<<"$"<<"\\\\";
+						ofile<<"$"<<x<<"$"<<"\\\\";
 		    			}
 		    			else if(x==0){
-						outfile<<"$"<<y<<"i$"<<"\\\\";
+						ofile<<"$"<<y<<"i$"<<"\\\\";
 		    			}   
-		    			//outfile<<"\n";
 		    		}
 		    	}
-			 	outfile<<"\\end{pmatrix}";
-		  		//outfile<<"\\end{align}\n";
-		  		outfile<<"\n";
+			 	ofile<<"\\end{pmatrix}";
+		  		ofile<<"\n";
 		}
 		else if (*fmt == 'b') {
 			
 			bra<std::complex<double>> mt = va_arg(args, bra<std::complex<double>>);
- 
-			//outfile<<"\\begin{align}\n";
-			outfile<<"\\begin{pmatrix}\n";
+
+			ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
 		    	{
 				for(int j =0; j<mt.cols(); j++) {
@@ -153,31 +111,29 @@ void TolaTex(const char* fmt...)
 					if(x!=0 and y!=0) {
 					
 						if(y<0) {
-				    			outfile<<x<<y<<"i\\quad";
+				    			ofile<<x<<y<<"i\\quad";
 						}
 
 						else if(y>0) {
-				    			outfile<<x<<"+"<<y<<"i\\quad";	 
+				    			ofile<<x<<"+"<<y<<"i\\quad";	 
 						}
 					}
 			   		else if(y==0) {   
-						outfile<<x<<"\\quad";	 
+						ofile<<x<<"\\quad";	 
 			    		}
 			    		else if(x==0) {
-						outfile<<y<<"i\\quad";	 
+						ofile<<y<<"i\\quad";	 
 			    		}	   		    		
 		    		}
 		    	
 		    	}
-		    	//outfile<<"\\,]";
-		    	outfile<<"\\end{pmatrix}";
-		    	//outfile<<"\\end{align}\n";
+		    	ofile<<"\\end{pmatrix}";
 	    	}
 		else if (*fmt == 'o') {
 			
 			QM_operator<std::complex<double>> mt = va_arg(args, QM_operator<std::complex<double>>);
-			//outfile<<"\\begin{align}\n";
-			outfile<<"\\begin{pmatrix}\n";
+ 
+			ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
 		    	{
 				for(int j =0; j<mt.cols(); j++) {
@@ -187,70 +143,54 @@ void TolaTex(const char* fmt...)
 					if(x!=0 and y!=0) {
 					
 						if(y<0) {
-				    			outfile<<x<<y<<"i &";
+				    			ofile<<x<<y<<"i &";
 						}
 
 						else if(y>0) {
-				    			outfile<<x<<"+"<<y<<"i &";
+				    			ofile<<x<<"+"<<y<<"i &";
 						}
 					}
 			   		else if(y==0) {   
-						outfile<<x<<"&";
+						ofile<<x<<"&";
 		 
 			    		}
 			    		else if(x==0) {
-						outfile<<y<<"i &";
+						ofile<<y<<"i &";
 			    		}	   
 		    		}
-		    		outfile<<"\\\\";
+		    		ofile<<"\\\\";
 		    	} 
-		    	outfile<<"\\end{pmatrix}";
-		    	//outfile<<"\\end{align}\n";
+		    	ofile<<"\\end{pmatrix}";
 	    	}
 	    	else if (*fmt == 't') {
 	    		char* s = va_arg( args, char * );
-            		outfile << s;
+            		ofile << s;
 	    	}
 	    	++fmt;
 	}
  	va_end(args);  	
-	outfile<<"\n";
-	outfile<<"\\end{align}\n";
-	//outfile<<"\\end{document}\n";
-	outfile.close();
-
+	ofile<<"\n";
+	ofile<<"\\end{align}\n";
+	ofile.close();
 }
 
 //--------------------------------------------------------------------------
 // convert latex output operations
 //--------------------------------------------------------------------------
-void operation(const char* fmt...)
+void latex::operation(const char* fmt...)
 {	
-	//std::ofstream outfile;
-	//std::string output_path ("output/latex_results.tex"); ///<-- path to the output file and its name.
 	va_list args;
-	va_start(args, fmt);
- 
-	outfile.open(output_path,std::ios_base::app);
-	/*
-	outfile<<"\\documentclass[10pt,a4paper]{article}\n";
-	outfile<<"\\usepackage[utf8]{inputenc}\n";
-	outfile<<"\\usepackage[T1]{fontenc}\n";
-	outfile<<"\\usepackage{amsmath}\n";
-	outfile<<"\\usepackage{amssymb}\n";
-	outfile<<"\\usepackage{graphicx}\n";
-	outfile<<"\\usepackage{braket}\n";
-	outfile<<"\\usepackage{amsmath}\n";
-	*/
-	//outfile<<"\\begin{document}\n";
+	va_start(args, fmt); 
 	
-	outfile<<"\\begin{align}\n";
+	ofile.open(file_path,std::ios_base::app);
+	
+	ofile<<"\\begin{align}\n";
 	while (*fmt != '\0') {       
 		if (*fmt == 'k') {
 			
 			ket<std::complex<double>> mt = va_arg(args, ket<std::complex<double>>);
 			
-	    		outfile<<"\\begin{pmatrix}\n";
+	    		ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
 		    	{
 				for(int j =0; j<mt.cols(); j++){
@@ -260,31 +200,31 @@ void operation(const char* fmt...)
 					if(x!=0 and y!=0) {
 						
 						if(y<0) {		
-			    				outfile<<"$"<<x<<y<<"i$"<<"\\\\";
+			    				ofile<<"$"<<x<<y<<"i$"<<"\\\\";
 						}
 
 						else if(y>0) {
-			    				outfile<<"$"<<x<<"+"<<y<<"i$"<<"\\\\";
+			    				ofile<<"$"<<x<<"+"<<y<<"i$"<<"\\\\";
 						}
 					}
 		   			else if(y==0) {   
-						outfile<<"$"<<x<<"$"<<"\\\\";
+						ofile<<"$"<<x<<"$"<<"\\\\";
 		    			}
 		    			else if(x==0){
-						outfile<<"$"<<y<<"i$"<<"\\\\";
+						ofile<<"$"<<y<<"i$"<<"\\\\";
 		    			}   
-		    			outfile<<"\n";
+		    			ofile<<"\n";
 		    		}
 		    	}
-			 	outfile<<"\\end{pmatrix}";
+			 	ofile<<"\\end{pmatrix}";
 		  		 
 		}
 		else if (*fmt == 'b') {
 			
 			bra<std::complex<double>> mt = va_arg(args, bra<std::complex<double>>);
  
-			//outfile<<"[\\,\\quad";
-			outfile<<"\\begin{pmatrix}\n";
+			//ofile<<"[\\,\\quad";
+			ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
 		    	{
 				for(int j =0; j<mt.cols(); j++) {
@@ -294,29 +234,29 @@ void operation(const char* fmt...)
 					if(x!=0 and y!=0) {
 					
 						if(y<0) {
-				    			outfile<<x<<y<<"i\\quad";
+				    			ofile<<x<<y<<"i\\quad";
 						}
 
 						else if(y>0) {
-				    			outfile<<x<<"+"<<y<<"i\\quad";	 
+				    			ofile<<x<<"+"<<y<<"i\\quad";	 
 						}
 					}
 			   		else if(y==0) {   
-						outfile<<x<<"\\quad";	 
+						ofile<<x<<"\\quad";	 
 			    		}
 			    		else if(x==0) {
-						outfile<<y<<"i\\quad";	 
+						ofile<<y<<"i\\quad";	 
 			    		}	   		    		
 		    		}
 		    	
 		    	}
-		    	//outfile<<"\\,]";
-		    	outfile<<"\\end{pmatrix}";
+		    	//ofile<<"\\,]";
+		    	ofile<<"\\end{pmatrix}";
 	    	}
 		else if (*fmt == 'o') {
 			
 			QM_operator<std::complex<double>> mt = va_arg(args, QM_operator<std::complex<double>>);
-			outfile<<"\\begin{pmatrix}\n";
+			ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
 		    	{
 				for(int j =0; j<mt.cols(); j++) {
@@ -326,41 +266,63 @@ void operation(const char* fmt...)
 					if(x!=0 and y!=0) {
 					
 						if(y<0) {
-				    			outfile<<x<<y<<"i &";
+				    			ofile<<x<<y<<"i &";
 						}
 
 						else if(y>0) {
-				    			outfile<<x<<"+"<<y<<"i &";
+				    			ofile<<x<<"+"<<y<<"i &";
 						}
 					}
 			   		else if(y==0) {   
-						outfile<<x<<"&";
+						ofile<<x<<"&";
 		 
 			    		}
 			    		else if(x==0) {
-						outfile<<y<<"i &";
+						ofile<<y<<"i &";
 			    		}	   
 		    		}
-		    		outfile<<"\\\\";
+		    		ofile<<"\\\\";
 		    	} 
-		    	outfile<<"\\end{pmatrix}";
+		    	ofile<<"\\end{pmatrix}";
 		    	
 	    	}
+	    	else if (*fmt == 'n') {
+			std::complex<double> c = va_arg(args, std::complex<double>);
+    			double x = std::real(c);
+			double y = std::imag(c);   
+			if(x!=0 and y!=0) {
+			
+				if(y<0) {
+		    			ofile<<x<<y<<"i &";
+				}
+
+				else if(y>0) {
+		    			ofile<<x<<"+"<<y<<"i &";
+				}
+			}
+	   		else if(y==0) {   
+				ofile<<x<<"&";
+ 
+	    		}
+	    		else if(x==0) {
+				ofile<<y<<"i &";
+	    		}
+	    	}
+	    	
+	    	
 	    	else if (*fmt == '=') {
-	    		int c = va_arg(args, int);
-            		outfile << static_cast<char>(c);
+    			int c = va_arg(args, int);
+            		ofile << static_cast<char>(c);
 	    	}
 	    		else if (*fmt == 't') {
 	    		char* s = va_arg( args, char * );
-            		outfile << s;
+            		ofile << s;
 	    	}
 	    	
 	    	++fmt;
 	}
  	va_end(args);  	
-	outfile<<"\\end{align}\n";
-	outfile<<"\n";
-	//outfile<<"\\end{document}\n";
-	outfile.close();
-
+	ofile<<"\\end{align}\n";
+	ofile<<"\n";
+	ofile.close();
 }
