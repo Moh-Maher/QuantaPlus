@@ -52,8 +52,10 @@ int main()
     	 
     	 TolaTex("kbkbo",ktA,brA, ktB,brB,O);
     	 
-    	 system("pdflatex latex_results.tex");
-    	system("make clean");
+    	 //system("pdflatex latex_results.tex");
+    	 //system("make clean");
+    	 //system("clear");
+    	//system("xdg-open latex_results.pdf");
     	///<--clock stuff again
 	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
  

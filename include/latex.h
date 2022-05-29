@@ -15,7 +15,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 void TolaTex(const char* fmt...)
 {	
 	std::ofstream outfile;
-	std::string output_path ("latex_results.tex"); ///<-- path to the output file and its name.
+	std::string output_path ("output/latex_results.tex"); ///<-- path to the output file and its name.
 	va_list args;
 	va_start(args, fmt);
  

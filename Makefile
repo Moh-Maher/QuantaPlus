@@ -20,11 +20,15 @@ EXAMPLES = example1\
 		AMO_test \
 		Braket_test\
 		latex_test
-           
+
+OUTPUT = genLatex
+          
 # making examples
 
 $(EXAMPLES): %: examples/%.cpp   
 	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/home/mohammed/Downloads/eigen-3.4.0/ 
 
+#$(OUTPUT): %: output/%.cpp   
+#	$(CC) $(CFLAGSTEST)  -o latex.out $<
 clean:
-	rm *.out *.log *.gz *.aux      	
+	rm *.out      	
