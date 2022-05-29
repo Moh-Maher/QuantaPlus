@@ -23,40 +23,47 @@ int main()
 	std::clock_t start;
 	double duration;
  	start = std::clock();
- 	///<--stop clock stuff 
+ 
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
   
-	ket<complex> ktA(3),ktB(3), ktAplusktB(3);
-	QM_operator<complex> O(3,3);
-	bra<complex> brA(3), brB(3); 
-	complex bra_ketAA,bra_ketBB,bra_ketAB, bra_ketBA;
+
+ 	ket<std::complex<double>> psi_ket(3),phi_ket(3), A_TIMS_psi_ket(3);
+	QM_operator<std::complex<double>> A(3,3);
+	bra<std::complex<double>> psi_bra(3), phi_bra(3); 
 	
-	ktA << 1.-2i, 1i,-1i; 
-	ktB << 6., 3.-1i, 5.;
-	O   << 1.,3i,0.,0.,-1i,0.,2.-5i,0.,1.;
+	std::complex<double> AOA, brapsi_phi_ket, braphi_ketA ,brapsi_ketA, braphi_ketB;
+ 	
  
-     	cout<<"-------<A|-------------"<<endl;
-     	brA = DualConj(ktA);
+	 
+	psi_ket <<-1.+1i, 3, 2.+3i; 
+	psi_bra = DualConj(psi_ket);
+	 
+	phi_bra << 6., -1i, 5;
+	phi_ket = DualConj(phi_bra); 
+	A <<5., 3.+2i, 3i , -1i, 3i, 8., 1.-1i, 1., 4.;
+	
+	
+        A_TIMS_psi_ket << A * psi_ket;
+        AOA = phi_bra * A_TIMS_psi_ket;
+        braphi_ketA = phi_bra*psi_ket;
+        braphi_ketB = phi_bra*phi_ket;
  
-        cout<<"-------<B|-------------"<<endl;
-     	brB = DualConj(ktB);
-    
+        brapsi_ketA = psi_bra*psi_ket;
+        brapsi_phi_ket = psi_bra*phi_ket;
         
-        
-        cout<<"========================="<<endl; 
-    	 //cout<<"[|A>, |B>, <A| and <B|A> ]"<<endl;
-    	 literal_printf("kbkb", ktA,brA,ktB,brB);
-    	cout<<"========================="<<endl; 
-    	
-    	
-    	 
-    	 TolaTex("kbkbo",ktA,brA, ktB,brB,O);
-    	 
-    	 //system("pdflatex latex_results.tex");
-    	 //system("make clean");
-    	 //system("clear");
-    	//system("xdg-open latex_results.pdf");
-    	///<--clock stuff again
+	latex mypdf("output/latex_results.tex");
+	mypdf.begin();
+	mypdf.operation("tktbto","\\ket{\\psi} = ",psi_ket,", \\bra{\\phi} = ",phi_bra,", A = ",A);
+	mypdf.operation("tok=k","A\\ket{\\psi} = ",A,psi_ket,'=',A_TIMS_psi_ket);
+	mypdf.operation("tbok=n","\\bra{\\phi}A\\ket{\\psi}= ",phi_bra,A,psi_ket,'=',AOA);
+	mypdf.operation("tbk=n","\\braket{\\psi|\\phi}= ",psi_bra,phi_ket,'=',brapsi_phi_ket);
+	mypdf.operation("tbk=n","\\braket{\\phi|\\psi}= ",phi_bra,psi_ket,'=',braphi_ketA);
+	mypdf.operation("tbk=n","\\braket{\\psi|\\psi}= ",psi_bra,psi_ket,'=',brapsi_ketA);
+	mypdf.operation("tbk=n","\\braket{\\phi|\\phi}= ",phi_bra,phi_ket,'=',braphi_ketB);
+	mypdf.end();
+	
+	
+    	///<--clock to measure execution time for gauging performance 
 	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
  
 	if (duration < 60.0) {

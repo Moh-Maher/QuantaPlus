@@ -17,10 +17,9 @@ INCLUDEQUANTAPLUS = include/constants.h \
                                    
 EXAMPLES = example1\
 		QCD_example\
-		AMO_test \
-		Braket_test\
-		latex_test \
-		latexmluti
+		angular_momentum_test \
+		braket_test\
+		latex_test 
 
 OUTPUT = genLatex
           
@@ -29,7 +28,7 @@ OUTPUT = genLatex
 $(EXAMPLES): %: examples/%.cpp   
 	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/home/mohammed/Downloads/eigen-3.4.0/ 
 
-#$(OUTPUT): %: output/%.cpp   
-#	$(CC) $(CFLAGSTEST)  -o latex.out $<
+$(OUTPUT): %: output/%.cpp   
+	$(CC) $(CFLAGSTEST)  -o latex.out $<
 clean:
 	rm *.out      	
