@@ -10,8 +10,51 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<cmath>
 
-std::ofstream outfile;
+
+class latex {
+	public:
+		std::ofstream ofile;
+		std::string file_path;
+		
+		latex(): file_path("output/default.tex") {}
+		
+		latex(std::string filename): file_path(filename) {}
+	
+		void begin() 
+		{	
+			ofile.open(file_path);
+			ofile<<"\\documentclass[10pt,a4paper]{article}\n";
+			ofile<<"\\usepackage[utf8]{inputenc}\n";
+			ofile<<"\\usepackage[T1]{fontenc}\n";
+			ofile<<"\\usepackage{amsmath}\n";
+			ofile<<"\\usepackage{amssymb}\n";
+			ofile<<"\\usepackage{graphicx}\n";
+			ofile<<"\\usepackage{braket}\n";
+			ofile<<"\\usepackage{amsmath}\n";
+			ofile<<"\\begin{document}\n";
+			ofile.close();
+		}
+	
+		void end()
+		{
+			ofile.open(file_path,std::ios_base::app);
+			ofile<<"\\end{document}\n";
+			ofile.close();
+		}
+
+		void typing(std::string text)
+		{
+			ofile.open(file_path,std::ios_base::app);
+			ofile<<text;
+			ofile.close();
+		}
+};
+
+
+//=================================================================================
+std::ofstream outfile, myfile;
 std::string output_path ("output/latex_results.tex"); ///<-- path to the output file and its name.
+//std::string filename;
 
 void begin()
 {
@@ -27,8 +70,8 @@ outfile<<"\\documentclass[10pt,a4paper]{article}\n";
 	outfile<<"\\usepackage{amsmath}\n";
 	outfile<<"\\begin{document}\n";
 	outfile.close();
-}
 
+}
 void end()
 {
 outfile.open(output_path,std::ios_base::app);
@@ -36,6 +79,7 @@ outfile<<"\\end{document}\n";
 outfile.close();
 
 }
+//=================================================================================
 //--------------------------------------------------------------------------
 // convert latex output
 //--------------------------------------------------------------------------
@@ -320,5 +364,3 @@ void operation(const char* fmt...)
 	outfile.close();
 
 }
-
-

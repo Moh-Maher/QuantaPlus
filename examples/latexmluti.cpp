@@ -1,5 +1,5 @@
 /*******************************************************************************************
-testing "braket.h".
+testing "latex.h".
 by:  Mohammed Maher Abdelrahim Mohammed
      UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
