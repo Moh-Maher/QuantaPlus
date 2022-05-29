@@ -43,13 +43,13 @@ int main()
 	cout<<"******************[Right hand side ]*************************"<<endl;
 
 	rhs << -1i*f_ijk * f7;
-	cplx_show(rhs);
+	result_printf(rhs);
 	cout<<endl;
 
 	cout<<"******************[Left hand side ]*************************"<<endl;
 
 	com_res << Commute(f3,f6);
-	cplx_show(com_res);
+	result_printf(com_res);
 	cout<<"\n";
 
 	if(com_res == rhs)

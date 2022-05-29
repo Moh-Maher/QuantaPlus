@@ -16,10 +16,6 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //#error __FILE__ should only be included from operators.h.
 //#endif // OPERATORS_H
 
-
-
-
-
 template<class T>
 QM_operator<T>::QM_operator():Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(){};
 //--------------------------------------------------------------------------

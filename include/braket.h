@@ -13,8 +13,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #define BRAKET_H
 #include <Eigen/Dense>
 #include <algorithm>
-//#include"matrix.h"
-  
+#include <cstdarg>
+
 //namespace QuantaPlus {
 //####################################################################################
 // ket class:

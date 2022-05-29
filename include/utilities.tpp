@@ -11,46 +11,28 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<cmath>
 //#include"utilities.h"
 
-/*
-void cplx_print(std::complex<double> a)
-{
-	double x = std::real(a);
-	double y = std::imag(a);   
-	if(x!=0 and y!=0)
-    	{
-        	if(y<0)
-        	{
-            		std::cout<<x<<y<<"i"<<"\t";
-        	}
-
-        	else if(y>0)
-        	{	
-            		std::cout<<x<<"+" <<y<<"i"<<"\t";
-        	}
-	}
-   	else if(y==0)
-    	{   
-        	std::cout<<x<<"\t";
-    	}
-    	else if(x==0)
-    	{
-        	std::cout<<y<<"i"<<"\t"; 
-    	}    
-}	
- */
+ 
 //--------------------------------------------------------------------------
 // convert latex output
 //--------------------------------------------------------------------------
-template <typename T>
-void KetTolaTex(std::string fname, const T &mt,std::string input, bool append)
-{
-	//std::string str[cons];
-	std::string res;
+//template <typename T>
+//void KetTolaTex(std::string fname, const T &mt,std::string input, bool append)
+/*
+void KetTolaTex(const char* fmt...)
+{	
 	std::ofstream outfile;
-	std::string output_path (fname + ".tex"); ///<-- path to the output file and its name.
+	std::string output_path ("test.tex"); ///<-- path to the output file and its name.
+	va_list args;
+	va_start(args, fmt);
+
+	//std::string str[cons];
+	//std::string res;
+	 
 	
-	if(append) {outfile.open(output_path,std::ios_base::app);}
-	else outfile.open(output_path);
+	
+	//if(append) {outfile.open(output_path,std::ios_base::app);}
+	//else outfile.open(output_path);
+	outfile.open(output_path);
 	outfile<<"\\documentclass[10pt,a4paper]{article}\n";
 	outfile<<"\\usepackage[utf8]{inputenc}\n";
 	outfile<<"\\usepackage[T1]{fontenc}\n";
@@ -58,90 +40,139 @@ void KetTolaTex(std::string fname, const T &mt,std::string input, bool append)
 	outfile<<"\\usepackage{amssymb}\n";
 	outfile<<"\\usepackage{graphicx}\n";
 	outfile<<"\\usepackage{braket}\n";
-	outfile<<"\\begin{document}\n";
-	//for(int i=0; i<cons;i++){
-	if(mt.cols() ==1) outfile<<"$\\ket{"<<input<<"}=$\n";
-	else if(mt.cols() > 1) outfile<<"$\\bra{"<<input<<"}=$\n";
-	for(int i =0; i<mt.rows(); i++)
-    	{
-        	for(int j =0; j<mt.cols(); j++){
-        	//for(int i=0; i<cons;i++){ 
-	double x = std::real(mt(i,j));
-	double y = std::imag(mt(i,j));   
-	if(x!=0 and y!=0)
-    	{
-        	if(y<0)
-        	{
-            		outfile<<"$"<<x<<y<<"i$"<<"\t";
-            		//outfile<<"$"+ToString(x)+ToString(y)+"i$\t";
-        	}
-
-        	else if(y>0)
-        	{
-            		outfile<<"$"<<x<<"+"<<y<<"i$"<<"\t";
-            		//outfile<<"$"+ToString(x)+"+"+ToString(y)+"i$\t";
-        	}
-	}
-   	else if(y==0)
-    	{   
-        	outfile<<"$"<<x<<"$"<<"\t";
-        	//outfile<< "$"+ToString(x)+"$\t";
-    	}
-    	else if(x==0)
-    	{
-        	outfile<<"$"<<y<<"i$"<<"\t";
-        	//outfile<< "$"+ToString(y)+"i$\t";
-    	}   
-    		std::cout<<std::endl;
-    		//outfile<<res;//}
-    	}
-    	
-    	}//-------
-    	
-   	
-   
-	
-	
-	
-	/*
-	outfile<<"\\documentclass[10pt,a4paper]{article}\n";
-	outfile<<"\\usepackage[utf8]{inputenc}\n";
-	outfile<<"\\usepackage[T1]{fontenc}\n";
 	outfile<<"\\usepackage{amsmath}\n";
-	outfile<<"\\usepackage{amssymb}\n";
-	outfile<<"\\usepackage{graphicx}\n";
 	outfile<<"\\begin{document}\n";
-		
-	 
-	double x = std::real(data);
-	double y = std::imag(data);   
-	if(x!=0 and y!=0)
-    	{
-        	if(y<0)
-        	{
-            		outfile<<"$"<<x<<y<<"i$"<<"\t";
-        	}
+	
+while (*fmt != '\0') 
+{       if (*fmt == 'k') {
+	ket<std::complex<double>> mt = va_arg(args, ket<std::complex<double>>);
+	//if(mt.cols() ==1 && mt.rows()>=1)
+	//{
+		//outfile<<"$\\ket{"<<input<<"}=$\n";
+		outfile<<"\\begin{align}\n";
+    		outfile<<"\\ket{ket}&=\\begin{bmatrix}\n";
+		for(int i =0; i<mt.rows(); i++)
+	    	{
+			for(int j =0; j<mt.cols(); j++){
+			 
+				double x = std::real(mt(i,j));
+				double y = std::imag(mt(i,j));   
+				if(x!=0 and y!=0) {
+					
+					if(y<0) {		
+		    				outfile<<"$"<<x<<y<<"i$"<<"\\\\";
+					}
 
-        	else if(y>0)
-        	{
-            		outfile<<"$"<<x<<"+"<<y<<"i$"<<"\t";
-        	}
-	}
-   	else if(y==0)
-    	{   
-        	outfile<<"$"<<x<<"$"<<"\t";
-    	}
-    	else if(x==0)
-    	{
-        	outfile<<"$"<<y<<"i$"<<"\t";
-    	}    */
-	//for(int i=0; i< cons; i++){
-	//outfile<<str[i]<<"\\newline\n";
+					else if(y>0) {
+		    				outfile<<"$"<<x<<"+"<<y<<"i$"<<"\\\\";
+					}
+				}
+	   			else if(y==0) {   
+					outfile<<"$"<<x<<"$"<<"\\\\";
+	    			}
+	    			else if(x==0){
+					outfile<<"$"<<y<<"i$"<<"\\\\";
+	    			}   
+	    			outfile<<"\n";
+	    		}
+	    	}
+		 	outfile<<"\\end{bmatrix}\n";
+	  		outfile<<"\\end{align}\n";
+	  		outfile<<"\n";
 	//}
+	}
+	
+	else if (*fmt == 'b') {
+	bra<std::complex<double>> mt = va_arg(args, bra<std::complex<double>>);
+	//if(mt.cols() >= 1 && mt.rows()==1)
+	//{ 	
+		outfile<<"\\begin{align}\n";
+		outfile<<"\\bra{bra}=[\\,\\quad";
+		for(int i =0; i<mt.rows(); i++)
+	    	{
+			for(int j =0; j<mt.cols(); j++) {
+			 
+			double x = std::real(mt(i,j));
+			double y = std::imag(mt(i,j));   
+			if(x!=0 and y!=0) {
+			
+				if(y<0) {
+		    			outfile<<x<<y<<"i\\quad";
+		    		//outfile<<"$"+ToString(x)+ToString(y)+"i$\t";
+				}
+
+				else if(y>0) {
+		    			outfile<<x<<"+"<<y<<"i\\quad";
+		    		//outfile<<"$"+ToString(x)+"+"+ToString(y)+"i$\t";
+				}
+			}
+	   		else if(y==0) {   
+				outfile<<x<<"\\quad";
+			//outfile<< "$"+ToString(x)+"$\t";
+	    		}
+	    		else if(x==0) {
+				outfile<<y<<"i\\quad";
+			//outfile<< "$"+ToString(y)+"i$\t";
+	    		}	   
+	    		
+	    	}
+	    	
+	    	}//-------
+	    	outfile<<"\\,]\n";
+	    	outfile<<"\\end{align}\n";
+    	//}
+    	}
+	else if (*fmt == 'o') {
+	QM_operator<std::complex<double>> mt = va_arg(args, QM_operator<std::complex<double>>);
+	//if(mt.cols() >= 1 && mt.rows()==1)
+	//{ 	
+
+		outfile<<"\\begin{align}\n";
+		outfile<<"\\begin{pmatrix}\n";
+		//outfile<<"\\bra{bra}=[\\,\\quad";
+		for(int i =0; i<mt.rows(); i++)
+	    	{
+			for(int j =0; j<mt.cols(); j++) {
+			 
+			double x = std::real(mt(i,j));
+			double y = std::imag(mt(i,j));   
+			if(x!=0 and y!=0) {
+			
+				if(y<0) {
+		    			outfile<<x<<y<<"i &";
+		    		//outfile<<"$"+ToString(x)+ToString(y)+"i$\t";
+				}
+
+				else if(y>0) {
+		    			outfile<<x<<"+"<<y<<"i &";
+		    		//outfile<<"$"+ToString(x)+"+"+ToString(y)+"i$\t";
+				}
+			}
+	   		else if(y==0) {   
+				outfile<<x<<"&";
+			//outfile<< "$"+ToString(x)+"$\t";
+	    		}
+	    		else if(x==0) {
+				outfile<<y<<"i &";
+			//outfile<< "$"+ToString(y)+"i$\t";
+	    		}	   
+	    	
+	    	}
+	    		outfile<<"\\\\";
+	    	}//-------
+	    	
+	    	outfile<<"\\end{pmatrix}\n";
+	    	outfile<<"\\end{align}\n";
+    	//}
+    	}
+    	++fmt;
+}
+ 	va_end(args);  	
 	outfile<<"\n";
 	outfile<<"\\end{document}\n";
 	outfile.close();
-}
+
+}*/
 //----------------------------------------------------------------------------
 long long gcd(long long a, long long b)
 {

@@ -48,20 +48,20 @@ int main()
 	cout<<" system:\n";
 
 	cout<<"------------S_x operator:-------------\n";
-	cplx_show(S_x);
+	result_printf(S_x);
 
 	cout<<"------------S_y operator:-------------\n";
-	cplx_show(S_y);
+	result_printf(S_y);
 	cout<<"------------S_z operator:-------------\n";
-	cplx_show(S_z);
+	result_printf(S_z);
 
 	cout<<"------------S^2 operator:-------------\n";
-	cplx_show(S_sqr);
+	result_printf(S_sqr);
 
 	cout<<"------------S_+ operator:-------------\n";
-	cplx_show(S_plus);
+	result_printf(S_plus);
 	cout<<"------------S_- operator:-------------\n";
-	cplx_show(S_minus);
+	result_printf(S_minus);
 	
 	///<--clock stuff again
 	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;

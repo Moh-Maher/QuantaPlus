@@ -18,6 +18,9 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #error __FILE__ should only be included from braket.h.
 #endif // BRAKET_H
 
+//--------------------------------------------------------------------------
+//	print complex number in symbolic form
+//--------------------------------------------------------------------------
 inline void cplx_print(std::complex<double> a)
 {
 	double x = std::real(a);
@@ -57,10 +60,10 @@ inline void cplx_print(std::complex<double> a)
     	}    
 }	
 //--------------------------------------------------------------------------
-//		print  matrix elements in symbolic form
+//	print  matrix elements in symbolic form
 //--------------------------------------------------------------------------
 template <typename U>
-void cplx_show(bra<U>& mt)
+void result_printf(bra<U>& mt)
 {
 	for(int i =0; i<mt.rows(); i++)
     	{
@@ -72,10 +75,10 @@ void cplx_show(bra<U>& mt)
     	}
 }
 //--------------------------------------------------------------------------
-//		print  ket elements in symbolic form
+//	print  ket elements in symbolic form
 //--------------------------------------------------------------------------
 template <typename U>
-void cplx_show(ket<U>& mt)
+void result_printf(ket<U>& mt)
 {
 	for(int i =0; i<mt.rows(); i++)
     	{
@@ -87,10 +90,44 @@ void cplx_show(ket<U>& mt)
     	}
 }
 //--------------------------------------------------------------------------
-//		print  bra elements in symbolic form
+//  	function print QuantaPlus variables in a symbolic form.
+//  	this function is a modified version of "Variadic functions" from:
+//  	https://en.cppreference.com/w/cpp/utility/variadic 
+//--------------------------------------------------------------------------
+void literal_printf(const char* fmt...) 
+{
+	va_list args;
+	va_start(args, fmt);
+
+	while (*fmt != '\0') {
+		if (*fmt == 'k') {
+			ket<std::complex<double>> kt = va_arg(args, ket<std::complex<double>>);
+			std::cout<<"|ket> =\n";
+			result_printf(kt);
+			std::cout<<"\n";
+		} 
+		else if (*fmt == 'b') {
+			bra<std::complex<double>> br = va_arg(args, bra<std::complex<double>>);
+			std::cout<<"<bra| = ";
+			result_printf(br);
+			std::cout<<"\n";
+		}
+		else if (*fmt == 'c') {
+			std::complex<double> d = va_arg(args, std::complex<double>);
+			std::cout<<"complex number = ";
+			cplx_print(d);
+			std::cout<<"\n";
+		}		
+		++fmt;
+	}
+
+	va_end(args);
+}
+//--------------------------------------------------------------------------
+//	print  bra elements in symbolic form
 //--------------------------------------------------------------------------
 template <typename U>
-void cplx_show(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt)
+void result_printf(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt)
 {
 	for(int i =0; i<mt.rows(); i++)
     	{
@@ -102,9 +139,9 @@ void cplx_show(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt)
     	}
 }
 //--------------------------------------------------------------------------
-//		print complex numbers in symbolic form
+//	print complex numbers in symbolic form
 //--------------------------------------------------------------------------
-void cplx_show(const std::complex<double> &a)
+void result_printf(const std::complex<double> &a)
 {
 	cplx_print(a);
 	std::cout<<std::endl;
@@ -195,7 +232,7 @@ bra<T>::~bra(){}
 // compute the Eigen vectors for Eigen::Matrix
 //------------------------------------------------------------------------------------
 template<typename T, int R, int C>
-Eigen::Matrix<T, R, 1> QuantxEigenVector(Eigen::Matrix<T, R, C> &mat, const int &i)
+Eigen::Matrix<T, R, 1> QuantumEigenVector(Eigen::Matrix<T, R, C> &mat, const int &i)
 {
 	Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T, R, C>> eigensolver(mat);
    
@@ -207,7 +244,7 @@ Eigen::Matrix<T, R, 1> QuantxEigenVector(Eigen::Matrix<T, R, C> &mat, const int 
 // compute the Eigen value for Eigen::Matrix
 //------------------------------------------------------------------------------------
 template<typename T, int R, int C>
-T QuantxEigenValue(Eigen::Matrix<T, R, C>  &mat,const int& i)
+T QuantumEigenValue(Eigen::Matrix<T, R, C>  &mat,const int& i)
 {
 	Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T, R, C> > eigensolver(mat);
    

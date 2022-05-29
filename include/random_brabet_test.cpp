@@ -11,6 +11,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include"operators.h"
 #include<ctime>  
 #include"utilities.h"
+#include"latex.h"
  
 	typedef std::complex<double>  complex;
 	using std::cout;
@@ -26,36 +27,46 @@ int main()
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
   
 	ket<complex> ktA(3),ktB(3), ktAplusktB(3);
+	QM_operator<complex> O(3,3);
 	bra<complex> brA(3), brB(3); 
 	complex bra_ketAA,bra_ketBB,bra_ketAB, bra_ketBA;
 	ktA <<1.-2i, 1i,-1i; 
 	ktB << 6., 3.-1i, 5.;
+	O <<1.,3i,0.,0.,-1i,0.,2.-5i,0.,1.;
 	cout<<"--------|A>------------"<<endl;
-	cplx_show(ktA);
+	result_printf(ktA);
 	cout<<"--------|B>------------"<<endl;
-	cplx_show(ktB);
+	result_printf(ktB);
 	cout<<"--------|A> + |B>------------"<<endl;
 	ktAplusktB << ktA + ktB ;
-    	cplx_show(ktAplusktB);
+    	result_printf(ktAplusktB);
      	cout<<"-------<A|-------------"<<endl;
      	brA = DualConj(ktA);
-     	cplx_show(brA);
+     	result_printf(brA);
      	cout<<"-------<A|A>-------------"<<endl;
         bra_ketAA = BraKet(brA,ktA);
-        cplx_show(bra_ketAA);
+        result_printf(bra_ketAA);
         cout<<"-------<B|-------------"<<endl;
      	brB = DualConj(ktB);
-     	cplx_show(brB);
+     	result_printf(brB);
      	cout<<"-------<B|B>-------------"<<endl;
         bra_ketBB = BraKet(brB,ktB);
-        cplx_show(bra_ketBB);
+        result_printf(bra_ketBB);
         cout<<"-------<A|B>-------------"<<endl;
         bra_ketAB = BraKet(brA,ktB);
-        cplx_show(bra_ketAB);
+        result_printf(bra_ketAB);
         cout<<"-------<B|A>-------------"<<endl;
         bra_ketBA = BraKet(brB,ktA);
-        cplx_show(bra_ketBA);
+        result_printf(bra_ketBA);
+        
+        cout<<"========================="<<endl; 
+    	//cout<<"[|A>, |B>, <A| and <B|A> ]"<<endl;
+    	//literal_printf("kkbc", ktA,ktB,brA, bra_ketBA);
+    	cout<<"========================="<<endl; 
     	
+    	
+    	 
+    	 TolaTex("kbkbo",ktA,brA, ktB,brB,O);
     	///<--clock stuff again
 	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
  

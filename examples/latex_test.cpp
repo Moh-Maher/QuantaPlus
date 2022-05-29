@@ -9,9 +9,10 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<complex>
 #include"braket.h"
 #include"operators.h"
- #include<ctime>  
+#include<ctime>  
 #include"utilities.h"
-//using namespace QUANTAx;
+#include"latex.h"
+ 
 	typedef std::complex<double>  complex;
 	using std::cout;
 	using std::endl;
@@ -25,40 +26,34 @@ int main()
  	///<--stop clock stuff 
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
   
-	ket<complex> ktA(3),ktB;
-	bra<complex> brB(3),brA;
-        complex braketAB{},braketBA{};
-        complex braketAA{},braketBB{};
-	brB << 6., 3.-1i, 5.;
-	ktA <<1.-2i, 1i,-1i; 
-	cout<<"--------|A>------------"<<endl;
-    	result_printf(ktA);
-    	cout<<"--------<B|------------"<<endl;
-    	result_printf(brB);  
-    	cout<<"--------|B>------------"<<endl;
-    	ktB = DualConj(brB);
-    	result_printf(ktB);
-	cout<<"--------<A|------------"<<endl;
-    	brA = DualConj(ktA);
-    	result_printf(brA);
-    	cout<<"--------<A|B>----------"<<endl;
-    	braketAB = BraKet(brA,ktB);
-    	result_printf(braketAB);
-    	cout<<"--------<B|A>----------"<<endl;
-    	braketBA = BraKet(brB,ktA);
-    	result_printf(braketBA);
-   
-    	braketAA = BraKet(brA,ktA);
-    	braketBB = BraKet(brB,ktB);
-    	cout<<"--------<A|A>--------"<<endl;
-    	result_printf(braketAA);   	 
-    	cout<<"--------<B|B>--------"<<endl;
-    	result_printf(braketBB);
-    	//complex fun[4] = {braketAB,braketBA,braketAA,braketBB};
+	ket<complex> ktA(3),ktB(3), ktAplusktB(3);
+	QM_operator<complex> O(3,3);
+	bra<complex> brA(3), brB(3); 
+	complex bra_ketAA,bra_ketBB,bra_ketAB, bra_ketBA;
+	
+	ktA << 1.-2i, 1i,-1i; 
+	ktB << 6., 3.-1i, 5.;
+	O   << 1.,3i,0.,0.,-1i,0.,2.-5i,0.,1.;
+ 
+     	cout<<"-------<A|-------------"<<endl;
+     	brA = DualConj(ktA);
+ 
+        cout<<"-------<B|-------------"<<endl;
+     	brB = DualConj(ktB);
+    
+        
+        
+        cout<<"========================="<<endl; 
+    	 //cout<<"[|A>, |B>, <A| and <B|A> ]"<<endl;
+    	 literal_printf("kbkb", ktA,brA,ktB,brB);
+    	cout<<"========================="<<endl; 
     	
-    	//KetTolaTex("test",brA,"A",false);
-    	//KetTolaTex("test",ktA,"A",false);
     	
+    	 
+    	 TolaTex("kbkbo",ktA,brA, ktB,brB,O);
+    	 
+    	 system("pdflatex latex_results.tex");
+    	system("make clean");
     	///<--clock stuff again
 	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
  

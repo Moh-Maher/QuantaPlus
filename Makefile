@@ -18,7 +18,8 @@ INCLUDEQUANTAPLUS = include/constants.h \
 EXAMPLES = example1\
 		QCD_example\
 		AMO_test \
-		Braket_test
+		Braket_test\
+		latex_test
            
 # making examples
 
@@ -26,4 +27,4 @@ $(EXAMPLES): %: examples/%.cpp
 	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/home/mohammed/Downloads/eigen-3.4.0/ 
 
 clean:
-	rm *.out        	
+	rm *.out *.log *.gz *.aux      	

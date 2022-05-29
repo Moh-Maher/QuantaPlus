@@ -51,23 +51,23 @@ int main()
 
 	cout<<"------------------[J^2]----------------------\n";
 
-	cplx_show(J2);
+	result_printf(J2);
 
 	cout<<"------------------[J_x]----------------------\n";
-	cplx_show(J_x);
+	result_printf(J_x);
 
 	cout<<"------------------[J_y]----------------------\n";
-	cplx_show(J_y);
+	result_printf(J_y);
 
 	cout<<"------------------[J_z]----------------------\n";
-	cplx_show(J_z);
+	result_printf(J_z);
 
 	cout<<"######################################################################################\n";
 	cout<<"############### (b) RHS result of the commutator: [J_x, J_y] = i* J_z ################\n";
 	cout<<"######################################################################################\n";
 	QM_operator<complex> commutatorJxJy(J_x.rows(),J_x.cols());
 	commutatorJxJy<<Commute(J_x, J_y);
-	cplx_show(commutatorJxJy);
+	result_printf(commutatorJxJy);
   
  
 	cout<<"######################################################################################\n";
@@ -97,7 +97,7 @@ int main()
 	JxSqr_MeanVal = BraKet( braState , Jx_Sqr_Ket );//<--------- (J_X)^2 mean value: <(Jx)^2> = <bra|(J_x)^2|ket>.
 
 	cout<<"<(J_x)^2> = ";
-	cplx_show(JxSqr_MeanVal);
+	result_printf(JxSqr_MeanVal);
 	cout<<endl;
 
 	cout<<"######################################################################################\n";
@@ -107,7 +107,7 @@ int main()
 	complex delta_Jx(0,0);
 
 	delta_Jx = sqrt(JxSqr_MeanVal - pow( Jx_MeanVal , 2) );
-	cout<<"Delta J_x= ";cplx_show(delta_Jx);cout<<endl;
+	cout<<"Delta J_x= ";result_printf(delta_Jx);cout<<endl;
 	//--------------------------------------------------------J_y---------------------------------------------------------------
 	cout<<"------------------Delta J_y----------------------\n";
 	complex Jy_MeanVal;
@@ -117,7 +117,7 @@ int main()
 	Jy_MeanVal = BraKet( braState , Jy_Ket ); //<--------- J_y mean value: <Jx> = <bra|J_y|ket>.
 
 	cout<<"<J_y>= ";
-	cplx_show(Jy_MeanVal);
+	result_printf(Jy_MeanVal);
 	cout<<endl;
 
 	//cout<<"######################################################################################\n";
@@ -137,7 +137,7 @@ int main()
 	complex delta_Jy(0,0);
 
 	delta_Jy = sqrt(JySqr_MeanVal - pow( Jy_MeanVal , 2) );
-	cout<<"Delta J_y= ";cplx_show(delta_Jy);cout<<endl;
+	cout<<"Delta J_y= ";result_printf(delta_Jy);cout<<endl;
 	/*
 	cout<<"######################################################################################\n";
 	cout<<"##################  Delta J_x * Delta J_y >= 1/2 * |<[ J_x, J_y]>|:  #################\n";
