@@ -9,7 +9,12 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #pragma once
 #include<iostream>
 #include<cmath>
+#ifndef UTILITIES_TTP
+#define UTILITIES_TTP
 
+#ifndef UTILITIES_TTP
+#error __FILE__ should only be included from utilities.h.
+#endif // UTILITIES_H
 //--------------------------------------------------------------------------
 // convert numbers to string
 //--------------------------------------------------------------------------
@@ -126,3 +131,4 @@ void Warning(const std::string & str)
  //std::cout<<FYEL("[")<<FRED("ERROR!:")<<FYEL(<<str<<" ]\n");
  std::cout<<FYEL("[")<<FYEL(<<str<<" ]\n");
 }
+#endif // UTILITIES_TTP

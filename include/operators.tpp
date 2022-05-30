@@ -8,13 +8,13 @@ by:  Mohammed Maher Abdelrahim Mohammed
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
-#pragma once
-//#ifndef OPERATORS_TPP
-//#define OPERATORS_TPP
+//#pragma once
+#ifndef OPERATORS_TPP
+#define OPERATORS_TPP
 
-//#ifndef OPERATORS_H
-//#error __FILE__ should only be included from operators.h.
-//#endif // OPERATORS_H
+#ifndef OPERATORS_H
+#error __FILE__ should only be included from operators.h.
+#endif // OPERATORS_H
 
 //--------------------------------------------------------------------------
 //		QM_operator defult constructor
@@ -481,3 +481,4 @@ AngularMomentum<T> AngularMomentum<T>:: RotationByAngle(const double &a)
  std::complex<double> i(0.,1.);
  return MatrixExp(i*a*S_x);
 }*/
+#endif // OPERATORS_TPP

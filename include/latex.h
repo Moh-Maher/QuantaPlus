@@ -6,7 +6,9 @@ by:  Mohammed Maher Abdelrahim Mohammed
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
-#pragma once
+//#pragma once
+#ifndef LATEX_H
+#define LATEX_H
 #include<iostream>
 #include<cmath>
 
@@ -326,3 +328,4 @@ void LaTex::MathOperation(const char* fmt...)
 	ofile<<"\n";
 	ofile.close();
 }
+#endif
