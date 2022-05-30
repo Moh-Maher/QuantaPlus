@@ -1,14 +1,16 @@
-/****************************************************************************
-BraKet.tpp is a part of QUANTAPLUS library. 
+/*******************************************************************************************
+  File:      BRAKET.TPP
 
-usage: provides implementation details for bra and ket spaces.
+  Summary:   BraKet.tpp is a part of QUANTAPLUS library, provides support for "braket.h" .
 
-by:  Mohammed Maher Abdelrahim Mohammed
-     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
-     VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
-     mohammed.maher@unical.it                                         
-****************************************************************************/
+  Functions:  ComplexNumPrint, ResultPrint, literal_printf, QuantumEigenVector,
+  	      QuantumEigenValue, DualConj, BraKet. 
 
+  by:  	     Mohammed Maher Abdelrahim Mohammed
+       	     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
+	     VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
+       	     mohammed.maher@unical.it  
+*******************************************************************************************/
 //#include"braket.h"
 #pragma once
 #ifndef BRAKET_TPP
@@ -18,82 +20,161 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #error __FILE__ should only be included from braket.h.
 #endif // BRAKET_H
 
+//##########################################################################
+// class Ket :
+//##########################################################################
 //--------------------------------------------------------------------------
-//	print complex number in symbolic form
+//		defult constructor
 //--------------------------------------------------------------------------
-inline void cplx_print(std::complex<double> a)
+template <class T>
+Ket<T>::Ket():Eigen::Matrix<T,Eigen::Dynamic,1>(){}
+//--------------------------------------------------------------------------
+//		Constructor for Ket vector of a given rows
+//--------------------------------------------------------------------------
+template <class T>
+Ket<T>::Ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){}
+//--------------------------------------------------------------------------
+//		2nd overloded constructor
+//--------------------------------------------------------------------------
+//template <class T, int R>
+//Ket<T,R>::Ket(const T *data ):Eigen::Matrix<T,R,1>(data){}
+//--------------------------------------------------------------------------
+//		destructor
+//--------------------------------------------------------------------------
+template <class T>
+Ket<T>::~Ket(){}
+//##########################################################################
+// class Bra :
+//##########################################################################
+//--------------------------------------------------------------------------
+//		defult constructor
+//--------------------------------------------------------------------------
+template <class T>
+Bra<T>::Bra():Eigen::Matrix<T,1,Eigen::Dynamic>(){}
+//--------------------------------------------------------------------------
+//		Constructor for Bra vector of a given rows
+//--------------------------------------------------------------------------
+template <class T>
+Bra<T>::Bra(int col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col){}
+//--------------------------------------------------------------------------
+//		2nd overloded constructor
+//--------------------------------------------------------------------------
+//template <class T, int C>
+//Bra<T,C>::Bra(const T *data ):Eigen::Matrix<T,1,C>(data){}
+//--------------------------------------------------------------------------
+//		destructor
+//--------------------------------------------------------------------------
+template <class T>
+Bra<T>::~Bra(){}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: ComplexNumPrint
+
+  Summary:  print complex number in symbolic form.
+
+  Args:      std::complex<double> a
+  	        complex variable with "double-type" real and imaginary parts.  
+
+  Returns:  void
+              print complex number in " x + iy" format.
+------------------------------------------------------------------*/
+inline void ComplexNumPrint(std::complex<double> complex_number)
 {
-	double x = std::real(a);
-	double y = std::imag(a);   
-	if(x!=0 and y!=0)
+	double real_part = std::real(complex_number);
+	double imaginary_part = std::imag(complex_number);   
+	if( real_part != 0 and imaginary_part != 0 )
     	{
-        	if(y<0)
+        	if( imaginary_part < 0 )
         	{
-            		std::cout<<x<<y<<"i"<<"\t";
+            		std::cout<<real_part<<imaginary_part<<"i"<<"\t";
             		//decimalToFraction(x);
             		//decimalToFraction(y);
             		//std::cout<<"i"<<"\t";
         	}
 
-        	else if(y>0)
+        	else if( imaginary_part > 0 )
         	{
-            		std::cout<<x<<"+" <<y<<"i"<<"\t";
+            		std::cout<<real_part<<"+" <<imaginary_part<<"i"<<"\t";
             		//decimalToFraction(x);
             		//std::cout<<"+";
             		//decimalToFraction(y);
             		//std::cout<<"i"<<"\t";
         	}
 	}
-   	else if(y==0)
+   	else if (imaginary_part == 0 )
     	{   
-        	std::cout<<x<<"\t";
+        	std::cout<<real_part<<"\t";
         	//decimalToFraction(x);
         	//std::cout<<"\t";
            
     	}
-    	else if(x==0)
+    	else if( real_part == 0 )
     	{
-        	std::cout<<y<<"i"<<"\t"; 
+        	std::cout<<imaginary_part<<"i"<<"\t"; 
         	
 		//decimalToFraction(y);
     		//std::cout<<"i"<<"\t";
     	}    
-}	
-//--------------------------------------------------------------------------
-//	print  matrix elements in symbolic form
-//--------------------------------------------------------------------------
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: ResultPrint
+
+  Summary:  print <Bra| elements in symbolic form.
+
+  Args:      Bra<U>& bra
+  	        Bra vector.  
+
+  Returns:  void
+              print complex number in " x + iy" format.
+------------------------------------------------------------------*/
 template <typename U>
-void result_printf(bra<U>& mt)
+void ResultPrint(Bra<U>& bra)
 {
-	for(int i =0; i<mt.rows(); i++)
+	for(int row_count = 0; row_count < bra.rows(); row_count++)
     	{
-        	for(int j =0; j<mt.cols(); j++)
+        	for(int col_count = 0; col_count < bra.cols(); col_count++)
         	{
-			cplx_print(mt(i,j));
+			ComplexNumPrint( bra(row_count, col_count) );
         	}
         	std::cout<<std::endl;
     	}
 }
-//--------------------------------------------------------------------------
-//	print  ket elements in symbolic form
-//--------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: ResultPrint
+
+  Summary:  print  Ket elements in symbolic form.
+
+  Args:      Ket<U>& ket
+  	        Ket vector.  
+
+  Returns:  void
+              print complex number in " x + iy" format.
+------------------------------------------------------------------*/
 template <typename U>
-void result_printf(ket<U>& mt)
+void ResultPrint(Ket<U>& ket)
 {
-	for(int i =0; i<mt.rows(); i++)
+	for(int row_count = 0; row_count < ket.rows(); row_count++)
     	{
-        	for(int j =0; j<mt.cols(); j++)
+        	for(int col_count = 0; col_count < ket.cols(); col_count++)
         	{
-			cplx_print(mt(i,j));
+			ComplexNumPrint( ket(row_count, col_count) );
         	}
         	std::cout<<std::endl;
     	}
 }
-//--------------------------------------------------------------------------
-//  	function print QuantaPlus variables in a symbolic form.
-//  	this function is a modified version of "Variadic functions" from:
-//  	https://en.cppreference.com/w/cpp/utility/variadic 
-//--------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: literal_printf
+
+  Summary:  function print QuantaPlus variables in a symbolic form.
+  	    This function is a modified version of "Variadic functions".
+	    source: https://en.cppreference.com/w/cpp/utility/variadic .
+
+  Args:     const char* fmt...
+              format identifier for multiple variables 
+
+  Returns:  void
+              printing 
+--------------------------------------------------------------------*/
 void literal_printf(const char* fmt...) 
 {
 	va_list args;
@@ -101,21 +182,21 @@ void literal_printf(const char* fmt...)
 
 	while (*fmt != '\0') {
 		if (*fmt == 'k') {
-			ket<std::complex<double>> kt = va_arg(args, ket<std::complex<double>>);
-			std::cout<<"|ket> =\n";
-			result_printf(kt);
+			Ket<std::complex<double>> kt = va_arg(args, Ket<std::complex<double>>);
+			std::cout<<"|Ket> =\n";
+			ResultPrint(kt);
 			std::cout<<"\n";
 		} 
 		else if (*fmt == 'b') {
-			bra<std::complex<double>> br = va_arg(args, bra<std::complex<double>>);
-			std::cout<<"<bra| = ";
-			result_printf(br);
+			Bra<std::complex<double>> br = va_arg(args, Bra<std::complex<double>>);
+			std::cout<<"<Bra| = ";
+			ResultPrint(br);
 			std::cout<<"\n";
 		}
 		else if (*fmt == 'c') {
 			std::complex<double> d = va_arg(args, std::complex<double>);
 			std::cout<<"complex number = ";
-			cplx_print(d);
+			ComplexNumPrint(d);
 			std::cout<<"\n";
 		}		
 		++fmt;
@@ -123,192 +204,145 @@ void literal_printf(const char* fmt...)
 
 	va_end(args);
 }
-//--------------------------------------------------------------------------
-//	print  bra elements in symbolic form
-//--------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: ResultPrint
+
+  Summary:  print matrix elements in symbolic form.
+
+  Args:      Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat
+  	        Eigen::Matrix with Dynamic-size rows or columns  
+
+  Returns:  void
+              print complex number in " x + iy" format.
+------------------------------------------------------------------*/
 template <typename U>
-void result_printf(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt)
+void ResultPrint(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
 {
-	for(int i =0; i<mt.rows(); i++)
+	for(int row_count = 0; row_count < mat.rows(); row_count++)
     	{
-        	for(int j =0; j<mt.cols(); j++)
+        	for(int col_count = 0; col_count < mat.cols(); col_count++)
         	{
-			cplx_print(mt(i,j));
+			ComplexNumPrint( mat(row_count, col_count) );
         	}
         	std::cout<<std::endl;
     	}
 }
-//--------------------------------------------------------------------------
+//-----------------------------------------------------------------
 //	print complex numbers in symbolic form
-//--------------------------------------------------------------------------
-void result_printf(const std::complex<double> &a)
+//-----------------------------------------------------------------
+void ResultPrint(const std::complex<double>& complex_num)
 {
-	cplx_print(a);
+	ComplexNumPrint(complex_num);
 	std::cout<<std::endl;
 }
-//##########################################################################
-// class ket:
-//##########################################################################
-//--------------------------------------------------------------------------
-//		defult constructor
-//--------------------------------------------------------------------------
-template <class T>
-ket<T>::ket():Eigen::Matrix<T,Eigen::Dynamic,1>(){}
-//--------------------------------------------------------------------------
-//		Constructor for ket vector of a given rows
-//--------------------------------------------------------------------------
-template <class T>
-ket<T>::ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){}
-//--------------------------------------------------------------------------
-//		2nd overloded constructor
-//--------------------------------------------------------------------------
-//template <class T, int R>
-//ket<T,R>::ket(const T *data ):Eigen::Matrix<T,R,1>(data){}
-//--------------------------------------------------------------------------
-//		destructor
-//--------------------------------------------------------------------------
-template <class T>
-ket<T>::~ket(){}
-//--------------------------------------------------------------------------
-//		Overloaded Operator "=" : |ket> = |ket>
-//--------------------------------------------------------------------------
-/*
-template <class T>
-ket<T>& ket<T>::operator=(const ket<T>& kt)
-{	
-	ket<T> res(kt.rows());
-    	if(this!=&kt)
-    		for(int i =0; i<kt.rows(); i++)
-        	{
-            		for(int j =0; j<kt.cols(); j++)
-            		{
-  	          		res(i,j)=kt(i,j);
-            		}
-        	} 
-    	    
-	return res;  
-	
-	//return *this;     
-}
-*/
-//--------------------------------------------------------------------------
-// Overloading the  + OPERATOR: result in |A>+ |B>
-//--------------------------------------------------------------------------
-/*
-template <class T>
-inline ket<T> operator+(ket<T> lhs_ket, const ket<T>& rhs_ket) 
-{
-	return lhs_ket += rhs_ket;
-	//return lhs_ket;
-}
-*/
-//************************************************************************** 
 
-//##########################################################################
-// class bra :
-//##########################################################################
-//--------------------------------------------------------------------------
-//		defult constructor
-//--------------------------------------------------------------------------
-template <class T>
-bra<T>::bra():Eigen::Matrix<T,1,Eigen::Dynamic>(){}
-//--------------------------------------------------------------------------
-//		Constructor for bra vector of a given rows
-//--------------------------------------------------------------------------
-template <class T>
-bra<T>::bra(int col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col){}
-//--------------------------------------------------------------------------
-//		2nd overloded constructor
-//--------------------------------------------------------------------------
-//template <class T, int C>
-//bra<T,C>::bra(const T *data ):Eigen::Matrix<T,1,C>(data){}
-//--------------------------------------------------------------------------
-//		destructor
-//--------------------------------------------------------------------------
-template <class T>
-bra<T>::~bra(){}
- 
-//------------------------------------------------------------------------------------
-// compute the Eigen vectors for Eigen::Matrix
-//------------------------------------------------------------------------------------
-template<typename T, int R, int C>
-Eigen::Matrix<T, R, 1> QuantumEigenVector(Eigen::Matrix<T, R, C> &mat, const int &i)
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: QuantumEigenVector
+
+  Summary:  compute the Eigen vectors for Eigen::Matrix.
+
+  Args:      Matrix<T,Eigen::Dynamic,Eigen::Dynamic>& mt
+  	        Eigen::Matrix.  
+
+  Returns:  Eigen::Matrix<T, Eigen::Dynamic, 1> (row vector)
+              return the eigenvectors of a given matrix.
+------------------------------------------------------------------*/
+template<typename T>
+Eigen::Matrix<T,Eigen::Dynamic,1> QuantumEigenVector(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &mat, const int& col_number)
 {
-	Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T, R, C>> eigensolver(mat);
+	Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>> eigensolver(mat);
    
 	if (eigensolver.info() != Eigen::Success) abort();
   
-	return eigensolver.eigenvectors().col(i);
+	return eigensolver.eigenvectors().col(col_number);
 }
-//------------------------------------------------------------------------------------
-// compute the Eigen value for Eigen::Matrix
-//------------------------------------------------------------------------------------
-template<typename T, int R, int C>
-T QuantumEigenValue(Eigen::Matrix<T, R, C>  &mat,const int& i)
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: QuantumEigenVector
+
+  Summary:  compute the Eigen value for Eigen::Matrix.
+
+  Args:      Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mt
+  	        Eigen::Matrix.  
+
+  Returns:  T (generic type)
+              return the eigenvalues of a given matrix.
+------------------------------------------------------------------*/
+template<typename T>
+T QuantumEigenValue(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  &mat,const int& i)
 {
-	Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T, R, C> > eigensolver(mat);
+	Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> > eigensolver(mat);
    
 	if (eigensolver.info() != Eigen::Success) abort();
    
 	return eigensolver.eigenvalues()[i];
 }
-//--------------------------------------------------------------------------
-//##############	ket dual Conjugate	#########################
-//--------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: DualConj
+  Summary:  transform the Ket vector into it's Bra dual Conjugate.
+  Args:     Ket<T> &ket
+  		generic Ket vecotr called by reference.
+  Returns:  Bra<T>
+              generic Bra vector.
+-------------------------------------------------------------------*/
 template <typename T>
-bra<T> DualConj(const ket<T> &kt)
+Bra<T> DualConj(const Ket<T> &ket)
 {
-	bra<T> res(kt.rows());
+	Bra<T> resulted_bra(ket.rows());
         /*
-	for (int i=0; i<kt.rows(); i++)
+	for (int i=0; i<ket.rows(); i++)
     	{
-		res(i) = std::conj(kt(i));
+		resulted_bra(i) = std::conj(ket(i));
 	}
-	return res;
+	return resulted_bra;
 	*/
-	res << kt.adjoint();
-	return res;
+	resulted_bra << ket.adjoint();
+	return resulted_bra;
 }
-//--------------------------------------------------------------------------
-//#############	bra dual Conjugate	#########################
-//--------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: DualConj
+  Summary:  transform the Bra vector into it's Ket dual Conjugate.
+  Args:     Bra<T> &bra
+  		generic Bra vecotr called by reference.
+  Returns:  Ket<T>  
+              generic Ket vector.
+-------------------------------------------------------------------*/
 template <typename T>
-ket<T> DualConj(const bra<T> &br)
+Ket<T> DualConj(const Bra<T> &bra)
 {
-	ket<T> res(br.cols());
-        /*
-	for (int i=0; i<b.cols(); i++)
-	{
-		res(i) = std::conj(b(i));
-	}
-	return res;
-	*/
-	res<<br.adjoint();
-	return res;
+	Ket<T> resulted_ket(bra.cols());
+	resulted_ket << bra.adjoint();
+	return resulted_ket;
 }
-//--------------------------------------------------------------------------
-//#############	Bra-Ket		#########################
-//--------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: BraKet
+  Summary:   Scalar product for Bra and Ket vectors.
+  Args:     Bra<T>& bra
+              a generic type Bra vector called by reference.
+            Ket<T>& ket
+              a generic type Ket vector called by reference.
+  Returns:  T
+              generic type it can be int, double or complex. 
+-------------------------------------------------------------------*/
 template <typename T> 
-T BraKet(const bra<T> &br, const ket<T> &kt)
+T BraKet(const Bra<T> &bra, const Ket<T> &ket)
 {     
-	if(br.cols()!=kt.rows()){ throw std::invalid_argument("dimensions do not match."); }
+	if(bra.cols()!=ket.rows()){ throw std::invalid_argument("dimensions do not match."); }
 	/*
 	T sum = static_cast<T>(0.0);
 
-	for(int i = 0; i < br.rows(); ++i)
+	for(int i = 0; i < bra.rows(); ++i)
 	{
-		for(int j = 0; j < kt.cols(); ++j)
+		for(int j = 0; j < ket.cols(); ++j)
 		{
-			for(int k = 0; k < (br.rows()*br.cols()); ++k)
+			for(int k = 0; k < (bra.rows()*bra.cols()); ++k)
     			{
-   	        		sum += br(i,k) * kt(k,j);
+   	        		sum += bra(i,k) * ket(k,j);
             		}	
         	}
     	}
 	return sum; 
 	*/
-	return br*kt;   
+	return bra*ket;   
 }
  
 #endif // BRAKET_TPP

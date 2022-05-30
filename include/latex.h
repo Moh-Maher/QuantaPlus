@@ -1,5 +1,5 @@
 /*******************************************************************************************
- generate latex files for results output 
+ generate LaTex files for results output 
 
 by:  Mohammed Maher Abdelrahim Mohammed
      UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
@@ -11,17 +11,17 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<cmath>
 
 
-class latex {
+class LaTex {
 	private:
 		std::ofstream ofile;
 		std::string file_path;
 
 	public: 
 				
-		latex(): file_path("output/default.tex") {}
-		latex(std::string filename): file_path(filename) {}	
+		LaTex(): file_path("output/default.tex") {}
+		LaTex(std::string filename): file_path(filename) {}	
 		
-		void begin() 
+		void BeginLaTex() 
 		{	
 			ofile.open(file_path);
 			ofile<<"\\documentclass[10pt,a4paper]{article}\n";
@@ -36,27 +36,27 @@ class latex {
 			ofile.close();
 		}
 	
-		void end()
+		void EndLaTex()
 		{
 			ofile.open(file_path,std::ios_base::app);
 			ofile<<"\\end{document}\n";
 			ofile.close();
 		}
 
-		void typing(std::string text)
+		void Typing(std::string text)
 		{
 			ofile.open(file_path,std::ios_base::app);
 			ofile<<text;
 			ofile.close();
 		}
-		void TolaTex(const char* fmt...);
-		void operation(const char* fmt...);
+		void ToLaTex(const char* fmt...);
+		void MathOperation(const char* fmt...);
 };
 //=================================================================================
 //--------------------------------------------------------------------------
-// convert latex output
+// convert LaTex output
 //--------------------------------------------------------------------------
-void latex::TolaTex(const char* fmt...)
+void LaTex::ToLaTex(const char* fmt...)
 {	
 	va_list args;
 	va_start(args, fmt);
@@ -67,7 +67,7 @@ void latex::TolaTex(const char* fmt...)
 	while (*fmt != '\0') {       
 		if (*fmt == 'k') {
 			
-			ket<std::complex<double>> mt = va_arg(args, ket<std::complex<double>>);
+			Ket<std::complex<double>> mt = va_arg(args, Ket<std::complex<double>>);
 
 	    		ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
@@ -99,7 +99,7 @@ void latex::TolaTex(const char* fmt...)
 		}
 		else if (*fmt == 'b') {
 			
-			bra<std::complex<double>> mt = va_arg(args, bra<std::complex<double>>);
+			Bra<std::complex<double>> mt = va_arg(args, Bra<std::complex<double>>);
 
 			ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
@@ -175,9 +175,9 @@ void latex::TolaTex(const char* fmt...)
 }
 
 //--------------------------------------------------------------------------
-// convert latex output operations
+// convert LaTex output operations
 //--------------------------------------------------------------------------
-void latex::operation(const char* fmt...)
+void LaTex::MathOperation(const char* fmt...)
 {	
 	va_list args;
 	va_start(args, fmt); 
@@ -188,7 +188,7 @@ void latex::operation(const char* fmt...)
 	while (*fmt != '\0') {       
 		if (*fmt == 'k') {
 			
-			ket<std::complex<double>> mt = va_arg(args, ket<std::complex<double>>);
+			Ket<std::complex<double>> mt = va_arg(args, Ket<std::complex<double>>);
 			
 	    		ofile<<"\\begin{pmatrix}\n";
 			for(int i =0; i<mt.rows(); i++)
@@ -221,7 +221,7 @@ void latex::operation(const char* fmt...)
 		}
 		else if (*fmt == 'b') {
 			
-			bra<std::complex<double>> mt = va_arg(args, bra<std::complex<double>>);
+			Bra<std::complex<double>> mt = va_arg(args, Bra<std::complex<double>>);
  
 			//ofile<<"[\\,\\quad";
 			ofile<<"\\begin{pmatrix}\n";

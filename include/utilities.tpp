@@ -14,7 +14,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 // convert numbers to string
 //--------------------------------------------------------------------------
 template <typename T>
-std::string ToString(T numb)
+std::string ToString(const T& numb)
 {
     std::stringstream ss;
     ss << numb;
@@ -66,7 +66,7 @@ long long gcd(long long a, long long b)
 //--------------------------------------------------------------------------
 //	Function to convert decimal to fraction
 //--------------------------------------------------------------------------
-void decimalToFraction(double number)
+void DecimalToFraction(double number)
 {
     // Fetch integral value of the decimal
     double intVal = floor(number);
@@ -105,7 +105,7 @@ void StringMatrix(int r, int c, double *array)
     {
         for(int j =0; j<c; j++)
         {
-            decimalToFraction(array[j+i*c]);
+            DecimalToFraction(array[j+i*c]);
             std::cout<<"\t";
         } 
         std::cout<<"\n";
@@ -114,7 +114,7 @@ void StringMatrix(int r, int c, double *array)
 //--------------------------------------------------------------------------
 //	Function to check if the input is an integer. 
 //--------------------------------------------------------------------------
-bool isNumber(const std::string& str) 
+bool IsNumber(const std::string& str) 
 {
     return str.find_first_not_of( "0123456789" ) == std::string::npos;
 }

@@ -43,13 +43,13 @@ int main()
 	cout<<"******************[Right hand side ]*************************"<<endl;
 
 	rhs << -1i*f_ijk * f7;
-	result_printf(rhs);
+	ResultPrint(rhs);
 	cout<<endl;
 
 	cout<<"******************[Left hand side ]*************************"<<endl;
 
 	com_res << Commute(f3,f6);
-	result_printf(com_res);
+	ResultPrint(com_res);
 	cout<<"\n";
 
 	if(com_res == rhs)

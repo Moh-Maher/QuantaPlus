@@ -36,21 +36,21 @@ QM_operator<T>::~QM_operator(){};
 
 
 //--------------------------------------------------------------------------
-//		Angular_Momentum defult constructor
+//		AngularMomentum defult constructor
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T>::Angular_Momentum():QM_operator<T>(){}
+AngularMomentum<T>::AngularMomentum():QM_operator<T>(){}
 //--------------------------------------------------------------------------
-//	Constructor for Angular_Momentum matrix of a given rows and cols
+//	Constructor for AngularMomentum matrix of a given rows and cols
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T>::Angular_Momentum(int row, int col):
+AngularMomentum<T>::AngularMomentum(int row, int col):
 	QM_operator<T>(row,col){} 
 //--------------------------------------------------------------------------
-//		Angular_Momentum destructor
+//		AngularMomentum destructor
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T>::~Angular_Momentum(){ }
+AngularMomentum<T>::~AngularMomentum(){ }
 //---------------------------------------------------------------------------
 //		commutation relation: [A,B] = A*B - B*A
 //---------------------------------------------------------------------------
@@ -92,10 +92,10 @@ const double hBar = 1.; //6.58211899 * 1.e-16;
 //-------------------------------------------------------------------------------------------
 //           Magnatic_Quantum_Number : m which is run from -j to j. (-j<= m <= j).                      
 //-------------------------------------------------------------------------------------------
-void Magnetic_Quantum_Number(const double &j)
+void MagneticQuantumNumber(const double &j)
 {    
-	double sp = j;
-	if(SpinValidation(sp))
+	double spin = j;
+	if(SpinValidation(spin))
 	{
 		double m[int(2*j+1)]={};
 		for(auto i =-j; i<=j; i++)
@@ -104,7 +104,7 @@ void Magnetic_Quantum_Number(const double &j)
 		}
 		for(int i =0;i<int(2*j+1);i++)
 		{   
-			decimalToFraction(m[i]); // [source utilities.h ]
+			DecimalToFraction(m[i]); // [source utilities.h ]
 			std::cout<<"\t";
 		}
 		std::cout<<std::endl;
@@ -192,7 +192,7 @@ bool SpinValidation(double &j)
 	bool flag = false;
 	std::string strj = ToString(jTimes2); //ToString->> [source utilities.h]
 
-	if(j>=0 && isNumber(strj) ) // isNumber ->> [source utilities.h]
+	if(j>=0 && IsNumber(strj) ) // IsNumber ->> [source utilities.h]
 	{
 		return true;
 	}
@@ -203,7 +203,7 @@ bool SpinValidation(double &j)
 //		J- Angular Momentum perator
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJSqr(const double &j)
+AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JSquare(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -229,7 +229,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJSqr(const dou
 	else{
 		throw std::invalid_argument("the system has physically invalid spin!.");
 	}
-	Angular_Momentum<T> temp(max,max);
+	AngularMomentum<T> temp(max,max);
 	for(int i=0; i<max; i++)
 	{
 		for(int j=0; j<max; j++)
@@ -244,7 +244,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJSqr(const dou
 //		Jx Angular Momentum perator
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJx(const double &j)
+AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jx(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -274,7 +274,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJx(const doubl
 		throw std::invalid_argument("the system has physically invalid spin!.");
 	} 
 	
-	Angular_Momentum<T> temp(max,max);
+	AngularMomentum<T> temp(max,max);
 	for(int i=0; i<max; i++)
 	{
 		for(int j=0; j<max; j++)
@@ -288,7 +288,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJx(const doubl
 //		Jy Angular Momentum perator
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJy(const double &j)
+AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jy(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -316,7 +316,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJy(const doubl
 		throw std::invalid_argument("the system has physically invalid spin!.");
 	}
 	 
-	Angular_Momentum<T> temp(max,max);
+	AngularMomentum<T> temp(max,max);
 	for(int i=0; i<max; i++)
 	{
 		for(int j=0; j<max; j++)
@@ -331,7 +331,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJy(const doubl
 //		Jz Angular Momentum perator
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJz(const double &j)
+AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jz(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -358,7 +358,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJz(const doubl
 	{
 		throw std::invalid_argument("the system has physically invalid spin!.");
 	} 
-	Angular_Momentum<T> temp(max,max);
+	AngularMomentum<T> temp(max,max);
 	for(int i=0; i<max; i++)
 	{
 		for(int j=0; j<max; j++)
@@ -373,7 +373,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJz(const doubl
 //		J+ Angular Momentum perator
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJPlus(const double &j)
+AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JPlus(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -400,7 +400,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJPlus(const do
 	{
 		throw std::invalid_argument("the system has physically invalid spin!.");
 	} 
-	Angular_Momentum<T> temp(max,max);
+	AngularMomentum<T> temp(max,max);
 	for(int i=0; i<max; i++)
 	{
 		for(int j=0; j<max; j++)
@@ -415,7 +415,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJPlus(const do
 //		J- Angular Momentum perator
 //--------------------------------------------------------------------------
 template <class T>
-Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJMinus(const double &j)
+AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JMinus(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -442,7 +442,7 @@ Angular_Momentum<T> Angular_Momentum<T>::Angular_Momentum_OperatorJMinus(const d
 	{
 		throw std::invalid_argument("the system has physically invalid spin!.");
 	} 
-	Angular_Momentum<T> temp(max,max);
+	AngularMomentum<T> temp(max,max);
 	for(int i=0; i<max; i++)
 	{
 		for(int j=0; j<max; j++)
@@ -473,11 +473,11 @@ return  A.exp()*V;
 //--------------------------------------------------------------------------
 
 template <class T>
-Angular_Momentum<T> Angular_Momentum<T>:: RotationByAngle(const double &a)
+AngularMomentum<T> AngularMomentum<T>:: RotationByAngle(const double &a)
 {
  const double spin= 1./2.;
- Angular_Momentum<std::complex<double>> S_x;
- S_x = S_x.Angular_Momentum_OperatorJx(spin);
+ AngularMomentum<std::complex<double>> S_x;
+ S_x = S_x.AngularMomentum_Jx(spin);
  std::complex<double> i(0.,1.);
  return MatrixExp(i*a*S_x);
 }*/

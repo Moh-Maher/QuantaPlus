@@ -42,12 +42,11 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 //namespace QuantaPlus{
 
-void cplx_print(std::complex<double> a);
 long long gcd(long long a, long long b);
-void decimalToFraction(double number); // convert decimal to fraction
+void DecimalToFraction(double number); // convert decimal to fraction
 void StringMatrix(int r, int c, double *array); // print array elements in fractions form
 
-bool isNumber(const std::string& str); // gives True if str is an integer, and False otherwise. 
+bool IsNumber(const std::string& str); // gives True if str is an integer, and False otherwise. 
 void Warning(const std::string & str);
 
 //void TolaTex(std::string fname, std::string data);

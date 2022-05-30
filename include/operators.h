@@ -28,34 +28,34 @@ public:
 };
 
 template <class T>
-class Angular_Momentum : public QM_operator<T> 
+class AngularMomentum : public QM_operator<T> 
 {
 public:
-	Angular_Momentum();
-	Angular_Momentum(int row, int col); 
-	//Angular_Momentum(const T *data );
-	//Angular_Momentum(const Angular_Momentum<T,R,C> &amo); 
-	//Angular_Momentum(const double j); 
-	~Angular_Momentum();
+	AngularMomentum();
+	AngularMomentum(int row, int col); 
+	//AngularMomentum(const T *data );
+	//AngularMomentum(const AngularMomentum<T,R,C> &amo); 
+	//AngularMomentum(const double j); 
+	~AngularMomentum();
 
-	// Angular_Momentum<T,R,C> operator= (const Angular_Momentum<T,R,C> &amo);
-	//Angular_Momentum<T,R,C> operator * (const Angular_Momentum<T,R,C> &amo) const;
+	// AngularMomentum<T,R,C> operator= (const AngularMomentum<T,R,C> &amo);
+	//AngularMomentum<T,R,C> operator * (const AngularMomentum<T,R,C> &amo) const;
 
-	Angular_Momentum<T> Angular_Momentum_OperatorJSqr(const double &j);
-	Angular_Momentum<T> Angular_Momentum_OperatorJx(const double &j);
-	Angular_Momentum<T> Angular_Momentum_OperatorJy(const double &j);
-	Angular_Momentum<T> Angular_Momentum_OperatorJz(const double &j);
+	AngularMomentum<T> AngularMomentum_JSquare(const double& spin_value);
+	AngularMomentum<T> AngularMomentum_Jx(const double& spin_value);
+	AngularMomentum<T> AngularMomentum_Jy(const double& spin_value);
+	AngularMomentum<T> AngularMomentum_Jz(const double& spin_value);
 
-	Angular_Momentum<T> Angular_Momentum_OperatorJPlus(const double &j);
-	Angular_Momentum<T> Angular_Momentum_OperatorJMinus(const double &j);
+	AngularMomentum<T> AngularMomentum_JPlus(const double& spin_value);
+	AngularMomentum<T> AngularMomentum_JMinus(const double& spin_value);
 
-	Angular_Momentum<T> RotationByAngle(const double &a);
+	AngularMomentum<T> RotationByAngle(const double& alpha);
 
 
 };
 
 
-void   Magnetic_Quantum_Number(const double &j);  
+void   MagneticQuantumNumber(const double &j);  
 double KroneckerDelta (double i, double j);                          // δ[ij].
 double Jsqr(double j, double j1, double m1, double j2, double m2);            // The square of the angular momentum J^2.
 double Jx(double j, double j1,double m1, double j2,double m2);                // The x-component of the angular momentum operator J.

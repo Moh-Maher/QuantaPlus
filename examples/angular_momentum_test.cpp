@@ -1,11 +1,11 @@
-/*******************************************************************************************
-testing "amo".
-
-by:  Mohammed Maher Abdelrahim Mohammed
-     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
-     VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
-     mohammed.maher@unical.it                                          
-*******************************************************************************************/
+//*******************************************************************************************
+//	testing "amo".
+//
+//	by:  Mohammed Maher Abdelrahim Mohammed
+//	     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
+//	     VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
+//	     mohammed.maher@unical.it                                          
+//*******************************************************************************************
 #include<iostream>
 #include<complex>
 #include<ctime>
@@ -33,35 +33,35 @@ int main()
         const double spin= 1./2.; // 3./2.;
 	 
 	
-	Angular_Momentum<complex> S_x, S_y, S_z;
-	Angular_Momentum<complex> S_sqr, S_plus, S_minus;
+	AngularMomentum<complex> S_x, S_y, S_z;
+	AngularMomentum<complex> S_sqr, S_plus, S_minus;
        
-	S_sqr = S_sqr.Angular_Momentum_OperatorJSqr(spin);
-	S_x = S_x.Angular_Momentum_OperatorJx(spin);
-	S_y = S_y.Angular_Momentum_OperatorJy(spin);
-	S_z = S_z.Angular_Momentum_OperatorJz(spin);
-	S_plus = S_plus.Angular_Momentum_OperatorJPlus(spin);
-	S_minus = S_minus.Angular_Momentum_OperatorJMinus(spin);
+	S_sqr = S_sqr.AngularMomentum_JSquare(spin);
+	S_x = S_x.AngularMomentum_Jx(spin);
+	S_y = S_y.AngularMomentum_Jy(spin);
+	S_z = S_z.AngularMomentum_Jz(spin);
+	S_plus = S_plus.AngularMomentum_JPlus(spin);
+	S_minus = S_minus.AngularMomentum_JMinus(spin);
 
 	cout<<"For spin ";
-	decimalToFraction(spin);
+	DecimalToFraction(spin);
 	cout<<" system:\n";
 
 	cout<<"------------S_x operator:-------------\n";
-	result_printf(S_x);
+	ResultPrint(S_x);
 
 	cout<<"------------S_y operator:-------------\n";
-	result_printf(S_y);
+	ResultPrint(S_y);
 	cout<<"------------S_z operator:-------------\n";
-	result_printf(S_z);
+	ResultPrint(S_z);
 
 	cout<<"------------S^2 operator:-------------\n";
-	result_printf(S_sqr);
+	ResultPrint(S_sqr);
 
 	cout<<"------------S_+ operator:-------------\n";
-	result_printf(S_plus);
+	ResultPrint(S_plus);
 	cout<<"------------S_- operator:-------------\n";
-	result_printf(S_minus);
+	ResultPrint(S_minus);
 	
 	///<--clock stuff again
 	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
