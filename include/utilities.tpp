@@ -57,62 +57,21 @@ void MatrixToString(T &mat)
         std::cout<<std::endl;
     }
 }
-/*
-//----------------------------------------------------------------------------
-long long gcd(long long a, long long b)
-{
-    if (a == 0)
-        return b;
-    else if (b == 0)
-        return a;
-    if (a < b)
-        return gcd(a, b % a);
-    else
-        return gcd(b, a % b);
-}
-*/
 //--------------------------------------------------------------------------
 //	Function to convert decimal to fraction
 //--------------------------------------------------------------------------
-/*
-void DecimalToFraction(double number)
-{
-    // Fetch integral value of the decimal
-    double intVal = floor(number);
  
-    // Fetch fractional part of the decimal
-    double fVal = number - intVal;
- 
-    // Consider precision value to
-    // convert fractional part to
-    // integral equivalent
-    const long pVal = 1000000000;
- 
-    // Calculate GCD of integral
-    // equivalent of fractional
-    // part and precision value
-    long long gcdVal
-        = gcd(round(fVal * pVal), pVal);
- 
-    // Calculate num and deno
-    long long num
-        = round(fVal * pVal) / gcdVal;
-    long long deno = pVal / gcdVal;
- if(deno != 1){
-    // Print the fraction
-    std::cout << (intVal * deno) + num
-         << "/" << deno;
-         }
-         else{std::cout<<number;}
-}
-*/
 void DecimalToFraction(const double& decimal_number ) 
 {
-
 	int signdec  = decimal_number > 0 ? 1 : -1;
 	std::string plusorminus;
-	if(signdec>0){plusorminus="";}
-	else if(signdec<0) {plusorminus="-";}
+	
+	if(signdec>0) {
+		plusorminus="";
+	}
+	else if(signdec<0) {
+		plusorminus="-";
+	}
 	
 	if(!IsNumber(ToString(decimal_number)) && decimal_number!=0 && decimal_number!=1)
 	{
@@ -122,7 +81,6 @@ void DecimalToFraction(const double& decimal_number )
 		if(IsNumber(ToString(z))) 
 		{
 			std::cout<<plusorminus+"√"<<z;
-			//if(signdec<0) {std::cout<<"-√"<<z;}
 		}
 
 		else if (!IsNumber(ToString(z))) 
@@ -156,9 +114,6 @@ void DecimalToFraction(const double& decimal_number )
 			double dnum = vec_1[1];
 			double snumt= sqrt(numt);
 			double sdnum= sqrt(dnum);
-			//std::string plusorminus;
-			//if(signdec>0){plusorminus="";}
-			//else if(signdec<0) {plusorminus="-";}
  
 			if(IsNumber(ToString(snumt)) && IsNumber(ToString(sdnum)))
 			{
@@ -180,7 +135,7 @@ void DecimalToFraction(const double& decimal_number )
 	}
 
 	else std::cout<<decimal_number;
-	}
+}
 //--------------------------------------------------------------------------
 //	Function to convert matrix elements to fraction
 //--------------------------------------------------------------------------
