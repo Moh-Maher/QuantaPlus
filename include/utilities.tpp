@@ -110,6 +110,10 @@ void DecimalToFraction(const double& decimal_number )
 {
 
 	int signdec  = decimal_number > 0 ? 1 : -1;
+	std::string plusorminus;
+	if(signdec>0){plusorminus="";}
+	else if(signdec<0) {plusorminus="-";}
+	
 	if(!IsNumber(ToString(decimal_number)) && decimal_number!=0 && decimal_number!=1)
 	{
 	 
@@ -117,7 +121,8 @@ void DecimalToFraction(const double& decimal_number )
 
 		if(IsNumber(ToString(z))) 
 		{
-			std::cout<<"√"<<z; 
+			std::cout<<plusorminus+"√"<<z;
+			//if(signdec<0) {std::cout<<"-√"<<z;}
 		}
 
 		else if (!IsNumber(ToString(z))) 
@@ -151,43 +156,26 @@ void DecimalToFraction(const double& decimal_number )
 			double dnum = vec_1[1];
 			double snumt= sqrt(numt);
 			double sdnum= sqrt(dnum);
-			if(signdec>0)
+			//std::string plusorminus;
+			//if(signdec>0){plusorminus="";}
+			//else if(signdec<0) {plusorminus="-";}
+ 
+			if(IsNumber(ToString(snumt)) && IsNumber(ToString(sdnum)))
 			{
-				if(IsNumber(ToString(snumt)) && IsNumber(ToString(sdnum)))
-				{
-					std::cout<< snumt<<'/'<< sdnum;
-				} 
+				std::cout<<plusorminus<<snumt<<'/'<< sdnum;
+			} 
 
-				else if(IsNumber(ToString(snumt)) && (!IsNumber(ToString(sdnum))) )
-				{
-					std::cout<< snumt<<'/'<<"√"<< vec_1[1];
-				}
-				else if( !IsNumber(ToString(snumt)) && (IsNumber(ToString(sdnum))) )
-				{
-					std::cout<<"√"<< sign * vec_1[0]<<'/'<< sdnum;
-				}
-				else 
-				std::cout<<"√("<< sign * vec_1[0]<<'/'<< vec_1[1]<<")";
-			}
-			
-			else if(signdec<0)
+			else if(IsNumber(ToString(snumt)) && (!IsNumber(ToString(sdnum))) )
 			{
-				if(IsNumber(ToString(snumt)) && IsNumber(ToString(sdnum)))
-				{
-					std::cout<< "-"<<snumt<<'/'<< sdnum;
-				} 
-
-				else if(IsNumber(ToString(snumt)) && (!IsNumber(ToString(sdnum))) )
-				{
-					std::cout<< snumt<<'/'<<"-√"<< vec_1[1];
-				}
-				else if( !IsNumber(ToString(snumt)) && (IsNumber(ToString(sdnum))) )
-				{
-					std::cout<<"-√"<< sign * vec_1[0]<<'/'<< sdnum;
-				}
-				else 
-				std::cout<<"-√("<< sign * vec_1[0]<<'/'<< vec_1[1]<<")";
+				std::cout<< snumt<<'/'<<plusorminus+"√"<< vec_1[1];
 			}
+			else if( !IsNumber(ToString(snumt)) && (IsNumber(ToString(sdnum))) )
+			{
+				std::cout<<plusorminus+"√"<< sign * vec_1[0]<<'/'<< sdnum;
+			}
+			else 
+			std::cout<<plusorminus+"√("<< sign * vec_1[0]<<'/'<< vec_1[1]<<")";
+	 
 		}
 	}
 
