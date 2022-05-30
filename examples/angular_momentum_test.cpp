@@ -30,7 +30,7 @@ int main()
  	cout<<"Insert valid spin: (e.g 1/2, 3/2, 5/2,...) \n";
  	std::cin>>spin;
  	*/
-        const double spin= 1./2.; // 3./2.;
+        const double spin= 3./2.; // 3./2.;
 	 
 	
 	AngularMomentum<complex> S_x, S_y, S_z;

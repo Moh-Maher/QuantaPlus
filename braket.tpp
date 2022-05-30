@@ -82,7 +82,7 @@ inline void ComplexNumPrint(std::complex<double> complex_number)
 {
 	double real_part = std::real(complex_number);
 	double imaginary_part = std::imag(complex_number);   
-	if( real_part != 0 && imaginary_part != 0 )
+	if( real_part != 0 and imaginary_part != 0 )
     	{
         	if( imaginary_part < 0 )
         	{
@@ -103,7 +103,7 @@ inline void ComplexNumPrint(std::complex<double> complex_number)
 	}
    	else if (imaginary_part == 0 )
     	{   
-        	//std::cout<<real_part<<"\t";
+        	std::cout<<real_part<<"\t";
         	DecimalToFraction(real_part);
         	std::cout<<"\t";
            

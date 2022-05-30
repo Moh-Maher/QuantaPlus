@@ -42,8 +42,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 //namespace QuantaPlus{
 
-long long gcd(long long a, long long b);
-void DecimalToFraction(double number); // convert decimal to fraction
+//long long gcd(long long a, long long b);
+void DecimalToFraction(const double& decimal_number);//void DecimalToFraction(double number); // convert decimal to fraction
 void StringMatrix(int r, int c, double *array); // print array elements in fractions form
 
 bool IsNumber(const std::string& str); // gives True if str is an integer, and False otherwise. 
