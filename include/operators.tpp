@@ -145,13 +145,18 @@ std::complex<double>  Jy(double j, double j1,double m1, double j2,double m2)
 
 	res1 = sqrt(j*(j+1)-m2*(m2+1))* KroneckerDelta(m1,m2+1);
 	res2 =   sqrt(j*(j+1)-m2*(m2-1))*  KroneckerDelta(m1,m2-1);
-	return hBar*(-0.5*Im)*(res1-res2)*KroneckerDelta(j1,j2);
+	//return hBar*(-0.5*Im)*(res1-res2)*KroneckerDelta(j1,j2);
+	return hBar*(1./(2.*Im))*(res1-res2)*KroneckerDelta(j1,j2);
 }
 //-------------------------------------------------------------------------------------------
 // 		The z-component of the angular momentum operator J: 
 //			 <j',m'|J_Z|j, m> =  mℏ δ[j'j] * δ[m'm]. 
 //-------------------------------------------------------------------------------------------
 double Jz(double j, double j1, double m1, double j2, double m2)
+{
+	return hBar*m2 * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);
+}
+double Jz(double j1, double m1, double j2, double m2)
 {
 	return hBar*m2 * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);
 }
@@ -342,16 +347,17 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jz(const double &j)
 		double M[max]={};
 		for(auto i =-j; i<=j; i++)
 		{
-	    		M[abs(int(j+i))]=i;   
+	    		M[abs(int(j+i))]=-i;   
 		}
 	     
-		for(int i=0;i<max;i++)
-		{
+		//for(int i=0;i<max;i++)
+		//{
 	    		for(int k=0;k<max;k++)
 	    		{   
-				temarr[k+(i*max)] = Jz(j,j,-M[i],j,-M[k]);
+				//temarr[k+(i*max)] = Jz(M[i],j,M[k],j,M[i]);
+				temarr[k+(k*max)] = Jz(j,M[k],j,M[k]);
 	    		}
-		}	
+		//}	
 	}
 
 	else
@@ -364,6 +370,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jz(const double &j)
 		for(int j=0; j<max; j++)
 		{
 	    		temp(i,j)= temarr[j+i*max];
+	    	       // temp(i,j)= temarr[i+j];
 		}
 	}
 

@@ -73,7 +73,7 @@ void DecimalToFraction(const double& decimal_number )
 		plusorminus="-";
 	}
 	
-	if(!IsNumber(ToString(decimal_number)) && decimal_number!=0 && decimal_number!=1)
+	if(!IsNumber(ToString(decimal_number)) && decimal_number!=0 && decimal_number!=1.  && decimal_number!=-1. )
 	{
 	 
 		double z = decimal_number*decimal_number;
@@ -122,7 +122,7 @@ void DecimalToFraction(const double& decimal_number )
 
 			else if(IsNumber(ToString(snumt)) && (!IsNumber(ToString(sdnum))) )
 			{
-				std::cout<< snumt<<'/'<<plusorminus+"√"<< vec_1[1];
+				std::cout<<plusorminus<<snumt<<'/'<<"√"<< vec_1[1];
 			}
 			else if( !IsNumber(ToString(snumt)) && (IsNumber(ToString(sdnum))) )
 			{
