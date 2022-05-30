@@ -13,10 +13,10 @@
 *******************************************************************************************/
 //#include"braket.h"
 //#pragma once
-#ifndef BRAKET_TPP
-#define BRAKET_TPP
+#ifndef QUANTAPLUS_INCLUDE_BRAKET_TPP
+#define QUANTAPLUS_INCLUDE_BRAKET_TPP
 
-#ifndef BRAKET_H
+#ifndef QUANTAPLUS_INCLUDE_BRAKET_H
 #error __FILE__ should only be included from braket.h.
 #endif // BRAKET_H
 

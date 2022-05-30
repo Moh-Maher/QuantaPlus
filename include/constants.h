@@ -9,8 +9,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          
 ************************************************************************/ 
 //#pragma once
-#ifndef CONSTANTS_H
-#define CONSTANTS_H
+#ifndef QUANTAPLUS_INCLUDE_CONSTANTS_H
+#define QUANTAPLUS_INCLUDE_CONSTANTS_H
 #include<cmath>
 #include<complex>
 

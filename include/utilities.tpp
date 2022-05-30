@@ -9,10 +9,10 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #pragma once
 #include<iostream>
 #include<cmath>
-#ifndef UTILITIES_TTP
-#define UTILITIES_TTP
+#ifndef QUANTAPLUS_INCLUDE_UTILITIES_TTP
+#define QUANTAPLUS_INCLUDE_UTILITIES_TTP
 
-#ifndef UTILITIES_TTP
+#ifndef QUANTAPLUS_INCLUDE_UTILITIES_TTP
 #error __FILE__ should only be included from utilities.h.
 #endif // UTILITIES_H
 //--------------------------------------------------------------------------

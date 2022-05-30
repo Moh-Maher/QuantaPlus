@@ -11,8 +11,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
 //#pragma once
-#ifndef OPERATORS_H
-#define OPERATORS_H
+#ifndef QUANTAPLUS_INCLUDE_OPERATORS_H
+#define QUANTAPLUS_INCLUDE_OPERATORS_H
 //#include <unsupported/Eigen/MatrixFunctions>
 #include <Eigen/Dense>
 #include"utilities.h"

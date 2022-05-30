@@ -12,8 +12,8 @@
        	     mohammed.maher@unical.it  
 ###########################################################################*/
 //#pragma once
-#ifndef BRAKET_H
-#define BRAKET_H
+#ifndef QUANTAPLUS_INCLUDE_BRAKET_H
+#define QUANTAPLUS_INCLUDE_BRAKET_H
 #include <Eigen/Dense>
 #include <algorithm>
 #include <cstdarg>
@@ -23,7 +23,7 @@
 /***************************************************************************
   Class:    Ket.
 
-  Summary:  Ket is a public derived from the well designed Eigen::Matrix class. 
+  Summary:  Ket is a publicly derived class from the well designed Eigen::Matrix. 
 	    Ket vectors represent matrices with one column and Dynamic-size rows,
 
   Methods:  MyMethodOne
@@ -47,7 +47,7 @@ public:
 /***************************************************************************
   Class:    Bra.
 
-  Summary:  Bra is a public derived from the well designed Eigen::Matrix class. 
+  Summary:  Bra is a publicly derived class from the well designed Eigen::Matrix. 
 	    Bra vectors are matrices with one row, and Dynamic-size column.
 
   Methods:  MyMethodOne

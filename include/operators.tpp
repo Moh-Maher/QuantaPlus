@@ -9,10 +9,10 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
 //#pragma once
-#ifndef OPERATORS_TPP
-#define OPERATORS_TPP
+#ifndef QUANTAPLUS_INCLUDE_OPERATORS_TPP
+#define QUANTAPLUS_INCLUDE_OPERATORS_TPP
 
-#ifndef OPERATORS_H
+#ifndef QUANTAPLUS_INCLUDE_OPERATORS_H
 #error __FILE__ should only be included from operators.h.
 #endif // OPERATORS_H
 

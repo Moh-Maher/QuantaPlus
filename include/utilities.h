@@ -7,8 +7,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          
 **************************************************************************************/
 //#pragma once
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#ifndef QUANTAPLUS_INCLUDE_UTILITIES_H
+#define QUANTAPLUS_INCLUDE_UTILITIES_H
 
 #include<string>
 #include<sstream>

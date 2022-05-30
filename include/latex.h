@@ -7,18 +7,15 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          
 =================================================================================*/
 //#pragma once
-#ifndef LATEX_H
-#define LATEX_H
+#ifndef QUANTAPLUS_INCLUDE_LATEX_H
+#define QUANTAPLUS_INCLUDE_LATEX_H
 #include<iostream>
 #include<cmath>
 #include"utilities.h"
-
- 
 /*********************************************************************************
   Class:    LaTex.
 
-  Summary:  Ket is a public derived from the well designed Eigen::Matrix class. 
-	    Ket vectors represent matrices with one column and Dynamic-size rows,
+  Summary:  generate LaTex files. 
 
   Methods:  BeginLaTex()
               set and initiate the LaTex typesetting file document class.
@@ -130,7 +127,7 @@ void LaTex::ToLaTex(const char* fmt...)
 	va_list args;
 	va_start(args, fmt);
  
-	ofile.open(file_path,std::ios_base::app);  ///<--- opern the targeted file and appending its contents 
+	ofile.open(file_path,std::ios_base::app);  ///<--- open the targeted file and appending its contents 
  
 	ofile<<"\\begin{align}\n";    ///<-------- latex command to start an equation 
 	while (*fmt != '\0') {       ///<-- while there is identifier char: detect its indicating case
@@ -195,7 +192,6 @@ void LaTex::ToLaTex(const char* fmt...)
 	ofile<<"\\end{align}\n"; ///<-------- latex command to end an equation 
 	ofile.close();
 }
-
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: MathOperation
   
