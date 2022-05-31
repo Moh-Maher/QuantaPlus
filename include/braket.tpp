@@ -344,5 +344,19 @@ T BraKet(const Bra<T> &bra, const Ket<T> &ket)
 	*/
 	return bra*ket;   
 }
- 
+//--------------------------------------------------------------------------
+//#The expectation value of given operator and normalized QM state 
+//--------------------------------------------------------------------------
+template <typename T>
+T ExpectValue(const QM_operator<T> & mat, const Ket<T> &ket)
+{    
+    Bra<T> bra;
+    bra = DualConj(ket);
+    Ket<T> toright(ket.rows());
+     toright << mat * ket;
+    T nomr = BraKet(bra,toright); 
+   // T dnomr = BraKet(bra,ket);
+   
+    return nomr;//dnomr; 
+}
 #endif // BRAKET_TPP

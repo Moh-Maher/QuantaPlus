@@ -54,7 +54,7 @@ int main()
 	LaTex mypdf("output/latex_results.tex");
 	
 	
-	mypdf.BeginLaTex();
+	mypdf.BeginLaTex(A,psi_Ket);
 	//mypdf.ToLaTex("k",psi_Ket);
 	
 	mypdf.MathOperation("tktbto","\\ket{\\psi} = ",psi_Ket,", \\bra{\\phi} = ",phi_Bra,", A = ",A);

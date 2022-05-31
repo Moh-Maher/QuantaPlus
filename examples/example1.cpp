@@ -18,6 +18,8 @@
 #include<complex>
 #include"operators.h"  //  Angular Momentum Operators
 #include"braket.h" // BraKet vectors
+#include"latex.h"
+#include"utilities.h"
  
 
 
@@ -65,11 +67,10 @@ int main()
 	cout<<"######################################################################################\n";
 	cout<<"############### (b) RHS result of the commutator: [J_x, J_y] = i* J_z ################\n";
 	cout<<"######################################################################################\n";
-	QM_operator<complex> commutatorJxJy(J_x.rows(),J_x.cols());
+	QM_operator<complex> commutatorJxJy(J_z.rows(),J_z.cols());
 	commutatorJxJy<<Commute(J_x, J_y);
 	ResultPrint(commutatorJxJy);
-  
- 
+
 	cout<<"######################################################################################\n";
 	cout<<"##### (c) <J_x> and <(J_x)^2> with respect to the state | Ket > = {0, 0, 1, 0}:  #####\n";
 	cout<<"######################################################################################\n";
@@ -77,12 +78,12 @@ int main()
 
 	complex Jx_MeanVal;
 
-	Ket<complex> KetState(4), Jx_Ket(4);
-	Bra<complex> BraState(4);
+	Ket<complex> KetState(4); //Jx_Ket(4);
+	//Bra<complex> BraState(4);
 	KetState<<0., 0., 1., 0.;
-	BraState = DualConj(KetState); //<------<Bra|: Dual conjugate of the given |Ket >.
-	Jx_Ket << J_x * KetState;       //<------------Action of  J_X  on the given |Ket >.
-	Jx_MeanVal = BraKet( BraState , Jx_Ket );//<--------- J_X mean value: <Jx> = <Bra|J_x|Ket>.
+	//BraState = DualConj(KetState); //<------<Bra|: Dual conjugate of the given |Ket >.
+	//Jx_Ket << J_x * KetState;       //<------------Action of  J_X  on the given |Ket >.
+	Jx_MeanVal = ExpectValue(J_x,KetState);//BraKet( BraState , Jx_Ket );//<--------- J_X mean value: <Jx> = <Bra|J_x|Ket>.
 
 	cout<<"<J_x>= "<<Jx_MeanVal<<endl;
 
@@ -92,9 +93,9 @@ int main()
 	Ket<complex> Jx_Sqr_Ket(4);
 
 	J_xSqr << J_x * J_x;
-	Jx_Sqr_Ket << J_xSqr*KetState; //<------------Action of (J_X)^2 on the given |Ket >.
+	//Jx_Sqr_Ket << J_xSqr*KetState; //<------------Action of (J_X)^2 on the given |Ket >.
 	//Jx_Sqr_Ket = KetState; 
-	JxSqr_MeanVal = BraKet( BraState , Jx_Sqr_Ket );//<--------- (J_X)^2 mean value: <(Jx)^2> = <Bra|(J_x)^2|Ket>.
+	JxSqr_MeanVal = ExpectValue(J_xSqr,KetState);//BraKet( BraState , Jx_Sqr_Ket );//<--------- (J_X)^2 mean value: <(Jx)^2> = <Bra|(J_x)^2|Ket>.
 
 	cout<<"<(J_x)^2> = ";
 	ResultPrint(JxSqr_MeanVal);
@@ -107,14 +108,15 @@ int main()
 	complex delta_Jx(0,0);
 
 	delta_Jx = sqrt(JxSqr_MeanVal - pow( Jx_MeanVal , 2) );
-	cout<<"Delta J_x= ";ResultPrint(delta_Jx);cout<<endl;
+cout<<"Delta J_x= ";ResultPrint(delta_Jx);cout<<endl;
+
 	//--------------------------------------------------------J_y---------------------------------------------------------------
 	cout<<"------------------Delta J_y----------------------\n";
 	complex Jy_MeanVal;
-	Ket<complex>  Jy_Ket(4);
+	//Ket<complex>  Jy_Ket(4);
 
-	Jy_Ket << J_y * KetState;
-	Jy_MeanVal = BraKet( BraState , Jy_Ket ); //<--------- J_y mean value: <Jx> = <Bra|J_y|Ket>.
+	//Jy_Ket << J_y * KetState;
+	Jy_MeanVal = ExpectValue(J_y,KetState);//BraKet( BraState , Jy_Ket ); //<--------- J_y mean value: <Jx> = <Bra|J_y|Ket>.
 
 	cout<<"<J_y>= ";
 	ResultPrint(Jy_MeanVal);
@@ -125,12 +127,12 @@ int main()
 	//cout<<"######################################################################################\n";
 	complex JySqr_MeanVal;
 	AngularMomentum<complex> J_ySqr(4,4);
-	Ket<complex> Jy_Sqr_Ket(4);
+	//Ket<complex> Jy_Sqr_Ket(4);
 
 	J_ySqr << J_y * J_y;
-	Jy_Sqr_Ket << J_ySqr * KetState;
+	//Jy_Sqr_Ket << J_ySqr * KetState;
 
-	JySqr_MeanVal = BraKet( BraState , Jy_Sqr_Ket ); //<--------- (J_y)^2 mean value: <(Jx)^2> = <Bra|(J_y)^2|Ket>.
+	JySqr_MeanVal = ExpectValue(J_ySqr,KetState);//BraKet( BraState , Jy_Sqr_Ket ); //<--------- (J_y)^2 mean value: <(Jx)^2> = <Bra|(J_y)^2|Ket>.
 
 	//cout<<"<(J_y)^2>= "<<JySqr_MeanVal<<endl;
 
@@ -153,5 +155,24 @@ int main()
 	cout<<"1/2 * |<[ J_x, J_y]>|= "<<rhs<<endl;
 	if(std::real(lhs) >= std::real(rhs)) {cout<<"satisfies Heisenberg’s uncertainty principle!\n";}
 	*/
+	
+	LaTex mypdf("output/example1.tex");
+	
+	
+mypdf.BeginLaTex();
+mypdf.Typing("(a) matrices representing the operator: $J^2, J_X, J_y$ and $J_z$ in the $\\ket{3/2, m}$ basis.");
+mypdf.MathOperation("to","J^2 = ",J2);
+mypdf.MathOperation("to","J_x = ",J_x);
+mypdf.MathOperation("to","J_y = ",J_y);
+mypdf.MathOperation("to","J_z = ",J_z);
+mypdf.Typing("(b) RHS result of the commutator: $[J_x,J_y]=i*J_z$");
+mypdf.MathOperation("to","[J_x,J_y] = ",commutatorJxJy);
+mypdf.Typing("(c) $<J_x>$ and $<(J_x)^2>$ with respect to the state $\\Ket{\\psi} = (0, 0, 1, 0)$:");
+mypdf.MathOperation("tn","<J_x> = ",Jx_MeanVal);
+mypdf.MathOperation("tn","<J_x^2> = ",JxSqr_MeanVal);
+mypdf.Typing("(d) $\\delta J_x$ and $\\delta J_y$ with respect to the state $\\Ket{\\psi} = (0, 0, 1, 0)$:");
+mypdf.MathOperation("tn"," \\delta J_x = ",delta_Jx);
+mypdf.MathOperation("tn"," \\delta J_y = ",delta_Jy);
+mypdf.EndLaTex();
 	return 0;
 }
