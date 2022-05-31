@@ -17,7 +17,7 @@
 #include <Eigen/Dense>
 #include <algorithm>
 #include <cstdarg>
-
+#include"operators.h"
 //namespace QuantaPlus {
 
 /***************************************************************************

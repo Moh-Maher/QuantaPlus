@@ -12,6 +12,7 @@
 #include"utilities.h"
 #include"operators.h"
 #include"braket.h"
+#include"latex.h"
 
 	typedef std::complex<double>  complex;
 	using std::cout;
@@ -30,7 +31,7 @@ int main()
  	cout<<"Insert valid spin: (e.g 1/2, 3/2, 5/2,...) \n";
  	std::cin>>spin;
  	*/
-        const double spin= 3./2.; // 3./2.;
+        const double spin= 5./2.;//3./2.; // 3./2.;
 	 
 	
 	AngularMomentum<complex> S_x, S_y, S_z;
@@ -62,6 +63,17 @@ int main()
 	ResultPrint(S_plus);
 	cout<<"------------S_- operator:-------------\n";
 	ResultPrint(S_minus);
+	
+	
+	LaTex mypdf("output/Angular_Momentum.tex");
+	
+	
+	mypdf.BeginLaTex();
+	mypdf.Typing("For spin $"+Explicit(spin)+"$ system:");
+	mypdf.MathOperation("to","J_x = ",S_x);
+	mypdf.MathOperation("to","J_y = ",S_y);
+	mypdf.MathOperation("to","J_z = ",S_z);
+	mypdf.EndLaTex();
 	
 	///<--clock stuff again
 	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;

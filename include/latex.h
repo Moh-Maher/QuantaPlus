@@ -81,6 +81,93 @@ class LaTex {
 		void ToLaTex(const char* fmt...);
 		void MathOperation(const char* fmt...);
 };
+
+//--------------------------------------------------------------------------
+//	Function to convert decimal to fraction
+//--------------------------------------------------------------------------
+ 
+std::string  Explicit(const double& decimal_number) 
+{
+	int signdec  = decimal_number > 0 ? 1 : -1;
+	std::string plusorminus;
+	std::string resulted_string;
+	if(signdec>0) {
+		plusorminus="";
+	}
+	else if(signdec<0) {
+		plusorminus="-";
+	}
+	
+	if(!IsNumber(ToString(abs(decimal_number))) && decimal_number!=0 && decimal_number!=1.  && decimal_number!=-1. )
+	{
+	 
+		double z = decimal_number*decimal_number;
+
+		if(IsNumber(ToString(z))) 
+		{
+			//std::cout<<plusorminus+"\sqrt{"<<z;
+			resulted_string =plusorminus+"\\sqrt{"+ToString(z)+"}";
+		}
+
+		else if (!IsNumber(ToString(z))) 
+		{ 
+			int cycles = 10;
+			double precision = 5e-4;  
+			double number = z;
+
+			int sign  = number > 0 ? 1 : -1;
+			number = number * sign; //abs(number);
+			double new_number,whole_part;
+			double decimal_part =  number - (int)number;
+			int counter = 0;
+
+			std::valarray<double> vec_1{double((int) number), 1}, vec_2{1,0}, temporary;
+
+			while(decimal_part > precision & counter < cycles)
+			{
+				new_number = 1 / decimal_part;
+				whole_part = (int) new_number;
+
+				temporary = vec_1;
+				vec_1 = whole_part * vec_1 + vec_2;
+				vec_2 = temporary;
+
+				decimal_part = new_number - whole_part;
+				counter += 1;
+			}
+
+			double numt = sign * vec_1[0];
+			double dnum = vec_1[1];
+			double snumt= sqrt(numt);
+			double sdnum= sqrt(dnum);
+ 
+			if(IsNumber(ToString(snumt)) && IsNumber(ToString(sdnum)))
+			{
+				//std::cout<<plusorminus<<snumt<<'/'<< sdnum;
+				resulted_string =plusorminus+"\\frac{"+ToString(snumt)+"}{"+ToString(sdnum)+"}";
+			} 
+
+			else if(IsNumber(ToString(snumt)) && (!IsNumber(ToString(sdnum))) )
+			{
+				//std::cout<<plusorminus<<snumt<<'/'<<"\sqrt{"<< vec_1[1];
+				resulted_string =plusorminus+"\\frac{"+ToString(snumt)+"}{\\sqrt{"+ToString(vec_1[1])+"}}";
+			}
+			else if( !IsNumber(ToString(snumt)) && (IsNumber(ToString(sdnum))) )
+			{
+				//std::cout<<plusorminus+"\sqrt{"<< sign * vec_1[0]<<'/'<< sdnum;
+				resulted_string =plusorminus+"\\frac{\\sqrt{"+ToString(sign * vec_1[0])+"}}{"+ToString(sdnum)+"}";
+			}
+			else 
+			//std::cout<<plusorminus+"\sqrt{("<< sign * vec_1[0]<<'/'<< vec_1[1]<<")";
+				resulted_string =plusorminus+"\\sqrt{\\frac{"+ToString(sign * vec_1[0])+"}{"+ToString(sdnum)+"}}";
+	 
+		}
+	}
+
+	else resulted_string=ToString(decimal_number);//std::cout<<decimal_number;
+
+return resulted_string;
+}
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: RealAndImaginary
   
@@ -96,21 +183,30 @@ std::string RealAndImaginary(double x, double y, std::string separator)
 	if(x!=0 and y!=0) {
 		
 		if(y<0) {		
-			resulted_string = ToString(x)+ToString(y)+"i"+separator;
+			//resulted_string = ToString(x)+ToString(y)+"i"+separator;
+			if(y==-1){resulted_string = Explicit(x)+"-i"+separator;}
+			else resulted_string = Explicit(x)+Explicit(y)+"i"+separator;
 		}
 
 		else if(y>0) {
-			resulted_string = ToString(x)+"+"+ToString(y)+"i"+separator;
+			//resulted_string = ToString(x)+"+"+ToString(y)+"i"+separator;
+			if(y==1){resulted_string =Explicit(x)+"+ i"+separator;}
+			else resulted_string = Explicit(x)+"+"+Explicit(y)+"i"+separator;
 		}
 	}
 	else if(y==0) {   
-		resulted_string = ToString(x)+separator; 
+		//resulted_string = ToString(x)+separator; 
+		resulted_string = Explicit(x)+separator;
 	}
 	else if(x==0){
-		resulted_string = ToString(y)+"i"+separator; 
+		//resulted_string = ToString(y)+"i"+separator;
+		if(y==-1){resulted_string ="-i"+separator;}
+		else if(y==1){resulted_string =" i"+separator;} 
+		else resulted_string = Explicit(y)+"i"+separator; 
 	}
 	return  resulted_string;
 }
+
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: ToLaTex
   
@@ -256,7 +352,7 @@ void LaTex::MathOperation(const char* fmt...)
 				{
 					double x = std::real(mt(i,j));
 					double y = std::imag(mt(i,j));
-					ofile<<RealAndImaginary(x,y," &");  
+					ofile<<RealAndImaginary(x,y,"&");  
 		    		}
 		    		ofile<<"\\\\";
 		    	} 

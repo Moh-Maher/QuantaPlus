@@ -73,7 +73,7 @@ void DecimalToFraction(const double& decimal_number )
 		plusorminus="-";
 	}
 	
-	if(!IsNumber(ToString(decimal_number)) && decimal_number!=0 && decimal_number!=1.  && decimal_number!=-1. )
+	if(!IsNumber(ToString(abs(decimal_number))) && decimal_number!=0 && decimal_number!=1.  && decimal_number!=-1. )
 	{
 	 
 		double z = decimal_number*decimal_number;
