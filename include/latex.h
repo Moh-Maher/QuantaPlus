@@ -82,10 +82,15 @@ class LaTex {
 		void MathOperation(const char* fmt...);
 };
 
-//--------------------------------------------------------------------------
-//	Function to convert decimal to fraction
-//--------------------------------------------------------------------------
- 
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: Explicit
+  
+  Summary:   convert decimal_number into fraction form written in string format.
+  	     Note: it's a modified version of [utilities.h] "DecimalToFraction" fucntion.
+             
+  Returns:  string
+             store the output directly into string variable.
+------------------------------------------------------------------------------*/ 
 std::string  Explicit(const double& decimal_number) 
 {
 	int signdec  = decimal_number > 0 ? 1 : -1;
