@@ -12,17 +12,16 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<ctime>  
 #include"utilities.h"
 #include"latex.h"
- 
+#include"timer.h"
 	typedef std::complex<double>  complex;
 	using std::cout;
 	using std::endl;
 
 int main()
 { 
-	///<--clock stuff
-	std::clock_t start;
-	double duration;
- 	start = std::clock();
+	ElapsedTime time_count; //<--clock stuff
+	time_count.Start();
+
  
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
   
@@ -67,17 +66,7 @@ int main()
 	
 	mypdf.EndLaTex();
 	
-	
-    	///<--clock to measure execution time for gauging performance 
-	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
- 
-	if (duration < 60.0) {
-		std::cout << "Elapsed time: " << duration << " seconds" << std::endl;
-	}
- 
-	else {
-		std::cout << "Elapsed time: " << duration/60.0 << " mins" << std::endl;
-	}
+	time_count.End();
     	 
 	return 0;
 }

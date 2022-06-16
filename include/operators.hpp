@@ -9,8 +9,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
 //#pragma once
-#ifndef QUANTAPLUS_INCLUDE_OPERATORS_TPP
-#define QUANTAPLUS_INCLUDE_OPERATORS_TPP
+#ifndef QUANTAPLUS_INCLUDE_OPERATORS_HPP
+#define QUANTAPLUS_INCLUDE_OPERATORS_HPP
 
 #ifndef QUANTAPLUS_INCLUDE_OPERATORS_H
 #error __FILE__ should only be included from operators.h.

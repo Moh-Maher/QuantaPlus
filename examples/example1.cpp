@@ -20,7 +20,7 @@
 #include"braket.h" // BraKet vectors
 #include"latex.h"
 #include"utilities.h"
- 
+#include"timer.h"
 
 
 	using std::cout;
@@ -29,7 +29,10 @@
 
  
 int main()
-{
+{       
+	ElapsedTime time_count; //<--clock stuff
+	time_count.Start();
+	
 	const double j = 3./2.; ///<--- j = 3./2. or 1.5
 
 	AngularMomentum<complex> J2, J_x, J_y, J_z;
@@ -159,20 +162,23 @@ cout<<"Delta J_x= ";ResultPrint(delta_Jx);cout<<endl;
 	LaTex mypdf("output/example1.tex");
 	
 	
-mypdf.BeginLaTex();
-mypdf.Typing("(a) matrices representing the operator: $J^2, J_X, J_y$ and $J_z$ in the $\\ket{3/2, m}$ basis.");
-mypdf.MathOperation("to","J^2 = ",J2);
-mypdf.MathOperation("to","J_x = ",J_x);
-mypdf.MathOperation("to","J_y = ",J_y);
-mypdf.MathOperation("to","J_z = ",J_z);
-mypdf.Typing("(b) RHS result of the commutator: $[J_x,J_y]=i*J_z$");
-mypdf.MathOperation("to","[J_x,J_y] = ",commutatorJxJy);
-mypdf.Typing("(c) $<J_x>$ and $<(J_x)^2>$ with respect to the state $\\Ket{\\psi} = (0, 0, 1, 0)$:");
-mypdf.MathOperation("tn","<J_x> = ",Jx_MeanVal);
-mypdf.MathOperation("tn","<J_x^2> = ",JxSqr_MeanVal);
-mypdf.Typing("(d) $\\delta J_x$ and $\\delta J_y$ with respect to the state $\\Ket{\\psi} = (0, 0, 1, 0)$:");
-mypdf.MathOperation("tn"," \\delta J_x = ",delta_Jx);
-mypdf.MathOperation("tn"," \\delta J_y = ",delta_Jy);
-mypdf.EndLaTex();
+	mypdf.BeginLaTex();
+	mypdf.Typing("(a) matrices representing the operator: $J^2, J_X, J_y$ and $J_z$ in the $\\ket{3/2, m}$ basis.");
+	mypdf.MathOperation("to","J^2 = ",J2);
+	mypdf.MathOperation("to","J_x = ",J_x);
+	mypdf.MathOperation("to","J_y = ",J_y);
+	mypdf.MathOperation("to","J_z = ",J_z);
+	mypdf.Typing("(b) RHS result of the commutator: $[J_x,J_y]=i*J_z$");
+	mypdf.MathOperation("to","[J_x,J_y] = ",commutatorJxJy);
+	mypdf.Typing("(c) $<J_x>$ and $<(J_x)^2>$ with respect to the state $\\Ket{\\psi} = (0, 0, 1, 0)$:");
+	mypdf.MathOperation("tn","<J_x> = ",Jx_MeanVal);
+	mypdf.MathOperation("tn","<J_x^2> = ",JxSqr_MeanVal);
+	mypdf.Typing("(d) $\\delta J_x$ and $\\delta J_y$ with respect to the state $\\Ket{\\psi} = (0, 0, 1, 0)$:");
+	mypdf.MathOperation("tn"," \\delta J_x = ",delta_Jx);
+	mypdf.MathOperation("tn"," \\delta J_y = ",delta_Jy);
+	mypdf.EndLaTex();
+	
+	///<--clock stuff again
+	time_count.End();
 	return 0;
 }

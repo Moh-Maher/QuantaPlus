@@ -11,10 +11,10 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<cmath>
 #include <valarray> 
 #include<sstream>
-#ifndef QUANTAPLUS_INCLUDE_UTILITIES_TTP
-#define QUANTAPLUS_INCLUDE_UTILITIES_TTP
+#ifndef QUANTAPLUS_INCLUDE_UTILITIES_HPP
+#define QUANTAPLUS_INCLUDE_UTILITIES_HPP
 
-#ifndef QUANTAPLUS_INCLUDE_UTILITIES_TTP
+#ifndef QUANTAPLUS_INCLUDE_UTILITIES_H
 #error __FILE__ should only be included from utilities.h.
 #endif // UTILITIES_H
 //--------------------------------------------------------------------------
@@ -73,7 +73,7 @@ void DecimalToFraction(const double& decimal_number )
 		plusorminus="-";
 	}
 	
-	if(!IsNumber(ToString(abs(decimal_number))) && decimal_number!=0 && decimal_number!=1.  && decimal_number!=-1. )
+	if(!IsNumber(ToString(std::abs(decimal_number))) && decimal_number!=0 && decimal_number!=1.  && decimal_number!=-1. )
 	{
 	 
 		double z = decimal_number*decimal_number;
@@ -166,4 +166,4 @@ void Warning(const std::string & str)
  //std::cout<<FYEL("[")<<FRED("ERROR!:")<<FYEL(<<str<<" ]\n");
  std::cout<<FYEL("[")<<FYEL(<<str<<" ]\n");
 }
-#endif // UTILITIES_TTP
+#endif // UTILITIES_HPP

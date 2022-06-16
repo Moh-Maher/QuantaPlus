@@ -9,7 +9,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<complex>
 #include"braket.h"
 //#include"operators.h"
- #include<ctime>  
+#include"timer.h"
 //#include"utilities.h"
 //using namespace QUANTAx;
 	typedef std::complex<double>  complex;
@@ -18,15 +18,13 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 int main()
 { 
-	///<--clock stuff
-	std::clock_t start;
-	double duration;
- 	start = std::clock();
- 	///<--stop clock stuff 
+	ElapsedTime time_count; //<--clock stuff
+	time_count.Start();
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
   
 	Ket<complex> ktA(3),ktB;
-	 Bra<complex> brB(3),brA;
+	Bra<complex> brB(3),brA;
+       
         complex  BraKetAB{}, BraKetBA{};
         complex  BraKetAA{}, BraKetBB{};
 	brB << 6., 3.-1i, 5.;
@@ -42,30 +40,22 @@ int main()
     	brA = DualConj(ktA);
     	ResultPrint(brA);
     	cout<<"--------<A|B>----------"<<endl;
-    	 BraKetAB = BraKet(brA,ktB);
+    	BraKetAB = BraKet(brA,ktB);
     	ResultPrint( BraKetAB);
     	cout<<"--------<B|A>----------"<<endl;
-    	 BraKetBA = BraKet(brB,ktA);
+    	BraKetBA = BraKet(brB,ktA);
     	ResultPrint( BraKetBA);
    
-    	 BraKetAA = BraKet(brA,ktA);
-    	 BraKetBB = BraKet(brB,ktB);
+    	BraKetAA = BraKet(brA,ktA);
+    	BraKetBB = BraKet(brB,ktB);
     	cout<<"--------<A|A>--------"<<endl;
     	ResultPrint( BraKetAA);   	 
     	cout<<"--------<B|B>--------"<<endl;
     	ResultPrint( BraKetBB);
     
     	
-    	///<--clock stuff again
-	duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
- 
-	if (duration < 60.0) {
-		std::cout << "Elapsed time: " << duration << " seconds" << std::endl;
-	}
- 
-	else {
-		std::cout << "Elapsed time: " << duration/60.0 << " mins" << std::endl;
-	}
+	///<--clock stuff again
+	time_count.End();
     	 
 	return 0;
 }

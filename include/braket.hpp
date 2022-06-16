@@ -13,8 +13,8 @@
 *******************************************************************************************/
 //#include"braket.h"
 //#pragma once
-#ifndef QUANTAPLUS_INCLUDE_BRAKET_TPP
-#define QUANTAPLUS_INCLUDE_BRAKET_TPP
+#ifndef QUANTAPLUS_INCLUDE_BRAKET_HPP
+#define QUANTAPLUS_INCLUDE_BRAKET_HPP
 
 #ifndef QUANTAPLUS_INCLUDE_BRAKET_H
 #error __FILE__ should only be included from braket.h.
@@ -359,4 +359,4 @@ T ExpectValue(const QM_operator<T> & mat, const Ket<T> &ket)
    
     return nomr;//dnomr; 
 }
-#endif // BRAKET_TPP
+#endif // BRAKET_HPP

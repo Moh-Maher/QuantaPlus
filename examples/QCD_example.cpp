@@ -4,7 +4,7 @@
 #include"operators.h"
 #include"braket.h"
 //#include"constants.h"
-
+#include"timer.h"
 /*--------------------------------------------------------------------------------------------
 ->> lambda_i(l_i) [with i =1...8] where "l_i" represent Gell-Mann matrices (source: phys_conts.h ) 
 
@@ -18,7 +18,9 @@
 	using std::endl;
 
 int main()
-{
+{       
+	ElapsedTime time_count; //<--clock stuff
+	time_count.Start();
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
 
 	QM_operator<complex>  lambda3(3,3), lambda6(3,3), lambda7(3,3);
@@ -61,6 +63,6 @@ int main()
 	{
 	cout<<"FAIL!: L.H.S != R.H.S"<<endl;
 	}
-
+	time_count.End();
 	return 0;
 }

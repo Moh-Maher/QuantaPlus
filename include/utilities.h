@@ -51,6 +51,6 @@ void Warning(const std::string & str);
 
 //void TolaTex(std::string fname, std::string data);
 
-#include"utilities.tpp"
+#include"utilities.hpp"
 //}//end of namespace QuantaPlus
 #endif

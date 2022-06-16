@@ -65,6 +65,6 @@ double Jplus(double j, double j1, double m1, double j2, double m2);
 double Jminus(double j, double j1, double m1, double j2, double m2);
 bool SpinValidation(double &j);
 
-#include"operators.tpp"
+#include"operators.hpp"
 //} //end of namespace QuantaPlus
 #endif
