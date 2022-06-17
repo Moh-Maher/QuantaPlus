@@ -11,7 +11,48 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #define QUANTAPLUS_INCLUDE_LATEX_H
 #include<iostream>
 #include<cmath>
+#include<string>
+#include<map>
 #include"utilities.h"
+
+
+//map container holding the "capital/lower" Greek letters and their corresponding escape characters--
+
+//-----A,B,Γ,Δ,Ε,Ζ,Η,Θ,Ι,Κ,Λ,Μ,Ν,Ξ,Ο,Π,Ρ,Σ,Τ,Υ,Φ,Χ,Ψ,Ω----------
+//-----α,β,γ,δ,ε,ζ,η,θ,ι,κ,λ,μ,ν,ξ,ο,π,ρ,σ,τ,υ,φ,χ,ψ,ω----------
+std::map<std::string, std::string> GreekLatters = { 
+	{"Alpha","\u0391"}, {"Beta","\u0392"}, {"Gamma","\u0393"},
+	{"Delta","\u0394"}, {"Epsilon","\u0395"}, {"Zeta","\u0396"},
+	{"Eta","\u0397"}, {"Theta","\u0398"}, {"Iota","\u0399"}, 
+	{"Kappa","\u039A"}, {"Lambda","\u039B"}, {"Mu","\u039C"},
+	{"Nu","\u039D"}, {"Xi","\u039E"}, {"Omicron","\u039F"},
+	{"Pi","\u03A0"}, {"Rho","\u03A1"}, {"Sigma","\u03A3"},
+	{"Tau","\u03A4"}, {"Upsilon","\u03A5"}, {"Phi","\u03A6"},
+	{"Chi","\u03A7"}, {"Psi","\u03A8"}, {"Omega","\u03A9"}, 
+	
+	{"_alpha","\u03B1"}, {"beta", "\u03B2"}, {"gamma","\u03B3"},
+	{"delta","\u03B4"}, {"epsilon","\u03B5"}, {"zeta", "\u03B6"},
+	{"eta","\u03B7"}, {"theta","\u03B8"}, {"iota", "\u03B9"},
+	{"kappa","\u03BA"}, {"lambda","\u03BB"}, {"mu", "\u03BC"},
+	{"nu", "\u03BD"}, {"xi", "\u03BE"}, {"omicron","\u03BF"},
+	{"pi", "\u03C0"}, {"rho","\u03C1"}, {"sigma","\u03C3"},
+	{"tau","\u03C4"}, {"upsilon","\u03C5"}, {"phi","\u03C6"},
+	{"chi","\u03C7"}, {"psi","\u03C8"}, {"omega","\u03C9"}
+};
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: Greek
+  
+  Summary:  convert string name of a Greek letter into its 
+  	    equivalent Unicode escape characters to print it symbolically .  
+             
+  Returns:  string
+             store the output directly into string variable.
+------------------------------------------------------------------------------*/ 
+std::string Greek(const std::string& letter_name){
+	auto from = GreekLatters.find(letter_name);
+	return from->second;
+}
 /*********************************************************************************
   Class:    LaTex.
 
@@ -45,6 +86,13 @@ class LaTex {
 	private:
 		std::ofstream ofile;
 		std::string file_path;
+		//map container holding string function names and their corresponding laTex math commands--
+		std::map<std::string, std::string> MathFunctions = {
+		{"Exp", "\\exp"}, {"Sin", "\\sin"}, {"Cos", "\\cos"}, {"Tan", "\\tan"}, 
+		{"Log", "\\log"}, {"Ln", "\\ln"}, {"Lg", "\\lg"}, {"Cot", "\\cot"}, {"Csc", "\\csc"},
+		{"Sec", "\\sec"}, {"ASin", "\\arcsin"}, {"ACos", "\\arccos"}, {"ATan", "\\arctan"}, 
+		{"Sgn", "\\sgn"}, {"Det", "\\det"}, {"Sqrt", "\\sqrt"} 
+		};
 	public: 				
 		LaTex(): file_path("output/default.tex") {}
 		LaTex(std::string filename): file_path(filename) {}	
@@ -80,10 +128,10 @@ class LaTex {
 		
 		void ToLaTex(const char* fmt...);
 		void MathOperation(const char* fmt...);
+		std::string LaTexMath(const std::string& function_name);
 };
-
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  Function: Explicit
+  Function: LaTexMathFraction
   
   Summary:   convert decimal_number into fraction form written in string format.
   	     Note: it's a modified version of [utilities.h] "DecimalToFraction" fucntion.
@@ -91,7 +139,7 @@ class LaTex {
   Returns:  string
              store the output directly into string variable.
 ------------------------------------------------------------------------------*/ 
-std::string  Explicit(const double& decimal_number) 
+std::string  LaTexMathFraction(const double& decimal_number) 
 {
 	int signdec  = decimal_number > 0 ? 1 : -1;
 	std::string plusorminus;
@@ -139,32 +187,22 @@ std::string  Explicit(const double& decimal_number)
 
 				decimal_part = new_number - whole_part;
 				counter += 1;
-			}
-
-			double numt = sign * vec_1[0];
-			double dnum = vec_1[1];
-			double snumt= sqrt(numt);
-			double sdnum= sqrt(dnum);
- 
-			if(IsNumber(ToString(snumt)) && IsNumber(ToString(sdnum)))
+			} 
+			if(IsNumber(ToString(sqrt(sign * vec_1[0]))) && IsNumber(ToString(sqrt(vec_1[1]))))
 			{
-				//std::cout<<plusorminus<<snumt<<'/'<< sdnum;
-				resulted_string =plusorminus+"\\frac{"+ToString(snumt)+"}{"+ToString(sdnum)+"}";
+				resulted_string =plusorminus+"\\frac{"+ToString(sqrt(sign * vec_1[0]))+"}{"+ToString(sqrt(vec_1[1]))+"}";
 			} 
 
-			else if(IsNumber(ToString(snumt)) && (!IsNumber(ToString(sdnum))) )
+			else if(IsNumber(ToString(sqrt(sign * vec_1[0]))) && (!IsNumber(ToString(sqrt(vec_1[1])))) )
 			{
-				//std::cout<<plusorminus<<snumt<<'/'<<"\sqrt{"<< vec_1[1];
-				resulted_string =plusorminus+"\\frac{"+ToString(snumt)+"}{\\sqrt{"+ToString(vec_1[1])+"}}";
+				resulted_string =plusorminus+"\\frac{"+ToString(sqrt(sign * vec_1[0]))+"}{\\sqrt{"+ToString(vec_1[1])+"}}";
 			}
-			else if( !IsNumber(ToString(snumt)) && (IsNumber(ToString(sdnum))) )
+			else if( !IsNumber(ToString(sqrt(sign * vec_1[0]))) && (IsNumber(ToString(sqrt(vec_1[1])))) )
 			{
-				//std::cout<<plusorminus+"\sqrt{"<< sign * vec_1[0]<<'/'<< sdnum;
-				resulted_string =plusorminus+"\\frac{\\sqrt{"+ToString(sign * vec_1[0])+"}}{"+ToString(sdnum)+"}";
+				resulted_string =plusorminus+"\\frac{\\sqrt{"+ToString(sign * vec_1[0])+"}}{"+ToString(sqrt(vec_1[1]))+"}";
 			}
 			else 
-			//std::cout<<plusorminus+"\sqrt{("<< sign * vec_1[0]<<'/'<< vec_1[1]<<")";
-				resulted_string =plusorminus+"\\sqrt{\\frac{"+ToString(sign * vec_1[0])+"}{"+ToString(sdnum)+"}}";
+				resulted_string =plusorminus+"\\sqrt{\\frac{"+ToString(sign * vec_1[0])+"}{"+ToString(sqrt(vec_1[1]))+"}}";
 	 
 		}
 	}
@@ -188,30 +226,25 @@ std::string RealAndImaginary(double x, double y, std::string separator)
 	if(x!=0 and y!=0) {
 		
 		if(y<0) {		
-			//resulted_string = ToString(x)+ToString(y)+"i"+separator;
-			if(y==-1){resulted_string = Explicit(x)+"-i"+separator;}
-			else resulted_string = Explicit(x)+Explicit(y)+"i"+separator;
+			if(y==-1){resulted_string = LaTexMathFraction(x)+"-i"+separator;}
+			else resulted_string = LaTexMathFraction(x)+LaTexMathFraction(y)+"i"+separator;
 		}
 
 		else if(y>0) {
-			//resulted_string = ToString(x)+"+"+ToString(y)+"i"+separator;
-			if(y==1){resulted_string =Explicit(x)+"+ i"+separator;}
-			else resulted_string = Explicit(x)+"+"+Explicit(y)+"i"+separator;
+			if(y==1){resulted_string =LaTexMathFraction(x)+"+ i"+separator;}
+			else resulted_string = LaTexMathFraction(x)+"+"+LaTexMathFraction(y)+"i"+separator;
 		}
 	}
 	else if(y==0) {   
-		//resulted_string = ToString(x)+separator; 
-		resulted_string = Explicit(x)+separator;
+		resulted_string = LaTexMathFraction(x)+separator;
 	}
 	else if(x==0){
-		//resulted_string = ToString(y)+"i"+separator;
 		if(y==-1){resulted_string ="-i"+separator;}
 		else if(y==1){resulted_string =" i"+separator;} 
-		else resulted_string = Explicit(y)+"i"+separator; 
+		else resulted_string = LaTexMathFraction(y)+"i"+separator; 
 	}
 	return  resulted_string;
 }
-
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: ToLaTex
   
@@ -371,7 +404,6 @@ void LaTex::MathOperation(const char* fmt...)
 			ofile<<RealAndImaginary(x,y," &");  
 	    	}
 	    	
-	    	
 	    	else if (*fmt == '=') { ///<--- equal sign case indicator
     			int c = va_arg(args, int);
             		ofile << static_cast<char>(c);
@@ -387,5 +419,18 @@ void LaTex::MathOperation(const char* fmt...)
 	ofile<<"\\end{align}\n";
 	ofile<<"\n";
 	ofile.close();
+}
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: LaTexMath
+  
+  Summary:  convert string name of math function into its 
+  	    equivalent latex command .  
+             
+  Returns:  string
+             store the output directly into string variable.
+------------------------------------------------------------------------------*/ 
+std::string LaTex::LaTexMath(const std::string& function_name){
+	auto from = MathFunctions.find(function_name);
+	return from->second;
 }
 #endif

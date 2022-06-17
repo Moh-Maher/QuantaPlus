@@ -19,7 +19,8 @@ EXAMPLES = example1\
 		QCD_example\
 		angular_momentum_test \
 		braket_test\
-		latex_test 
+		latex_test \
+		test_eigenvalue
 
 OUTPUT = genLatex
           

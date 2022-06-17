@@ -66,19 +66,21 @@ Bra<T>::Bra(int col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col){}
 //--------------------------------------------------------------------------
 template <class T>
 Bra<T>::~Bra(){}
-
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: ComplexNumPrint
 
   Summary:  print complex number in symbolic form.
 
   Args:      std::complex<double> a
-  	        complex variable with "double-type" real and imaginary parts.  
+  	        complex variable with "double-type" real and imaginary parts.
+  	     bool numerical_flag
+  	     	Boolean variable to switch between numerical an symbolic output.
+  	       
 
   Returns:  void
               print complex number in " x + iy" format.
 ------------------------------------------------------------------*/
-inline void ComplexNumPrint(std::complex<double> complex_number)
+inline void ComplexNumPrint(std::complex<double> complex_number,bool numerical_flag)
 {
 	double real_part = std::real(complex_number);
 	double imaginary_part = std::imag(complex_number);   
@@ -86,34 +88,41 @@ inline void ComplexNumPrint(std::complex<double> complex_number)
     	{
         	if( imaginary_part < 0 )
         	{
-            		//std::cout<<real_part<<imaginary_part<<"i"<<"\t";
+            		if(numerical_flag) {std::cout<<real_part<<imaginary_part<<"i"<<"\t";}
+            		else{
             		DecimalToFraction(real_part);
             		DecimalToFraction(imaginary_part);
             		std::cout<<"i"<<"\t";
+            		}
         	}
 
         	else if( imaginary_part > 0 )
         	{
-            		//std::cout<<real_part<<"+" <<imaginary_part<<"i"<<"\t";
+            		if(numerical_flag) {std::cout<<real_part<<"+" <<imaginary_part<<"i"<<"\t";}
+            		else{
             		DecimalToFraction(real_part);
             		std::cout<<"+";
             		DecimalToFraction(imaginary_part);
             		std::cout<<"i"<<"\t";
+            		}
         	}
 	}
    	else if (imaginary_part == 0 )
     	{   
-        	//std::cout<<real_part<<"\t";
+        	if(numerical_flag) {std::cout<<real_part<<"\t";}
+        	else{
         	DecimalToFraction(real_part);
         	std::cout<<"\t";
+        	}
            
     	}
     	else if( real_part == 0 )
     	{
-        	//std::cout<<imaginary_part<<"i"<<"\t"; 
-        	
+        	if(numerical_flag){std::cout<<imaginary_part<<"i"<<"\t";}
+        	else{
 		DecimalToFraction(imaginary_part);
     		std::cout<<"i"<<"\t";
+    		}
     	}    
 }
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -134,7 +143,20 @@ void ResultPrint(Bra<U>& bra)
     	{
         	for(int col_count = 0; col_count < bra.cols(); col_count++)
         	{
-			ComplexNumPrint( bra(row_count, col_count) );
+			ComplexNumPrint( bra(row_count, col_count),0 );
+        	}
+        	std::cout<<std::endl;
+    	}
+}
+//	print complex numbers in numeric form
+template <typename U>
+void NResultPrint(Bra<U>& bra)
+{
+	for(int row_count = 0; row_count < bra.rows(); row_count++)
+    	{
+        	for(int col_count = 0; col_count < bra.cols(); col_count++)
+        	{
+			ComplexNumPrint( bra(row_count, col_count),1 );//cplx_print( bra(row_count, col_count) );
         	}
         	std::cout<<std::endl;
     	}
@@ -157,7 +179,20 @@ void ResultPrint(Ket<U>& ket)
     	{
         	for(int col_count = 0; col_count < ket.cols(); col_count++)
         	{
-			ComplexNumPrint( ket(row_count, col_count) );
+			ComplexNumPrint( ket(row_count, col_count),0 );
+        	}
+        	std::cout<<std::endl;
+    	}
+}
+//	print complex numbers in numeric form
+template <typename U>
+void NResultPrint(Ket<U>& ket)
+{
+	for(int row_count = 0; row_count < ket.rows(); row_count++)
+    	{
+        	for(int col_count = 0; col_count < ket.cols(); col_count++)
+        	{
+			ComplexNumPrint( ket(row_count, col_count),1 );//cplx_print( ket(row_count, col_count) );
         	}
         	std::cout<<std::endl;
     	}
@@ -196,7 +231,7 @@ void literal_printf(const char* fmt...)
 		else if (*fmt == 'c') {
 			std::complex<double> d = va_arg(args, std::complex<double>);
 			std::cout<<"complex number = ";
-			ComplexNumPrint(d);
+			ComplexNumPrint(d,0);
 			std::cout<<"\n";
 		}		
 		++fmt;
@@ -222,7 +257,20 @@ void ResultPrint(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
     	{
         	for(int col_count = 0; col_count < mat.cols(); col_count++)
         	{
-			ComplexNumPrint( mat(row_count, col_count) );
+			ComplexNumPrint( mat(row_count, col_count),0 );
+        	}
+        	std::cout<<std::endl;
+    	}
+}
+//	print complex numbers in numeric form
+template <typename U>
+void NResultPrint(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
+{
+	for(int row_count = 0; row_count < mat.rows(); row_count++)
+    	{
+        	for(int col_count = 0; col_count < mat.cols(); col_count++)
+        	{
+			ComplexNumPrint( mat(row_count, col_count),1 );//cplx_print( mat(row_count, col_count) );
         	}
         	std::cout<<std::endl;
     	}
@@ -232,10 +280,17 @@ void ResultPrint(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
 //-----------------------------------------------------------------
 void ResultPrint(const std::complex<double>& complex_num)
 {
-	ComplexNumPrint(complex_num);
+	ComplexNumPrint(complex_num,0);
 	std::cout<<std::endl;
 }
-
+//-----------------------------------------------------------------
+//	print complex numbers in numeric form
+//-----------------------------------------------------------------
+void NResultPrint(const std::complex<double>& complex_num)
+{
+	ComplexNumPrint(complex_num,1);//cplx_print(complex_num);
+	//std::cout<<std::endl;
+}
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: QuantumEigenVector
 

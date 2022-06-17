@@ -27,7 +27,7 @@ int main()
  	cout<<"Insert valid spin: (e.g 1/2, 3/2, 5/2,...) \n";
  	std::cin>>spin;
  	*/
-        const double spin= 3./2.;//3./2.; // 1./2.;
+        const double spin= 5./2.;//3./2.; // 1./2.;
 	 
 	
 	AngularMomentum<complex> S_x, S_y, S_z;
@@ -65,7 +65,7 @@ int main()
 	
 	
 	mypdf.BeginLaTex();
-	mypdf.Typing("For spin $"+Explicit(spin)+"$ system:");
+	mypdf.Typing("For spin $"+LaTexMathFraction(spin)+"$ system:");
 	mypdf.MathOperation("to","J_x = ",S_x);
 	mypdf.MathOperation("to","J_y = ",S_y);
 	mypdf.MathOperation("to","J_z = ",S_z);
