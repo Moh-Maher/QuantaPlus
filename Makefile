@@ -26,10 +26,10 @@ OUTPUT = genLatex
           
 # making examples
 
-$(EXAMPLES): %: examples/%.cpp   
+$(EXAMPLES): %: examples/%.cpp 
 	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/usr/include/eigen3 #-I/home/mohammed/Downloads/eigen-3.4.0/ 
 
-$(OUTPUT): %: output/%.cpp   
+$(OUTPUT): %: output/%.cpp  
 	$(CC) $(CFLAGSTEST)  -o latex.out $<
 clean:
 	rm *.out      	

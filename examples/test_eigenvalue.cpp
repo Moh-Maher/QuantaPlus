@@ -23,11 +23,10 @@ int main() {
 	QM_operator<complex> H(4,4);
 	complex t;
 	H <<
-	0,0.3, 1.i, 0, 
-	0.3, 1.,0,0, 
-	-1i, 0, 1.,-0.2, 
-	0,0,-0.2, 3.
-	;
+	0.0, 0.3, 1.i, 0.0, 
+	0.3, 1.0, 0.0, 0.0, 
+	-1i, 0.0, 1.0,-0.2, 
+	0.0, 0.0,-0.2, 3.0;
 	//cout<<H<<endl;
 	NResultPrint(H);
 	//cout<<QuantumEigenValue(H,4)<<endl;
@@ -35,16 +34,15 @@ int main() {
 	for(int i=0;i<4;i++){
 	NResultPrint(QuantumEigenValue(H,i));
 	}
-	cout<<"---------------------"<<endl;
+	cout<<endl;
+	/*cout<<"---------------------"<<endl;
 	cout<<"Eigenvectors:\n";
 	for(int i=0;i<4;i++){
          
 	//NResultPrint(QuantumEigenVector(H,i));
 	cout<<QuantumEigenVector(H,i);
 	}
-	cout<<endl;
+	cout<<endl;*/
 	///<--clock stuff again
 	time_count.End();
- 
-
 }
