@@ -7,10 +7,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
 #pragma once
-#include<iostream>
-#include<cmath>
-#include <valarray> 
-#include<sstream>
+
 #ifndef QUANTAPLUS_INCLUDE_UTILITIES_HPP
 #define QUANTAPLUS_INCLUDE_UTILITIES_HPP
 

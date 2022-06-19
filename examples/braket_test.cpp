@@ -20,24 +20,30 @@ int main()
 { 
 	ElapsedTime time_count; //<--clock stuff
 	time_count.Start();
-	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
+	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = sqrt(-1)] 
   
-	Ket<complex> ktA(3),ktB;
-	Bra<complex> brB(3),brA;
+	Ket<complex> ktA(3); // deceleration of |A> with fixed space for three elements. 
+	Ket<complex> ktB;    // deceleration of |B> with unspecified (Dynamic) space for its elements. 
+	Bra<complex> brB(3); // deceleration of <B| with fixed space for three elements. 
+	Bra<complex> brA;    // deceleration of <A| with unspecified (Dynamic) space for its elements.
        
-        complex  BraKetAB{}, BraKetBA{};
-        complex  BraKetAA{}, BraKetBB{};
-	brB << 6., 3.-1i, 5.;
-	ktA <<1.-2i, 1i,-1i; 
+        complex BraKetAB{};  // to hold the value of <A|B>
+        complex BraKetBA{};  // to hold the value of <B|A>
+        complex BraKetAA{};  // to hold the value of <A|A>
+        complex BraKetBB{};  // to hold the value of <B|B>
+	
+	brB << 6., 3.-1i, 5.;  // <B| = (6, 3-i, 5)  it's a row vector.
+	ktA <<1.-2i, 1i,-1i;   // |A> = (1-i, i, -i) it's a column vector.
+	
 	cout<<"--------|A>------------"<<endl;
     	ResultPrint(ktA);
     	cout<<"--------<B|------------"<<endl;
     	ResultPrint(brB);  
     	cout<<"--------|B>------------"<<endl;
-    	ktB = DualConj(brB);
+    	ktB = DualConj(brB); // |B> = (<B|)^Dagger. (see any QM textbook).
     	ResultPrint(ktB);
 	cout<<"--------<A|------------"<<endl;
-    	brA = DualConj(ktA);
+    	brA = DualConj(ktA);  // <A| = (|A>)^Dagger. (see any QM textbook).
     	ResultPrint(brA);
     	cout<<"--------<A|B>----------"<<endl;
     	BraKetAB = BraKet(brA,ktB);

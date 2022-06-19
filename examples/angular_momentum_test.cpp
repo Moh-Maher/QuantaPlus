@@ -22,15 +22,15 @@ int main()
 {
 	ElapsedTime time_count; //<--clock stuff
 	time_count.Start();
- 	/*
+ 	
  	double spin; 
  	cout<<"Insert valid spin: (e.g 1/2, 3/2, 5/2,...) \n";
  	std::cin>>spin;
- 	*/
-        const double spin= 5./2.;//3./2.; // 1./2.;
+ 	
+        //const double spin= 5./2.;//3./2.; // 1./2.;
 	 
 	
-	AngularMomentum<complex> S_x, S_y, S_z;
+	AngularMomentum<complex> S_x, S_y, S_z; 
 	AngularMomentum<complex> S_sqr, S_plus, S_minus;
        
 	S_sqr = S_sqr.AngularMomentum_JSquare(spin);

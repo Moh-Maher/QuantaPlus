@@ -15,6 +15,7 @@
 #ifndef QUANTAPLUS_INCLUDE_BRAKET_H
 #define QUANTAPLUS_INCLUDE_BRAKET_H
 #include <Eigen/Dense>
+ #include <Eigen/Eigenvalues>
 #include <algorithm>
 #include <cstdarg>
 #include"operators.h"

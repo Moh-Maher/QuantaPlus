@@ -99,19 +99,22 @@ void MagneticQuantumNumber(const double &j)
 	{
 		double m[int(2*j+1)]={};
 		for(auto i =-j; i<=j; i++)
-		{
-			m[int(abs(j+i))]=i;   
+		{       if(i==0){m[int(std::abs(j+i))]=0;}
+			else m[int(std::abs(j+i))]=i;   
 		}
 		for(int i =0;i<int(2*j+1);i++)
-		{   
+		{   if(i!=int(2*j+1)-1){
 			DecimalToFraction(m[i]); // [source utilities.h ]
-			std::cout<<"\t";
+			std::cout<<", ";
+			}
+			else DecimalToFraction(m[i]);
 		}
 		std::cout<<std::endl;
 	}
      
 	else{
-		std::cout<<"the system has physically invalid spin!"<<std::endl;
+		std::cout<<"spin ("<<spin<<" = ";
+		DecimalToFraction(spin); std::cout<<") is physically invalid!"<<std::endl;
 	}
 }
 //-------------------------------------------------------------------------------------------
@@ -219,7 +222,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JSquare(const double &j)
         	double M[max]={};
         	for(auto i =-j; i<=j; i++)
         	{
-            		M[abs(int(j+i))]=i;   
+            		M[std::abs(int(j+i))]=i;   
         	}
              
         	for(int i=0;i<max;i++)
@@ -260,7 +263,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jx(const double &j)
 		double M[max]={};
 		for(auto i =-j; i<=j; i++)
 		{
-	    		M[abs(int(j+i))]=i;   
+	    		M[std::abs(int(j+i))]=i;   
 		}
 	     
 		for(int i=0;i<max;i++)
@@ -304,7 +307,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jy(const double &j)
 		double M[max]={};
 		for(auto i =-j; i<=j; i++)
 		{
-	    		M[abs(int(j+i))]=i;   
+	    		M[std::abs(int(j+i))]=i;   
 		}
 	     
 		for(int i=0;i<max;i++)
@@ -346,16 +349,16 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jz(const double &j)
 	{    
 		double M[max]={};
 		for(auto i =-j; i<=j; i++)
-		{
-	    		M[abs(int(j+i))]=-i;   
+		{       
+	    		M[std::abs(int(j+i))]=-i;   
 		}
 	     
 		//for(int i=0;i<max;i++)
 		//{
 	    		for(int k=0;k<max;k++)
-	    		{   
+	    		{       if( Jz(j,M[k],j,M[k]) ==0.){ temarr[k+(k*max)]=0.;}
 				//temarr[k+(i*max)] = Jz(M[i],j,M[k],j,M[i]);
-				temarr[k+(k*max)] = Jz(j,M[k],j,M[k]);
+				else temarr[k+(k*max)] = Jz(j,M[k],j,M[k]);
 	    		}
 		//}	
 	}
@@ -368,7 +371,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jz(const double &j)
 	for(int i=0; i<max; i++)
 	{
 		for(int j=0; j<max; j++)
-		{
+		{       
 	    		temp(i,j)= temarr[j+i*max];
 	    	       // temp(i,j)= temarr[i+j];
 		}
@@ -391,7 +394,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JPlus(const double &j)
 		double M[max]={};
 		for(auto i =-j; i<=j; i++)
 		{
-	    		M[abs(int(j+i))]=i;   
+	    		M[std::abs(int(j+i))]=i;   
 		}
 	     
 		for(int i=0;i<max;i++)
@@ -433,7 +436,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JMinus(const double &j)
 		double M[max]={};
 		for(auto i =-j; i<=j; i++)
 		{
-			M[abs(int(j+i))]=i;   
+			M[std::abs(int(j+i))]=i;   
 		}
 	     
 		for(int i=0;i<max;i++)

@@ -17,7 +17,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<cmath>
 #include<fstream>
-
+#include <valarray> 
+ 
 
 /* colors */
 #define RST  "\x1B[0m"
