@@ -63,6 +63,9 @@ void possibleCoupled_JM(const double& j1, const double& j2){
 		}
 		std::cout<<std::endl;
 }
+
+
+
 void compainM(const double& j1, const double& j2){
 vector<double> m1 = MQuantumNumber(j1);
 vector<double> m2 = MQuantumNumber(j2);
@@ -86,24 +89,6 @@ for(int i =0;i<int(2*j1+1);i++)
 }
 
 
-//int counter(double target[], const int& targetSize){
-int counter(vector<double> target, const int& targetSize){
-int count =0;
-
-//double m1[2]={0.5,-0.5}; 
-//double m2[4]={1.5,0.5,-0.5,-1.5}; 
-vector<double> m1 = MQuantumNumber(2.5);
-vector<double> m2 = MQuantumNumber(1.5);
-
-for(auto m : m1)for(auto n : m2){
-for(int j=0;j<targetSize;j++){
-if(m+n==target[j]){count++;}
-}
-}
-return count;
-
-}
-
 
 int totNumberOfCGC(const double& j1, const double& j2, const double& J){
  
@@ -124,6 +109,24 @@ int totNumberOfCGC(const double& j1, const double& j2, const double& J){
 
 }
 
+int  totNumberOfCGC(const double& j1, const double& j2){
+
+	double Jmin = std::abs(j1-j2);
+	double Jmax = j1+j2;
+	int count=0;
+	//cout<<"possible J, M: \n";
+	double J[int(Jmax-Jmin)+1]={};
+		for(auto i =Jmin; i<=Jmax; i++)
+		{       
+			 J[int(i-Jmin)]=i;   
+		}
+		for(int i =0;i<int(Jmax-Jmin)+1;i++)
+		{   
+			count += totNumberOfCGC(j1,j2, J[i]);
+		}
+		 
+return count;
+}
 int main(){
 
 	/*double spin1,spin2;
@@ -137,6 +140,6 @@ int main(){
  	//double a[3]={-1,0,1};
  	//vector<double> m = MQuantumNumber(4);
  	//cout<<"the possible ways "<<counter(m,m.size())<<endl;
- 	cout<<"the possible ways "<<totNumberOfCGC(0.5,0.5,0)<<endl;
+ 	cout<<"the possible ways "<<totNumberOfCGC(0.5,0.5)<<endl;
 	return 0;
 }
