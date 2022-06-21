@@ -12,19 +12,24 @@ class basis{
 public:
   double J1,M1,J2,M2;
   double factor=1.0;
+  basis(){}
   std::list<basis> basis_list;
   basis(const double& j1, const double& j2)
   {
   J1=j1;
   J2=j2;
-  for(auto i=0.; i<=int(2);i+=j1){
+   for(auto i=0.; i<=int(2);i+=j1){
 			for(auto j=0.; j<=int(2);j+=j2){
-				basis_list.push_front( basis(j1,j1-i,j2,j2-j) );
+				basis_list.push_back( basis(j1,j1-i,j2,j2-j) );
 			}
 		}
+		 
   }
   basis(const double& j1, const double& m1,const double& j2,  const double& m2)
-  	:J1(j1),M1(m1),J2(j2),M2(m2){}
+  	:J1(j1),M1(m1),J2(j2),M2(m2){
+  	//setbasis_list();
+  	 
+  	}
   
   void printL(){
   if(factor==1.0)
@@ -34,12 +39,12 @@ public:
   	else {DecimalToFraction(factor);cout<<" AMuket["<<J1<<", "<<M1<<", "<<J2<<", "<<M2<<"]\n";}   
   }
   
-	void setbasis_list(const double& j1,const double& j2){
+	void setbasis_list(){
 
 
-		for(auto i=0.; i<=int(2);i+=j1){
-			for(auto j=0.; j<=int(2);j+=j2){
-				basis_list.push_front( basis(j1,j1-i,j2,j2-j) );
+		for(auto i=0.; i<=int(2);i+=J1){
+			for(auto j=0.; j<=int(2);j+=J2){
+				basis_list.push_back( basis(J1,J1-i,J2,J2-j) );
 			}
 		}
 	}
@@ -155,12 +160,55 @@ basis AM(basis f1(const basis&),basis f2(const basis&), const basis& target){
 
 }
 
-std::list<int>  AMmatrix(basis fun(const basis&),const basis& target){
- std::list<int> pro_list;
+std::list<double>  AMmatrix(basis fun(const basis&),const basis& target){
+ std::list<double> pro_list;
+ std::list<double> prefactor_list;
+ 
+ std::list<basis> firstpro_list;
+ basis mult ;//= fun(target);
+ int nmult;
+ 
   for (auto n : target.basis_list) {
-		pro_list.push_front(n*fun(target));
+   //mult = fun(n);
+   //prefactor_list.push_back(fun(n).factor);
+   
+   for (auto m : fun(n).basis_list) {
+  nmult=n*m;//fun(n);
+		pro_list.push_back(nmult*fun(n).factor);
+		}
+   
+   }
+  	
+	//}
+return pro_list;
+}
+
+
+std::list<basis>  BAMmatrix(basis fun(const basis&),const basis& target){
+ std::list<basis> pro_list;
+ basis mult ;//= fun(target);
+ 
+  for (auto n : target.basis_list) {
+ 
+   
+		 
+		pro_list.push_back(fun(n));
 	}
 return pro_list;
+}
+
+basis J1Pplus(const basis& b){
+   basis res;
+     for(auto n : b.basis_list){
+       res.J1 = n.J1;
+       res.M1= n.M1+1.;
+       res.J2= n.J2;
+       res.M2 = n.M2;
+     res.factor= std::sqrt( n.J1*(n.J1+1.) - n.M1*(n.M1+1.) );
+      
+      }
+     
+    return res;    
 }
 
 int main(){
@@ -172,7 +220,9 @@ int main(){
  
 	
 	basis b(spin1,spin2);
-	b.printAll();
+	//b.printAll();
+	  
+	 J1Pplus(b).printAll();
  /*basis b(1,1);
  b.printL();
  basis testres =  AM(J1z,J1m,b);//J1p(b);
@@ -187,11 +237,19 @@ int main(){
  int pro = b1*b2;
  if(pro==0) cout<<"it is zero"<<endl;
  if(pro==1) cout<<"it is 1"<<endl;*/
-  std::list<int> pro_res = AMmatrix(J1p,b);
+ /*std::list<double> pro_res = AMmatrix(J1p,b);
  //std::cout << "l = { ";
 	for (auto n : pro_res) {
 		cout<<n<<", ";
 	}
-	std::cout <<"\n";
+	std::cout <<"\n";*/
+	
+	/*
+	  std::list<basis> pro_res = BAMmatrix(J1p,b);
+ //std::cout << "l = { ";
+	for (auto n : pro_res) {
+		 n.printL();
+	}
+	std::cout <<"\n";*/
 	return 0;
 }
