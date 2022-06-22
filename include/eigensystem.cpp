@@ -15,12 +15,15 @@ template<typename T>
 Matrix<complex<T>,Dynamic,Dynamic> EigenVector(Matrix<T,Dynamic,Dynamic>& mat )
 {
 		EigenSolver<Matrix<T,Dynamic,Dynamic>> es(mat);
+		
+		//return es.eigenvectors().rowwise().reverse().transpose();
 		return es.eigenvectors();
 }
 template<typename T>
 Matrix<complex<T>,Dynamic,Dynamic> EigenValue(Matrix<T,Dynamic,Dynamic>& mat)
 { 
 	EigenSolver<Matrix<T,Dynamic,Dynamic>> es(mat);
+	
 	return es.eigenvalues();
 }
  
@@ -34,16 +37,23 @@ Matrix<double,Dynamic,Dynamic> A(3,3);
 
  
 //cout<<EigenValue(A)<<endl;
+ /*
 Matrix<complex<double>,Dynamic,Dynamic> FIXEV(3,3);
- 
- 
-FIXEV =EigenVector(A);
+Matrix<complex<double>,Dynamic,Dynamic> FIXEV2(3,3);
+FIXEV = EigenVector(A);
+for(auto i=0;i<3;i++){
+for(auto j=0;j<3;j++){
+
+FIXEV2(i,j) = FIXEV(0,1);
+
+}
+}
+cout<<FIXEV2<<endl;
+ */
 
  
-
- 
-//cout<<EigenVector(A).col(0)<<endl;
-cout<<(FIXEV.reverse().transpose())*A<<endl;
+cout<<EigenVector(A)*EigenValue(A)<<endl;
+//cout<<(FIXEV.reverse().transpose())*A<<endl;
  
  
 

@@ -91,7 +91,10 @@ class Basis{
 };
 
 //------------------------------------------------------------------------
-//
+//AMuket /: AMuket[j1_, m1_, j2_, m2_] AMuket[j1p_, m1p_, j2p_, m2p_] = 0; /;
+//  (j1 =!= j1p) || (m1 =!= m1p) || (j2 =!= j2p) || (m2 =!= m2p);
+//AMuket /: AMuket[j1_, m1_, j2_, m2_] AMuket[j1_, m1_, j2_, m2_] = 1;
+//AMuket /: Power[AMuket[j1_, m1_, j2_, m2_], 2] = 1;
 //------------------------------------------------------------------------
 int operator* (const Basis& b1 , const Basis& b2)
 {
@@ -108,7 +111,7 @@ int operator* (const Basis& b1 , const Basis& b2)
       return n;
 }*/
 //------------------------------------------------------------------------
-//
+//AM /: AM[j12] AMuket[j1_, m1_, j2_, m2_] := j1 (j1 + 1) AMuket[j1, m1, j2, m2];
 //------------------------------------------------------------------------
 std::vector<Basis> J12(const Basis& b){
        	std::vector<Basis> res;
@@ -120,7 +123,7 @@ std::vector<Basis> J12(const Basis& b){
      	return res;    
 }
 //------------------------------------------------------------------------
-//
+//AM /: AM[j1z] AMuket[j1_, m1_, j2_, m2_] := m1*AMuket[j1, m1, j2, m2];
 //------------------------------------------------------------------------
 std::vector<Basis> J1z(const Basis& b){  
     	std::vector<Basis> res;
@@ -132,7 +135,7 @@ std::vector<Basis> J1z(const Basis& b){
      	return res;      
 }
 //------------------------------------------------------------------------
-//
+//AM /: AM[j22] AMuket[j1_, m1_, j2_, m2_] := j2 (j2 + 1) AMuket[j1, m1, j2, m2];
 //------------------------------------------------------------------------
 std::vector<Basis> J22(const Basis& b){
  
@@ -146,7 +149,7 @@ std::vector<Basis> J22(const Basis& b){
      
 }
 //------------------------------------------------------------------------
-//
+//AM /: AM[j2z] AMuket[j1_, m1_, j2_, m2_] := m2*AMuket[j1, m1, j2, m2];
 //------------------------------------------------------------------------
 std::vector<Basis> J2z(const Basis& b){
  	
@@ -159,7 +162,7 @@ std::vector<Basis> J2z(const Basis& b){
      	return res;
 }
 //------------------------------------------------------------------------
-//
+//AM /: AM[j1p] AMuket[j1_, m1_, j2_, m2_] := Sqrt[j1 (j1 + 1) - m1 (m1 + 1)] AMuket[j1, m1 + 1, j2, m2];
 //------------------------------------------------------------------------
 std::vector<Basis> J1p(const Basis& b){
 	
@@ -173,7 +176,7 @@ std::vector<Basis> J1p(const Basis& b){
      	return res; 
 }
 //------------------------------------------------------------------------
-//
+//AM /: AM[j1m] AMuket[j1_, m1_, j2_, m2_] := Sqrt[j1 (j1 + 1) - m1 (m1 - 1)] AMuket[j1, m1 - 1, j2, m2];
 //------------------------------------------------------------------------
 std::vector<Basis> J1m(const Basis& b){
  
@@ -187,9 +190,9 @@ std::vector<Basis> J1m(const Basis& b){
 	return res;
 }
 //------------------------------------------------------------------------
-//
+//AM /: AM[j2p] AMuket[j1_, m1_, j2_, m2_] := Sqrt[j2 (j2 + 1) - m2 (m2 + 1)] AMuket[j1, m1, j2, m2 + 1];
 //------------------------------------------------------------------------
-std::vector<Basis> J2p(const Basis& b){
+std::vector<Basis> const J2p(const Basis& b){
  
 	std::vector<Basis> res;
 	for(auto n : b.Basis_list) {
@@ -201,9 +204,9 @@ std::vector<Basis> J2p(const Basis& b){
      	return res;   
 }
 //------------------------------------------------------------------------
-//
+//AM /: AM[j2m] AMuket[j1_, m1_, j2_, m2_] := Sqrt[j2 (j2 + 1) - m2 (m2 - 1)] AMuket[j1, m1, j2, m2 - 1];
 //------------------------------------------------------------------------
-std::vector<Basis> J2m(const Basis& b){
+std::vector<Basis> const J2m(const Basis& b){
  
        	std::vector<Basis> res;
 	for(auto n : b.Basis_list) {
@@ -215,24 +218,12 @@ std::vector<Basis> J2m(const Basis& b){
 	return res;
 }
  
-//------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------
-/*std::vector<double> AM(Basis f1(const Basis&),Basis f2(const Basis&), const Basis& target){
-  // Basis Res(f1(f2(target)));
-  Basis A = f2(target) ;
-  //double temp = A.factor;
-  Basis B(f1(A));
-  //double temp2 = B.factor;
-  Basis Res(B);
-  Res.factor=A.factor*B.factor;
-      return Res;
 
-}*/
  
 
 //------------------------------------------------------------------------
-//
+// AM /: AM[a_, b_] ket_ := AM[a] (Compose @@ Join[AM /@ {b}, {ket}]);
+// AM /: AM[a_][ket_] := AM[a] ket;
 //------------------------------------------------------------------------
 std::vector<double>  OpratorTimesBasis(std::vector<Basis> fun(const Basis&),const Basis& target){
  	
@@ -247,7 +238,7 @@ std::vector<double>  OpratorTimesBasis(std::vector<Basis> fun(const Basis&),cons
 }
   
 //------------------------------------------------------------------------
-//
+// AMmatrix[op_, basis_List] := Expand[Outer[Times, Expand[op basis], basis]]
 //------------------------------------------------------------------------
 Eigen::MatrixXd AMmatrix(const std::vector<double>& L, const Basis& B)
 {
@@ -295,7 +286,7 @@ Eigen::VectorXd AMvector(const std::vector<double>& L)
 }*/
  
 //------------------------------------------------------------------------
-//
+//setphase[m_?MatrixQ] := Table[Sign[N[Select[m[[i]]]][[1]]], {i, Length[m]}] m;
 //------------------------------------------------------------------------
 Eigen::MatrixXd setphase(Eigen::MatrixXd& mat){
 	Eigen::MatrixXd res(mat.rows(),mat.cols());
@@ -309,7 +300,7 @@ Eigen::MatrixXd setphase(Eigen::MatrixXd& mat){
 	return res;
 }
 //------------------------------------------------------------------------
-//
+//jval[j1_, j2_, v_] := Array[(-1 + Sqrt[1 + 4*(j1 (j1 + 1) + j2 (j2 + 1) + 2*v[[#]])])/2 &, Length[v]]
 //------------------------------------------------------------------------
 Eigen::VectorXd jval(const double& j1, const double& j2, Eigen::VectorXd& vec){
     
@@ -321,11 +312,60 @@ Eigen::VectorXd jval(const double& j1, const double& j2, Eigen::VectorXd& vec){
       return res;
       
 }
+//------------------------------------------------------------------------
+// norm[m_?MatrixQ] := Array[m[[#]] . m[[#]] &, Length[m]];
+//------------------------------------------------------------------------
+//Eigen::MatrixXd Norm(Eigen::MatrixXd& mat){
+Eigen::VectorXd Norm(Eigen::MatrixXd& mat){
+	//Eigen::MatrixXd res(mat.rows(),mat.cols());
+	Eigen::VectorXd res(mat.cols());
+	for(int i=0; i<mat.rows();i++){
+		for(int j=0; j<mat.cols();j++){
+			res(i)+=mat(i,j)*mat(i,j);
+		}
+	}
+	return res;
+}
+//------------------------------------------------------------------------
+// normalize[x_] := x/Sqrt[norm[x]];
+//------------------------------------------------------------------------
+Eigen::MatrixXd Normalize(Eigen::MatrixXd& mat){
+	Eigen::MatrixXd res(mat.rows(),mat.cols());
+	Eigen::VectorXd norm_res(mat.cols());
+	norm_res = Norm(mat);
+	for(int i=0; i<mat.rows();i++){
+		for(int j=0; j<mat.cols();j++){
+			res(i,j)=mat(i,j)/std::sqrt(norm_res(i));
+		}
+	}
+	return res;
+}
 
+/*
+std::vector<Basis> AMuJ1J2(const Basis& b){
  
+	std::vector<Basis> res;
+	
+	for(auto n : b.Basis_list) {
+		n.factor= std::sqrt( std::abs(((n.J2 - n.M2))*(n.J2+n.M2+1.)) );
+		n.M2 +=1.; 
+
+		res.push_back(n);
+	}
+     	return res;   
+}*/
+//------------------------------------------------------------------------
+//
+//------------------------------------------------------------------------
+/*std::vector<double> AM(std::vector<Basis>& f1(const Basis&),std::vector<Basis>& f2(const Basis&), const Basis& target){
+ std::vector<double> vfirst;
+ std::vector<double> vsecond
+ vfirst = OpratorTimesBasis(f1(target),target);
+
+}*/
 int main(){
 
-	 double spin1,spin2;
+	double spin1,spin2;
 	
 	 
 	cout<<"Insert two spins values j1 and j2:\n";
@@ -336,7 +376,7 @@ int main(){
 	
 	//b.PrintFBasis_List();
 	vector<double> Basislist = OpratorTimesBasis(J1p,b);
-	
+	 
 	/*vector<double> vop1 = OpratorTimesBasis(J1z,b);
 	vector<double> vop2 = OpratorTimesBasis(J2z,b);
 	
@@ -359,7 +399,7 @@ int main(){
 	//Eigen::MatrixXd A1 = AMmatrix(sum, b); 
 	//Eigen::MatrixXd A2 = AMmatrix(sum, b);
 	cout<<AMmatrix(Basislist, b); 
-	cout<<endl;
+	//cout<<endl;
 	//cout<<AMvector(vop1)<<"\t";
 	//cout<<A1<<endl;
 	
@@ -371,6 +411,11 @@ int main(){
  	//Eigen::VectorXd A(8);
  
  	cout<<jval(1,1,A)<<endl;*/
+      
+      /*  Eigen::MatrixXd M(3,3);
+        M<<1,2,3,4,5,6,7,8,9;
+        cout<<Normalize(M)<<endl;*/
  
+         
 	return 0;
 }
