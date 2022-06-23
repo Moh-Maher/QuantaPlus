@@ -16,7 +16,7 @@
 --------------------------------------------------------------------------------------------------------------------------------------------*/
 #include<iostream>
 #include<complex>
-#include"operators.h"  //  Angular Momentum Operators
+#include"angularmomentum.h"  //  Angular Momentum Operators
 #include"braket.h" // BraKet vectors
 #include"latex.h"
 #include"utilities.h"

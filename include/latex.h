@@ -151,18 +151,18 @@ std::string  LaTexMathFraction(const double& decimal_number)
 		plusorminus="-";
 	}
 	
-	if(!IsNumber(ToString(abs(decimal_number))) && decimal_number!=0 && decimal_number!=1.  && decimal_number!=-1. )
+	if(!validInteger(abs(decimal_number)) && decimal_number!=0 && decimal_number!=1.  && decimal_number!=-1. )
 	{
 	 
 		double z = decimal_number*decimal_number;
 
-		if(IsNumber(ToString(z))) 
+		if(validInteger(z)) 
 		{
 			//std::cout<<plusorminus+"\sqrt{"<<z;
 			resulted_string =plusorminus+"\\sqrt{"+ToString(z)+"}";
 		}
 
-		else if (!IsNumber(ToString(z))) 
+		else if (!validInteger(z)) 
 		{ 
 			int cycles = 10;
 			double precision = 5e-4;  
@@ -188,16 +188,16 @@ std::string  LaTexMathFraction(const double& decimal_number)
 				decimal_part = new_number - whole_part;
 				counter += 1;
 			} 
-			if(IsNumber(ToString(sqrt(sign * vec_1[0]))) && IsNumber(ToString(sqrt(vec_1[1]))))
+			if(validInteger(sqrt(sign * vec_1[0])) && validInteger(sqrt(vec_1[1])))
 			{
 				resulted_string =plusorminus+"\\frac{"+ToString(sqrt(sign * vec_1[0]))+"}{"+ToString(sqrt(vec_1[1]))+"}";
 			} 
 
-			else if(IsNumber(ToString(sqrt(sign * vec_1[0]))) && (!IsNumber(ToString(sqrt(vec_1[1])))) )
+			else if(validInteger(sqrt(sign * vec_1[0])) && (!validInteger(sqrt(vec_1[1]))) )
 			{
 				resulted_string =plusorminus+"\\frac{"+ToString(sqrt(sign * vec_1[0]))+"}{\\sqrt{"+ToString(vec_1[1])+"}}";
 			}
-			else if( !IsNumber(ToString(sqrt(sign * vec_1[0]))) && (IsNumber(ToString(sqrt(vec_1[1])))) )
+			else if( !validInteger(sqrt(sign * vec_1[0])) && (validInteger(sqrt(vec_1[1]))) )
 			{
 				resulted_string =plusorminus+"\\frac{\\sqrt{"+ToString(sign * vec_1[0])+"}}{"+ToString(sqrt(vec_1[1]))+"}";
 			}

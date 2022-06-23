@@ -13,10 +13,9 @@ using namespace Eigen;
 template<typename T>
 Matrix<complex<T>,Dynamic,Dynamic> EigenVector(Matrix<T,Dynamic,Dynamic>& mat )
 {
-		EigenSolver<Matrix<T,Dynamic,Dynamic>> es(mat);
-		
-		//return es.eigenvectors().rowwise().reverse().transpose();
-		return es.eigenvectors();
+	EigenSolver<Matrix<T,Dynamic,Dynamic>> es(mat);
+	//return es.eigenvectors().rowwise().reverse().transpose();
+	return es.eigenvectors();
 }
 template<typename T>
 Matrix<complex<T>,Dynamic,Dynamic> EigenValue(Matrix<T,Dynamic,Dynamic>& mat)
@@ -144,12 +143,12 @@ ketstate J12(const ketstate& b){
 ////-------overloaded for basis
 std::vector<ketstate> J12(const Basis& b){
        
-       	std::vector<ketstate> res;
+    std::vector<ketstate> res;
 	for(auto n : b.ketstate_list) {
 		n.factor=  b.factor*n.J1*(n.J1+1.);
 		res.push_back(n);
 	}
-     	return res;    
+    return res;    
 }
 //------------------------------------------------------------------------
 //AM /: AM[j1z] AMuket[j1_, m1_, j2_, m2_] := m1*AMuket[j1, m1, j2, m2];
@@ -411,9 +410,10 @@ Eigen::MatrixXd setphase(Eigen::MatrixXd& mat){
 	Eigen::MatrixXd res(mat.rows(),mat.cols());
 	for(int i=0; i<mat.rows();i++){
 		for(int j=0; j<mat.cols();j++){
-
-		if(mat(i,j)<0) {res(i,j)=std::abs(mat(i,j));}
-		else res(i,j)=mat(i,j);
+			if(mat(i,j)<0) {
+				res(i,j)=std::abs(mat(i,j));
+			}
+			else res(i,j)=mat(i,j);
 		}
 	}
 	return res;
@@ -423,13 +423,21 @@ Eigen::MatrixXd setphase(Eigen::MatrixXd& mat){
 //------------------------------------------------------------------------
 Eigen::VectorXd jval(const double& j1, const double& j2, Eigen::VectorXd& vec){
     
-      Eigen::VectorXd res(vec.size());
-      for(int i =0; i<vec.size(); i++){
-      
-      res[i] =(-1.+ std::sqrt(1.+4.*(j1*(j1+1.) +j2*(j2+1.)+2.*vec(i))))/2.;
-      }
-      return res; 
+	Eigen::VectorXd res(vec.size());
+	for(int i =0; i<vec.size(); i++){
+		res[i] =(-1.+ std::sqrt(1.+4.*(j1*(j1+1.) +j2*(j2+1.)+2.*vec(i))))/2.;
+	}
+	return res; 
 }
+/*
+Eigen::VectorXd mval(Eigen::MatrixXd vec, const Basis& basis){
+    
+	Eigen::VectorXd res(vec.size());
+	for(int i =0; i<vec.size(); i++){
+		res[i] = vec(i)*basis.ketstate_list[i];
+	}
+	return res; 
+}*/
 //------------------------------------------------------------------------
 // norm[m_?MatrixQ] := Array[m[[#]] . m[[#]] &, Length[m]];
 //------------------------------------------------------------------------
@@ -459,6 +467,9 @@ Eigen::MatrixXd Normalize(Eigen::MatrixXd& mat){
 	return res;
 }
 
+///*The elements of the eigenvectors of this matrix are the
+//Clebsch-Gordan coefficients for the Clebsch-Gordan se-
+//ries |j1 -j2|<=j <=j1+j2*/
 Eigen::MatrixXd totAMj1j2(const Basis& B){
 	vector<double> state1 = OStateTimesState2(J1z,J2z,B);
 	vector<double> state2 = OStateTimesState05(J1p,J2m,B);

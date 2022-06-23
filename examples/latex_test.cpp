@@ -8,7 +8,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<complex>
 #include"braket.h"
-#include"operators.h"
+#//include"angularmomentum.h"
 #include<ctime>  
 #include"utilities.h"
 #include"latex.h"
@@ -53,7 +53,7 @@ int main()
 	LaTex mypdf("output/latex_results.tex");
 	
 	
-	mypdf.BeginLaTex(A,psi_Ket);
+	mypdf.BeginLaTex();
 	//mypdf.ToLaTex("k",psi_Ket);
 	
 	mypdf.MathOperation("tktbto","\\ket{\\psi} = ",psi_Ket,", \\bra{\\phi} = ",phi_Bra,", A = ",A);

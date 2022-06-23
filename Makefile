@@ -20,7 +20,8 @@ EXAMPLES = example1\
 		angular_momentum_test \
 		braket_test\
 		latex_test \
-		test_eigenvalue
+		test_eigenvalue\
+		test_ClebschGordon
 
 OUTPUT = genLatex
           

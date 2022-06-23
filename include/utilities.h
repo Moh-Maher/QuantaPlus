@@ -12,7 +12,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 #include<string>
 #include<sstream>
-#include <algorithm> // for using : str.find_first_not_of( "string" ) == std::string::npos
+//#include <algorithm> // for using : str.find_first_not_of( "string" ) == std::string::npos
 #include <complex>
 #include<iostream>
 #include<cmath>
@@ -47,8 +47,10 @@ by:  Mohammed Maher Abdelrahim Mohammed
 void DecimalToFraction(const double& decimal_number);//void DecimalToFraction(double number); // convert decimal to fraction
 void StringMatrix(int r, int c, double *array); // print array elements in fractions form
 
-bool IsNumber(const std::string& str); // gives True if str is an integer, and False otherwise. 
+//bool IsNumber(const std::string& str); // gives True if str is an integer, and False otherwise. 
 void Warning(const std::string & str);
+bool validInteger(const double& x);
+bool halfInteger(const double& x);
 
 //void TolaTex(std::string fname, std::string data);
 
