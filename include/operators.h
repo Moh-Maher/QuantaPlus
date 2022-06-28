@@ -21,10 +21,23 @@ by:  Mohammed Maher Abdelrahim Mohammed
 template<class T>
 class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
 {
-public:
-	QM_operator();
-	QM_operator(int row,int col);
-	~QM_operator();
+	public:
+		QM_operator();
+		QM_operator(int row,int col);
+		//<--This constructor allows us to construct QM_operator from Eigen expressions
+		template<typename Derived>
+		QM_operator(const Eigen::MatrixBase<Derived>& other)
+		:Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other){ }
+	   	//Ket(const T *data );
+	   	 
+	    	//<--This method allows us to assign Eigen expressions to QM_operators
+		template<typename Derived>
+		QM_operator& operator=(const Eigen::MatrixBase <Derived>& other)
+		{
+			this->Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::operator=(other);
+			return *this;
+		} 
+		~QM_operator();
 };
 
 #include"operators.hpp"

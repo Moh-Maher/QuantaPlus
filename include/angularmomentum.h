@@ -22,26 +22,26 @@ by:  Mohammed Maher Abdelrahim Mohammed
 template <class T>
 class AngularMomentum : public QM_operator<T> 
 {
-public:
-	AngularMomentum();
-	AngularMomentum(int row, int col); 
-	//AngularMomentum(const T *data );
-	//AngularMomentum(const AngularMomentum<T,R,C> &amo); 
-	//AngularMomentum(const double j); 
-	~AngularMomentum();
+	public:
+		AngularMomentum();
+		AngularMomentum(int row, int col); 
+		//AngularMomentum(const T *data );
+		//AngularMomentum(const AngularMomentum<T,R,C> &amo); 
+		//AngularMomentum(const double j); 
+		~AngularMomentum();
 
-	// AngularMomentum<T,R,C> operator= (const AngularMomentum<T,R,C> &amo);
-	//AngularMomentum<T,R,C> operator * (const AngularMomentum<T,R,C> &amo) const;
+		// AngularMomentum<T,R,C> operator= (const AngularMomentum<T,R,C> &amo);
+		//AngularMomentum<T,R,C> operator * (const AngularMomentum<T,R,C> &amo) const;
 
-	AngularMomentum<T> AngularMomentum_JSquare(const double& spin_value);
-	AngularMomentum<T> AngularMomentum_Jx(const double& spin_value);
-	AngularMomentum<T> AngularMomentum_Jy(const double& spin_value);
-	AngularMomentum<T> AngularMomentum_Jz(const double& spin_value);
+		AngularMomentum<T> AngularMomentum_JSquare(const double& spin_value);
+		AngularMomentum<T> AngularMomentum_Jx(const double& spin_value);
+		AngularMomentum<T> AngularMomentum_Jy(const double& spin_value);
+		AngularMomentum<T> AngularMomentum_Jz(const double& spin_value);
 
-	AngularMomentum<T> AngularMomentum_JPlus(const double& spin_value);
-	AngularMomentum<T> AngularMomentum_JMinus(const double& spin_value);
+		AngularMomentum<T> AngularMomentum_JPlus(const double& spin_value);
+		AngularMomentum<T> AngularMomentum_JMinus(const double& spin_value);
 
-	AngularMomentum<T> RotationByAngle(const double& alpha);
+		AngularMomentum<T> RotationByAngle(const double& alpha);
 
 
 };

@@ -40,11 +40,24 @@
 template <class T>
 class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1> 
 {
-public:
-	Ket();
-	Ket(int row); 
-   	//Ket(const T *data ); 
-	~Ket();     
+	public:
+		Ket():Eigen::Matrix<T,Eigen::Dynamic,1>(){ }
+		Ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){ }
+		
+		//<--This constructor allows us to construct Ket from Eigen expressions
+		template<typename Derived>
+		Ket(const Eigen::MatrixBase<Derived>& other)
+		:Eigen::Matrix<T,Eigen::Dynamic,1>(other){ }
+	   	//Ket(const T *data );
+	   	 
+	    	//<--This method allows us to assign Eigen expressions to Ket
+		template<typename Derived>
+		Ket& operator=(const Eigen::MatrixBase <Derived>& other)
+		{
+			this->Eigen::Matrix<T,Eigen::Dynamic,1>::operator=(other);
+			return *this;
+		} 
+		~Ket(){};     
 };
 /***************************************************************************
   Class:    Bra.
@@ -64,11 +77,22 @@ public:
 template <class T>
 class Bra : public Eigen::Matrix<T,1, Eigen::Dynamic> 
 {
-public:
-	Bra();
-	Bra(int col); 
-   	// Bra(const T *data ); 
-	~Bra();  
+	public:
+		Bra():Eigen::Matrix<T,1,Eigen::Dynamic>(){ }
+		Bra(int col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col){ }
+		//<--This constructor allows us to construct Bra from Eigen expressions
+		template<typename Derived>
+		Bra(const Eigen::MatrixBase<Derived>& other)
+		:Eigen::Matrix<T,1,Eigen::Dynamic>(other){ }
+	   	
+	   	//<--This method allows us to assign Eigen expressions to Ket
+		template<typename Derived>
+		Bra& operator=(const Eigen::MatrixBase <Derived>& other)
+		{
+			this->Eigen::Matrix<T,1 ,Eigen::Dynamic>::operator=(other);
+			return *this;
+		} 
+		~Bra(){};  
 };
 #include"braket.hpp"
 //} //end of namespace QuantaPlus
