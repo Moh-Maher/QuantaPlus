@@ -342,7 +342,7 @@ T QuantumEigenValue(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  &mat,const i
 template <typename T>
 Bra<T> DualConj(const Ket<T> &ket)
 {
-	Bra<T> resulted_bra(ket.rows());
+	Bra<T> resulted_bra((int)ket.rows());
         /*
 	for (int i=0; i<ket.rows(); i++)
     	{
@@ -364,7 +364,7 @@ Bra<T> DualConj(const Ket<T> &ket)
 template <typename T>
 Ket<T> DualConj(const Bra<T> &bra)
 {
-	Ket<T> resulted_ket(bra.cols());
+	Ket<T> resulted_ket((int)bra.cols());
 	resulted_ket << bra.adjoint();
 	return resulted_ket;
 }
@@ -407,7 +407,7 @@ T ExpectValue(const QM_operator<T> & mat, const Ket<T> &ket)
 {    
     Bra<T> bra;
     bra = DualConj(ket);
-    Ket<T> toright(ket.rows());
+    Ket<T> toright((int)ket.rows());
      toright << mat * ket;
     T nomr = BraKet(bra,toright); 
    // T dnomr = BraKet(bra,ket);

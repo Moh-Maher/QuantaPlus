@@ -176,7 +176,7 @@ std::string  LaTexMathFraction(const double& decimal_number)
 
 			std::valarray<double> vec_1{double((int) number), 1}, vec_2{1,0}, temporary;
 
-			while(decimal_part > precision & counter < cycles)
+			while( (decimal_part > precision) & (counter < cycles) )
 			{
 				new_number = 1 / decimal_part;
 				whole_part = (int) new_number;

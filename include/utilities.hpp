@@ -57,6 +57,7 @@ void MatrixToString(T &mat)
 //--------------------------------------------------------------------------
 //	Function to convert decimal to fraction
 //--------------------------------------------------------------------------
+/*
 void DecimalToFraction(const double& decimal_number ) 
 {
         //<-------check the sign of the input number to select the sign of the final output.
@@ -80,7 +81,7 @@ void DecimalToFraction(const double& decimal_number )
 		else if (!validInteger((z))) ///<-- if the square of the number z is not an integer, proceed to write it as fraction.
 		{ 
 			int cycles = 10;
-			double precision = 5e-4;  
+			double precision = 5e-10;  
 			double number = z;
 
 			int sign  = number > 0 ? 1 : -1; ///<-----check the sign again but for different reason. 
@@ -103,12 +104,12 @@ void DecimalToFraction(const double& decimal_number )
 				decimal_part = new_number - whole_part;
 				counter += 1;
 			}
-                        /*
-			double numt = sign * vec_1[0]; ///<-- numerator 
-			double dnum = vec_1[1];        ///<-- denominator
-			double snumt= sqrt(numt);      ///<-- √(numerator) 
-			double sdnum= sqrt(dnum);      ///<-- √(denominator) 
-			*/
+                        
+			//double numt = sign * vec_1[0]; ///<-- numerator 
+			//double dnum = vec_1[1];        ///<-- denominator
+			//double snumt= sqrt(numt);      ///<-- √(numerator) 
+			//double sdnum= sqrt(dnum);      ///<-- √(denominator) 
+			
 			if(validInteger((sqrt(sign * vec_1[0]))) && validInteger((sqrt(vec_1[1]))))  ///<--if both numerator and denominator square roots are integers, evaluate them directly. 
 			{
 				std::cout<<plusorminus<<sqrt(sign * vec_1[0])<<'/'<< sqrt(vec_1[1]);
@@ -132,8 +133,8 @@ void DecimalToFraction(const double& decimal_number )
 	}
 
 	else std::cout<<decimal_number; ///<------ if the number in an integer or equal 0, 1 or -1, write it directly as it is.
-}
-/*void DecimalToFraction(const double& decimal_number ) 
+}*/
+void DecimalToFraction(const double& decimal_number ) 
 {
         //<-------check the sign of the input number to select the sign of the final output.
 	int signdec  = decimal_number > 0 ? 1 : -1; 
@@ -167,7 +168,7 @@ void DecimalToFraction(const double& decimal_number )
 
 			std::valarray<double> vec_1{double((int) number), 1}, vec_2{1,0}, temporary;
 
-			while(decimal_part > precision & counter < cycles)
+			while( (decimal_part > precision)  & (counter < cycles) )
 			{
 				new_number = 1 / decimal_part;
 				whole_part = (int) new_number;
@@ -208,7 +209,7 @@ void DecimalToFraction(const double& decimal_number )
 	}
 
 	else std::cout<<decimal_number; ///<------ if the number in an integer or equal 0, 1 or -1, write it directly as it is.
-}*/
+}
 //--------------------------------------------------------------------------
 //	Function to convert matrix elements to fraction
 //--------------------------------------------------------------------------
@@ -227,10 +228,10 @@ void StringMatrix(int r, int c, double *array)
 //--------------------------------------------------------------------------
 //	Function to check if the input is an integer. 
 //--------------------------------------------------------------------------
-/*bool IsNumber(const std::string& str) 
+bool IsNumber(const std::string& str) 
 {
     return str.find_first_not_of( "0123456789" ) == std::string::npos;
-}*/
+}
 bool validInteger(const double& x)
 {
 	return static_cast<int>(x) - x == 0;

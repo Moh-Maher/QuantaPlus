@@ -21,7 +21,7 @@
 int main()
 {
 	ElapsedTime time_count; //<--clock stuff
-	time_count.Start();
+	
  	
  	double spin; 
  	cout<<"Insert valid spin: (e.g 1/2, 3/2, 5/2,...) \n";
@@ -32,14 +32,17 @@ int main()
 	
 	AngularMomentum<complex> S_x, S_y, S_z; 
 	AngularMomentum<complex> S_sqr, S_plus, S_minus;
-       
+       time_count.Start();////
 	S_sqr = S_sqr.AngularMomentum_JSquare(spin);
 	S_x = S_x.AngularMomentum_Jx(spin);
 	S_y = S_y.AngularMomentum_Jy(spin);
 	S_z = S_z.AngularMomentum_Jz(spin);
 	S_plus = S_plus.AngularMomentum_JPlus(spin);
 	S_minus = S_minus.AngularMomentum_JMinus(spin);
-
+	
+	
+	
+	
 	cout<<"For spin ";
 	DecimalToFraction(spin);
 	cout<<" system:\n";

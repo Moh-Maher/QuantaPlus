@@ -70,7 +70,7 @@ int main()
 	cout<<"######################################################################################\n";
 	cout<<"############### (b) RHS result of the commutator: [J_x, J_y] = i* J_z ################\n";
 	cout<<"######################################################################################\n";
-	QM_operator<complex> commutatorJxJy(J_z.rows(),J_z.cols());
+	QM_operator<complex> commutatorJxJy((int)J_z.rows(),(int)J_z.cols());
 	commutatorJxJy<<Commute(J_x, J_y);
 	ResultPrint(commutatorJxJy);
 

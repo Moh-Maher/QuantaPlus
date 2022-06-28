@@ -10,9 +10,9 @@ class ElapsedTime{
 			start = std::clock();
 		}
 		void End(){ std::cout<<"------------------------------------------"<<std::endl;
-			duration = (std::clock() - start) / (double) CLOCKS_PER_SEC;
+			duration = static_cast<double>(std::clock() - start) /static_cast<double> CLOCKS_PER_SEC;
 			if (duration < 60.0) {
-				std::cout << "Elapsed time: " << duration << " seconds" << std::endl;
+				std::cout << "Elapsed time: " << duration << " seconds !!" << std::endl;
 			}
 			else {
 				std::cout << "Elapsed time: " << duration/60.0 << " mins" << std::endl;

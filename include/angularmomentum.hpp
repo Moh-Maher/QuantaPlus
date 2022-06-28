@@ -136,10 +136,10 @@ std::complex<double>  Jy(const double & j, const double & j1,const double & m1, 
 // 		The z-component of the angular momentum operator J: 
 //			 <j',m'|J_Z|j, m> =  mℏ δ[j'j] * δ[m'm]. 
 //-------------------------------------------------------------------------------------------
-double Jz(const double & j, const double & j1, const double & m1, const double & j2, const double & m2)
+/*double Jz(const double & j, const double & j1, const double & m1, const double & j2, const double & m2)
 {
 	return hBar*m2 * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);
-}
+}*/
 double Jz(const double & j1, const double & m1, const double & j2, const double & m2)
 {
 	return hBar*m2 * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);

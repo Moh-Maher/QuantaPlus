@@ -19,8 +19,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 int main()
 { 
-	ElapsedTime time_count; //<--clock stuff
-	time_count.Start();
+	ElapsedTime time_count;
+	
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = sqrt(-1)] 
   
 	Ket<complex> ktA(3); // deceleration of |A> with fixed space for three elements. 
@@ -35,7 +35,7 @@ int main()
 	
 	brB << 6., 3.-1i, 5.;  // <B| = (6, 3-i, 5)  it's a row vector.
 	ktA <<1.-2i, 1i,-1i;   // |A> = (1-i, i, -i) it's a column vector.
-	
+	time_count.Start();  //<--clock stuff
 	cout<<"--------|A>------------"<<endl;
     	ResultPrint(ktA);
     	cout<<"--------<B|------------"<<endl;
