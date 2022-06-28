@@ -20,29 +20,31 @@ int main() {
  	ElapsedTime time_count; //<--clock stuff
 	time_count.Start();
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
-	QM_operator<complex> H(4,4);
-	complex t;
-	H <<
-	0.0, 0.3, 1.i, 0.0, 
-	0.3, 1.0, 0.0, 0.0, 
-	-1i, 0.0, 1.0,-0.2, 
-	0.0, 0.0,-0.2, 3.0;
+ 
+	QM_operator<complex> A(3,3);
+	 
+	Eigen::Matrix<complex,Eigen::Dynamic,Eigen::Dynamic> vec;
+	Eigen::Matrix<complex,Eigen::Dynamic,Eigen::Dynamic> res;
+ 
+ 
+	A<<0.0, 1.0, 0.0,
+	   1.0, 0.0, 1.0,
+	   0.0, 1.0, 0.0;
 	//cout<<H<<endl;
-	NResultPrint(H);
+	NResultPrint(A);
 	//cout<<QuantumEigenValue(H,4)<<endl;
-	cout<<"Eigenvalue:";
-	for(int i=0;i<4;i++){
-	NResultPrint(QuantumEigenValue(H,i));
-	}
+	cout<<"----------EigenValues-----------"<<endl;
+ 
+	res = QuantumEigenValue(A);
+	//cout<<res<<endl;
+	ResultPrint(res);
 	cout<<endl;
-	/*cout<<"---------------------"<<endl;
-	cout<<"Eigenvectors:\n";
-	for(int i=0;i<4;i++){
-         
-	//NResultPrint(QuantumEigenVector(H,i));
-	cout<<QuantumEigenVector(H,i);
-	}
-	cout<<endl;*/
+	cout<<"----------Eigenvectors-----------"<<endl;
+	 
+	vec =QuantumEigenVector(A);
+	ResultPrint(vec);
+	// cout<<vec<<endl;
+	cout<<endl;
 	///<--clock stuff again
 	time_count.End();
 }

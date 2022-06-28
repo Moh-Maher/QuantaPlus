@@ -309,7 +309,17 @@ Eigen::Matrix<T,Eigen::Dynamic,1> QuantumEigenVector(Eigen::Matrix<T,Eigen::Dyna
    
 	if (eigensolver.info() != Eigen::Success) abort();
   
-	return eigensolver.eigenvectors().col(col_number);
+	return eigensolver.eigenvectors();//.col(col_number);
+}
+//-----------------------------------
+template<typename T>
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> QuantumEigenVector(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &mat)
+{
+	Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>> eigensolver(mat);
+   
+	if (eigensolver.info() != Eigen::Success) abort();
+  
+	return eigensolver.eigenvectors();//.col(col_number);
 }
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: QuantumEigenVector
@@ -330,6 +340,16 @@ T QuantumEigenValue(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  &mat,const i
 	if (eigensolver.info() != Eigen::Success) abort();
    
 	return eigensolver.eigenvalues()[i];
+}
+//---------------------------------------
+template<typename T>
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> QuantumEigenValue(const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  &mat)
+{
+	Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> > eigensolver(mat);
+   
+	if (eigensolver.info() != Eigen::Success) abort();
+   
+	return eigensolver.eigenvalues();
 }
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: DualConj

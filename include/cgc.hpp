@@ -1,6 +1,6 @@
 /*******************************************************************************************
 some of "cgc.h" meathods implementation.
- 
+    
 by:  Mohammed Maher Abdelrahim Mohammed
      UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
@@ -139,7 +139,6 @@ std::vector<double> possibleJ(const double& j1, const double& j2){
 //------------------------------------------------------------------------------------------
  void ListOfAllCGCs(const double& j1, const double& j2)
 {
- 
 	std::vector<double> J = possibleJ(j1,j2);
 	std::vector<double> M;  
  
