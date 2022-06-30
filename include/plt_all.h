@@ -42,7 +42,7 @@ void plot_phi0() {
   plt::title("Wave function $\\phi_0$");
   plt::xlabel("$x$");
   plt::ylabel("$\\phi_0$");
-  plt::text(5.7e+3, 0.299, "QUANTAPLUS-xv1.1");
+  //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
    plt::xlim(-9, 9);
    //plt::ylim(0, 1);
    
@@ -84,7 +84,7 @@ void plot_phi1() {
   plt::title("Wave function $\\phi_1$");
   plt::xlabel("$x$");
   plt::ylabel("$\\phi_1$");
-  plt::text(5.7e+3, 0.299, "QUANTAPLUS-xv1.1");
+ //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
    plt::xlim(-9, 9);
    //plt::ylim(0, 1);
    
@@ -125,7 +125,7 @@ void plot_phi2() {
   plt::title("Wave function $\\phi_2$");
   plt::xlabel("$x$");
   plt::ylabel("$\\phi_2$");
-  plt::text(5.7e+3, 0.299, "QUANTAPLUS-xv1.1");
+  //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
    plt::xlim(-9, 9);
    //plt::ylim(0, 1);
    
@@ -167,7 +167,7 @@ void plot_phi3() {
   plt::title("Wave function $\\phi_3$");
   plt::xlabel("$x$");
   plt::ylabel("$\\phi_3$");
-  plt::text(5.7e+3, 0.299, "QUANTAPLUS-xv1.1");
+ //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
    plt::xlim(-9, 9);
    //plt::ylim(0, 1);
    
@@ -254,8 +254,8 @@ void plot_phi() {
   plt::title("Harmonic Oscillator Wave functions");
   plt::xlabel("$x$");
   plt::ylabel("$\\phi$");
-  plt::text(5.7e+3, 0.299, "QUANTAPLUS-xv1.1");
-   plt::xlim(-7, 7);
+  //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
+   //plt::xlim(-7, 7);
    //plt::ylim(0, 1);
    
   plt::plot(x1, y1, {{"color", "red"}, {"label", "Energy level 0"}, {"linestyle", "--"}});
@@ -271,5 +271,128 @@ void plot_phi() {
   plt::show();
   
 }
+
+
+
+void DoubleWellplot_phi01() {
+
+  const unsigned n = 21;
+  std::ifstream infile1;
+  std::ifstream infile2;
+    
+  infile1.open("output/DoubleWellphi0.dat");
+   infile2.open("output/DoubleWellphi1.dat");
  
+  if(infile1.fail()) ///<-- checks to see if file opended 
+    { 
+      std::cout << "error!, the needed output file doesn't exist yet. !" << std::endl; 
+      exit (-1); ///<-- no point continuing if the file didn't open...
+    } 
+      if(infile2.fail()) ///<-- checks to see if file opended 
+    { 
+      std::cout << "error!, the needed output file doesn't exist yet. !" << std::endl; 
+      exit (-1); ///<-- no point continuing if the file didn't open...
+    } 
+ 
+ std::vector<double> x1(n), y1(n);
+   for (unsigned i = 0; i < n; i++) {
+      
+    infile1 >> x1[i];    
+    infile1 >> y1[i]; 
+     
+  }
+  
+  infile1.close();
+  
+   std::vector<double> x2(n), y2(n);
+   for (unsigned i = 0; i < n; i++) {
+      
+    infile2 >> x2[i];    
+    infile2 >> y2[i]; 
+     
+  }
+  
+ 
+  
+  infile2.close();
+  plt::title("Wave functions under Double Well potential");
+  plt::xlabel("$x$");
+  plt::ylabel("$\\phi$");
+  //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
+   //plt::xlim(-7, 7);
+   //plt::ylim(0, 1);
+   
+  plt::plot(x1, y1, {{"color", "red"}, {"label", "Energy level 0"}, {"linestyle", "--"}});
+  plt::plot(x2, y2, {{"label", "Energy level 1"}, {"linestyle", "--"}});
+ 
+  
+  plt::legend();
+   plt::savefig("output/plots/DoublePotential_phi0_1.pdf");
+   printf("-----------------------------------------------------\n");
+   printf("the plot has been saved in output/plots directory\n");
+   printf("-----------------------------------------------------\n");
+  plt::show();
+  
+}
+
+void DoubleWellplot_phi67() {
+
+  const unsigned n = 21;
+  std::ifstream infile1;
+  std::ifstream infile2;
+    
+  infile1.open("output/DoubleWellphi2.dat");
+   infile2.open("output/DoubleWellphi3.dat");
+ 
+  if(infile1.fail()) ///<-- checks to see if file opended 
+    { 
+      std::cout << "error!, the needed output file doesn't exist yet. !" << std::endl; 
+      exit (-1); ///<-- no point continuing if the file didn't open...
+    } 
+      if(infile2.fail()) ///<-- checks to see if file opended 
+    { 
+      std::cout << "error!, the needed output file doesn't exist yet. !" << std::endl; 
+      exit (-1); ///<-- no point continuing if the file didn't open...
+    } 
+ 
+ std::vector<double> x1(n), y1(n);
+   for (unsigned i = 0; i < n; i++) {
+      
+    infile1 >> x1[i];    
+    infile1 >> y1[i]; 
+     
+  }
+  
+  infile1.close();
+  
+   std::vector<double> x2(n), y2(n);
+   for (unsigned i = 0; i < n; i++) {
+      
+    infile2 >> x2[i];    
+    infile2 >> y2[i]; 
+     
+  }
+  
+ 
+  
+  infile2.close();
+  plt::title("Wave functions under Double Well potential");
+  plt::xlabel("$x$");
+  plt::ylabel("$\\phi$");
+  //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
+   //plt::xlim(-7, 7);
+   //plt::ylim(0, 1);
+   
+  plt::plot(x1, y1, {{"color", "red"}, {"label", "Energy level 6"}, {"linestyle", "--"}});
+  plt::plot(x2, y2, {{"label", "Energy level 7"}, {"linestyle", "--"}});
+ 
+  
+  plt::legend();
+   plt::savefig("output/plots/DoublePotential_phi6_7.pdf");
+   printf("-----------------------------------------------------\n");
+   printf("the plot has been saved in output/plots directory\n");
+   printf("-----------------------------------------------------\n");
+  plt::show();
+  
+}
 #endif

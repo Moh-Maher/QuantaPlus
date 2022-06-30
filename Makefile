@@ -22,7 +22,8 @@ EXAMPLES = example1\
 		latex_test \
 		test_eigenvalue\
 		test_ClebschGordon\
-		Harmonic_Oscillator
+		Harmonic_Oscillator\
+		Double_Well
 
 TESTS = gtest_braket
 	

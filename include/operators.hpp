@@ -185,6 +185,10 @@ double wave_function(const int& n,const double& x)
 { 
 	return (1./pow(M_PI,0.25)) *(1/(sqrt(pow(2,n))*Factorial(n)))*std::hermite(n,x)*exp(-pow(x,2)/2.);
 }
+/*double wave_function(const int& n,const double& x)
+{ 
+	return sqrt(2)*sin(n*M_PI*x);
+}*/
 //---------------------------------------------------------------------------------------------
 //coefficients
 //---------------------------------------------------------------------------------------------
