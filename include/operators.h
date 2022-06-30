@@ -25,8 +25,8 @@ template<class T>
 class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
 {
 	public:
-		QM_operator();
-		QM_operator(int row,int col);
+		QM_operator():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>(){};
+		QM_operator(int row,int col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col){};
 		//<--This constructor allows us to construct QM_operator from Eigen expressions
 		template<typename Derived>
 		QM_operator(const Eigen::MatrixBase<Derived>& other)
@@ -40,7 +40,7 @@ class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
 			this->Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::operator=(other);
 			return *this;
 		} 
-		~QM_operator();
+		~QM_operator(){}
 };
 
 #include"operators.hpp"

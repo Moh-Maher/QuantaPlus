@@ -4,5 +4,8 @@
 int main()
 {
 	plot_phi0();
-	plot_phi1();		
+	plot_phi1();
+	plot_phi2();
+	plot_phi3();	
+	plot_phi();	
 }

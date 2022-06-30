@@ -29,7 +29,7 @@ TESTS = gtest_braket
 OUTPUT = genLatex
 	 #ploting_wavefunctions
 
-PLOTS = ploting_wavefunctions
+PLOTS = plotting_wavefunctions
           
 # making examples
 
