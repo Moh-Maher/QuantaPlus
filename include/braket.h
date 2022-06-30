@@ -19,7 +19,7 @@
 #include <algorithm>
 #include <cstdarg>
 #include"utilities.h"
-#include"operators.h"
+//#include"operators.h"
 //namespace QuantaPlus {
 
 /***************************************************************************
@@ -44,19 +44,26 @@ class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1>
 		Ket():Eigen::Matrix<T,Eigen::Dynamic,1>(){ }
 		Ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){ }
 		
-		//<--This constructor allows us to construct Ket from Eigen expressions
+		//<-- This constructor allows us to construct Ket from Eigen expressions
 		template<typename Derived>
 		Ket(const Eigen::MatrixBase<Derived>& other)
 		:Eigen::Matrix<T,Eigen::Dynamic,1>(other){ }
 	   	//Ket(const T *data );
 	   	 
-	    	//<--This method allows us to assign Eigen expressions to Ket
+	    	//<-- This method allows us to assign Eigen expressions to Ket
 		template<typename Derived>
 		Ket& operator=(const Eigen::MatrixBase <Derived>& other)
 		{
 			this->Eigen::Matrix<T,Eigen::Dynamic,1>::operator=(other);
 			return *this;
-		} 
+		}
+		//<-- overloading the logical == operator 
+		bool operator ==(const Ket<T>& ket){
+			
+			bool res = false;
+			if(this->rows()==ket.rows() && this->rows() == ket.rows()){res = true;}
+			return res;
+		}
 		~Ket(){};     
 };
 /***************************************************************************
@@ -91,7 +98,14 @@ class Bra : public Eigen::Matrix<T,1, Eigen::Dynamic>
 		{
 			this->Eigen::Matrix<T,1 ,Eigen::Dynamic>::operator=(other);
 			return *this;
-		} 
+		}
+		// overloading the logical == operator 
+		bool operator ==(const Bra<T>& bra){
+			
+			bool res = false;
+			if(this->rows()==bra.rows() && this->rows() == bra.rows()){res = true;}
+			return res;
+		}
 		~Bra(){};  
 };
 #include"braket.hpp"

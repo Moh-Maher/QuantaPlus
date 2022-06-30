@@ -21,9 +21,15 @@ EXAMPLES = example1\
 		braket_test\
 		latex_test \
 		test_eigenvalue\
-		test_ClebschGordon
+		test_ClebschGordon\
+		Harmonic_Oscillator
 
+TESTS = gtest_braket
+	
 OUTPUT = genLatex
+	 #ploting_wavefunctions
+
+PLOTS = ploting_wavefunctions
           
 # making examples
 
@@ -31,6 +37,13 @@ $(EXAMPLES): %: examples/%.cpp
 	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/usr/include/eigen3 #-I/home/mohammed/Downloads/eigen-3.4.0/ 
 
 $(OUTPUT): %: output/%.cpp  
-	$(CC) $(CFLAGSTEST)  -o latex.out $<
+	$(CC) $(CFLAGSTEST)  -o latex.out $< #-I/usr/include/python3.10 -lpython3.10
+	
+$(PLOTS): %: output/plots/%.cpp  
+	$(CC) $(CFLAGSTEST)  -o plot.out $< -I/usr/include/python3.10 -lpython3.10
+
+	
+$(TESTS): %: tests/%.cpp
+	$(CC) $(CFLAGSTEST)  -o RunTests.out $< -lgtest -lgtest_main -pthread -I/usr/include/eigen3 
 clean:
 	rm *.out      	

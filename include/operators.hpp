@@ -34,4 +34,184 @@ QM_operator<T>::QM_operator(int row, int col):
 template<class T>
 QM_operator<T>::~QM_operator(){};
 
+//---------------------------------------------------------------------------------------------
+//
+//---------------------------------------------------------------------------------------------
+int KroneckerDelta(const int & i, const int & j)
+{
+	if  (i==j){return (1);}
+	else 
+	return (0);
+}
+//---------------------------------------------------------------------------------------------
+//Harmonic Oscillator Matrix Elements
+//---------------------------------------------------------------------------------------------
+template<typename T>
+QM_operator<T> HOscillatorMatrixElements(const int& R, const int& C)
+{
+	QM_operator<T> H(R,C);
+	 
+	for(int i=0; i<(int)H.rows(); i++){
+		for(int j =0; j<(int)H.cols();j++){
+			H(i,j) = (i+1./2.)*KroneckerDelta(i,j); 
+		}
+	}
+	return H;
+}
+
+//---------------------------------------------------------------------------------------------
+//Position Operator
+//---------------------------------------------------------------------------------------------
+template<typename T>
+QM_operator<T> PositionOperator(const int& R, const int& C)
+{
+	 
+	QM_operator<T> H(R,C);
+	 
+	for(int i=0; i<(int)H.rows(); i++){
+		for(int j =0; j<(int)H.cols();j++){
+			H(i,j) = sqrt(j)*KroneckerDelta(i,j-1) + sqrt(j+1)*KroneckerDelta(i,j+1);
+		}
+	}
+	return H;
+}
+//---------------------------------------------------------------------------------------------
+// Momentum Operator
+//---------------------------------------------------------------------------------------------
+template<typename T>
+QM_operator<T> MomentumOperator(const int& R, const int& C)
+{
+ 
+	QM_operator<T> H(R,C);
+ 
+	for(int i=0; i<(int)H.rows(); i++){
+		for(int j =0; j<(int)H.cols();j++){
+			H(i,j) = sqrt(j+1)*KroneckerDelta(i,j+1) - sqrt(j)*KroneckerDelta(i,j-1);
+		}
+	}
+	return H;
+}
+//---------------------------------------------------------------------------------------------
+// Lowering Operator
+//---------------------------------------------------------------------------------------------
+template<typename T>
+QM_operator<T> LoweringOperator(const int& R, const int& C)
+{ 
+	QM_operator<T> H(R,C);
+ 
+	for(int i=0; i<(int)H.rows(); i++){
+		for(int j =0; j<(int)H.cols();j++){
+			H(i,j) = sqrt(j)*KroneckerDelta(i,j-1);
+		}
+	}
+	return H;
+}
+//---------------------------------------------------------------------------------------------
+// Rising Operator
+//---------------------------------------------------------------------------------------------
+template<typename T>
+QM_operator<T> RisingOperator(const int& R, const int& C)
+{	 
+	QM_operator<T> H(R,C);
+ 
+	for(int i=0; i<(int)H.rows(); i++){
+		for(int j =0; j<(int)H.cols();j++){
+			H(i,j) = sqrt(j+1)*KroneckerDelta(i,j+1);
+		}
+	}
+	return H;
+}
+
+//---------------------------------------------------------------------------------------------
+// Hamiltonian 
+//---------------------------------------------------------------------------------------------
+template<typename T>
+QM_operator<T> Hamiltonian(QM_operator<T> A, QM_operator<T> B, Bra<T> coff)
+{
+	int l = (int)coff.cols();
+	QM_operator<T> res((int)A.rows(),(int)A.cols());
+	QM_operator<T> a((int)A.rows(),(int)A.cols());
+	a = -0.25 *B.pow(2);
+
+	QM_operator<T> b((int)A.rows(),(int)A.cols());
+	b = QM_operator<T>::Zero((int)A.rows(),(int)A.cols()) ;
+
+	for(int i=0; i<l; i++){
+		b += coff[i]*pow(0.5,0.5*i)*A.pow(i);
+	}
+
+	res = a + b;
+	res.conservativeResize(res.rows()-1, res.cols()-1);
+	return res;
+}
+//---------------------------------------------------------------------------------------------
+//Eignvalues
+//---------------------------------------------------------------------------------------------
+template<typename T>
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> eval(QM_operator<T>& A)
+{
+	return QuantumEigenValue(A);
+}
+//---------------------------------------------------------------------------------------------
+//Eignvectors 
+//---------------------------------------------------------------------------------------------
+template<typename T>
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> evec(QM_operator<T>& A)
+{
+	return QuantumEigenVector(A);
+}
+//---------------------------------------------------------------------------------------------
+//Eignvectors
+//---------------------------------------------------------------------------------------------
+template<typename T>
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> evec(const QM_operator<T>& A, const QM_operator<T>& B, const Bra<T>& coff)
+{
+	QM_operator<T> res = Hamiltonian(A,B,coff);
+	return QuantumEigenVector(res);
+}
+
+//---------------------------------------------------------------------------------------------
+//
+//---------------------------------------------------------------------------------------------
+int Factorial(const int& n)
+{
+        return n == 0? 1 : n * Factorial(n-1);
+}
+//---------------------------------------------------------------------------------------------
+// wave_function
+//---------------------------------------------------------------------------------------------
+double wave_function(const int& n,const double& x)
+{ 
+	return (1./pow(M_PI,0.25)) *(1/(sqrt(pow(2,n))*Factorial(n)))*std::hermite(n,x)*exp(-pow(x,2)/2.);
+}
+//---------------------------------------------------------------------------------------------
+//coefficients
+//---------------------------------------------------------------------------------------------
+template<typename T>
+std::vector<T> coefficients(const QM_operator<T>& A, const QM_operator<T> &B,const Bra<T> &coff, const int& n)
+{	
+	Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Evec;
+	std::vector<T> ci;
+	Evec = evec(A,B,coff);
+	for(int i =0; i<(int)Evec.rows();i++){
+		ci.push_back( Evec(i,n));
+	}
+
+	return ci;
+}
+//---------------------------------------------------------------------------------------------
+//wave_function_H
+//---------------------------------------------------------------------------------------------
+template<typename T>
+T  wave_function_H(const QM_operator<T>& A, const QM_operator<T> &B, const Bra<T> &coff, const double& x, const int& n)
+{ 	
+	std::vector<T> ci;
+	ci = coefficients(A,B,coff,n);
+	T res=0.0;
+
+	for(int i=0; i<(int)ci.size(); i++){
+		res += ci[i]*wave_function(i,x);
+	}
+	return res;
+}
 #endif // OPERATORS_TPP

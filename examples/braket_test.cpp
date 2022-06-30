@@ -50,7 +50,8 @@ int main()
     	BraKetAB = BraKet(brA,ktB);
     	ResultPrint( BraKetAB);
     	cout<<"--------<B|A>----------"<<endl;
-    	BraKetBA = BraKet(brB,ktA);
+    	//BraKetBA = BraKet(brB,ktA);
+    	BraKetBA = brB*ktA;
     	ResultPrint( BraKetBA);
    
     	BraKetAA = BraKet(brA,ktA);

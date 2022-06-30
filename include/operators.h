@@ -13,9 +13,12 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //#pragma once
 #ifndef QUANTAPLUS_INCLUDE_OPERATORS_H
 #define QUANTAPLUS_INCLUDE_OPERATORS_H
-//#include <unsupported/Eigen/MatrixFunctions>
 #include <Eigen/Dense>
-//#include"utilities.h"
+#include <unsupported/Eigen/MatrixFunctions>
+#include<complex>
+#include"braket.h"
+#include<cmath>
+#include<vector>
 
 //namespace QuantaPlus{
 template<class T>
