@@ -276,7 +276,7 @@ void plot_phi() {
 
 void DoubleWellplot_phi01() {
 
-  const unsigned n = 21;
+  const unsigned n = 11;
   std::ifstream infile1;
   std::ifstream infile2;
     
@@ -319,7 +319,7 @@ void DoubleWellplot_phi01() {
   plt::xlabel("$x$");
   plt::ylabel("$\\phi$");
   //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
-   //plt::xlim(-7, 7);
+  plt::xlim(-10, 10);
    //plt::ylim(0, 1);
    
   plt::plot(x1, y1, {{"color", "red"}, {"label", "Energy level 0"}, {"linestyle", "--"}});
@@ -337,7 +337,7 @@ void DoubleWellplot_phi01() {
 
 void DoubleWellplot_phi67() {
 
-  const unsigned n = 21;
+  const unsigned n = 11;
   std::ifstream infile1;
   std::ifstream infile2;
     
@@ -380,7 +380,7 @@ void DoubleWellplot_phi67() {
   plt::xlabel("$x$");
   plt::ylabel("$\\phi$");
   //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
-   //plt::xlim(-7, 7);
+   plt::xlim(-10, 10);
    //plt::ylim(0, 1);
    
   plt::plot(x1, y1, {{"color", "red"}, {"label", "Energy level 6"}, {"linestyle", "--"}});

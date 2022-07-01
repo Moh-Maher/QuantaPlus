@@ -251,4 +251,71 @@ void Warning(const std::string & str)
  //std::cout<<FYEL("[")<<FRED("ERROR!:")<<FYEL(<<str<<" ]\n");
  std::cout<<FYEL("[")<<FYEL(<<str<<" ]\n");
 }
+//--------------------------------------------------------------------------
+//	class to handle output operations
+//-------------------------------------------------------------------------
+class Output
+{
+	public:
+	// member variables
+	std::ofstream takeData;
+	// member functions
+	// constructor
+	Output(std::string fileName)
+	{
+		takeData.open(fileName + ".dat");
+	}
+
+	// destructor
+	~Output()
+	{
+		takeData.close();
+	}
+
+	// function to write output to file
+	void writeOutput(std::string output)
+	{
+		takeData << output << std::endl;
+	}
+};
+// class to handle file input and output operations
+/*class FileIO
+{
+    // member variables
+    string fileName;
+    ifstream inputFile;
+    ofstream outputFile;
+    // member functions
+    public:
+    // constructor
+    FileIO(string fileName)
+    {
+        this->fileName = fileName;
+        inputFile.open(fileName);
+        outputFile.open(fileName + ".out");
+    }
+    
+    // destructor
+    ~FileIO()
+    {
+        inputFile.close();
+        outputFile.close();
+    }
+
+    // function to read input from file
+    void readInput()
+    {
+        string line;
+        while(getline(inputFile, line))
+        {
+            cout << line << endl;
+        }
+    }
+
+    // function to write output to file
+    void writeOutput(string output)
+    {
+        outputFile << output << endl;
+    }
+};*/
 #endif // UTILITIES_HPP
