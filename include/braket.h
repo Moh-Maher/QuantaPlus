@@ -41,11 +41,11 @@ template <class T>
 class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1> 
 {
 	public:
-		Ket():Eigen::Matrix<T,Eigen::Dynamic,1>(){ }
-		Ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){ }
+		Ket():Eigen::Matrix<T,Eigen::Dynamic,1>(){ } //default constructor
+		Ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){ } //constructor with row number
 		
 		//<-- This constructor allows us to construct Ket from Eigen expressions
-		template<typename Derived>
+		template<typename Derived> 
 		Ket(const Eigen::MatrixBase<Derived>& other)
 		:Eigen::Matrix<T,Eigen::Dynamic,1>(other){ }
 	   	//Ket(const T *data );
@@ -54,18 +54,17 @@ class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1>
 		template<typename Derived>
 		Ket& operator=(const Eigen::MatrixBase <Derived>& other)
 		{
-			this->Eigen::Matrix<T,Eigen::Dynamic,1>::operator=(other);
+			this->Eigen::Matrix<T,Eigen::Dynamic,1>::operator=(other);  
 			return *this;
 		}
 		//<-- overloading the logical == operator 
-		bool operator ==(const Ket<T>& ket){
-			
-			bool res = false;
-			if(this->rows()==ket.rows() && this->rows() == ket.rows()){res = true;}
-			return res;
-		}
-		~Ket(){};     
+		bool operator ==(const Ket<T>& ket) const
+       		{
+            		return this->Eigen::Matrix<T,Eigen::Dynamic,1>::operator==(ket);
+        	}
+		~Ket(){} //destructor     
 };
+ 
 /***************************************************************************
   Class:    Bra.
 
@@ -85,8 +84,8 @@ template <class T>
 class Bra : public Eigen::Matrix<T,1, Eigen::Dynamic> 
 {
 	public:
-		Bra():Eigen::Matrix<T,1,Eigen::Dynamic>(){ }
-		Bra(int col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col){ }
+		Bra():Eigen::Matrix<T,1,Eigen::Dynamic>(){} //default constructor
+		Bra(int col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col){} //constructor with column number
 		//<--This constructor allows us to construct Bra from Eigen expressions
 		template<typename Derived>
 		Bra(const Eigen::MatrixBase<Derived>& other)
@@ -100,13 +99,11 @@ class Bra : public Eigen::Matrix<T,1, Eigen::Dynamic>
 			return *this;
 		}
 		// overloading the logical == operator 
-		bool operator ==(const Bra<T>& bra){
-			
-			bool res = false;
-			if(this->rows()==bra.rows() && this->rows() == bra.rows()){res = true;}
-			return res;
+		bool operator ==(const Bra<T>& bra) const
+		{
+            		return this->Eigen::Matrix<T,1,Eigen::Dynamic>::operator==(bra);	 
 		}
-		~Bra(){};  
+		~Bra(){} //destructor
 };
 #include"braket.hpp"
 //} //end of namespace QuantaPlus

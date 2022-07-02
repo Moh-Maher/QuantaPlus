@@ -25,7 +25,8 @@ EXAMPLES = example1\
 		Harmonic_Oscillator\
 		Double_Well
 
-TESTS = gtest_braket
+TESTS = gtest_braket\
+	gtest_QM_operators
 	
 OUTPUT = genLatex
 	 #ploting_wavefunctions
