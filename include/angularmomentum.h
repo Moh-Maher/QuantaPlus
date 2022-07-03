@@ -20,16 +20,27 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 //namespace QuantaPlus{
 template <class T>
-class AngularMomentum : public QM_operator<T> 
+class AngularMomentum : public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>//public QM_operator<T> 
 {
 	public:
-		AngularMomentum();
-		AngularMomentum(int row, int col); 
+		AngularMomentum():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>(){};
+		AngularMomentum(int row, int col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col){};
 		//AngularMomentum(const T *data );
 		//AngularMomentum(const AngularMomentum<T,R,C> &amo); 
 		//AngularMomentum(const double j); 
-		~AngularMomentum();
-
+		template<typename Derived>
+		AngularMomentum(const Eigen::MatrixBase<Derived>& other)
+		:Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other){ }
+	   	
+	   	//<--This method allows us to assign Eigen expressions to Ket
+		template<typename Derived>
+		AngularMomentum& operator=(const Eigen::MatrixBase <Derived>& other)
+		{
+			this->Eigen::Matrix<T,Eigen::Dynamic ,Eigen::Dynamic>::operator=(other);
+			return *this;
+		}
+		~AngularMomentum(){}
+			
 		// AngularMomentum<T,R,C> operator= (const AngularMomentum<T,R,C> &amo);
 		//AngularMomentum<T,R,C> operator * (const AngularMomentum<T,R,C> &amo) const;
 
@@ -41,7 +52,7 @@ class AngularMomentum : public QM_operator<T>
 		AngularMomentum<T> AngularMomentum_JPlus(const double& spin_value);
 		AngularMomentum<T> AngularMomentum_JMinus(const double& spin_value);
 
-		AngularMomentum<T> RotationByAngle(const double& alpha);
+		AngularMomentum<T> RotationByAngle(const std::string& dir, const double& alpha);
 
 
 };

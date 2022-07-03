@@ -19,6 +19,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //--------------------------------------------------------------------------
 //		AngularMomentum defult constructor
 //--------------------------------------------------------------------------
+/*
 template <class T>
 AngularMomentum<T>::AngularMomentum():QM_operator<T>(){}
 //--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ AngularMomentum<T>::AngularMomentum(int row, int col):
 //--------------------------------------------------------------------------
 template <class T>
 AngularMomentum<T>::~AngularMomentum(){ }
+*/
 //---------------------------------------------------------------------------
 //		commutation relation: [A,B] = A*B - B*A
 //---------------------------------------------------------------------------
@@ -436,32 +438,61 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JMinus(const double &j)
 
 	return temp;     
 }
-/*
+
 //--------------------------------------------------------------------------
 //
 //--------------------------------------------------------------------------
 template <typename T>
-Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> MatrixExp(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &A){
+AngularMomentum<T> MatrixExp(AngularMomentum<T> &A){
 
 return  A.exp();
 }
 
-template <typename T>
+/*template <typename T>
 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> MatrixExp(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &A, Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &V ){
 
 return  A.exp()*V;
-}
+}*/
+
 //--------------------------------------------------------------------------
 //		 
 //--------------------------------------------------------------------------
-
 template <class T>
-AngularMomentum<T> AngularMomentum<T>:: RotationByAngle(const double &a)
+ AngularMomentum<T> AngularMomentum<T>::RotationByAngle(const std::string& dir, const double &a)
 {
- const double spin= 1./2.;
- AngularMomentum<std::complex<double>> S_x;
- S_x = S_x.AngularMomentum_Jx(spin);
- std::complex<double> i(0.,1.);
- return MatrixExp(i*a*S_x);
-}*/
+	const double spin= 1./2.;
+	AngularMomentum<T> res;
+	AngularMomentum<std::complex<double>> J;
+	if(dir == "x")
+	{
+		J = J.AngularMomentum_Jx(spin);
+	}
+
+	else if (dir=="y"){
+		J = J.AngularMomentum_Jy(spin);
+	}
+
+	else if(dir == "z")
+	{
+		J = J.AngularMomentum_Jz(spin);
+	}
+	//std::complex<double> i(0.,1.);
+	res = -1.*std::complex<double>(0.,1.)*a*J;
+	return MatrixExp(res);
+}
+template <class T>
+ AngularMomentum<T> RotationByAngle(const double &a, const AngularMomentum<T>& mat)
+{
+	 
+	AngularMomentum<T> res;
+	 
+	res = -1.*std::complex<double>(0.,1.)*a*mat;
+	return MatrixExp(res);
+}
+//--------------------------------------------------------------------------
+//		Wigner functions 
+//--------------------------------------------------------------------------
+/*template <class T>
+ AngularMomentum<T> AngularMomentum<T>::RotationByAngle(const std::string& dir, const double &a)
+{}*/
 #endif // ANGULARMOMENTUM_HPP

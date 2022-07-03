@@ -62,9 +62,35 @@ class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1>
        		{
             		return this->Eigen::Matrix<T,Eigen::Dynamic,1>::operator==(ket);
         	}
+        	/*
+        	struct Loader {
+			Ket<T>& m;
+			int i;
+			Loader(Ket<T>& m, int i) : m(m), i(i) {}
+			Loader operator , (T x) {
+			
+				kt(i%(int)m.rows(),1) = x;
+				return Loader(m, i+1);
+			}
+		};
+		Loader operator>(T x) {
+			
+			kt(0,1) = x;
+			return Loader(*this, 1);
+		}
+        	*/
 		~Ket(){} //destructor     
 };
- 
+/*
+template<class T>
+std::ostream& operator<<(std::ostream& out, Ket<T>& mf){
+	for(int i=0;i<(int)mf.rows();i++){
+		out<<mf(i)<<"\t";
+	}
+	out<<"\n";
+	return out;
+}
+*/
 /***************************************************************************
   Class:    Bra.
 

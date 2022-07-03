@@ -22,7 +22,7 @@ int main()
 	ElapsedTime time_count;
 	
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = sqrt(-1)] 
-  
+  	/*Remember that you have to set the size before you can use the comma initializer.*/
 	Ket<complex> ktA(3); // deceleration of |A> with fixed space for three elements. 
 	Ket<complex> ktB;    // deceleration of |B> with unspecified (Dynamic) space for its elements. 
 	Bra<complex> brB(3); // deceleration of <B| with fixed space for three elements. 
@@ -61,7 +61,7 @@ int main()
     	cout<<"--------<B|B>--------"<<endl;
     	ResultPrint( BraKetBB);
     
-    	
+    	 
 	///<--clock stuff again
 	time_count.End();
     	 
