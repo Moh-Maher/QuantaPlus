@@ -460,7 +460,7 @@ return  A.exp()*V;
 template <class T>
  AngularMomentum<T> AngularMomentum<T>::RotationByAngle(const std::string& dir, const double &a)
 {
-	const double spin= 1./2.;
+	const double spin= 3./2.;
 	AngularMomentum<T> res;
 	AngularMomentum<std::complex<double>> J;
 	if(dir == "x")
