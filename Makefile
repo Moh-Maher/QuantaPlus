@@ -13,7 +13,8 @@ CFLAGSTEST = -std=c++17 -Wall -Wextra -Wconversion
          	 
 INCLUDEQUANTAPLUS = include/constants.h \
                  include/operators.h \
-                 include/utilities.h
+                 include/utilities.h\
+                 include/plot.h
                                    
 EXAMPLES = example1\
 		QCD_example\

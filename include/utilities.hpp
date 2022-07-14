@@ -281,41 +281,48 @@ class Output
 // class to handle file input and output operations
 /*class FileIO
 {
-    // member variables
-    string fileName;
-    ifstream inputFile;
-    ofstream outputFile;
-    // member functions
-    public:
-    // constructor
-    FileIO(string fileName)
-    {
-        this->fileName = fileName;
-        inputFile.open(fileName);
-        outputFile.open(fileName + ".out");
-    }
-    
-    // destructor
-    ~FileIO()
-    {
-        inputFile.close();
-        outputFile.close();
-    }
+	public:
+	// member variables
+		std::string fileName;
+		std::ifstream inputFile;
+		// ofstream outputFile;
+		// member functions
 
-    // function to read input from file
-    void readInput()
-    {
-        string line;
-        while(getline(inputFile, line))
-        {
-            cout << line << endl;
-        }
-    }
+		// constructor
+		FileIO(std::string fileName)
+		{
+			this->fileName = fileName;
+			inputFile.open(fileName);
+			if(inputFile.fail()) ///<-- checks to see if file opended 
+			{ 
+				std::cout << "error!" << std::endl; 
+				return ; ///<-- no point continuing if the file didn't open...
+			} 
+			//   outputFile.open(fileName + ".out");
+		}
 
-    // function to write output to file
-    void writeOutput(string output)
-    {
-        outputFile << output << endl;
-    }
-};*/
+
+		// destructor
+		~FileIO()
+		{
+			inputFile.close();
+		//   outputFile.close();
+		}
+
+		// function to read input from file
+		void readInput()
+		{
+			std::string line;
+			while(getline(inputFile, line))
+			{
+				std::cout << line << std::endl;
+			}
+		}
+
+		// function to write output to file
+		/*void writeOutput(string output)
+		{
+		outputFile << output << endl;
+		}*/
+//};
 #endif // UTILITIES_HPP

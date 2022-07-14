@@ -6,6 +6,7 @@
 #include<fstream>
 #include"operators.h"
 #include"timer.h"
+
  
 	typedef std::complex<double>  complex;
 	using std::cout;
@@ -73,6 +74,8 @@ time_count.Start();
  	cout<<i<<"\t"<<std::real(wave_function_H(plus,minus,ll,i,3))<<endl;
 	}
 	outfile4.close();
+	
+	
 time_count.End();
 	
  
