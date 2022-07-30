@@ -320,9 +320,9 @@ class Output
 		}
 
 		// function to write output to file
-		/*void writeOutput(string output)
-		{
-		outputFile << output << endl;
-		}*/
-//};
+		//void writeOutput(string output)
+		//{
+		//outputFile << output << endl;
+		//}
+//};*/
 #endif // UTILITIES_HPP

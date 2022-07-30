@@ -24,7 +24,10 @@ EXAMPLES = example1\
 		test_eigenvalue\
 		test_ClebschGordon\
 		Harmonic_Oscillator\
-		Double_Well
+		Double_Well\
+		Rb87_hyperfine_structure\
+		oscillating_magnetic_field\
+		shift
 
 TESTS = gtest_braket\
 	gtest_QM_operators

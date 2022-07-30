@@ -219,4 +219,51 @@ T  wave_function_H(const QM_operator<T>& A, const QM_operator<T> &B, const Bra<T
 	}
 	return res;
 }
+//---------------------------------------------------------------------------
+//				Kronecker-Product
+//---------------------------------------------------------------------------
+template <class T>
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> 
+KroneckerProduct( const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt1, 
+		  const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt2)
+{   
+	int rowA = (int)mt1.rows();
+	int colA = (int)mt1.cols();
+	int rowB = (int)mt2.rows();
+	int colB = (int)mt2.cols();
+	Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  res((rowA*rowB),(colA*colB));
+	for (int i = 0; i < rowA; i++)
+	{
+		for (int k = 0; k < rowB; k++) ///<-------- k loops till rowb
+		{
+			for (int j = 0; j < colA; j++)  ///<-------- j loops till cola
+			{
+				for (int l = 0; l < colB; l++)  ///<-------- l loops till colb
+				{
+					res(i*rowB+k,j*colB+l)=mt1(i,j)*mt2(k,l); 	   		
+				}
+			}
+		}
+	}
+	return res;    
+}
+//---------------------------------------------------------------------------
+//				Kronecker-Product
+//---------------------------------------------------------------------------
+template <class T>
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> 
+KroneckerProduct( const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt1, 
+		  const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt2, const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt3)
+{   
+	Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> temp = KroneckerProduct(mt1,mt2) ;
+	return KroneckerProduct(temp,mt3);
+}
+//--------------------------------------------------------------------------
+//		Identity matrix
+//--------------------------------------------------------------------------
+template<typename T>
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Id(const double& Spin)
+{
+	return Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::Identity( int(2*Spin+1), int(2*Spin+1));
+}
 #endif // OPERATORS_TPP

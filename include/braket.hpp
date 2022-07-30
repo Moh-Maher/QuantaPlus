@@ -276,6 +276,20 @@ void NResultPrint(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
         	std::cout<<std::endl;
     	}
 }
+template <typename U>
+Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> CtoRMateix(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
+{	
+	Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> realres((int)mat.rows(),(int)mat.cols());
+	for(int row_count = 0; row_count < mat.rows(); row_count++)
+    	{
+        	for(int col_count = 0; col_count < mat.cols(); col_count++)
+        	{
+			realres(row_count,col_count)= std::real(mat(row_count, col_count));
+        	}
+        	 
+    	}
+    	return realres;
+}
 //-----------------------------------------------------------------
 //	print complex numbers in symbolic form
 //-----------------------------------------------------------------

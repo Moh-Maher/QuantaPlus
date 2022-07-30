@@ -14,6 +14,7 @@
 #include"braket.h"
 #include"latex.h"
 #include"timer.h"
+//#include"operators.h"
 	typedef std::complex<double>  complex;
 	using std::cout;
 	using std::endl;
@@ -63,6 +64,9 @@ int main()
 	cout<<"------------S_- operator:-------------\n";
 	ResultPrint(S_minus);
 	
+	/*AngularMomentum<complex> res(8,8);
+	res=KroneckerProduct(S_x,Id<complex>(0.5),Id<complex>(0));
+	ResultPrint(res);*/
 	
 	LaTex mypdf("output/Angular_Momentum.tex");
 	

@@ -8,9 +8,10 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<complex>
 #include"braket.h"
-//#include"operators.h"
+#include"operators.h"
 //#include"angularmomentum.h"
 #include"timer.h"
+ 
 //#include"utilities.h"
 //using namespace QUANTAx;
 	typedef std::complex<double>  complex;
@@ -27,7 +28,7 @@ int main()
 	Ket<complex> ktB;    // deceleration of |B> with unspecified (Dynamic) space for its elements. 
 	Bra<complex> brB(3); // deceleration of <B| with fixed space for three elements. 
 	Bra<complex> brA;    // deceleration of <A| with unspecified (Dynamic) space for its elements.
-       
+ 
         complex BraKetAB{};  // to hold the value of <A|B>
         complex BraKetBA{};  // to hold the value of <B|A>
         complex BraKetAA{};  // to hold the value of <A|A>
@@ -61,7 +62,7 @@ int main()
     	cout<<"--------<B|B>--------"<<endl;
     	ResultPrint( BraKetBB);
     
-    	 
+    	 cout<<Id<int>(1.5)<<endl;
 	///<--clock stuff again
 	time_count.End();
     	 

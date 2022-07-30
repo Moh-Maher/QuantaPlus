@@ -458,7 +458,7 @@ return  A.exp()*V;
 //		 
 //--------------------------------------------------------------------------
 template <class T>
- AngularMomentum<T> AngularMomentum<T>::RotationByAngle(const std::string& dir, const double &a)
+AngularMomentum<T> AngularMomentum<T>::RotationByAngle(const std::string& dir, const double &a)
 {
 	const double spin= 3./2.;
 	AngularMomentum<T> res;
@@ -481,7 +481,7 @@ template <class T>
 	return MatrixExp(res);
 }
 template <class T>
- AngularMomentum<T> RotationByAngle(const double &a, const AngularMomentum<T>& mat)
+AngularMomentum<T> RotationByAngle(const double &a, const AngularMomentum<T>& mat)
 {
 	 
 	AngularMomentum<T> res;
