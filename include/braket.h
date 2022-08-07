@@ -1,5 +1,5 @@
 /*###########################################################################
-  File:      BraKET.H
+  File:      BRAKET.H
 
   Summary:   Define and handle some fundamental operations on Bra and 
   	     ket vectors.
@@ -20,7 +20,7 @@
 #include <cstdarg>
 #include"utilities.h"
 //#include"operators.h"
-//namespace QuantaPlus {
+namespace QuantaPlus {
 
 /***************************************************************************
   Class:    Ket.
@@ -28,14 +28,6 @@
   Summary:  Ket is a publicly derived class from the well designed Eigen::Matrix. 
 	    Ket vectors represent matrices with one column and Dynamic-size rows,
 
-  Methods:  MyMethodOne
-              Short description of MyMethodOne.
-            MyMethodTwo
-              Short description of MyMethodTwo.
-            Ket
-              Constructor.
-            ~Ket
-              Destructor.
 ***************************************************************************/
 template <class T>
 class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1> 
@@ -62,49 +54,16 @@ class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1>
        		{
             		return this->Eigen::Matrix<T,Eigen::Dynamic,1>::operator==(ket);
         	}
-        	/*
-        	struct Loader {
-			Ket<T>& m;
-			int i;
-			Loader(Ket<T>& m, int i) : m(m), i(i) {}
-			Loader operator , (T x) {
-			
-				kt(i%(int)m.rows(),1) = x;
-				return Loader(m, i+1);
-			}
-		};
-		Loader operator>(T x) {
-			
-			kt(0,1) = x;
-			return Loader(*this, 1);
-		}
-        	*/
+        	 
 		~Ket(){} //destructor     
 };
-/*
-template<class T>
-std::ostream& operator<<(std::ostream& out, Ket<T>& mf){
-	for(int i=0;i<(int)mf.rows();i++){
-		out<<mf(i)<<"\t";
-	}
-	out<<"\n";
-	return out;
-}
-*/
+
 /***************************************************************************
   Class:    Bra.
 
   Summary:  Bra is a publicly derived class from the well designed Eigen::Matrix. 
 	    Bra vectors are matrices with one row, and Dynamic-size column.
-
-  Methods:  MyMethodOne
-              Short description of MyMethodOne.
-            MyMethodTwo
-              Short description of MyMethodTwo.
-            Bra
-              Constructor.
-            ~Bra
-              Destructor.
+	   
 ***************************************************************************/
 template <class T>
 class Bra : public Eigen::Matrix<T,1, Eigen::Dynamic> 
@@ -132,5 +91,5 @@ class Bra : public Eigen::Matrix<T,1, Eigen::Dynamic>
 		~Bra(){} //destructor
 };
 #include"braket.hpp"
-//} //end of namespace QuantaPlus
+} //end of namespace QuantaPlus
 #endif

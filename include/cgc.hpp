@@ -13,41 +13,80 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #ifndef QUANTAPLUS_INCLUDE_CGC_HPP
 #error __FILE__ should only be included from cgc.h.
 #endif // CGC_H
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: SquareRoot  
+
+  Summary: gives the given current value if  it's equivalent to given previous one, else it
+  will recursively call it self. 
+  	    
+  Args: const double& x
+  		
+  	const double& curr
+  		
+  	const double& prev  
+  		  
+  Returns:  double
+------------------------------------------------------------------*/
 double SquareRoot(const double& x, const double& curr, const double& prev)
 {
         return curr == prev
                ? curr
                : SquareRoot(x, 0.5 * (curr + x / curr), curr);
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+//-------------- overloaded SquareRoot ---------------------------
 double SquareRoot(const double& x)
 {
 	return x >= 0 && x < std::numeric_limits<double>::infinity()
                ? SquareRoot(x, x, 0)
                : std::numeric_limits<double>::quiet_NaN();
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: Factorial 
+
+  Summary:  Factorial of an positive integer.  
+  	    
+  Args:  const std::size_t& n
+  		 positive integer.     
+  	      
+  Returns: std::size_t
+  		large integer.
+------------------------------------------------------------------*/
 std::size_t Factorial(const std::size_t& n)
 {
         return n == 0? 1 : n * Factorial(n-1);
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+// -------------------overloaded Factorial -----------------------
+double Factorial(const double& n)
+{
+        return n == 0? 1 : n * Factorial(n-1);
+}
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: FracFactorial 
+
+  Summary:  Factorial of fractional numbers (using gamma functions) 
+  	    
+  Args: const double& n
+  		fractional number     
+  	      
+  Returns:  double
+------------------------------------------------------------------*/
 double FracFactorial(const double& n)
 {  
 	return tgamma(n+1.);
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: ClebschGordan 
+
+  Summary: Calculation of the Clebsch–Gordan Coefficients Generalized power series representations. 
+  	    
+  Args:      
+  	      
+  Returns:  
+------------------------------------------------------------------*/
 double ClebschGordan(const double& j1, const double& j2, const double& m1, const double& m2, const double& J, const double& M){
 	if( !validAngularMomentum(j1) || !validAngularMomentum(m1) || !validAngularMomentum(j2) || !validAngularMomentum(m2) || !validAngularMomentum(J) ){
 		throw std::domain_error("clebsch_gordan: all parameters must be multiples of 0.5.");
@@ -74,28 +113,40 @@ double ClebschGordan(const double& j1, const double& j2, const double& m1, const
 		throw std::domain_error("clebsch_gordan: m1 + m2 != M.");
 	} 
 
-	auto const & f = Factorial;
-	double numerator = (2 * J + 1) * f(J + j1 - j2) * f(J - j1 + j2) * f(j1 + j2 - J);
-	numerator *= f(J + M) * f(J - M) * f(j1 - m1) * f(j1 + m1) * f(j2 - m2) * f(j2 + m2);
-	double denominator = f(j1 + j2 + J + 1);
+	//auto const & f = Factorial;
+	double numerator = (2 * J + 1) * Factorial(J + j1 - j2) * Factorial(J - j1 + j2) * Factorial(j1 + j2 - J);
+	numerator *= Factorial(J + M) * Factorial(J - M) * Factorial(j1 - m1) * Factorial(j1 + m1) * Factorial(j2 - m2) * Factorial(j2 + m2);
+	double denominator = Factorial(j1 + j2 + J + 1);
 	
 	int const min = std::max(0., std::max(j2 - J - m1, j1 + m2 - J));
 	int const max = std::min(j2 + m2, std::min(j1 - m1, j1 + j2 - J));
 	double sum = min > max ? 1 : 0;
 	
 	for( int k = min; k <= max; ++k ){
-		sum += pow(-1., k) / (f(k) * f(j1 + j2 - J - k) * f(j1 - m1 - k) * f(j2 + m2 - k) * f(J - j2 + m1 + k) * f(J - j1 - m2 + k));
+		sum += pow(-1., k) / (Factorial(k) * Factorial(j1 + j2 - J - k) * Factorial(j1 - m1 - k) * Factorial(j2 + m2 - k) * Factorial(J - j2 + m1 + k) * Factorial(J - j1 - m2 + k));
 	}
 	return SquareRoot(numerator / denominator) * sum;
 }
 
+//--------------------overloaded ClebschGordan function ----------------------
 double ClebschGordan(const CGCcoeff& cgc){
+
 
 	return ClebschGordan(cgc.j1,cgc.j2,cgc.m1,cgc.m2,cgc.j,cgc.m);
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: MQuantumNumber
+
+  Summary: calculate the possible magnetic quantum number m for given
+  	   spin of length j.  
+  	    
+  Args: const double &j
+  		the length of the spin quantum number.    
+  	      
+  Returns:  std::vector<double>
+  		list of all possible m values.
+------------------------------------------------------------------*/
 std::vector<double> MQuantumNumber(const double &j)
 {    
 	double spin = j;
@@ -113,9 +164,20 @@ std::vector<double> MQuantumNumber(const double &j)
 	}	
 	return m_values;
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: possibleJ  
+
+  Summary: calculate the possible total angular momenta values   
+  	    
+  Args: const double& j1
+  		first angular momentum.	
+  	const double& j2
+  		second angular momentum.     
+  	      
+  Returns: std::vector<double>
+  		list of all possible  total angular momenta J values.
+------------------------------------------------------------------*/
 std::vector<double> possibleJ(const double& j1, const double& j2){
 
 	double Jmin = std::abs(j1-j2);
@@ -134,10 +196,22 @@ std::vector<double> possibleJ(const double& j1, const double& j2){
 	}
 	return J_values;
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
- void ListOfAllCGCs(const double& j1, const double& j2)
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: ListOfAllCGCs
+
+  Summary: calculate all Clebsch–Gordan Coefficients for addition of two angular
+  	   momenta. 
+  	    
+  Args: const double& j1
+  		first angular momentum.	
+  	const double& j2
+  		second angular momentum.      
+  	      
+  Returns:  void
+  		print the list of all Clebsch–Gordan Coefficients.
+------------------------------------------------------------------*/
+void ListOfAllCGCs(const double& j1, const double& j2)
 {
 	std::vector<double> J = possibleJ(j1,j2);
 	std::vector<double> M;  
@@ -179,9 +253,21 @@ std::vector<double> possibleJ(const double& j1, const double& j2){
 		}
 	} 
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: CGCcoeffMap  
+
+  Summary: store Clebsch–Gordan Coefficients as a map  
+  	    
+  Args: const double& j1
+  		first angular momentum.	
+  	const double& j2
+  		second angular momentum.      
+  	      
+  Returns: std::map<CGCcoeff, std::vector<CGCcoeff>> 
+  		mapping each GCcoeff to its all possible values
+  		stored as vector.
+------------------------------------------------------------------*/
 std::map<CGCcoeff, std::vector<CGCcoeff>>  CGCcoeffMap (const double& j1, const double& j2)
 {  ///@TODO under construction 
         std::map<CGCcoeff, std::vector<CGCcoeff>> CGCs;
@@ -205,9 +291,20 @@ std::map<CGCcoeff, std::vector<CGCcoeff>>  CGCcoeffMap (const double& j1, const 
 	}
 	return CGCs;
 }
-//------------------------------------------------------------------------------------------
-//
-//------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  CoupledStates 
+
+  Summary: List the states of the coupled system.
+  	    
+  Args: const double& j1
+  		first angular momentum.	
+  	const double& j2
+  		second angular momentum.     
+  	      
+  Returns: void
+  		print the list of all states of the coupled system.
+------------------------------------------------------------------*/
 void CoupledStates(const double& j1, const double& j2)
 {	
 	std::map<CGCcoeff, std::vector<CGCcoeff>> res = CGCcoeffMap(j1,j2);

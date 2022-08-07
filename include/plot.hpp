@@ -1,12 +1,28 @@
+/*******************************************************************************************
+  File:      	PLOT.TPP
+
+  Summary:    
+ 
+  by:  	     Mohammed Maher Abdelrahim Mohammed
+       	     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
+	     VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
+       	     mohammed.maher@unical.it  
+*******************************************************************************************/
 #ifndef QUANTAPLUS_INCLUDE_PLOT_HPP
 #define QUANTAPLUS_INCLUDE_PLOT_HPP
 
 #ifndef QUANTAPLUS_INCLUDE_PLOT_H
 #error __FILE__ should only be included from plot.h.
 #endif // PLOT_H
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 Plot::Plot(vector<double> x, vector<double> y) 
 { 
 	this->xs = x; 
@@ -16,9 +32,15 @@ Plot::Plot(vector<double> x, vector<double> y)
 	this->ylabel = "y"; 
 	this->filename = title+".dat";
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 Plot::Plot(vector<double> x, vector<double> y, string xlabel, string ylabel) 
 { 
 	this->xs = x; 
@@ -28,9 +50,15 @@ Plot::Plot(vector<double> x, vector<double> y, string xlabel, string ylabel)
 	this->ylabel = ylabel; 
 	this->filename = title+".dat";
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 Plot::Plot(vector<double> x, vector<double> y, string title, string xlabel, string ylabel) 
 { 
 	this->xs = x; 
@@ -40,9 +68,15 @@ Plot::Plot(vector<double> x, vector<double> y, string title, string xlabel, stri
 	this->ylabel = ylabel; 
 	this->filename = title+".dat";
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 Plot::Plot(vector<double> x, vector<double> y, string title, string xlabel, string ylabel, string xrange, string yrange)
 { 
 	this->xs = x; 
@@ -54,9 +88,15 @@ Plot::Plot(vector<double> x, vector<double> y, string title, string xlabel, stri
 	this->yrange = yrange;  
 	this->filename = title+".dat";
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 Plot::Plot(string title, string xlabel, string ylabel) 
 { 
 	this->title = title; 
@@ -64,9 +104,15 @@ Plot::Plot(string title, string xlabel, string ylabel)
 	this->ylabel = ylabel;
 	this->filename = title+".dat";
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 Plot::Plot(string title, string xlabel, string ylabel, string filename) 
 { 
 	this->title = title; 
@@ -74,9 +120,15 @@ Plot::Plot(string title, string xlabel, string ylabel, string filename)
 	this->ylabel = ylabel; 
 	this->filename = filename;
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 Plot::Plot(string title, string xlabel, string ylabel, string filename, string xrange, string yrange) 
 { 
 	this->title = title; 
@@ -86,17 +138,21 @@ Plot::Plot(string title, string xlabel, string ylabel, string filename, string x
 	this->xrange = xrange; 
 	this->yrange = yrange; 
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: add
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 void Plot::add(double x, double y) 
 { 
 	xs.push_back(x); 
 	ys.push_back(y); 
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+//------------------------------------------------------------------ 
 void Plot::add(vector<double> x, vector<double> y) 
 { 
 	for(int i=0;i<x.size();i++) 
@@ -105,17 +161,23 @@ void Plot::add(vector<double> x, vector<double> y)
 		ys.push_back(y[i]); 
 	} 
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: show
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 void Plot::show() 
 {   
 	ofstream data; 
 	//----------------------------------------------
-	data.open(filename);
+	/*data.open(filename);
 	for (int i = 0; i < xs.size(); i++) 
 	    data << xs[i] << "\t" << ys[i] << endl; 
-	data.close(); 
+	data.close(); */
 	//-----------------------------------------------------
 	FILE *gnuplotPipe = popen("gnuplot --persist ", "w");  // Open a pipe to gnuplot
 
@@ -139,20 +201,26 @@ void Plot::show()
 		pclose(gnuplotPipe);    //close pipe
 	}
 
-	string cmd = "rm "+filename;
-	system(cmd.c_str());
+	//string cmd = "rm "+filename;
+	//system(cmd.c_str());
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: saveshow 
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 void Plot::saveshow()
 {
 	ofstream data; 
 	//----------------------------------------------
-	data.open(filename);
+	/*data.open(filename);
 	for (int i = 0; i < xs.size(); i++) 
 		data << xs[i] << "\t" << ys[i] << endl; 
-	data.close(); 
+	data.close(); */
 	//-----------------------------------------------------
 	FILE *gnuplotPipe = popen("gnuplot --persist ", "w");  // Open a pipe to gnuplot
 
@@ -175,13 +243,19 @@ void Plot::saveshow()
 			fprintf(gnuplotPipe,"exit \n");   // exit gnuplot        
 			pclose(gnuplotPipe);    //close pipe
 		}
-		string cmd = "rm "+filename;
-		system(cmd.c_str());
+		//string cmd = "rm "+filename;
+		//system(cmd.c_str());
 	}
 }
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: savefig  
+
+  Summary:   
+
+  Args:      
+
+  Returns:   
+------------------------------------------------------------------*/
 void Plot::savefig(const string& filenamewithextension) 
 {   
 	save = true;

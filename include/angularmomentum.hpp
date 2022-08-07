@@ -16,30 +16,30 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #error __FILE__ should only be included from angularmomentum.h.
 #endif // ANGULARMOMENTUM_H
 
-//--------------------------------------------------------------------------
-//		AngularMomentum defult constructor
-//--------------------------------------------------------------------------
-/*
-template <class T>
-AngularMomentum<T>::AngularMomentum():QM_operator<T>(){}
-//--------------------------------------------------------------------------
-//	Constructor for AngularMomentum matrix of a given rows and cols
-//--------------------------------------------------------------------------
-template <class T>
-AngularMomentum<T>::AngularMomentum(int row, int col):
-	QM_operator<T>(row,col){} 
-//--------------------------------------------------------------------------
-//		AngularMomentum destructor
-//--------------------------------------------------------------------------
-template <class T>
-AngularMomentum<T>::~AngularMomentum(){ }
-*/
+/*-------------------------------------------------------------------------------------------
+ Check the physically valid (spin or orbital) angular m omentum 
+ : True only if j is a nonnegative half-integer value
+-------------------------------------------------------------------------------------------*/
+bool validAngularMomentum(const double& x)
+{
+	return static_cast<int>(2*x) - 2*x == 0;
+}
+/*-------------------------------------------------------------------------------------------
+              Kronecker Delta:  δ[ij] =  1 => (if i=j) OR 0 => (otherwise).
+-------------------------------------------------------------------------------------------*/
+double KroneckerDelta(const double & i, const double & j)
+{
+	if  (i==j){return (1);}
+	else 
+	return (0);
+}
 //---------------------------------------------------------------------------
 //		commutation relation: [A,B] = A*B - B*A
 //---------------------------------------------------------------------------
-template<class T> Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> 
-Commute(Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>& mt1, 
-	Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &mt2)
+template<class T> 
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> 
+	Commute( Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>& mt1, 
+		 Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>& mt2 )
 {  
 	return (mt1*mt2 - mt2*mt1);
 }
@@ -165,28 +165,13 @@ double Jminus(const double & j, const double & j1,const double & m1, const doubl
 	res = sqrt(j*(j+1)-m2*(m2-1))* KroneckerDelta(m1,m2-1);
 	return hBar*(res)*KroneckerDelta(j1,j2);
 }
-/*-------------------------------------------------------------------------------------------
-              Kronecker Delta:  δ[ij] =  1 => (if i=j) OR 0 => (otherwise).
--------------------------------------------------------------------------------------------*/
-double KroneckerDelta(const double & i, const double & j)
-{
-	if  (i==j){return (1);}
-	else 
-	return (0);
-}
-/*-------------------------------------------------------------------------------------------
- Check the physically valid (spin or orbital) angular m omentum 
- : True only if j is a nonnegative half-integer value
--------------------------------------------------------------------------------------------*/
-bool validAngularMomentum(const double& x)
-{
-    return static_cast<int>(2*x) - 2*x == 0;
-}
+
 //--------------------------------------------------------------------------
 //		J- Angular Momentum perator
 //--------------------------------------------------------------------------
 template <class T>
 AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JSquare(const double &j)
+//AngularMomentum<T> AngularMomentum_JSquare(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -228,6 +213,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JSquare(const double &j)
 //--------------------------------------------------------------------------
 template <class T>
 AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jx(const double &j)
+//AngularMomentum<T> AngularMomentum_Jx(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -272,6 +258,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jx(const double &j)
 //--------------------------------------------------------------------------
 template <class T>
 AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jy(const double &j)
+//AngularMomentum<T> AngularMomentum_Jy(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -315,6 +302,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jy(const double &j)
 //--------------------------------------------------------------------------
 template <class T>
 AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jz(const double &j)
+//AngularMomentum<T> AngularMomentum_Jz(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -359,6 +347,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_Jz(const double &j)
 //--------------------------------------------------------------------------
 template <class T>
 AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JPlus(const double &j)
+//AngularMomentum<T> AngularMomentum_JPlus(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -401,6 +390,7 @@ AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JPlus(const double &j)
 //--------------------------------------------------------------------------
 template <class T>
 AngularMomentum<T> AngularMomentum<T>::AngularMomentum_JMinus(const double &j)
+//AngularMomentum<T> AngularMomentum_JMinus(const double &j)
 {
 	const int max =int(2*j+1);
 	std::complex<double> temarr[max*max]{};
@@ -459,6 +449,7 @@ return  A.exp()*V;
 //--------------------------------------------------------------------------
 template <class T>
 AngularMomentum<T> AngularMomentum<T>::RotationByAngle(const std::string& dir, const double &a)
+//AngularMomentum<T> RotationByAngle(const std::string& dir, const double &a)
 {
 	const double spin= 3./2.;
 	AngularMomentum<T> res;

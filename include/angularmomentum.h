@@ -16,18 +16,42 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //#include <unsupported/Eigen/MatrixFunctions>
 #include <Eigen/Dense>
 #include"utilities.h"
-#include"operators.h"
+//#include"operators.h"
 
-//namespace QuantaPlus{
+namespace QuantaPlus{
+
+/***************************************************************************
+  Class:    AngularMomentum.
+
+  Summary: General Formalism of Angular Momentum operators.   
+  	   AngularMomentum is a publicly derived class from the well designed Eigen::Matrix
+
+  Methods: AngularMomentum_JSquare
+		The matrix representations of the squared general angular momentum operator J^2.
+            AngularMomentum_Jx
+		The matrix representations of the angular momentum operator component Jx.
+            AngularMomentum_Jy
+		The matrix representations of the angular momentum operator component Jy.
+            AngularMomentum_Jz
+		The matrix representations of the angular momentum operator component Jz.
+            AngularMomentum_JPlus
+		The matrix representations of the raising operator J+
+            AngularMomentum_JMinus
+		The matrix representations of the lowering operator J-
+            RotationByAngle
+		Representation of the Rotation Operator.              
+            AngularMomentum
+		Constructor.
+            ~AngularMomentum
+		Destructor.
+***************************************************************************/
 template <class T>
 class AngularMomentum : public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>//public QM_operator<T> 
 {
 	public:
 		AngularMomentum():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>(){};
 		AngularMomentum(int row, int col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col){};
-		//AngularMomentum(const T *data );
-		//AngularMomentum(const AngularMomentum<T,R,C> &amo); 
-		//AngularMomentum(const double j); 
+	
 		template<typename Derived>
 		AngularMomentum(const Eigen::MatrixBase<Derived>& other)
 		:Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other){ }
@@ -39,35 +63,18 @@ class AngularMomentum : public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>//p
 			this->Eigen::Matrix<T,Eigen::Dynamic ,Eigen::Dynamic>::operator=(other);
 			return *this;
 		}
-		~AngularMomentum(){}
-			
-		// AngularMomentum<T,R,C> operator= (const AngularMomentum<T,R,C> &amo);
-		//AngularMomentum<T,R,C> operator * (const AngularMomentum<T,R,C> &amo) const;
-
+		
 		AngularMomentum<T> AngularMomentum_JSquare(const double& spin_value);
 		AngularMomentum<T> AngularMomentum_Jx(const double& spin_value);
 		AngularMomentum<T> AngularMomentum_Jy(const double& spin_value);
 		AngularMomentum<T> AngularMomentum_Jz(const double& spin_value);
-
 		AngularMomentum<T> AngularMomentum_JPlus(const double& spin_value);
 		AngularMomentum<T> AngularMomentum_JMinus(const double& spin_value);
-
 		AngularMomentum<T> RotationByAngle(const std::string& dir, const double& alpha);
-
+		
+		~AngularMomentum(){} 
 
 };
-
-
-void   MagneticQuantumNumber(const double &j);  
-double KroneckerDelta (const double & i, const double & j);                          // δ[ij].
-double Jsqr(const double & j, const double & j1, const double & m1, const double & j2, const double & m2);            // The square of the angular momentum J^2.
-double Jx(const double & j, const double & j1,const double & m1, const double & j2,const double & m2);                // The x-component of the angular momentum operator J.
-std::complex<double> Jy(const double & j, const double & j1,const double & m1, const double & j2,const double & m2);  // The y-component of J.
-double Jz(const double & j1, const double & m1, const double & j2, const double & m2);              // The z-component of J. 
-double Jplus(const double & j, const double & j1, const double & m1, const double & j2, const double & m2);
-double Jminus(const double & j, const double & j1, const double & m1, const double & j2, const double & m2);
-bool validAngularMomentum(const double &j);
-
 #include"angularmomentum.hpp"
-//} //end of namespace QuantaPlus
+} //end of namespace QuantaPlus
 #endif

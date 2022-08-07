@@ -1,5 +1,5 @@
 /*******************************************************************************************
-some of "operators.h" meathods implementation.
+some of "operators.h" methods implementation.
 
 ref: [N. Zettili, “Quantum Mechanics, Concepts and Applications,” Wiley, Chichester, 2001.]
 
@@ -16,37 +16,36 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #error __FILE__ should only be included from operators.h.
 #endif // OPERATORS_H
 
-//--------------------------------------------------------------------------
-//		QM_operator defult constructor
-//--------------------------------------------------------------------------
-/*template<class T>
-QM_operator<T>::QM_operator(): 
-	Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>(){};
-//--------------------------------------------------------------------------
-//	 QM_operator constructor with a given rows and cols
-//--------------------------------------------------------------------------
-template<class T>
-QM_operator<T>::QM_operator(int row, int col):
-	Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col){};
-//--------------------------------------------------------------------------
-//	 
-//--------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: KroneckerDelta
 
-template<class T>
-QM_operator<T>::~QM_operator(){};
-*/
-//---------------------------------------------------------------------------------------------
-//
-//---------------------------------------------------------------------------------------------
+  Summary:  Function of two variables, usually just non-negative integers.
+  	    
+  Args: const int & i , const int & j
+	      integer variables.
+  	        
+  Returns:  int
+              The function return 1 if the variables are equal, and 0 otherwise.
+------------------------------------------------------------------*/
 int KroneckerDelta(const int & i, const int & j)
 {
 	if  (i==j){return (1);}
 	else 
 	return (0);
 }
-//---------------------------------------------------------------------------------------------
-//Harmonic Oscillator Matrix Elements
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  HOscillatorMatrixElements
+
+  Summary: The matrix representation of Hrmonic Oscillator Hamiltonian operator 
+  	   in the N -space. ( <n'|H|n> = hbar*omega (n+1/2) delat_{n',n} ).
+  	    
+  Args:   const int& R, const int& C
+  		rows and columns. 
+  	      
+  Returns:  QM_operator<T>
+  		Matrix of arbitrary size and generic type T.
+------------------------------------------------------------------*/
 template<typename T>
 QM_operator<T> HOscillatorMatrixElements(const int& R, const int& C)
 {
@@ -60,13 +59,21 @@ QM_operator<T> HOscillatorMatrixElements(const int& R, const int& C)
 	return H;
 }
 
-//---------------------------------------------------------------------------------------------
-//Position Operator
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: PositionOperator
+
+  Summary: N -representation of the position operator.
+  	   X = sqrt{hbar/(2m*omega)}*(sqrt{n} delta_{n',n-1} + sqrt{n+1} delta_{n',m+1}).   
+  
+  Args:   const int& R, const int& C
+		rows and columns. 	      
+  
+  Returns:  QM_operator<T>
+  		Matrix of arbitrary size and generic type T.
+------------------------------------------------------------------*/
 template<typename T>
 QM_operator<T> PositionOperator(const int& R, const int& C)
 {
-	 
 	QM_operator<T> H(R,C);
 	 
 	for(int i=0; i<(int)H.rows(); i++){
@@ -76,9 +83,19 @@ QM_operator<T> PositionOperator(const int& R, const int& C)
 	}
 	return H;
 }
-//---------------------------------------------------------------------------------------------
-// Momentum Operator
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  MomentumOperator
+
+  Summary: N -representation of the Momentum operator.
+  	   P = i*sqrt{m*hbar*omega/2}*(-sqrt{n} delta_{n',n-1} + sqrt{n+1} delta_{n',m+1}).
+
+  Args:   const int& R, const int& C
+		rows and columns. 
+		     
+  Returns:  QM_operator<T>
+  		Matrix of arbitrary size and generic type T.
+------------------------------------------------------------------*/
 template<typename T>
 QM_operator<T> MomentumOperator(const int& R, const int& C)
 {
@@ -92,9 +109,19 @@ QM_operator<T> MomentumOperator(const int& R, const int& C)
 	}
 	return H;
 }
-//---------------------------------------------------------------------------------------------
-// Lowering Operator
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: LoweringOperator  
+
+  Summary: The matrix elements of Lowering Operator (a).
+  	    <n'|a|n> = sqrt{n} delta_{n',n-1}
+  	    
+  Args:   const int& R, const int& C
+		rows and columns.       
+  	      
+  Returns:  QM_operator<T>
+  		Matrix of arbitrary size and generic type T.
+------------------------------------------------------------------*/
 template<typename T>
 QM_operator<T> LoweringOperator(const int& R, const int& C)
 { 
@@ -107,9 +134,19 @@ QM_operator<T> LoweringOperator(const int& R, const int& C)
 	}
 	return H;
 }
-//---------------------------------------------------------------------------------------------
-// Rising Operator
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: RisingOperator 
+
+  Summary: The matrix elements of Rising Operator (a^dagger).  
+  	    <n'|a^dagger|n> = sqrt{n+1} delta_{n',n+1}
+ 
+  Args:   const int& R, const int& C
+		rows and columns.       
+  	      
+  Returns:  QM_operator<T>
+  		Matrix of arbitrary size and generic type T.
+------------------------------------------------------------------*/
 template<typename T>
 QM_operator<T> RisingOperator(const int& R, const int& C)
 {	 
@@ -123,9 +160,21 @@ QM_operator<T> RisingOperator(const int& R, const int& C)
 	return H;
 }
 
-//---------------------------------------------------------------------------------------------
-// Hamiltonian 
-//---------------------------------------------------------------------------------------------
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: Hamiltonian
+
+  Summary:   
+  	    
+  Args: QM_operator<T> A
+  		matrix of type T
+  	QM_operator<T> B
+  		matrix of type T
+  	Bra<T> coff
+  		row vector of type T     
+  	      
+  Returns:  QM_operator<T>
+  		Matrix of arbitrary size and generic type T. 
+------------------------------------------------------------------*/
 template<typename T>
 QM_operator<T> Hamiltonian(QM_operator<T> A, QM_operator<T> B, Bra<T> coff)
 {
@@ -145,25 +194,39 @@ QM_operator<T> Hamiltonian(QM_operator<T> A, QM_operator<T> B, Bra<T> coff)
 	res.conservativeResize(res.rows()-1, res.cols()-1);
 	return res;
 }
-//---------------------------------------------------------------------------------------------
-//Eignvalues
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: eval
+
+  Summary:  gives the eigenvalues of the square matrix.  
+  	    
+  Args: QM_operator<T>& A
+  		Square matrix of dynamic size.     
+  	      
+  Returns:  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
+------------------------------------------------------------------*/
 template<typename T>
 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> eval(QM_operator<T>& A)
 {
 	return QuantumEigenValue(A);
 }
-//---------------------------------------------------------------------------------------------
-//Eignvectors 
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: evec
+
+  Summary:  gives the eigenvectors of the square matrix.  
+  	    
+  Args: QM_operator<T>& A
+  		Square matrix of dynamic size.     
+  	      
+  Returns:  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
+------------------------------------------------------------------*/
 template<typename T>
 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> evec(QM_operator<T>& A)
 {
 	return QuantumEigenVector(A);
 }
-//---------------------------------------------------------------------------------------------
-//Eignvectors
-//---------------------------------------------------------------------------------------------
+//------------------- Overloaded eigenvectors ----------------------
 template<typename T>
 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> evec(const QM_operator<T>& A, const QM_operator<T>& B, const Bra<T>& coff)
 {
@@ -178,9 +241,20 @@ int Factorial(const int& n)
 {
         return n == 0? 1 : n * Factorial(n-1);
 }
-//---------------------------------------------------------------------------------------------
-// wave_function
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  wave_function
+
+  Summary:   
+  	    
+  Args: const int& n
+  		the order of the wave function
+  	const double& x
+  		     
+  	      
+  Returns:  double
+  		the wave function values for given x and order n.
+------------------------------------------------------------------*/
 double wave_function(const int& n,const double& x)
 { 
 	return (1./pow(M_PI,0.25)) *(1/(sqrt(pow(2,n))*Factorial(n)))*std::hermite(n,x)*exp(-pow(x,2)/2.);
@@ -189,9 +263,16 @@ double wave_function(const int& n,const double& x)
 { 
 	return sqrt(2)*sin(n*M_PI*x);
 }*/
-//---------------------------------------------------------------------------------------------
-//coefficients
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  coefficients
+
+  Summary:   
+  	    
+  Args:      
+  	      
+  Returns:  std::vector<T> 
+------------------------------------------------------------------*/
 template<typename T>
 std::vector<T> coefficients(const QM_operator<T>& A, const QM_operator<T> &B,const Bra<T> &coff, const int& n)
 {	
@@ -204,9 +285,16 @@ std::vector<T> coefficients(const QM_operator<T>& A, const QM_operator<T> &B,con
 
 	return ci;
 }
-//---------------------------------------------------------------------------------------------
-//wave_function_H
-//---------------------------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  wave_function_H
+
+  Summary:   
+  	    
+  Args:      
+  	      
+  Returns:  
+------------------------------------------------------------------*/
 template<typename T>
 T  wave_function_H(const QM_operator<T>& A, const QM_operator<T> &B, const Bra<T> &coff, const double& x, const int& n)
 { 	
@@ -219,9 +307,20 @@ T  wave_function_H(const QM_operator<T>& A, const QM_operator<T> &B, const Bra<T
 	}
 	return res;
 }
-//---------------------------------------------------------------------------
-//				Kronecker-Product
-//---------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function:  Kronecker-Product
+
+  Summary:  An operation on two matrices of arbitrary size resulting in a block matrix 
+  	    
+  Args:  const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &mt1
+  		matrix of dynamic (m × n) size.
+  	 const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt2
+  	 	matrix of dynamic (p × q) size. 
+  	      
+  Returns: Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> 
+  		block matrix of size (pm × qn).
+------------------------------------------------------------------*/
 template <class T>
 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> 
 KroneckerProduct( const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt1, 
@@ -246,24 +345,32 @@ KroneckerProduct( const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt1,
 		}
 	}
 	return res;    
-}
-//---------------------------------------------------------------------------
-//				Kronecker-Product
-//---------------------------------------------------------------------------
+}				
+//------------------- Overloaded Kronecker-Product ----------------------
 template <class T>
 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> 
 KroneckerProduct( const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt1, 
-		  const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt2, const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt3)
+		  const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt2, 
+		  const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mt3)
 {   
 	Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> temp = KroneckerProduct(mt1,mt2) ;
 	return KroneckerProduct(temp,mt3);
 }
-//--------------------------------------------------------------------------
-//		Identity matrix
-//--------------------------------------------------------------------------
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  Function: Id
+
+  Summary: Unit operator operating on a spin of length S.
+  	    
+  Args: const double& S
+           spin quantum number.  
+  	      
+  Returns: Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
+  	    Identity matrix of dynamic size.
+------------------------------------------------------------------*/
 template<typename T>
-Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Id(const double& Spin)
+Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Id(const double& S)
 {
-	return Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::Identity( int(2*Spin+1), int(2*Spin+1));
+	return Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::Identity( int(2*S+1), int(2*S+1));
 }
 #endif // OPERATORS_TPP

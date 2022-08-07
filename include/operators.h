@@ -1,4 +1,4 @@
-/*******************************************************************************************
+/*###########################################################################
 @operator.h is a part of QUANTAPLUS library. 
 
 usage: define and handle some fundamental quantum operators.
@@ -9,7 +9,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
      UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
      mohammed.maher@unical.it                                          
-*******************************************************************************************/
+###########################################################################*/
 //#pragma once
 #ifndef QUANTAPLUS_INCLUDE_OPERATORS_H
 #define QUANTAPLUS_INCLUDE_OPERATORS_H
@@ -20,7 +20,15 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<cmath>
 #include<vector>
 
-//namespace QuantaPlus{
+namespace QuantaPlus{
+
+/***************************************************************************
+  Class:    QM_operator.
+
+  Summary:  QM_operator is a publicly derived class from the well designed Eigen::Matrix. 
+	    QM_operator represent matrices with Dynamic-size.
+
+***************************************************************************/
 template<class T>
 class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
 {
@@ -44,5 +52,5 @@ class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
 };
 
 #include"operators.hpp"
-//} //end of namespace QuantaPlus
+} //end of namespace QuantaPlus
 #endif

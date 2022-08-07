@@ -9,7 +9,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 //#pragma once
 #ifndef QUANTAPLUS_INCLUDE_UTILITIES_H
 #define QUANTAPLUS_INCLUDE_UTILITIES_H
-
+#include <Eigen/Dense>
 #include<string>
 #include<sstream>
 //#include <algorithm> // for using : str.find_first_not_of( "string" ) == std::string::npos
@@ -43,7 +43,77 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 //namespace QuantaPlus{
 
-//long long gcd(long long a, long long b);
+/***************************************************************************
+  Class:    Output.
+
+  Summary:  class to handle output operations and files.
+***************************************************************************/
+class Output
+{
+	public:
+	// member variables
+	std::ofstream takeData;
+	// member functions
+	// constructor
+	Output(std::string fileName)
+	{
+		takeData.open(fileName + ".dat");
+	}
+
+	// destructor
+	~Output()
+	{
+		takeData.close();
+	}
+
+	// function to write output to file
+	void writeOutput(std::string output)
+	{
+		takeData << output << std::endl;
+	}
+};
+//--------------------------------------------------------------------------
+// convert numbers to string
+//--------------------------------------------------------------------------
+template <typename T>
+std::string ToString(const T& numb)
+{
+	std::stringstream ss;
+	ss << numb;
+	return ss.str();
+}
+//--------------------------------------------------------------------------
+// print two numbers in literal fraction form (without any manipulation) 
+//--------------------------------------------------------------------------
+template <typename T1, typename T2>
+std::string ToFraction(T1 numer, T2 denom)
+{
+	std::string res = ToString<T1>(numer);
+	if(denom != 1)
+	{
+		res += "/";
+		res += ToString<T2>(denom);
+	}
+	return res;
+}
+//--------------------------------------------------------------------------
+// print the elements of QUANTx::matrix<T, R,C> in fractions form
+//--------------------------------------------------------------------------
+template <typename T>
+void MatrixToString(T &mat)
+{
+	for(int i =0; i<mat.GetRow(); i++) {
+		for(int j =0; j<mat.GetCol(); j++) {
+		    decimalToFraction(mat.table[i][j]);
+		    std::cout<<"\t";
+		}
+		std::cout<<std::endl;
+	}
+}
+
+void ComplexNumPrint( std::complex<double> complex_number, bool numerical_flag);
+void ResultPrint(const std::complex<double>& complex_num);
+void NResultPrint(const std::complex<double>& complex_num);
 void DecimalToFraction(const double& decimal_number);//void DecimalToFraction(double number); // convert decimal to fraction
 void StringMatrix(int r, int c, double *array); // print array elements in fractions form
 

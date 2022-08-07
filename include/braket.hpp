@@ -11,8 +11,6 @@
 	     VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
        	     mohammed.maher@unical.it  
 *******************************************************************************************/
-//#include"braket.h"
-//#pragma once
 #ifndef QUANTAPLUS_INCLUDE_BRAKET_HPP
 #define QUANTAPLUS_INCLUDE_BRAKET_HPP
 
@@ -20,112 +18,6 @@
 #error __FILE__ should only be included from braket.h.
 #endif // BRAKET_H
 
-//##########################################################################
-// class Ket :
-//##########################################################################
-/*
-//--------------------------------------------------------------------------
-//		defult constructor
-//--------------------------------------------------------------------------
-template <class T>
-Ket<T>::Ket():Eigen::Matrix<T,Eigen::Dynamic,1>(){}
-//--------------------------------------------------------------------------
-//		Constructor for Ket vector of a given rows
-//--------------------------------------------------------------------------
-template <class T>
-Ket<T>::Ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1){}
-//--------------------------------------------------------------------------
-//		2nd overloded constructor
-//--------------------------------------------------------------------------
-//template <class T, int R>
-//Ket<T,R>::Ket(const T *data ):Eigen::Matrix<T,R,1>(data){}
-//--------------------------------------------------------------------------
-//		destructor
-//--------------------------------------------------------------------------
-template <class T>
-Ket<T>::~Ket(){}*/
-//##########################################################################
-// class Bra :
-//##########################################################################
-//--------------------------------------------------------------------------
-//		defult constructor
-//--------------------------------------------------------------------------
-/*template <class T>
-Bra<T>::Bra():Eigen::Matrix<T,1,Eigen::Dynamic>(){}
-//--------------------------------------------------------------------------
-//		Constructor for Bra vector of a given rows
-//--------------------------------------------------------------------------
-template <class T>
-Bra<T>::Bra(int col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col){}
-//--------------------------------------------------------------------------
-//		2nd overloded constructor
-//--------------------------------------------------------------------------
-//template <class T, int C>
-//Bra<T,C>::Bra(const T *data ):Eigen::Matrix<T,1,C>(data){}
-//--------------------------------------------------------------------------
-//		destructor
-//--------------------------------------------------------------------------
-template <class T>
-Bra<T>::~Bra(){}*/
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  Function: ComplexNumPrint
-
-  Summary:  print complex number in symbolic form.
-
-  Args:      std::complex<double> a
-  	        complex variable with "double-type" real and imaginary parts.
-  	     bool numerical_flag
-  	     	Boolean variable to switch between numerical an symbolic output.
-  	       
-
-  Returns:  void
-              print complex number in " x + iy" format.
-------------------------------------------------------------------*/
-inline void ComplexNumPrint(std::complex<double> complex_number,bool numerical_flag)
-{
-	double real_part = std::real(complex_number);
-	double imaginary_part = std::imag(complex_number);   
-	if( real_part != 0 && imaginary_part != 0 )
-    	{
-        	if( imaginary_part < 0 )
-        	{
-            		if(numerical_flag) {std::cout<<real_part<<imaginary_part<<"i"<<"\t";}
-            		else{
-            		DecimalToFraction(real_part);
-            		DecimalToFraction(imaginary_part);
-            		std::cout<<"i"<<"\t";
-            		}
-        	}
-
-        	else if( imaginary_part > 0 )
-        	{
-            		if(numerical_flag) {std::cout<<real_part<<"+" <<imaginary_part<<"i"<<"\t";}
-            		else{
-            		DecimalToFraction(real_part);
-            		std::cout<<"+";
-            		DecimalToFraction(imaginary_part);
-            		std::cout<<"i"<<"\t";
-            		}
-        	}
-	}
-   	else if (imaginary_part == 0 )
-    	{   
-        	if(numerical_flag) {std::cout<<real_part<<"\t";}
-        	else{
-        	DecimalToFraction(real_part);
-        	std::cout<<"\t";
-        	}
-           
-    	}
-    	else if( real_part == 0 )
-    	{
-        	if(numerical_flag){std::cout<<imaginary_part<<"i"<<"\t";}
-        	else{
-		DecimalToFraction(imaginary_part);
-    		std::cout<<"i"<<"\t";
-    		}
-    	}    
-}
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: ResultPrint
 
@@ -149,7 +41,7 @@ void ResultPrint(Bra<U>& bra)
         	std::cout<<std::endl;
     	}
 }
-//	print complex numbers in numeric form
+//<------------ print complex numbers in numeric form ------------->
 template <typename U>
 void NResultPrint(Bra<U>& bra)
 {
@@ -157,7 +49,8 @@ void NResultPrint(Bra<U>& bra)
     	{
         	for(int col_count = 0; col_count < bra.cols(); col_count++)
         	{
-			ComplexNumPrint( bra(row_count, col_count),1 );//cplx_print( bra(row_count, col_count) );
+			ComplexNumPrint( bra(row_count, col_count),1 );
+			//cplx_print( bra(row_count, col_count) );
         	}
         	std::cout<<std::endl;
     	}
@@ -185,7 +78,7 @@ void ResultPrint(Ket<U>& ket)
         	std::cout<<std::endl;
     	}
 }
-//	print complex numbers in numeric form
+//<------------ print complex numbers in numeric form ------------->
 template <typename U>
 void NResultPrint(Ket<U>& ket)
 {
@@ -240,72 +133,7 @@ void literal_printf(const char* fmt...)
 
 	va_end(args);
 }
-/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  Function: ResultPrint
 
-  Summary:  print matrix elements in symbolic form.
-
-  Args:      Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat
-  	        Eigen::Matrix with Dynamic-size rows or columns  
-
-  Returns:  void
-              print complex number in " x + iy" format.
-------------------------------------------------------------------*/
-template <typename U>
-void ResultPrint(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
-{
-	for(int row_count = 0; row_count < mat.rows(); row_count++)
-    	{
-        	for(int col_count = 0; col_count < mat.cols(); col_count++)
-        	{
-			ComplexNumPrint( mat(row_count, col_count),0 );
-        	}
-        	std::cout<<std::endl;
-    	}
-}
-//	print complex numbers in numeric form
-template <typename U>
-void NResultPrint(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
-{
-	for(int row_count = 0; row_count < mat.rows(); row_count++)
-    	{
-        	for(int col_count = 0; col_count < mat.cols(); col_count++)
-        	{
-			ComplexNumPrint( mat(row_count, col_count),1 );//cplx_print( mat(row_count, col_count) );
-        	}
-        	std::cout<<std::endl;
-    	}
-}
-template <typename U>
-Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> CtoRMateix(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>& mat)
-{	
-	Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> realres((int)mat.rows(),(int)mat.cols());
-	for(int row_count = 0; row_count < mat.rows(); row_count++)
-    	{
-        	for(int col_count = 0; col_count < mat.cols(); col_count++)
-        	{
-			realres(row_count,col_count)= std::real(mat(row_count, col_count));
-        	}
-        	 
-    	}
-    	return realres;
-}
-//-----------------------------------------------------------------
-//	print complex numbers in symbolic form
-//-----------------------------------------------------------------
-void ResultPrint(const std::complex<double>& complex_num)
-{
-	ComplexNumPrint(complex_num,0);
-	std::cout<<std::endl;
-}
-//-----------------------------------------------------------------
-//	print complex numbers in numeric form
-//-----------------------------------------------------------------
-void NResultPrint(const std::complex<double>& complex_num)
-{
-	ComplexNumPrint(complex_num,1);//cplx_print(complex_num);
-	//std::cout<<std::endl;
-}
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function: QuantumEigenVector
 
@@ -326,7 +154,7 @@ Eigen::Matrix<T,Eigen::Dynamic,1> QuantumEigenVector(Eigen::Matrix<T,Eigen::Dyna
   
 	return eigensolver.eigenvectors();//.col(col_number);
 }
-//-----------------------------------
+//------------------------------------------------------------------
 template<typename T>
 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> QuantumEigenVector(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> &mat)
 {
@@ -356,7 +184,7 @@ T QuantumEigenValue(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  &mat,const i
    
 	return eigensolver.eigenvalues()[i];
 }
-//---------------------------------------
+//---------------------------------------------------------------------------
 template<typename T>
 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> QuantumEigenValue(const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  &mat)
 {
@@ -378,13 +206,6 @@ template <typename T>
 Bra<T> DualConj(const Ket<T> &ket)
 {
 	Bra<T> resulted_bra((int)ket.rows());
-        /*
-	for (int i=0; i<ket.rows(); i++)
-    	{
-		resulted_bra(i) = std::conj(ket(i));
-	}
-	return resulted_bra;
-	*/
 	resulted_bra << ket.adjoint();
 	return resulted_bra;
 }
@@ -416,22 +237,10 @@ Ket<T> DualConj(const Bra<T> &bra)
 template <typename T> 
 T BraKet(const Bra<T> &bra, const Ket<T> &ket)
 {     
-	if(bra.cols()!=ket.rows()){ throw std::invalid_argument("dimensions do not match."); }
-	/*
-	T sum = static_cast<T>(0.0);
-
-	for(int i = 0; i < bra.rows(); ++i)
-	{
-		for(int j = 0; j < ket.cols(); ++j)
-		{
-			for(int k = 0; k < (bra.rows()*bra.cols()); ++k)
-    			{
-   	        		sum += bra(i,k) * ket(k,j);
-            		}	
-        	}
-    	}
-	return sum; 
-	*/
+	if(bra.cols()!=ket.rows())
+	{ 
+		throw std::invalid_argument("dimensions do not match."); 
+	}
 	return bra*ket;   
 }
 //--------------------------------------------------------------------------
@@ -445,8 +254,6 @@ T ExpectValue(const  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mat, const
     Ket<T> toright((int)ket.rows());
     toright << mat * ket;
     T nomr = BraKet(bra,toright); 
-   // T dnomr = BraKet(bra,ket);
-   
     return nomr;//dnomr; 
 }
 #endif // BRAKET_HPP

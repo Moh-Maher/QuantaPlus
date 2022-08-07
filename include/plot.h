@@ -21,7 +21,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 using namespace std;
  
 
-string dvecTostr(vector<double> dvec)
+std::string dvecTostr(vector<double> dvec)
 {
 	stringstream ss;
 	for(int i=0;i<dvec.size();i++)
@@ -30,10 +30,16 @@ string dvecTostr(vector<double> dvec)
 	}
 	return ss.str();
 }
+
+/***************************************************************************
+  Class:    Plot.
+
+  Summary: API class for gnuplot to plot the data points
+
+  Methods: add,show,saveshow,savefig
+		 
  
-//*********************************************************************************************
-//		API class for gnuplot to plot the data points
-//---------------------------------------------------------------------------------------------
+***************************************************************************/
 class Plot
 { 
 	public:
