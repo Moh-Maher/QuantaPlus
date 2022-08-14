@@ -51,9 +51,9 @@ int main()
         Brapsi_KetA = psi_Bra*psi_Ket;
         Brapsi_phi_Ket = psi_Bra*phi_Ket;
         
-	LaTex mypdf("output/latex_results.tex");
+	//LaTex mypdf("output/latex_results.tex");
 	
-	
+	LaTex mypdf("latex_results.tex");
 	mypdf.BeginLaTex();
 	//mypdf.ToLaTex("k",psi_Ket);
 	

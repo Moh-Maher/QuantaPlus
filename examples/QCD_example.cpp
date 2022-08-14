@@ -3,8 +3,11 @@
 #include<cmath>
 #include"angularmomentum.h"
 #include"braket.h"
+#include"operators.h"
 //#include"constants.h"
 #include"timer.h"
+
+using namespace QuantaPlus;
 /*--------------------------------------------------------------------------------------------
 ->> lambda_i(l_i) [with i =1...8] where "l_i" represent Gell-Mann matrices (source: phys_conts.h ) 
 

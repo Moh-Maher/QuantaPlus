@@ -9,6 +9,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include"cgc.h"
 #include"timer.h" 
 
+using namespace QuantaPlus;
 int main(){
 	
 	ElapsedTime time_count; 

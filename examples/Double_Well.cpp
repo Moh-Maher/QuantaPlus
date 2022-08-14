@@ -5,7 +5,8 @@
 #include"operators.h"
 #include"timer.h"
 #include"utilities.h"
- 
+
+using namespace QuantaPlus;
 	typedef std::complex<double>  complex;
 	using std::cout;
 	using std::endl;

@@ -43,6 +43,7 @@ std::string dvecTostr(vector<double> dvec)
 class Plot
 { 
 	public:
+		Plot();
 		Plot(vector<double> x, vector<double> y);
 		Plot(vector<double> x, vector<double> y, string xlabel, string ylabel);
 		Plot(vector<double> x, vector<double> y, string title, string xlabel, string ylabel);

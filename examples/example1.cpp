@@ -22,7 +22,7 @@
 #include"utilities.h"
 #include"timer.h"
 
-
+using namespace QuantaPlus;
 	using std::cout;
 	using std::endl;
 	typedef std::complex<double>  complex;

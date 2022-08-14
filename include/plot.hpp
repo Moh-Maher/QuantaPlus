@@ -14,6 +14,16 @@
 #ifndef QUANTAPLUS_INCLUDE_PLOT_H
 #error __FILE__ should only be included from plot.h.
 #endif // PLOT_H
+
+Plot::Plot() 
+{ 
+	this->title = title; 
+	this->xlabel = xlabel; 
+	this->ylabel = ylabel; 
+	this->filename = filename; 
+	this->xrange = xrange; 
+	this->yrange = yrange; 
+}
 /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   Function:  
 

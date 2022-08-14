@@ -18,9 +18,9 @@ INCLUDEQUANTAPLUS = include/constants.h \
                                    
 EXAMPLES = example1\
 		QCD_example\
-		angular_momentum_test \
-		braket_test\
-		latex_test \
+		test_angular-momentum_test \
+		test_braket\
+		test_latex \
 		test_eigenvalue\
 		test_ClebschGordon\
 		Harmonic_Oscillator\

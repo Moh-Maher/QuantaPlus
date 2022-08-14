@@ -12,9 +12,10 @@
 #include"utilities.h"
 #include"angularmomentum.h"
 #include"braket.h"
-#include"latex.h"
 #include"timer.h"
-//#include"operators.h"
+#include"operators.h"
+
+using namespace QuantaPlus;
 	typedef std::complex<double>  complex;
 	using std::cout;
 	using std::endl;
@@ -33,7 +34,8 @@ int main()
 	
 	AngularMomentum<complex> S_x, S_y, S_z; 
 	AngularMomentum<complex> S_sqr, S_plus, S_minus;
-       time_count.Start();////
+       	
+       	time_count.Start();////
 	S_sqr = S_sqr.AngularMomentum_JSquare(spin);
 	S_x = S_x.AngularMomentum_Jx(spin);
 	S_y = S_y.AngularMomentum_Jy(spin);
@@ -64,19 +66,21 @@ int main()
 	cout<<"------------S_- operator:-------------\n";
 	ResultPrint(S_minus);
 	
-	/*AngularMomentum<complex> res(8,8);
+	cout<<"------------KroneckerProduct: Sx*Id(1/2)*Id(0) = -------------\n";
+	AngularMomentum<complex> res(8,8);
 	res=KroneckerProduct(S_x,Id<complex>(0.5),Id<complex>(0));
-	ResultPrint(res);*/
+	ResultPrint(res);
 	
+	//uncomment the code below to generate latex file
+	/*
 	LaTex mypdf("output/Angular_Momentum.tex");
-	
-	
 	mypdf.BeginLaTex();
 	mypdf.Typing("For spin $"+LaTexMathFraction(spin)+"$ system:");
 	mypdf.MathOperation("to","J_x = ",S_x);
 	mypdf.MathOperation("to","J_y = ",S_y);
 	mypdf.MathOperation("to","J_z = ",S_z);
 	mypdf.EndLaTex();
+	*/
 	
 	///<--clock stuff again
 	time_count.End();
