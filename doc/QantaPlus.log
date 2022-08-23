@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.4.17)  29 MAY 2022 20:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.4.17)  14 AUG 2022 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -987,21 +987,28 @@ LaTeX Info: Redefining \nameref on input line 45.
 \tf@toc=\write5
 \openout5 = `QantaPlus.toc'.
 
+
+
+LaTeX Warning: Citation `' on page 1 undefined on input line 80.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.79 \end{document}
-                    [1] (./QantaPlus.aux)
+l.134 
+       [1] [2] (./QantaPlus.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `QantaPlus.out' has not changed.
-(rerunfilecheck)             Checksum: BFE17CDF606303C00F996E1976F07B9F;186.
+(rerunfilecheck)             Checksum: E71508B95E55F90C6271BA73CA41A53A;83.
  ) 
 Here is how much of TeX's memory you used:
- 27115 strings out of 478287
- 558644 string characters out of 5849289
- 858288 words of memory out of 5000000
- 44795 multiletter control sequences out of 15000+600000
- 473314 words of font info for 41 fonts, out of 8000000 for 9000
+ 27119 strings out of 478287
+ 558683 string characters out of 5849289
+ 862252 words of memory out of 5000000
+ 44794 multiletter control sequences out of 15000+600000
+ 473621 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,5n,104p,470b,367s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1011,10 +1018,10 @@ live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti12.pfb>
-Output written on QantaPlus.pdf (2 pages, 86423 bytes).
+Output written on QantaPlus.pdf (3 pages, 98597 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 29 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 72 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
+ 9 named destinations out of 1000 (max. 500000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
