@@ -11,18 +11,19 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include"braket.h"
 #include"angularmomentum.h"
 #include"timer.h"
- 
+
+using namespace QuantaPlus;
 typedef std::complex<double>  complex;
 using std::cout;
 using std::endl;
  
 int main() {
  	ElapsedTime time_count; //<--clock stuff
-	time_count.Start();
+	
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
  
-	QM_operator<complex> A(3,3);
-	 
+	//QM_operator<complex> A(3,3);
+	Eigen::Matrix<complex,Eigen::Dynamic,Eigen::Dynamic> A(3,3);
 	Eigen::Matrix<complex,Eigen::Dynamic,Eigen::Dynamic> vec;
 	Eigen::Matrix<complex,Eigen::Dynamic,Eigen::Dynamic> res;
  
@@ -31,6 +32,8 @@ int main() {
 	   1.0, 0.0, 1.0,
 	   0.0, 1.0, 0.0;
 	//cout<<H<<endl;
+	time_count.Start();
+	
 	NResultPrint(A);
 	//cout<<QuantumEigenValue(H,4)<<endl;
 	cout<<"----------EigenValues-----------"<<endl;

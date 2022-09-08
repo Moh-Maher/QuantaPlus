@@ -13,6 +13,7 @@
 #include"angularmomentum.h"
 #include"braket.h"
 #include"timer.h"
+#include"latex.h"
 #include"operators.h"
 
 using namespace QuantaPlus;
@@ -72,7 +73,7 @@ int main()
 	ResultPrint(res);
 	
 	//uncomment the code below to generate latex file
-	/*
+	 
 	LaTex mypdf("output/Angular_Momentum.tex");
 	mypdf.BeginLaTex();
 	mypdf.Typing("For spin $"+LaTexMathFraction(spin)+"$ system:");
@@ -80,7 +81,7 @@ int main()
 	mypdf.MathOperation("to","J_y = ",S_y);
 	mypdf.MathOperation("to","J_z = ",S_z);
 	mypdf.EndLaTex();
-	*/
+	 
 	
 	///<--clock stuff again
 	time_count.End();

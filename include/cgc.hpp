@@ -53,10 +53,10 @@ double SquareRoot(const double& x)
   Returns: std::size_t
   		large integer.
 ------------------------------------------------------------------*/
-std::size_t Factorial(const std::size_t& n)
+/*std::size_t Factorial(const std::size_t& n)
 {
         return n == 0? 1 : n * Factorial(n-1);
-}
+}*/
 // -------------------overloaded Factorial -----------------------
 double Factorial(const double& n)
 {

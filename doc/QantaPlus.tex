@@ -45,13 +45,13 @@
 \begin{document}
 \begin{titlepage}
 \title{\textsc{QuantaPlus} Manual and User Guide}
-\author{Mustafa Ahmed Ali Ahmed}
-\affil{{Department of Physics, Faculty of Pure and Applied Sciences,\\International University of Africa, Khartoum, Sudan}}
+\author{Muhammad Hussein Muhammadahmed Ahmed}
+\affil{{Department of Physics, Faculty of Sciences,\\Sudan University Of Science \& Technology Khartoum, Sudan}}
 \author{Mohammed Maher Abdelrahim Mohammed}
-\affil{Dipartimento di Fisica dell'Universit\`a della Calabria \\I-87036 Arcavacata di Rende, Cosenza, Italy}
-\affil{INFN - Gruppo collegato di Cosenza \\I-87036 Arcavacata di Rende,
-	Cosenza, Italy}
-
+%\affil{Dipartimento di Fisica dell'Universit\`a della Calabria \\I-87036 Arcavacata di Rende, Cosenza, Italy}
+%\affil{INFN - Gruppo collegato di Cosenza \\I-87036 Arcavacata di Rende,
+%	Cosenza, Italy}
+\affil{{Department of Physics, Faculty of Sciences,\\Sudan University Of Science \& Technology Khartoum, Sudan}}
 %\email{}
  
  
@@ -73,7 +73,9 @@ in C++17 and composed solely of header files.
 \end{titlepage}
  \addcontentsline{toc}{section}{Contents}
  \tableofcontents
- 
+ \begin{center}
+ 	 \includegraphics[scale=0.75]{QuantaPluslogo.png}
+ \end{center}
 \section*{Introduction}
 High-performance numerical algorithms play a central role in theoretical calculations and analysis
 of experimental data in (non-relativistic) quantum mechanical problems, which is the problem of predicting
@@ -82,31 +84,20 @@ a crucial ingredient in the field of today’s computational physics due to its 
 and potential applications in various problems of fundamental importance in quantum chemistry,
 condensed matter physics, and materials science.
 
- 
+
 
 \section*{Files, installation and testroutines}
-The package can be downloaded from~\href{https://github.com/Moh-Maher}{github repository}. There are ready to install libaries there for some
-cases, but in general it is better to compile it for your own system. C++ can have a
-large overhead in calling classes and functions compared to FORTRAN. Therefore always
-compile the library with optimization. The interfaces are as much as possible defined with
-the keyword const to allow the compiler to optimize more efficiently.
+The package can be downloaded from~\href{https://github.com/Moh-Maher}{github repository}.  
 \subsection*{Files}
-The gzipped tarred file (chiron.vvvv.tar.gz) will produce a directory chiron.vvvv with
+The gzipped tarred file (QuantaPlus.vvvv.tar.gz) will produce a directory QuantaPlus.vvvv with
 a number of subdirectories. vvvv is version information. The created directory is called
 the main directory in the remainder.
-The main directory contains the files COPYING, INSTRUCTIONS, GUIDELINES and a Makefile.
+The main directory contains the files LICENSE, README.md, and a Makefile.
 
-The subdirectory doc contains the documentation. The latest published article about
-CHIRON, this manual (manual.tex), a list of files (filelist.txt) and a summary of
-things added since earlier versions (Changelog.vvv.to.www.txt).
-The subdirectory lib will after compiling contain the compiled libraries libjbnumlib.a
-and libchiron.a.
+The subdirectory doc contains the documentation.
+The subdirectory lib will after compiling contain the compiled libraries libquantaplus.a.
 
-The subdirectory include contains all the needed header files. The subdirectory src
-contains the source files. test contains the testing and example programs. testoutputs
-contains the output the testprograms should produce.
-Typically for each subject xxx there are files xxx.h, xxx.cc, testxxx.cc and testxxx.dat
-in the respective directories.
+The subdirectory include contains all the needed header files. examples contains the testing and example programs. outputs contains the output obtained after execute some of the example files.
 There are a few extra files around as well. These typically contain inputs needed or large
 sets of constants.
 
@@ -114,7 +105,7 @@ sets of constants.
 \subsection*{Installation}
 
 The main steps are to run make in the main directory. This should produce the files
-libjbnumlib.a and libchiron.a and also copy them to the lib subdirectory. You might
+libquantaplus.a and also send a copy to the lib subdirectory. You might
 have to change the variables CC, CFLAGS and CFLAGTESTS. CC should specify the C++
 compiler and the options to be used for everything. CFLAGS can be used to specify addi-
 tional options in compiling the libraries and CFLAGTESTS to specify additional options for
@@ -126,9 +117,9 @@ somewhere in the library path. For many C++ compilers the paths are given in the
 environment variables CPLUS INCLUDE PATH and LIBRARY PATH respectively.
 \subsection*{testroutines}
 
-For every file xxx.h and xxx.cc included for chiron there is a testing/example code
-testxxx.cc in the subdirectory test. These can be compiled using “make testxxx” in the
-main directory. Executing the resulting file a.out should then produce output identical (up
+For every file xxx.h included for QuantaPlus there is a testing/example code
+testxxx.cpp in the subdirectory test. These can be compiled using “make testxxx” in the
+main directory. Executing the resulting file QUANTA.out should then produce output identical (up
 to the precision specified and possible randomly generated cases) to the file testxxx.dat
 in the subdirectory testoutputs.
   
