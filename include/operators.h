@@ -22,26 +22,24 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 namespace QuantaPlus{
 
-/***************************************************************************
-  Class:    QM_operator.
-
-  Summary:  QM_operator is a publicly derived class from the well designed Eigen::Matrix. 
-	    QM_operator represent matrices with Dynamic-size.
-
-***************************************************************************/
+/*! \class QM_operator
+* QM_operator is a publicly derived class from the well designed Eigen::Matrix, 
+* represents matrices with Dynamic-size.
+*/
 template<class T>
 class QM_operator: public Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>
 {
 	public:
-		QM_operator():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>(){};
-		QM_operator(int row,int col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col){};
-		//<--This constructor allows us to construct QM_operator from Eigen expressions
-		template<typename Derived>
+		 
+		QM_operator():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>(){} ///<Default constructor.
+		
+		QM_operator(int row,int col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col){} ///< Constructor with row and column input. 
+		
+		template<typename Derived> 
 		QM_operator(const Eigen::MatrixBase<Derived>& other)
-		:Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other){ }
-	   	//Ket(const T *data );
-	   	 
-	    	//<--This method allows us to assign Eigen expressions to QM_operators
+		:Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other){ } ///<construct QM_operator from Eigen expressions.
+	 
+	    	/*!Assign Eigen expressions to QM_operators*/
 		template<typename Derived>
 		QM_operator& operator=(const Eigen::MatrixBase <Derived>& other)
 		{

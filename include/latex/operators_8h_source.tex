@@ -1,0 +1,54 @@
+\hypertarget{operators_8h_source}{}\doxysection{operators.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#}}
+\DoxyCodeLine{2 \textcolor{comment}{@operator.h is a part of QUANTAPLUS library. }}
+\DoxyCodeLine{3 \textcolor{comment}{}}
+\DoxyCodeLine{4 \textcolor{comment}{usage: define and handle some fundamental quantum operators.}}
+\DoxyCodeLine{5 \textcolor{comment}{}}
+\DoxyCodeLine{6 \textcolor{comment}{ref: [N. Zettili, “Quantum Mechanics, Concepts and Applications,” Wiley, Chichester, 2001.]}}
+\DoxyCodeLine{7 \textcolor{comment}{}}
+\DoxyCodeLine{8 \textcolor{comment}{by:  Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{9 \textcolor{comment}{     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{10 \textcolor{comment}{     VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{11 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
+\DoxyCodeLine{12 \textcolor{comment}{\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#*/}}
+\DoxyCodeLine{13 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_INCLUDE\_OPERATORS\_H}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define QUANTAPLUS\_INCLUDE\_OPERATORS\_H}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <Eigen/Dense>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <unsupported/Eigen/MatrixFunctions>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include<complex>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include"{}braket.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include<cmath>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }QuantaPlus\{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{29 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\_operator}}: \textcolor{keyword}{public} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{keyword}{public}:}
+\DoxyCodeLine{33          }
+\DoxyCodeLine{34         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_acc6794ebcceb99443927303aaff5b906}{QM\_operator}}():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>()\{\} }
+\DoxyCodeLine{35         }
+\DoxyCodeLine{36         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a93309d3cda541d70eed10ca2e3a70c1b}{QM\_operator}}(\textcolor{keywordtype}{int} row,\textcolor{keywordtype}{int} col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col)\{\} }
+\DoxyCodeLine{37         }
+\DoxyCodeLine{38         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived> }
+\DoxyCodeLine{39         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a3b14cbed10261157c5a4b1797d090cf6}{QM\_operator}}(\textcolor{keyword}{const} Eigen::MatrixBase<Derived>\& other)}
+\DoxyCodeLine{40         :Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other)\{ \} }
+\DoxyCodeLine{41      }
+\DoxyCodeLine{43         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
+\DoxyCodeLine{44         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\_operator}}\& \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_af566d2e9cc968f64e67397be903e4e29}{operator=}}(\textcolor{keyword}{const} Eigen::MatrixBase <Derived>\& other)}
+\DoxyCodeLine{45         \{}
+\DoxyCodeLine{46             this-\/>Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::operator=(other);}
+\DoxyCodeLine{47             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{48         \} }
+\DoxyCodeLine{49         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{\string~QM\_operator}}()\{\}}
+\DoxyCodeLine{50 \};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include"{}operators.hpp"{}}}
+\DoxyCodeLine{53 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -23,32 +23,37 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 namespace QuantaPlus {
 
-/***************************************************************************
-  Class:    CGCcoeff.
-
-  Summary:  Clebsch–Gordan Coefficients representation <j1, j2; m1, m2 | j, m >
-	   
-***************************************************************************/
+/*! \class CGCcoeff
+* CGCcoeff is a class for Clebsch–Gordan Coefficients representation <j1, j2; m1, m2 | j, m >.
+* Note that the coefficients  <j1, j2; m1, m2 | j, m > vanishes unless m1+m2=m.
+*/
 class CGCcoeff {
 	public:
-		double j1=0, j2=0, m1=0, m2=0, j=0, m=0;
-		//double j, m;
-		CGCcoeff() = default; //<------ defaulte constructor
+		double j1=0; ///< the angular momentum (spin or orbital) of the first particle (or system) 
+		double j2=0; ///< the angular momentum (spin or orbital) of the second particle (or system) 
+		double m1=0; ///< magnetic quantum number of the first particle (or system) 
+		double m2=0; ///< magnetic quantum number of the second particle (or system) 
+		double j=0; ///< total angular momentum: |j1 - j2| <= j <= |j1 + j2|
+		double m=0; ///< total m located within the rang -j<m<j
+		 
+		CGCcoeff() = default; ///< Defaulte constructor
+		
 		CGCcoeff(double J1, double J2, double M1, double M2, double J, double M)
 		:j1(J1),j2(J2),m1(M1),m2(M2),j(J),m(M)
 		{ 
 		 //j1 = J1; j2 = J2; m1 = M1; m2 = M2; j = J; m = M;
-		}
-		CGCcoeff(double J, double M):j(J),m(M){}
-
+		} ///<constructor with input 
+		
+		CGCcoeff(double J, double M):j(J),m(M){} ///< overloaded constructor with input 
+		 
 		CGCcoeff(double J1, double J2,double J, double M)
-		:j1(J1),j2(J2),j(J),m(M){}
-			 
+		:j1(J1),j2(J2),j(J),m(M){} ///< overloaded constructor with input 
+		 
 		CGCcoeff(const CGCcoeff& gc){
 			j1 = gc.j1; j2 = gc.j2; m1 = gc.m1; m2 = gc.m2; j = gc.j; m = gc.m;
-		}
+		} ///< overloaded constructor with input 
 
-	        ///<---overloading operator < : required to be used in a std::map.
+	        /*!overloading operator "<". required to be used in a std::map*/
 		inline bool operator<(const CGCcoeff &rhs) const {
 			if( j1 < rhs.j1 ) return true;
 			if( j1 > rhs.j1 ) return false;
@@ -62,7 +67,7 @@ class CGCcoeff {
 			if( j  > rhs.j  ) return false;
 			return ( m  < rhs.m  );
 		}
-		//<----overloading the logical == operator 
+		/*! Overloading the logical "==" operator*/ 
 		bool operator ==(const CGCcoeff& CG){
 			
 			bool res = false;
@@ -70,7 +75,7 @@ class CGCcoeff {
 			return res;
 		}
 };
-//---------------------------overloaded << operator--------------------------
+/*! Overloaded "<<" operator*/
 inline std::ostream& operator <<(std::ostream& out, const CGCcoeff& t){
 	out<<"|";DecimalToFraction(t.j1);
 	out<<", ";

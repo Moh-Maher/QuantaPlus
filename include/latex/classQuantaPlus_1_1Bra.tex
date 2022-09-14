@@ -1,0 +1,59 @@
+\hypertarget{classQuantaPlus_1_1Bra}{}\doxysection{Quanta\+Plus\+::Bra\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classQuantaPlus_1_1Bra}\index{QuantaPlus::Bra$<$ T $>$@{QuantaPlus::Bra$<$ T $>$}}
+
+
+{\ttfamily \#include $<$braket.\+h$>$}
+
+Inheritance diagram for Quanta\+Plus\+::Bra\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classQuantaPlus_1_1Bra}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classQuantaPlus_1_1Bra_af6f1caf2e96903d7948312c4405b26f4}\label{classQuantaPlus_1_1Bra_af6f1caf2e96903d7948312c4405b26f4}} 
+{\bfseries Bra} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQuantaPlus_1_1Bra_a1eab24b6b8a7076307019ed51e85029a}\label{classQuantaPlus_1_1Bra_a1eab24b6b8a7076307019ed51e85029a}} 
+{\bfseries Bra} (int col)
+\begin{DoxyCompactList}\small\item\em Constructor with column number. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classQuantaPlus_1_1Bra_a6e659cc599dc0a6ad18e42bfd7196c92}\label{classQuantaPlus_1_1Bra_a6e659cc599dc0a6ad18e42bfd7196c92}} 
+{\footnotesize template$<$typename Derived $>$ }\\{\bfseries Bra} (const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Construct \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} from Eigen expressions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Derived $>$ }\\\mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} \& \mbox{\hyperlink{classQuantaPlus_1_1Bra_a874f942077cddda183cf26c16d0c7c5e}{operator=}} (const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&other)
+\item 
+bool \mbox{\hyperlink{classQuantaPlus_1_1Bra_a7f918b1c09a0ff6265ffa5d02d508f98}{operator==}} (const \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}}$<$ T $>$ \&bra) const
+\item 
+\mbox{\Hypertarget{classQuantaPlus_1_1Bra_aaae4b9f69d55c269ba59c28a895e28b7}\label{classQuantaPlus_1_1Bra_aaae4b9f69d55c269ba59c28a895e28b7}} 
+{\bfseries $\sim$\+Bra} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Quanta\+Plus\+::\+Bra$<$ T $>$}
+\mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} is a publicly derived class from the well designed Eigen\+::\+Matrix, where the \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} vectors are matrices with one row, and Dynamic-\/size column. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1Bra_a874f942077cddda183cf26c16d0c7c5e}\label{classQuantaPlus_1_1Bra_a874f942077cddda183cf26c16d0c7c5e}} 
+\index{QuantaPlus::Bra$<$ T $>$@{QuantaPlus::Bra$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!QuantaPlus::Bra$<$ T $>$@{QuantaPlus::Bra$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+template$<$typename Derived $>$ \\
+\mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} \& \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Quanta\+Plus\+::\+Bra}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Assign Eigen expressions to \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} \mbox{\Hypertarget{classQuantaPlus_1_1Bra_a7f918b1c09a0ff6265ffa5d02d508f98}\label{classQuantaPlus_1_1Bra_a7f918b1c09a0ff6265ffa5d02d508f98}} 
+\index{QuantaPlus::Bra$<$ T $>$@{QuantaPlus::Bra$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!QuantaPlus::Bra$<$ T $>$@{QuantaPlus::Bra$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Quanta\+Plus\+::\+Bra}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}}$<$ T $>$ \&}]{bra }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+overloading the logical \char`\"{}==\char`\"{}operator 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+braket.\+h\end{DoxyCompactItemize}

@@ -90,7 +90,9 @@ std::string Greek(const std::string& letter_name){
 ********************************************************************************/
 class LaTex {
 	private:
+		//output file
 		std::ofstream ofile;
+		// the output file name including the path 
 		std::string file_path;
 		//map container holding string function names and their corresponding laTex math commands--
 		std::map<std::string, std::string> MathFunctions = {
@@ -99,10 +101,14 @@ class LaTex {
 		{"Sec", "\\sec"}, {"ASin", "\\arcsin"}, {"ACos", "\\arccos"}, {"ATan", "\\arctan"}, 
 		{"Sgn", "\\sgn"}, {"Det", "\\det"}, {"Sqrt", "\\sqrt"} 
 		};
-	public: 				
+	public: 
+		//default constructor, with default value for file path/name.tex 				
 		LaTex(): file_path("output/default.tex") {}
+		
+		//constructor, with input value for filename.
 		LaTex(std::string filename): file_path(filename) {}	
 		
+		//method for quick start the Latex file settings.
 		void BeginLaTex() 
 		{	
 			ofile.open(file_path);
@@ -117,23 +123,25 @@ class LaTex {
 			ofile<<"\\begin{document}\n";
 			ofile.close();
 		}
-	
+		//close the Latex file document. 
 		void EndLaTex()
 		{
 			ofile.open(file_path,std::ios_base::app);
 			ofile<<"\\end{document}\n";
 			ofile.close();
 		}
-
+		//direct typing into the Latex file with appending.
 		void Typing(std::string text)
 		{
 			ofile.open(file_path,std::ios_base::app);
 			ofile<<text;
 			ofile.close();
 		}
-		
+		//function with multiple inputs (equation or text) transformed to latex format.
 		void ToLaTex(const char* fmt...);
+		//function with multiple inputs (equation) transformed to latex format.
 		void MathOperation(const char* fmt...);
+		//convert string name of math function into its equivalent latex command.
 		std::string LaTexMath(const std::string& function_name);
 };
 #include"latex.hpp"

@@ -1,0 +1,125 @@
+\hypertarget{utilities_8h_source}{}\doxysection{utilities.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/**************************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{utilities.h is a part of QUANTAPLUS library. }}
+\DoxyCodeLine{3 \textcolor{comment}{}}
+\DoxyCodeLine{4 \textcolor{comment}{by:  Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{5 \textcolor{comment}{     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{6 \textcolor{comment}{     VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{7 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
+\DoxyCodeLine{8 \textcolor{comment}{**************************************************************************************/}}
+\DoxyCodeLine{9 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_INCLUDE\_UTILITIES\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define QUANTAPLUS\_INCLUDE\_UTILITIES\_H}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <Eigen/Dense>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include<sstream>}}
+\DoxyCodeLine{15 \textcolor{comment}{//\#include <algorithm> // for using : str.find\_first\_not\_of( "{}string"{} ) == std::string::npos}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <complex>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include<cmath>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include<fstream>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <valarray>} }
+\DoxyCodeLine{21  }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{comment}{/* colors */}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define RST  "{}\(\backslash\)x1B[0m"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define KRED  "{}\(\backslash\)x1B[31m"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define KGRN  "{}\(\backslash\)x1B[32m"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define KYEL  "{}\(\backslash\)x1B[33m"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#define KBLU  "{}\(\backslash\)x1B[34m"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define KMAG  "{}\(\backslash\)x1B[35m"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#define KCYN  "{}\(\backslash\)x1B[36m"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define KWHT  "{}\(\backslash\)x1B[37m"{}}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#define FRED(x) KRED x RST}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define FGRN(x) KGRN x RST}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#define FYEL(x) KYEL x RST}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define FBLU(x) KBLU x RST}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define FMAG(x) KMAG x RST}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define FCYN(x) KCYN x RST}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define FWHT(x) KWHT x RST}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define BOLD(x) "{}\(\backslash\)x1B[1m"{}} x RST}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define UNDL(x) "{}\(\backslash\)x1B[4m"{}} x RST}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{comment}{//namespace QuantaPlus\{}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{49 \textcolor{keyword}{class }\mbox{\hyperlink{classOutput}{Output}}}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{keyword}{public}:}
+\DoxyCodeLine{52      }
+\DoxyCodeLine{53     std::ofstream \mbox{\hyperlink{classOutput_a0d64b7f883163d64e9cdc63eeed255f8}{takeData}}; }
+\DoxyCodeLine{54      }
+\DoxyCodeLine{59     \mbox{\hyperlink{classOutput_aaf1fa8ec9f30ca6edc4b200e10ecc331}{Output}}(std::string fileName) }
+\DoxyCodeLine{60     \{}
+\DoxyCodeLine{61         \mbox{\hyperlink{classOutput_a0d64b7f883163d64e9cdc63eeed255f8}{takeData}}.open(fileName + \textcolor{stringliteral}{"{}.dat"{}});}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     }
+\DoxyCodeLine{65     \mbox{\hyperlink{classOutput_a61d0840daf98bea49e4dc471f235eeab}{\string~Output}}()}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67         \mbox{\hyperlink{classOutput_a0d64b7f883163d64e9cdc63eeed255f8}{takeData}}.close();}
+\DoxyCodeLine{68     \} }
+\DoxyCodeLine{69 }
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} \mbox{\hyperlink{classOutput_a6e2ec5526f8bb254f4a6ac664ffae3a7}{writeOutput}}(std::string output)}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75         \mbox{\hyperlink{classOutput_a0d64b7f883163d64e9cdc63eeed255f8}{takeData}} << output << std::endl;}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{80 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{81 std::string ToString(\textcolor{keyword}{const} T\& numb)}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     std::stringstream ss;}
+\DoxyCodeLine{84     ss << numb;}
+\DoxyCodeLine{85     \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{86 \}}
+\DoxyCodeLine{87 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{88 \textcolor{comment}{// print two numbers in literal fraction form (without any manipulation) }}
+\DoxyCodeLine{89 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{90 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, \textcolor{keyword}{typename} T2>}
+\DoxyCodeLine{91 std::string ToFraction(T1 numer, T2 denom)}
+\DoxyCodeLine{92 \{}
+\DoxyCodeLine{93     std::string res = ToString<T1>(numer);}
+\DoxyCodeLine{94     \textcolor{keywordflow}{if}(denom != 1)}
+\DoxyCodeLine{95     \{}
+\DoxyCodeLine{96         res += \textcolor{stringliteral}{"{}/"{}};}
+\DoxyCodeLine{97         res += ToString<T2>(denom);}
+\DoxyCodeLine{98     \}}
+\DoxyCodeLine{99     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{100 \}}
+\DoxyCodeLine{101 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{102 \textcolor{comment}{// print the elements of QUANTx::matrix<T, R,C> in fractions form}}
+\DoxyCodeLine{103 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{104 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{105 \textcolor{keywordtype}{void} MatrixToString(T \&mat)}
+\DoxyCodeLine{106 \{}
+\DoxyCodeLine{107     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mat.GetRow(); i++) \{}
+\DoxyCodeLine{108         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mat.GetCol(); j++) \{}
+\DoxyCodeLine{109             decimalToFraction(mat.table[i][j]);}
+\DoxyCodeLine{110             std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{111         \}}
+\DoxyCodeLine{112         std::cout<<std::endl;}
+\DoxyCodeLine{113     \}}
+\DoxyCodeLine{114 \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116 \textcolor{keywordtype}{void} ComplexNumPrint( std::complex<double> complex\_number, \textcolor{keywordtype}{bool} numerical\_flag); \textcolor{comment}{// print any complex number as z = x + iy }}
+\DoxyCodeLine{117 \textcolor{keywordtype}{void} ResultPrint(\textcolor{keyword}{const} std::complex<double>\& complex\_num); \textcolor{comment}{// print the calculated in fraction and symbolic forms (e.g: 15/7, i/2, √2/19. ..)  }}
+\DoxyCodeLine{118 \textcolor{keywordtype}{void} NResultPrint(\textcolor{keyword}{const} std::complex<double>\& complex\_num); \textcolor{comment}{//Print calculated result in numric form}}
+\DoxyCodeLine{119 \textcolor{keywordtype}{void} DecimalToFraction(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& decimal\_number);\textcolor{comment}{//void DecimalToFraction(double number); // convert decimal to fraction}}
+\DoxyCodeLine{120 \textcolor{keywordtype}{void} StringMatrix(\textcolor{keywordtype}{int} r, \textcolor{keywordtype}{int} c, \textcolor{keywordtype}{double} *array); \textcolor{comment}{// print array elements in fractions form}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{keywordtype}{bool} IsNumber(\textcolor{keyword}{const} std::string\& str); \textcolor{comment}{// gives True if str is an integer, and False otherwise. }}
+\DoxyCodeLine{123 \textcolor{keywordtype}{void} Warning(\textcolor{keyword}{const} std::string \& str); \textcolor{comment}{// show warnings in highlighted from.}}
+\DoxyCodeLine{124 \textcolor{keywordtype}{bool} validInteger(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x); \textcolor{comment}{// check if the input is an integer.}}
+\DoxyCodeLine{125 \textcolor{keywordtype}{bool} halfInteger(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x); \textcolor{comment}{// check if the input is a half-\/integer. }}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{comment}{//void TolaTex(std::string fname, std::string data);}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 \textcolor{preprocessor}{\#include"{}utilities.hpp"{}}}
+\DoxyCodeLine{130 \textcolor{comment}{//\}//end of namespace QuantaPlus}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

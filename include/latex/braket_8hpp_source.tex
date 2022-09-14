@@ -1,0 +1,264 @@
+\hypertarget{braket_8hpp_source}{}\doxysection{braket.\+hpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*******************************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{  File:      BRAKET.TPP}}
+\DoxyCodeLine{3 \textcolor{comment}{}}
+\DoxyCodeLine{4 \textcolor{comment}{  Summary:   BraKet.tpp is a part of QUANTAPLUS library, provides support for "{}braket.h"{} .}}
+\DoxyCodeLine{5 \textcolor{comment}{}}
+\DoxyCodeLine{6 \textcolor{comment}{  Functions:  ComplexNumPrint, ResultPrint, literal\_printf, QuantumEigenVector,}}
+\DoxyCodeLine{7 \textcolor{comment}{          QuantumEigenValue, DualConj, BraKet. }}
+\DoxyCodeLine{8 \textcolor{comment}{}}
+\DoxyCodeLine{9 \textcolor{comment}{  by:        Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{10 \textcolor{comment}{             UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{11 \textcolor{comment}{         VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{12 \textcolor{comment}{             mohammed.maher@unical.it  }}
+\DoxyCodeLine{13 \textcolor{comment}{*******************************************************************************************/}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_INCLUDE\_BRAKET\_HPP}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define QUANTAPLUS\_INCLUDE\_BRAKET\_HPP}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_INCLUDE\_BRAKET\_H}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#error \_\_FILE\_\_ should only be included from braket.h.}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BRAKET\_H}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{22 \textcolor{comment}{  Function: ResultPrint}}
+\DoxyCodeLine{23 \textcolor{comment}{}}
+\DoxyCodeLine{24 \textcolor{comment}{  Summary:  print <Bra| elements in symbolic form.}}
+\DoxyCodeLine{25 \textcolor{comment}{}}
+\DoxyCodeLine{26 \textcolor{comment}{  Args:      Bra<U>\& bra}}
+\DoxyCodeLine{27 \textcolor{comment}{            Bra vector.  }}
+\DoxyCodeLine{28 \textcolor{comment}{}}
+\DoxyCodeLine{29 \textcolor{comment}{  Returns:  void}}
+\DoxyCodeLine{30 \textcolor{comment}{              print complex number in "{} x + iy"{} format.}}
+\DoxyCodeLine{31 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{32 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{33 \textcolor{keywordtype}{void} ResultPrint(Bra<U>\& bra)}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < bra.rows(); row\_count++)}
+\DoxyCodeLine{36         \{}
+\DoxyCodeLine{37             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < bra.cols(); col\_count++)}
+\DoxyCodeLine{38             \{}
+\DoxyCodeLine{39             ComplexNumPrint( bra(row\_count, col\_count),0 );}
+\DoxyCodeLine{40             \}}
+\DoxyCodeLine{41             std::cout<<std::endl;}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43 \}}
+\DoxyCodeLine{44 \textcolor{comment}{//<-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ print complex numbers in numeric form -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/>}}
+\DoxyCodeLine{45 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{46 \textcolor{keywordtype}{void} NResultPrint(Bra<U>\& bra)}
+\DoxyCodeLine{47 \{}
+\DoxyCodeLine{48     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < bra.rows(); row\_count++)}
+\DoxyCodeLine{49         \{}
+\DoxyCodeLine{50             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < bra.cols(); col\_count++)}
+\DoxyCodeLine{51             \{}
+\DoxyCodeLine{52             ComplexNumPrint( bra(row\_count, col\_count),1 );}
+\DoxyCodeLine{53             \textcolor{comment}{//cplx\_print( bra(row\_count, col\_count) );}}
+\DoxyCodeLine{54             \}}
+\DoxyCodeLine{55             std::cout<<std::endl;}
+\DoxyCodeLine{56         \}}
+\DoxyCodeLine{57 \}}
+\DoxyCodeLine{58 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{59 \textcolor{comment}{  Function: ResultPrint}}
+\DoxyCodeLine{60 \textcolor{comment}{}}
+\DoxyCodeLine{61 \textcolor{comment}{  Summary:  print  Ket elements in symbolic form.}}
+\DoxyCodeLine{62 \textcolor{comment}{}}
+\DoxyCodeLine{63 \textcolor{comment}{  Args:      Ket<U>\& ket}}
+\DoxyCodeLine{64 \textcolor{comment}{            Ket vector.  }}
+\DoxyCodeLine{65 \textcolor{comment}{}}
+\DoxyCodeLine{66 \textcolor{comment}{  Returns:  void}}
+\DoxyCodeLine{67 \textcolor{comment}{              print complex number in "{} x + iy"{} format.}}
+\DoxyCodeLine{68 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{69 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{70 \textcolor{keywordtype}{void} ResultPrint(Ket<U>\& ket)}
+\DoxyCodeLine{71 \{}
+\DoxyCodeLine{72     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < ket.rows(); row\_count++)}
+\DoxyCodeLine{73         \{}
+\DoxyCodeLine{74             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < ket.cols(); col\_count++)}
+\DoxyCodeLine{75             \{}
+\DoxyCodeLine{76             ComplexNumPrint( ket(row\_count, col\_count),0 );}
+\DoxyCodeLine{77             \}}
+\DoxyCodeLine{78             std::cout<<std::endl;}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{80 \}}
+\DoxyCodeLine{81 \textcolor{comment}{//<-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ print complex numbers in numeric form -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/>}}
+\DoxyCodeLine{82 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{83 \textcolor{keywordtype}{void} NResultPrint(Ket<U>\& ket)}
+\DoxyCodeLine{84 \{}
+\DoxyCodeLine{85     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < ket.rows(); row\_count++)}
+\DoxyCodeLine{86         \{}
+\DoxyCodeLine{87             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < ket.cols(); col\_count++)}
+\DoxyCodeLine{88             \{}
+\DoxyCodeLine{89             ComplexNumPrint( ket(row\_count, col\_count),1 );\textcolor{comment}{//cplx\_print( ket(row\_count, col\_count) );}}
+\DoxyCodeLine{90             \}}
+\DoxyCodeLine{91             std::cout<<std::endl;}
+\DoxyCodeLine{92         \}}
+\DoxyCodeLine{93 \}}
+\DoxyCodeLine{94 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{95 \textcolor{comment}{  Function: literal\_printf}}
+\DoxyCodeLine{96 \textcolor{comment}{}}
+\DoxyCodeLine{97 \textcolor{comment}{  Summary:  function print QuantaPlus variables in a symbolic form.}}
+\DoxyCodeLine{98 \textcolor{comment}{        This function is a modified version of "{}Variadic functions"{}.}}
+\DoxyCodeLine{99 \textcolor{comment}{        source: https://en.cppreference.com/w/cpp/utility/variadic .}}
+\DoxyCodeLine{100 \textcolor{comment}{}}
+\DoxyCodeLine{101 \textcolor{comment}{  Args:     const char* fmt...}}
+\DoxyCodeLine{102 \textcolor{comment}{              format identifier for multiple variables }}
+\DoxyCodeLine{103 \textcolor{comment}{}}
+\DoxyCodeLine{104 \textcolor{comment}{  Returns:  void}}
+\DoxyCodeLine{105 \textcolor{comment}{              printing }}
+\DoxyCodeLine{106 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{107 \textcolor{keywordtype}{void} literal\_printf(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...) }
+\DoxyCodeLine{108 \{}
+\DoxyCodeLine{109     va\_list args;}
+\DoxyCodeLine{110     va\_start(args, fmt);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{keywordflow}{while} (*fmt != \textcolor{charliteral}{'\(\backslash\)0'}) \{}
+\DoxyCodeLine{113         \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'k'}) \{}
+\DoxyCodeLine{114             Ket<std::complex<double>> kt = va\_arg(args, Ket<std::complex<double>>);}
+\DoxyCodeLine{115             std::cout<<\textcolor{stringliteral}{"{}|Ket> =\(\backslash\)n"{}};}
+\DoxyCodeLine{116             ResultPrint(kt);}
+\DoxyCodeLine{117             std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{118         \} }
+\DoxyCodeLine{119         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'b'}) \{}
+\DoxyCodeLine{120             Bra<std::complex<double>> br = va\_arg(args, Bra<std::complex<double>>);}
+\DoxyCodeLine{121             std::cout<<\textcolor{stringliteral}{"{}<Bra| = "{}};}
+\DoxyCodeLine{122             ResultPrint(br);}
+\DoxyCodeLine{123             std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{124         \}}
+\DoxyCodeLine{125         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'c'}) \{}
+\DoxyCodeLine{126             std::complex<double> d = va\_arg(args, std::complex<double>);}
+\DoxyCodeLine{127             std::cout<<\textcolor{stringliteral}{"{}complex number = "{}};}
+\DoxyCodeLine{128             ComplexNumPrint(d,0);}
+\DoxyCodeLine{129             std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{130         \}       }
+\DoxyCodeLine{131         ++fmt;}
+\DoxyCodeLine{132     \}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134     va\_end(args);}
+\DoxyCodeLine{135 \}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{138 \textcolor{comment}{  Function: QuantumEigenVector}}
+\DoxyCodeLine{139 \textcolor{comment}{}}
+\DoxyCodeLine{140 \textcolor{comment}{  Summary:  compute the Eigen vectors for Eigen::Matrix.}}
+\DoxyCodeLine{141 \textcolor{comment}{}}
+\DoxyCodeLine{142 \textcolor{comment}{  Args:      Matrix<T,Eigen::Dynamic,Eigen::Dynamic>\& mt}}
+\DoxyCodeLine{143 \textcolor{comment}{            Eigen::Matrix.  }}
+\DoxyCodeLine{144 \textcolor{comment}{}}
+\DoxyCodeLine{145 \textcolor{comment}{  Returns:  Eigen::Matrix<T, Eigen::Dynamic, 1> (row vector)}}
+\DoxyCodeLine{146 \textcolor{comment}{              return the eigenvectors of a given matrix.}}
+\DoxyCodeLine{147 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{148 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{149 Eigen::Matrix<T,Eigen::Dynamic,1> QuantumEigenVector(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \&mat, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& col\_number)}
+\DoxyCodeLine{150 \{}
+\DoxyCodeLine{151     Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>> eigensolver(mat);}
+\DoxyCodeLine{152    }
+\DoxyCodeLine{153     \textcolor{keywordflow}{if} (eigensolver.info() != Eigen::Success) abort();}
+\DoxyCodeLine{154   }
+\DoxyCodeLine{155     \textcolor{keywordflow}{return} eigensolver.eigenvectors();\textcolor{comment}{//.col(col\_number);}}
+\DoxyCodeLine{156 \}}
+\DoxyCodeLine{157 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{158 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{159 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> QuantumEigenVector(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \&mat)}
+\DoxyCodeLine{160 \{}
+\DoxyCodeLine{161     Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>> eigensolver(mat);}
+\DoxyCodeLine{162    }
+\DoxyCodeLine{163     \textcolor{keywordflow}{if} (eigensolver.info() != Eigen::Success) abort();}
+\DoxyCodeLine{164   }
+\DoxyCodeLine{165     \textcolor{keywordflow}{return} eigensolver.eigenvectors();\textcolor{comment}{//.col(col\_number);}}
+\DoxyCodeLine{166 \}}
+\DoxyCodeLine{167 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{168 \textcolor{comment}{  Function: QuantumEigenVector}}
+\DoxyCodeLine{169 \textcolor{comment}{}}
+\DoxyCodeLine{170 \textcolor{comment}{  Summary:  compute the Eigen value for Eigen::Matrix.}}
+\DoxyCodeLine{171 \textcolor{comment}{}}
+\DoxyCodeLine{172 \textcolor{comment}{  Args:      Matrix<U,Eigen::Dynamic,Eigen::Dynamic>\& mt}}
+\DoxyCodeLine{173 \textcolor{comment}{            Eigen::Matrix.  }}
+\DoxyCodeLine{174 \textcolor{comment}{}}
+\DoxyCodeLine{175 \textcolor{comment}{  Returns:  T (generic type)}}
+\DoxyCodeLine{176 \textcolor{comment}{              return the eigenvalues of a given matrix.}}
+\DoxyCodeLine{177 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{178 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{179 T QuantumEigenValue(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  \&mat,\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& i)}
+\DoxyCodeLine{180 \{}
+\DoxyCodeLine{181     Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> > eigensolver(mat);}
+\DoxyCodeLine{182    }
+\DoxyCodeLine{183     \textcolor{keywordflow}{if} (eigensolver.info() != Eigen::Success) abort();}
+\DoxyCodeLine{184    }
+\DoxyCodeLine{185     \textcolor{keywordflow}{return} eigensolver.eigenvalues()[i];}
+\DoxyCodeLine{186 \}}
+\DoxyCodeLine{187 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{188 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{189 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> QuantumEigenValue(\textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  \&mat)}
+\DoxyCodeLine{190 \{}
+\DoxyCodeLine{191     Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> > eigensolver(mat);}
+\DoxyCodeLine{192    }
+\DoxyCodeLine{193     \textcolor{keywordflow}{if} (eigensolver.info() != Eigen::Success) abort();}
+\DoxyCodeLine{194    }
+\DoxyCodeLine{195     \textcolor{keywordflow}{return} eigensolver.eigenvalues();}
+\DoxyCodeLine{196 \}}
+\DoxyCodeLine{197 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{198 \textcolor{comment}{  Function: DualConj}}
+\DoxyCodeLine{199 \textcolor{comment}{  Summary:  transform the Ket vector into it's Bra dual Conjugate.}}
+\DoxyCodeLine{200 \textcolor{comment}{  Args:     Ket<T> \&ket}}
+\DoxyCodeLine{201 \textcolor{comment}{        generic Ket vecotr called by reference.}}
+\DoxyCodeLine{202 \textcolor{comment}{  Returns:  Bra<T>}}
+\DoxyCodeLine{203 \textcolor{comment}{              generic Bra vector.}}
+\DoxyCodeLine{204 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{205 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{206 Bra<T> DualConj(\textcolor{keyword}{const} Ket<T> \&ket)}
+\DoxyCodeLine{207 \{}
+\DoxyCodeLine{208     Bra<T> resulted\_bra((\textcolor{keywordtype}{int})ket.rows());}
+\DoxyCodeLine{209     resulted\_bra << ket.adjoint();}
+\DoxyCodeLine{210     \textcolor{keywordflow}{return} resulted\_bra;}
+\DoxyCodeLine{211 \}}
+\DoxyCodeLine{212 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{213 \textcolor{comment}{  Function: DualConj}}
+\DoxyCodeLine{214 \textcolor{comment}{  Summary:  transform the Bra vector into it's Ket dual Conjugate.}}
+\DoxyCodeLine{215 \textcolor{comment}{  Args:     Bra<T> \&bra}}
+\DoxyCodeLine{216 \textcolor{comment}{        generic Bra vecotr called by reference.}}
+\DoxyCodeLine{217 \textcolor{comment}{  Returns:  Ket<T>  }}
+\DoxyCodeLine{218 \textcolor{comment}{              generic Ket vector.}}
+\DoxyCodeLine{219 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{220 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{221 Ket<T> DualConj(\textcolor{keyword}{const} Bra<T> \&bra)}
+\DoxyCodeLine{222 \{}
+\DoxyCodeLine{223     Ket<T> resulted\_ket((\textcolor{keywordtype}{int})bra.cols());}
+\DoxyCodeLine{224     resulted\_ket << bra.adjoint();}
+\DoxyCodeLine{225     \textcolor{keywordflow}{return} resulted\_ket;}
+\DoxyCodeLine{226 \}}
+\DoxyCodeLine{227 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{228 \textcolor{comment}{  Function: BraKet}}
+\DoxyCodeLine{229 \textcolor{comment}{  Summary:   Scalar product for Bra and Ket vectors.}}
+\DoxyCodeLine{230 \textcolor{comment}{  Args:     Bra<T>\& bra}}
+\DoxyCodeLine{231 \textcolor{comment}{              a generic type Bra vector called by reference.}}
+\DoxyCodeLine{232 \textcolor{comment}{            Ket<T>\& ket}}
+\DoxyCodeLine{233 \textcolor{comment}{              a generic type Ket vector called by reference.}}
+\DoxyCodeLine{234 \textcolor{comment}{  Returns:  T}}
+\DoxyCodeLine{235 \textcolor{comment}{              generic type it can be int, double or complex. }}
+\DoxyCodeLine{236 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{237 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T> }
+\DoxyCodeLine{238 T BraKet(\textcolor{keyword}{const} Bra<T> \&bra, \textcolor{keyword}{const} Ket<T> \&ket)}
+\DoxyCodeLine{239 \{     }
+\DoxyCodeLine{240     \textcolor{keywordflow}{if}(bra.cols()!=ket.rows())}
+\DoxyCodeLine{241     \{ }
+\DoxyCodeLine{242         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}dimensions do not match."{}}); }
+\DoxyCodeLine{243     \}}
+\DoxyCodeLine{244     \textcolor{keywordflow}{return} bra*ket;   }
+\DoxyCodeLine{245 \}}
+\DoxyCodeLine{246 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{247 \textcolor{comment}{//\#The expectation value of given operator and normalized QM state }}
+\DoxyCodeLine{248 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{249 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{250 T ExpectValue(\textcolor{keyword}{const}  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mat, \textcolor{keyword}{const} Ket<T> \&ket)}
+\DoxyCodeLine{251 \{    }
+\DoxyCodeLine{252     Bra<T> bra;}
+\DoxyCodeLine{253     bra = DualConj(ket);}
+\DoxyCodeLine{254     Ket<T> toright((\textcolor{keywordtype}{int})ket.rows());}
+\DoxyCodeLine{255     toright << mat * ket;}
+\DoxyCodeLine{256     T nomr = BraKet(bra,toright); }
+\DoxyCodeLine{257     \textcolor{keywordflow}{return} nomr;\textcolor{comment}{//dnomr; }}
+\DoxyCodeLine{258 \}}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BRAKET\_HPP}}
+
+\end{DoxyCode}

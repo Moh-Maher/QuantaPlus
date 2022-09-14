@@ -1,0 +1,92 @@
+\hypertarget{cgc_8h_source}{}\doxysection{cgc.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/**************************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{cgc.h is a part of QUANTAPLUS library. }}
+\DoxyCodeLine{3 \textcolor{comment}{}}
+\DoxyCodeLine{4 \textcolor{comment}{usage: Calculation of the Clebsch–Gordan Coefficients Generalized power series representations.}}
+\DoxyCodeLine{5 \textcolor{comment}{    ref: https://functions.wolfram.com/HypergeometricFunctions/ClebschGordan/06/01/}}
+\DoxyCodeLine{6 \textcolor{comment}{}}
+\DoxyCodeLine{7 \textcolor{comment}{by:  Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{8 \textcolor{comment}{     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{9 \textcolor{comment}{     VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{10 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
+\DoxyCodeLine{11 \textcolor{comment}{**************************************************************************************/}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_INCLUDE\_CLEBSCHGORDON\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define QUANTAPLUS\_INCLUDE\_CLEBSCHGORDON\_H}}
+\DoxyCodeLine{15 \textcolor{comment}{//\#include<iostream>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include<limits>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include<cmath>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include<complex>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include<map>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include"{}angularmomentum.h"{}}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{namespace }QuantaPlus \{}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \{}
+\DoxyCodeLine{31     \textcolor{keyword}{public}:}
+\DoxyCodeLine{32         \textcolor{keywordtype}{double} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}}=0; }
+\DoxyCodeLine{33         \textcolor{keywordtype}{double} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}}=0; }
+\DoxyCodeLine{34         \textcolor{keywordtype}{double} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}}=0; }
+\DoxyCodeLine{35         \textcolor{keywordtype}{double} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}}=0; }
+\DoxyCodeLine{36         \textcolor{keywordtype}{double} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}=0; }
+\DoxyCodeLine{37         \textcolor{keywordtype}{double} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}}=0; }
+\DoxyCodeLine{38          }
+\DoxyCodeLine{39         \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a8b3b3464bc36e5fbb61cb4bf89b2fddd}{CGCcoeff}}() = \textcolor{keywordflow}{default}; }
+\DoxyCodeLine{40         }
+\DoxyCodeLine{41         \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a5289620175fa63354b878838fc8bc1b0}{CGCcoeff}}(\textcolor{keywordtype}{double} J1, \textcolor{keywordtype}{double} J2, \textcolor{keywordtype}{double} M1, \textcolor{keywordtype}{double} M2, \textcolor{keywordtype}{double} J, \textcolor{keywordtype}{double} M)}
+\DoxyCodeLine{42         :\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}}(J1),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}}(J2),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}}(M1),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}}(M2),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}(J),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}}(M)}
+\DoxyCodeLine{43         \{ }
+\DoxyCodeLine{44          \textcolor{comment}{//j1 = J1; j2 = J2; m1 = M1; m2 = M2; j = J; m = M;}}
+\DoxyCodeLine{45         \} }
+\DoxyCodeLine{46         }
+\DoxyCodeLine{47         \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a2906b971bdfb14a17d86e672293d880b}{CGCcoeff}}(\textcolor{keywordtype}{double} J, \textcolor{keywordtype}{double} M):\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}(J),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}}(M)\{\} }
+\DoxyCodeLine{48          }
+\DoxyCodeLine{49         \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a38abf1733c0b66cd1e549da1e44f5fb4}{CGCcoeff}}(\textcolor{keywordtype}{double} J1, \textcolor{keywordtype}{double} J2,\textcolor{keywordtype}{double} J, \textcolor{keywordtype}{double} M)}
+\DoxyCodeLine{50         :\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}}(J1),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}}(J2),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}(J),\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}}(M)\{\} }
+\DoxyCodeLine{51          }
+\DoxyCodeLine{52         \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a983ebdef1df246ff3d30614a9e9741c1}{CGCcoeff}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}}\& gc)\{}
+\DoxyCodeLine{53             \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}} = gc.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}}; \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}} = gc.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}}; \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}} = gc.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}}; \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}} = gc.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}}; \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}} = gc.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}; \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}} = gc.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}};}
+\DoxyCodeLine{54         \} }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a7cc88a081ab25e77308558c64c22a001}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&rhs)\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{58             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}} < rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}} ) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{59             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}} > rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}} ) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{60             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}} < rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}} ) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{61             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}} > rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}} ) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{62             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}} < rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}} ) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{63             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}} > rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}} ) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{64             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}} < rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}} ) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{65             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}} > rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}} ) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{66             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}  < rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}  ) \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{67             \textcolor{keywordflow}{if}( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}  > rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}  ) \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{68             \textcolor{keywordflow}{return} ( \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}}  < rhs.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}}  );}
+\DoxyCodeLine{69         \}}
+\DoxyCodeLine{71         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a6b7fb4f8a541cd0dc1e52f6399f48340}{operator ==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}}\& CG)\{}
+\DoxyCodeLine{72             }
+\DoxyCodeLine{73             \textcolor{keywordtype}{bool} res = \textcolor{keyword}{false};}
+\DoxyCodeLine{74             \textcolor{keywordflow}{if}(\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}}==CG.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}} \&\& \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}} == CG.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}})\{res = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{75             \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{76         \}}
+\DoxyCodeLine{77 \};}
+\DoxyCodeLine{79 \textcolor{keyword}{inline} std::ostream\& operator <<(std::ostream\& out, \textcolor{keyword}{const} CGCcoeff\& t)\{}
+\DoxyCodeLine{80     out<<\textcolor{stringliteral}{"{}|"{}};DecimalToFraction(t.j1);}
+\DoxyCodeLine{81     out<<\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{82     DecimalToFraction(t.j2);}
+\DoxyCodeLine{83     out<<\textcolor{stringliteral}{"{}; "{}};}
+\DoxyCodeLine{84     DecimalToFraction(t.m1);}
+\DoxyCodeLine{85     out<<\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{86     DecimalToFraction(t.m2);}
+\DoxyCodeLine{87     out<<\textcolor{stringliteral}{"{} >"{}};}
+\DoxyCodeLine{88  }
+\DoxyCodeLine{89     \textcolor{keywordflow}{return} out;}
+\DoxyCodeLine{90 \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#include"{}cgc.hpp"{}}}
+\DoxyCodeLine{93 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

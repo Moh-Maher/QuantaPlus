@@ -145,7 +145,7 @@ const double QUARK_DOWN_MASS = 0.0049;              ///< PDG2010
 const double QUARK_STRANGE_MASS = 0.1;              ///< PDG2010
 const double QUARK_CHARM_MASS = 1.29;               ///< PDG2010
 const double QUARK_BOTTOM_MASS = 4.19;              ///< PDG2010
-const double QUARK_TOP_MASS = 173.21;           //172.9;  PDG2010
+const double QUARK_TOP_MASS = 173.21;           ///<172.9;  PDG2010
 
 const double PI_ZERO_MASS = 0.1349766;              ///< PDG2010
 
@@ -155,12 +155,12 @@ const double HIGGS_BOSON_MASS= 125.18 ;
 /*============================================================= 
                      Particle electric charges
 ============================================================*/
-const double U_ELEC_CHARGE = 2. / 3.; ///< Electric charge of up quark (in units of e)
-const double D_ELEC_CHARGE = -1. / 3.;
-const double S_ELEC_CHARGE = -1. / 3.;
-const double C_ELEC_CHARGE = 2. / 3.;
-const double B_ELEC_CHARGE = -1. / 3.;
-const double T_ELEC_CHARGE = 2. / 3.;
+const double U_ELEC_CHARGE = 2. / 3.;  ///< Electric charge of up quark (in units of e)
+const double D_ELEC_CHARGE = -1. / 3.; ///< Electric charge of down quark (in units of e)
+const double S_ELEC_CHARGE = -1. / 3.; ///< Electric charge of strange quark (in units of e)
+const double C_ELEC_CHARGE = 2. / 3.;  ///< Electric charge of charm quark (in units of e)
+const double B_ELEC_CHARGE = -1. / 3.; ///< Electric charge of bottom quark (in units of e)
+const double T_ELEC_CHARGE = 2. / 3.;  ///< Electric charge of top quark (in units of e)
 
 const double U2_ELEC_CHARGE = 4. / 9.; ///< Square of electric charge of up quark
 const double D2_ELEC_CHARGE = 1. / 9.; ///< Square of electric charge of down quark

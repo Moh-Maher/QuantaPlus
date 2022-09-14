@@ -43,38 +43,40 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 //namespace QuantaPlus{
 
-/***************************************************************************
-  Class:    Output.
-
-  Summary:  class to handle output operations and files.
-***************************************************************************/
+/*! \class Output
+* class to handle output operations and files.
+*/
 class Output
 {
 	public:
-	// member variables
-	std::ofstream takeData;
-	// member functions
-	// constructor
-	Output(std::string fileName)
+	 
+	std::ofstream takeData; ///< Output stream class object to operate on files
+	 
+	/*!constructor receive input string represents thefile name
+	* @param fileName is the name of the output file without the extension
+	* which is already set to be ".dat"
+	*/
+	Output(std::string fileName) 
 	{
 		takeData.open(fileName + ".dat");
 	}
 
-	// destructor
+	
 	~Output()
 	{
 		takeData.close();
-	}
+	} ///< Destructor to close the output file
 
-	// function to write output to file
+	/*!function to write output to file
+	*@param output represent the received data contents. 
+	*/
 	void writeOutput(std::string output)
 	{
 		takeData << output << std::endl;
 	}
 };
-//--------------------------------------------------------------------------
-// convert numbers to string
-//--------------------------------------------------------------------------
+
+/*! convert numbers to string*/
 template <typename T>
 std::string ToString(const T& numb)
 {
@@ -111,16 +113,16 @@ void MatrixToString(T &mat)
 	}
 }
 
-void ComplexNumPrint( std::complex<double> complex_number, bool numerical_flag);
-void ResultPrint(const std::complex<double>& complex_num);
-void NResultPrint(const std::complex<double>& complex_num);
+void ComplexNumPrint( std::complex<double> complex_number, bool numerical_flag); // print any complex number as z = x + iy 
+void ResultPrint(const std::complex<double>& complex_num); // print the calculated in fraction and symbolic forms (e.g: 15/7, i/2, √2/19. ..)  
+void NResultPrint(const std::complex<double>& complex_num); //Print calculated result in numric form
 void DecimalToFraction(const double& decimal_number);//void DecimalToFraction(double number); // convert decimal to fraction
 void StringMatrix(int r, int c, double *array); // print array elements in fractions form
 
 bool IsNumber(const std::string& str); // gives True if str is an integer, and False otherwise. 
-void Warning(const std::string & str);
-bool validInteger(const double& x);
-bool halfInteger(const double& x);
+void Warning(const std::string & str); // show warnings in highlighted from.
+bool validInteger(const double& x); // check if the input is an integer.
+bool halfInteger(const double& x); // check if the input is a half-integer. 
 
 //void TolaTex(std::string fname, std::string data);
 

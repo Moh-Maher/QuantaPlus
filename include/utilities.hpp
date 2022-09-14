@@ -95,7 +95,7 @@ void DecimalToFraction(const double& decimal_number )
 
   Summary:  print complex number in symbolic form.
 
-  Args:      std::complex<double> a
+  Args:      std::complex<double> complex_number
   	        complex variable with "double-type" real and imaginary parts.
   	     bool numerical_flag
   	     	Boolean variable to switch between numerical an symbolic output.
@@ -106,8 +106,8 @@ void DecimalToFraction(const double& decimal_number )
 ------------------------------------------------------------------*/
 void ComplexNumPrint( std::complex<double> complex_number, bool numerical_flag)
 {
-	double real_part = std::real(complex_number);
-	double imaginary_part = std::imag(complex_number);   
+	double real_part = std::real(complex_number); // take the real part of the input
+	double imaginary_part = std::imag(complex_number);   // take the imaginary part of the input
 	if( real_part != 0 && imaginary_part != 0 )
     	{
         	if( imaginary_part < 0 )
@@ -250,6 +250,7 @@ bool IsNumber(const std::string& str)
 {
 	return str.find_first_not_of( "0123456789" ) == std::string::npos;
 }
+//--------------------------------------
 bool validInteger(const double& x)
 {
 	return static_cast<int>(x) - x == 0;

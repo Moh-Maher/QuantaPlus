@@ -1,0 +1,181 @@
+\hypertarget{constants_8h_source}{}\doxysection{constants.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/************************************************************************ }}
+\DoxyCodeLine{2 \textcolor{comment}{constants.h is a part of QUANTAPLUS}}
+\DoxyCodeLine{3 \textcolor{comment}{}}
+\DoxyCodeLine{4 \textcolor{comment}{usage: define some fundamental Physical and mathematical constants.}}
+\DoxyCodeLine{5 \textcolor{comment}{}}
+\DoxyCodeLine{6 \textcolor{comment}{by:  Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{7 \textcolor{comment}{     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{8 \textcolor{comment}{     VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{9 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
+\DoxyCodeLine{10 \textcolor{comment}{************************************************************************/} }
+\DoxyCodeLine{11 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_INCLUDE\_CONSTANTS\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define QUANTAPLUS\_INCLUDE\_CONSTANTS\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include<cmath>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include<complex>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{namespace }QuantaPlus \{ }
+\DoxyCodeLine{18 \textcolor{comment}{/*=============================================================}}
+\DoxyCodeLine{19 \textcolor{comment}{                      Mathematical constants}}
+\DoxyCodeLine{20 \textcolor{comment}{=============================================================*/}}
+\DoxyCodeLine{21 \textcolor{keyword}{const} \textcolor{keywordtype}{double} ZETA\_2 = M\_PI*M\_PI/6.;}
+\DoxyCodeLine{22 \textcolor{comment}{//const double ZETA\_2 = 1.6449340668482262;}}
+\DoxyCodeLine{23 \textcolor{keyword}{const} \textcolor{keywordtype}{double} ZETA\_3 = 1.2020569031595942;}
+\DoxyCodeLine{24 \textcolor{keyword}{const} \textcolor{keywordtype}{double} ZETA\_4 = (pow(M\_PI,4))/90.;}
+\DoxyCodeLine{25 \textcolor{keyword}{const} \textcolor{keywordtype}{double} ZETA\_5 = 1.0369277551433699;}
+\DoxyCodeLine{26 \textcolor{comment}{/*=============================================================}}
+\DoxyCodeLine{27 \textcolor{comment}{                      Physical constants}}
+\DoxyCodeLine{28 \textcolor{comment}{=============================================================*/}}
+\DoxyCodeLine{29 \textcolor{keyword}{const} \textcolor{keywordtype}{double} SPEED\_OF\_LIGHT = 299792458;            }
+\DoxyCodeLine{30 \textcolor{keyword}{const} \textcolor{keywordtype}{double} PLANCK\_CONSTANT = 6.62606896 * 1.e-\/34; }
+\DoxyCodeLine{31 \textcolor{keyword}{const} \textcolor{keywordtype}{double} PLANCK\_CONSTANT\_REDUCED = 6.58211899 * 1.e-\/16;}
+\DoxyCodeLine{32 \textcolor{keyword}{const} \textcolor{keywordtype}{double} FINE\_STRUCTURE\_CONSTANT = 1. / 137.035999679; }
+\DoxyCodeLine{33 \textcolor{keyword}{const} \textcolor{keywordtype}{double} HIGGS\_VEV = 246.22; }
+\DoxyCodeLine{34 \textcolor{comment}{/*=============================================================}}
+\DoxyCodeLine{35 \textcolor{comment}{                       Units convertors}}
+\DoxyCodeLine{36 \textcolor{comment}{=============================================================*/}}
+\DoxyCodeLine{37 \textcolor{keyword}{const} \textcolor{keywordtype}{double} HBarC = 197.3269631;                           }
+\DoxyCodeLine{38 \textcolor{keyword}{const} \textcolor{keywordtype}{double} HBarC2 = 0.389379304;                          }
+\DoxyCodeLine{39 \textcolor{keyword}{const} \textcolor{keywordtype}{double} CONV\_GEVm1\_TO\_FM = 0.1973269631;               }
+\DoxyCodeLine{40 \textcolor{keyword}{const} \textcolor{keywordtype}{double} CONV\_GEVm2\_TO\_NBARN = 0.389379304e+6;          }
+\DoxyCodeLine{41 \textcolor{keyword}{const} \textcolor{keywordtype}{double} CONV\_GEVm2\_TO\_PBARN = 0.389379304e+9;          }
+\DoxyCodeLine{42 \textcolor{comment}{/*=============================================================}}
+\DoxyCodeLine{43 \textcolor{comment}{                       QCD Parameters}}
+\DoxyCodeLine{44 \textcolor{comment}{=============================================================*/}}
+\DoxyCodeLine{45 \textcolor{keywordtype}{int} NF;}
+\DoxyCodeLine{46 \textcolor{keywordtype}{int} \textcolor{keyword}{const} CA = 3; }
+\DoxyCodeLine{47 \textcolor{comment}{//double CF = (CA*CA-\/1.)/(2*CA);}}
+\DoxyCodeLine{48 \textcolor{keywordtype}{double} \textcolor{keyword}{const} CF = 4./3.;   }
+\DoxyCodeLine{49 \textcolor{keyword}{const} \textcolor{keywordtype}{double} TR = 0.5;}
+\DoxyCodeLine{50 \textcolor{comment}{//static double BETA0 = 11.-\/2./3.*double(NF);}}
+\DoxyCodeLine{51 \textcolor{comment}{//static double BETA1 = 102.-\/38./3.*double(NF);}}
+\DoxyCodeLine{52  }
+\DoxyCodeLine{53 \textcolor{comment}{/*=============================================================}}
+\DoxyCodeLine{54 \textcolor{comment}{                      Gell-\/Mann matrices}}
+\DoxyCodeLine{55 \textcolor{comment}{=============================================================*/}}
+\DoxyCodeLine{56  std::complex<double> i (0,1);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58  std::complex<double> lambda1[9]\{0.0, 1.0, 0.0,}
+\DoxyCodeLine{59                                  1.0, 0.0, 0.0,}
+\DoxyCodeLine{60                                  0.0, 0.0, 0.0\};}
+\DoxyCodeLine{61                            }
+\DoxyCodeLine{62  std::complex<double> lambda2[9]\{0.0,  -\/i, 0.0,}
+\DoxyCodeLine{63                                    i, 0.0, 0.0,}
+\DoxyCodeLine{64                                  0.0, 0.0, 0.0\};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66  std::complex<double> lambda3[9]\{1.0,  0.0, 0.0,}
+\DoxyCodeLine{67                                  0.0, -\/1.0, 0.0,}
+\DoxyCodeLine{68                                  0.0,  0.0, 0.0\};}
+\DoxyCodeLine{69                            }
+\DoxyCodeLine{70  std::complex<double> lambda4[9]\{0.0, 0.0, 1.0,}
+\DoxyCodeLine{71                                  0.0, 0.0, 0.0,}
+\DoxyCodeLine{72                                  1.0, 0.0, 0.0\};}
+\DoxyCodeLine{73                            }
+\DoxyCodeLine{74  std::complex<double> lambda5[9]\{0.0, 0.0,  -\/i,}
+\DoxyCodeLine{75                              0.0, 0.0, 0.0,}
+\DoxyCodeLine{76                            i, 0.0, 0.0\};}
+\DoxyCodeLine{77                            }
+\DoxyCodeLine{78  std::complex<double> lambda6[9]\{0.0, 0.0, 0.0,}
+\DoxyCodeLine{79                                  0.0, 0.0, 1.0,}
+\DoxyCodeLine{80                                  0.0, 1.0 ,0.0\};}
+\DoxyCodeLine{81                            }
+\DoxyCodeLine{82  std::complex<double> lambda7[9]\{0.0, 0.0, 0.0,}
+\DoxyCodeLine{83                                  0.0, 0.0,  -\/i,}
+\DoxyCodeLine{84                                  0.0,   i, 0.0\};}
+\DoxyCodeLine{85                            }
+\DoxyCodeLine{86 std::complex<double> lambda8[9]\{0.5773502691896258, 0.0000000000000000,   0.0000000000000000, }
+\DoxyCodeLine{87                                 0.0000000000000000, 0.5773502691896258,   0.0000000000000000,}
+\DoxyCodeLine{88                                 0.0000000000000000, 0.0000000000000000, -\/ 1.1547005383792517\};}
+\DoxyCodeLine{89                                      }
+\DoxyCodeLine{90  std::complex<double> F1[9]\{0.0, 0.5, 0.0,}
+\DoxyCodeLine{91                     0.5, 0.0, 0.0,}
+\DoxyCodeLine{92                     0.0, 0.0, 0.0\};}
+\DoxyCodeLine{93                   }
+\DoxyCodeLine{94  std::complex<double> F2[9]\{0.00, -\/i/2., 0.00,}
+\DoxyCodeLine{95                             i/2.,  0.00, 0.00,}
+\DoxyCodeLine{96                             0.00,  0.00, 0.00\};}
+\DoxyCodeLine{97                                  }
+\DoxyCodeLine{98  std::complex<double> F3[9]\{0.5, 0.0, 0.0,}
+\DoxyCodeLine{99                 0.0,-\/0.5, 0.0,}
+\DoxyCodeLine{100                 0.0, 0.0, 0.0\};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102  std::complex<double> F4[9]\{0.0, 0.0, 0.5,}
+\DoxyCodeLine{103                 0.0, 0.0, 0.0,}
+\DoxyCodeLine{104                 0.5, 0.0, 0.0\};}
+\DoxyCodeLine{105                 }
+\DoxyCodeLine{106  std::complex<double> F5[9]\{0.0, 0.0,-\/i/2.,}
+\DoxyCodeLine{107                 0.0, 0.0,  0.0,}
+\DoxyCodeLine{108                i/2., 0.0,  0.0\};}
+\DoxyCodeLine{109                }
+\DoxyCodeLine{110  std::complex<double> F6[9]\{0.0, 0.0, 0.0,}
+\DoxyCodeLine{111                 0.0, 0.0, 0.5,}
+\DoxyCodeLine{112                 0.0, 0.5, 0.0\};}
+\DoxyCodeLine{113                 }
+\DoxyCodeLine{114  std::complex<double> F7[9]\{0.0,  0.0,  0.0,}
+\DoxyCodeLine{115                 0.0,  0.0,-\/i/2.,}
+\DoxyCodeLine{116                 0.0, i/2.,  0.0\};}
+\DoxyCodeLine{117                 }
+\DoxyCodeLine{118  std::complex<double> F8[9]\{ 0.5/sqrt(3), 0.0000000000, 0.0000000000000,}
+\DoxyCodeLine{119                  0.000000000, 0.5/sqrt(3) , 0.0000000000000,}
+\DoxyCodeLine{120                  0.000000000, 0.0000000000, -\/2.*0.5/sqrt(3)\};}
+\DoxyCodeLine{121 \textcolor{comment}{//std::complex<double> F8[9]\{0.5,0,0,0,0.5,0,0,0,-\/1\};}}
+\DoxyCodeLine{122 \textcolor{comment}{//const double strc\_cons[9]\{1,0.5,-\/0.5,0.5,0.5,0.5,-\/0.5,sqrt(3)/2. ,sqrt(3)/2.\};}}
+\DoxyCodeLine{123 \textcolor{comment}{/*=============================================================}}
+\DoxyCodeLine{124 \textcolor{comment}{                      Pauli matrices}}
+\DoxyCodeLine{125 \textcolor{comment}{=============================================================*/}}
+\DoxyCodeLine{126  std::complex<double> sigma1[4]\{0., 1.,}
+\DoxyCodeLine{127                 1., 0.\};}
+\DoxyCodeLine{128                   }
+\DoxyCodeLine{129 std::complex<double> sigma2[4]\{0., i,}
+\DoxyCodeLine{130                    -\/i, 0.\};}
+\DoxyCodeLine{131                   }
+\DoxyCodeLine{132  std::complex<double> sigma3[4]\{1., 0.,}
+\DoxyCodeLine{133                                 0.,-\/1.\};}
+\DoxyCodeLine{134 \textcolor{comment}{/*=============================================================}}
+\DoxyCodeLine{135 \textcolor{comment}{                        Particle masses}}
+\DoxyCodeLine{136 \textcolor{comment}{==============================================================*/}}
+\DoxyCodeLine{137 \textcolor{keyword}{const} \textcolor{keywordtype}{double} PROTON\_MASS = 0.938272013;            }
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{keyword}{const} \textcolor{keywordtype}{double} ELECTRON\_MASS = 0.510998910e-\/3;       }
+\DoxyCodeLine{140 \textcolor{keyword}{const} \textcolor{keywordtype}{double} MUON\_MASS = 105.658367e-\/3;            }
+\DoxyCodeLine{141 \textcolor{keyword}{const} \textcolor{keywordtype}{double} TAU\_MASS = 1.77684;                   }
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{keyword}{const} \textcolor{keywordtype}{double} QUARK\_UP\_MASS = 0.0024;                }
+\DoxyCodeLine{144 \textcolor{keyword}{const} \textcolor{keywordtype}{double} QUARK\_DOWN\_MASS = 0.0049;              }
+\DoxyCodeLine{145 \textcolor{keyword}{const} \textcolor{keywordtype}{double} QUARK\_STRANGE\_MASS = 0.1;              }
+\DoxyCodeLine{146 \textcolor{keyword}{const} \textcolor{keywordtype}{double} QUARK\_CHARM\_MASS = 1.29;               }
+\DoxyCodeLine{147 \textcolor{keyword}{const} \textcolor{keywordtype}{double} QUARK\_BOTTOM\_MASS = 4.19;              }
+\DoxyCodeLine{148 \textcolor{keyword}{const} \textcolor{keywordtype}{double} QUARK\_TOP\_MASS = 173.21;           }
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{keyword}{const} \textcolor{keywordtype}{double} PI\_ZERO\_MASS = 0.1349766;              }
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 \textcolor{keyword}{const} \textcolor{keywordtype}{double} W\_BOSON\_MASS = 80.1;}
+\DoxyCodeLine{153 \textcolor{keyword}{const} \textcolor{keywordtype}{double} Z\_BOSON\_MASS = 91.1876;                }
+\DoxyCodeLine{154 \textcolor{keyword}{const} \textcolor{keywordtype}{double} HIGGS\_BOSON\_MASS= 125.18 ;}
+\DoxyCodeLine{155 \textcolor{comment}{/*============================================================= }}
+\DoxyCodeLine{156 \textcolor{comment}{                     Particle electric charges}}
+\DoxyCodeLine{157 \textcolor{comment}{============================================================*/}}
+\DoxyCodeLine{158 \textcolor{keyword}{const} \textcolor{keywordtype}{double} U\_ELEC\_CHARGE = 2. / 3.;  }
+\DoxyCodeLine{159 \textcolor{keyword}{const} \textcolor{keywordtype}{double} D\_ELEC\_CHARGE = -\/1. / 3.; }
+\DoxyCodeLine{160 \textcolor{keyword}{const} \textcolor{keywordtype}{double} S\_ELEC\_CHARGE = -\/1. / 3.; }
+\DoxyCodeLine{161 \textcolor{keyword}{const} \textcolor{keywordtype}{double} C\_ELEC\_CHARGE = 2. / 3.;  }
+\DoxyCodeLine{162 \textcolor{keyword}{const} \textcolor{keywordtype}{double} B\_ELEC\_CHARGE = -\/1. / 3.; }
+\DoxyCodeLine{163 \textcolor{keyword}{const} \textcolor{keywordtype}{double} T\_ELEC\_CHARGE = 2. / 3.;  }
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165 \textcolor{keyword}{const} \textcolor{keywordtype}{double} U2\_ELEC\_CHARGE = 4. / 9.; }
+\DoxyCodeLine{166 \textcolor{keyword}{const} \textcolor{keywordtype}{double} D2\_ELEC\_CHARGE = 1. / 9.; }
+\DoxyCodeLine{167 \textcolor{keyword}{const} \textcolor{keywordtype}{double} S2\_ELEC\_CHARGE = 1. / 9.; }
+\DoxyCodeLine{168 \textcolor{keyword}{const} \textcolor{keywordtype}{double} C2\_ELEC\_CHARGE = 4. / 9.; }
+\DoxyCodeLine{169 \textcolor{keyword}{const} \textcolor{keywordtype}{double} B2\_ELEC\_CHARGE = 1. / 9.; }
+\DoxyCodeLine{170 \textcolor{keyword}{const} \textcolor{keywordtype}{double} T2\_ELEC\_CHARGE = 1. / 9.; }
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172 \textcolor{keyword}{const} \textcolor{keywordtype}{double} POSITRON\_CHARGE = 0.30282211985966434;}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \}\textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/* CONSTANTS\_H */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
