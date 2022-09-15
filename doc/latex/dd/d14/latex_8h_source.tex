@@ -1,0 +1,149 @@
+\hypertarget{latex_8h_source}{}\doxysection{latex.\+h}
+\label{latex_8h_source}\index{quantaplus/latex.h@{quantaplus/latex.h}}
+\mbox{\hyperlink{latex_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{4 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{5 \textcolor{comment}{  by:        Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{6 \textcolor{comment}{             UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{7 \textcolor{comment}{         VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{8 \textcolor{comment}{             mohammed.maher@unical.it  }}
+\DoxyCodeLine{9 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{10 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_LATEX\_H}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define QUANTAPLUS\_LATEX\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include<cmath>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include<map>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{braket_8h}{braket.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{operators_8h}{operators.h}}"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 \textcolor{comment}{//using namespace QuantaPlus;}}
+\DoxyCodeLine{22 \textcolor{comment}{//map container holding the "{}capital/lower"{} Greek letters and their corresponding escape characters-\/-\/}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{//-\/-\/-\/-\/-\/A,B,Γ,Δ,Ε,Ζ,Η,Θ,Ι,Κ,Λ,Μ,Ν,Ξ,Ο,Π,Ρ,Σ,Τ,Υ,Φ,Χ,Ψ,Ω-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{25 \textcolor{comment}{//-\/-\/-\/-\/-\/α,β,γ,δ,ε,ζ,η,θ,ι,κ,λ,μ,ν,ξ,ο,π,ρ,σ,τ,υ,φ,χ,ψ,ω-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{26 std::map<std::string, std::string> GreekLatters = \{ }
+\DoxyCodeLine{27     \{\textcolor{stringliteral}{"{}Alpha"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0391"{}}\}, \{\textcolor{stringliteral}{"{}Beta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0392"{}}\}, \{\textcolor{stringliteral}{"{}Gamma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0393"{}}\},}
+\DoxyCodeLine{28     \{\textcolor{stringliteral}{"{}Delta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0394"{}}\}, \{\textcolor{stringliteral}{"{}Epsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0395"{}}\}, \{\textcolor{stringliteral}{"{}Zeta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0396"{}}\},}
+\DoxyCodeLine{29     \{\textcolor{stringliteral}{"{}Eta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0397"{}}\}, \{\textcolor{stringliteral}{"{}Theta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0398"{}}\}, \{\textcolor{stringliteral}{"{}Iota"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0399"{}}\}, }
+\DoxyCodeLine{30     \{\textcolor{stringliteral}{"{}Kappa"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039A"{}}\}, \{\textcolor{stringliteral}{"{}Lambda"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039B"{}}\}, \{\textcolor{stringliteral}{"{}Mu"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039C"{}}\},}
+\DoxyCodeLine{31     \{\textcolor{stringliteral}{"{}Nu"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039D"{}}\}, \{\textcolor{stringliteral}{"{}Xi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039E"{}}\}, \{\textcolor{stringliteral}{"{}Omicron"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039F"{}}\},}
+\DoxyCodeLine{32     \{\textcolor{stringliteral}{"{}Pi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A0"{}}\}, \{\textcolor{stringliteral}{"{}Rho"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A1"{}}\}, \{\textcolor{stringliteral}{"{}Sigma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A3"{}}\},}
+\DoxyCodeLine{33     \{\textcolor{stringliteral}{"{}Tau"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A4"{}}\}, \{\textcolor{stringliteral}{"{}Upsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A5"{}}\}, \{\textcolor{stringliteral}{"{}Phi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A6"{}}\},}
+\DoxyCodeLine{34     \{\textcolor{stringliteral}{"{}Chi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A7"{}}\}, \{\textcolor{stringliteral}{"{}Psi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A8"{}}\}, \{\textcolor{stringliteral}{"{}Omega"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A9"{}}\}, }
+\DoxyCodeLine{35     }
+\DoxyCodeLine{36     \{\textcolor{stringliteral}{"{}\_alpha"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B1"{}}\}, \{\textcolor{stringliteral}{"{}beta"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B2"{}}\}, \{\textcolor{stringliteral}{"{}gamma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B3"{}}\},}
+\DoxyCodeLine{37     \{\textcolor{stringliteral}{"{}delta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B4"{}}\}, \{\textcolor{stringliteral}{"{}epsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B5"{}}\}, \{\textcolor{stringliteral}{"{}zeta"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B6"{}}\},}
+\DoxyCodeLine{38     \{\textcolor{stringliteral}{"{}eta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B7"{}}\}, \{\textcolor{stringliteral}{"{}theta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B8"{}}\}, \{\textcolor{stringliteral}{"{}iota"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B9"{}}\},}
+\DoxyCodeLine{39     \{\textcolor{stringliteral}{"{}kappa"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BA"{}}\}, \{\textcolor{stringliteral}{"{}lambda"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BB"{}}\}, \{\textcolor{stringliteral}{"{}mu"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BC"{}}\},}
+\DoxyCodeLine{40     \{\textcolor{stringliteral}{"{}nu"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BD"{}}\}, \{\textcolor{stringliteral}{"{}xi"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BE"{}}\}, \{\textcolor{stringliteral}{"{}omicron"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BF"{}}\},}
+\DoxyCodeLine{41     \{\textcolor{stringliteral}{"{}pi"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03C0"{}}\}, \{\textcolor{stringliteral}{"{}rho"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C1"{}}\}, \{\textcolor{stringliteral}{"{}sigma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C3"{}}\},}
+\DoxyCodeLine{42     \{\textcolor{stringliteral}{"{}tau"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C4"{}}\}, \{\textcolor{stringliteral}{"{}upsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C5"{}}\}, \{\textcolor{stringliteral}{"{}phi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C6"{}}\},}
+\DoxyCodeLine{43     \{\textcolor{stringliteral}{"{}chi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C7"{}}\}, \{\textcolor{stringliteral}{"{}psi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C8"{}}\}, \{\textcolor{stringliteral}{"{}omega"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C9"{}}\}}
+\DoxyCodeLine{44 \};}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{47 \textcolor{comment}{  Function: Greek}}
+\DoxyCodeLine{48 \textcolor{comment}{  }}
+\DoxyCodeLine{49 \textcolor{comment}{  Summary:  convert string name of a Greek letter into its }}
+\DoxyCodeLine{50 \textcolor{comment}{        equivalent Unicode escape characters to print it symbolically .  }}
+\DoxyCodeLine{51 \textcolor{comment}{             }}
+\DoxyCodeLine{52 \textcolor{comment}{  Returns:  string}}
+\DoxyCodeLine{53 \textcolor{comment}{             store the output directly into string variable.}}
+\DoxyCodeLine{54 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/} }
+\DoxyCodeLine{55 std::string Greek(\textcolor{keyword}{const} std::string\& letter\_name)\{}
+\DoxyCodeLine{56     \textcolor{keyword}{auto} from = GreekLatters.find(letter\_name);}
+\DoxyCodeLine{57     \textcolor{keywordflow}{return} from-\/>second;}
+\DoxyCodeLine{58 \}}
+\DoxyCodeLine{59 \textcolor{comment}{/*********************************************************************************}}
+\DoxyCodeLine{60 \textcolor{comment}{  Class:    LaTex.}}
+\DoxyCodeLine{61 \textcolor{comment}{}}
+\DoxyCodeLine{62 \textcolor{comment}{  Summary:  generate LaTex files. }}
+\DoxyCodeLine{63 \textcolor{comment}{}}
+\DoxyCodeLine{64 \textcolor{comment}{  Methods:  BeginLaTex()}}
+\DoxyCodeLine{65 \textcolor{comment}{              set and initiate the LaTex typesetting file document class.}}
+\DoxyCodeLine{66 \textcolor{comment}{            }}
+\DoxyCodeLine{67 \textcolor{comment}{            EndLaTex()}}
+\DoxyCodeLine{68 \textcolor{comment}{              end the LaTex typesetting file document class.}}
+\DoxyCodeLine{69 \textcolor{comment}{            }}
+\DoxyCodeLine{70 \textcolor{comment}{            Typing()}}
+\DoxyCodeLine{71 \textcolor{comment}{              allows to directly write normal text or even latex commands }}
+\DoxyCodeLine{72 \textcolor{comment}{            }}
+\DoxyCodeLine{73 \textcolor{comment}{            ToLaTex()}}
+\DoxyCodeLine{74 \textcolor{comment}{              transform multiple input into latex format.}}
+\DoxyCodeLine{75 \textcolor{comment}{            }}
+\DoxyCodeLine{76 \textcolor{comment}{            MathOperation()}}
+\DoxyCodeLine{77 \textcolor{comment}{              transform multiple mathematical operations into latex equations.}}
+\DoxyCodeLine{78 \textcolor{comment}{            }}
+\DoxyCodeLine{79 \textcolor{comment}{            LaTex()}}
+\DoxyCodeLine{80 \textcolor{comment}{              Constructor.}}
+\DoxyCodeLine{81 \textcolor{comment}{            }}
+\DoxyCodeLine{82 \textcolor{comment}{            LaTex(std::string filename)}}
+\DoxyCodeLine{83 \textcolor{comment}{              Copy Constructor.}}
+\DoxyCodeLine{84 \textcolor{comment}{            }}
+\DoxyCodeLine{85 \textcolor{comment}{            \string~LaTex()}}
+\DoxyCodeLine{86 \textcolor{comment}{              Destructor.}}
+\DoxyCodeLine{87 \textcolor{comment}{********************************************************************************/}}
+\DoxyCodeLine{88 \textcolor{keyword}{class }\mbox{\hyperlink{classLaTex}{LaTex}} \{}
+\DoxyCodeLine{89     \textcolor{keyword}{private}:}
+\DoxyCodeLine{90         \textcolor{comment}{//output file}}
+\DoxyCodeLine{91         std::ofstream ofile;}
+\DoxyCodeLine{92         \textcolor{comment}{// the output file name including the path }}
+\DoxyCodeLine{93         std::string file\_path;}
+\DoxyCodeLine{94         \textcolor{comment}{//map container holding string function names and their corresponding laTex math commands-\/-\/}}
+\DoxyCodeLine{95         std::map<std::string, std::string> MathFunctions = \{}
+\DoxyCodeLine{96         \{\textcolor{stringliteral}{"{}Exp"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)exp"{}}\}, \{\textcolor{stringliteral}{"{}Sin"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sin"{}}\}, \{\textcolor{stringliteral}{"{}Cos"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)cos"{}}\}, \{\textcolor{stringliteral}{"{}Tan"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)tan"{}}\}, }
+\DoxyCodeLine{97         \{\textcolor{stringliteral}{"{}Log"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)log"{}}\}, \{\textcolor{stringliteral}{"{}Ln"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)ln"{}}\}, \{\textcolor{stringliteral}{"{}Lg"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)lg"{}}\}, \{\textcolor{stringliteral}{"{}Cot"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)cot"{}}\}, \{\textcolor{stringliteral}{"{}Csc"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)csc"{}}\},}
+\DoxyCodeLine{98         \{\textcolor{stringliteral}{"{}Sec"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sec"{}}\}, \{\textcolor{stringliteral}{"{}ASin"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arcsin"{}}\}, \{\textcolor{stringliteral}{"{}ACos"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arccos"{}}\}, \{\textcolor{stringliteral}{"{}ATan"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arctan"{}}\}, }
+\DoxyCodeLine{99         \{\textcolor{stringliteral}{"{}Sgn"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sgn"{}}\}, \{\textcolor{stringliteral}{"{}Det"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)det"{}}\}, \{\textcolor{stringliteral}{"{}Sqrt"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sqrt"{}}\} }
+\DoxyCodeLine{100         \};}
+\DoxyCodeLine{101     \textcolor{keyword}{public}: }
+\DoxyCodeLine{102         \textcolor{comment}{//default constructor, with default value for file path/name.tex                }}
+\DoxyCodeLine{103         \mbox{\hyperlink{classLaTex}{LaTex}}(): file\_path(\textcolor{stringliteral}{"{}output/default.tex"{}}) \{\}}
+\DoxyCodeLine{104         }
+\DoxyCodeLine{105         \textcolor{comment}{//constructor, with input value for filename.}}
+\DoxyCodeLine{106         \mbox{\hyperlink{classLaTex}{LaTex}}(std::string filename): file\_path(filename) \{\}    }
+\DoxyCodeLine{107         }
+\DoxyCodeLine{108         \textcolor{comment}{//method for quick start the Latex file settings.}}
+\DoxyCodeLine{109         \textcolor{keywordtype}{void} BeginLaTex() }
+\DoxyCodeLine{110         \{   }
+\DoxyCodeLine{111             ofile.open(file\_path);}
+\DoxyCodeLine{112             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)documentclass[10pt,a4paper]\{article\}\(\backslash\)n"{}};}
+\DoxyCodeLine{113             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[utf8]\{inputenc\}\(\backslash\)n"{}};}
+\DoxyCodeLine{114             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[T1]\{fontenc\}\(\backslash\)n"{}};}
+\DoxyCodeLine{115             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amsmath\}\(\backslash\)n"{}};}
+\DoxyCodeLine{116             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amssymb\}\(\backslash\)n"{}};}
+\DoxyCodeLine{117             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{graphicx\}\(\backslash\)n"{}};}
+\DoxyCodeLine{118             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{braket\}\(\backslash\)n"{}};}
+\DoxyCodeLine{119             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amsmath\}\(\backslash\)n"{}};}
+\DoxyCodeLine{120             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{document\}\(\backslash\)n"{}};}
+\DoxyCodeLine{121             ofile.close();}
+\DoxyCodeLine{122         \}}
+\DoxyCodeLine{123         \textcolor{comment}{//close the Latex file document. }}
+\DoxyCodeLine{124         \textcolor{keywordtype}{void} EndLaTex()}
+\DoxyCodeLine{125         \{}
+\DoxyCodeLine{126             ofile.open(file\_path,std::ios\_base::app);}
+\DoxyCodeLine{127             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{document\}\(\backslash\)n"{}};}
+\DoxyCodeLine{128             ofile.close();}
+\DoxyCodeLine{129         \}}
+\DoxyCodeLine{130         \textcolor{comment}{//direct typing into the Latex file with appending.}}
+\DoxyCodeLine{131         \textcolor{keywordtype}{void} Typing(std::string text)}
+\DoxyCodeLine{132         \{}
+\DoxyCodeLine{133             ofile.open(file\_path,std::ios\_base::app);}
+\DoxyCodeLine{134             ofile<<text;}
+\DoxyCodeLine{135             ofile.close();}
+\DoxyCodeLine{136         \}}
+\DoxyCodeLine{137         \textcolor{comment}{//function with multiple inputs (equation or text) transformed to latex format.}}
+\DoxyCodeLine{138         \textcolor{keywordtype}{void} ToLaTex(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...);}
+\DoxyCodeLine{139         \textcolor{comment}{//function with multiple inputs (equation) transformed to latex format.}}
+\DoxyCodeLine{140         \textcolor{keywordtype}{void} MathOperation(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...);}
+\DoxyCodeLine{141         \textcolor{comment}{//convert string name of math function into its equivalent latex command.}}
+\DoxyCodeLine{142         std::string LaTexMath(\textcolor{keyword}{const} std::string\& function\_name);}
+\DoxyCodeLine{143 \};}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#include"{}include/latex.hpp"{}}}
+\DoxyCodeLine{145 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

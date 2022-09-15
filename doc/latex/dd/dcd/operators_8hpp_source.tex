@@ -1,0 +1,382 @@
+\hypertarget{operators_8hpp_source}{}\doxysection{operators.\+hpp}
+\label{operators_8hpp_source}\index{quantaplus/operators.hpp@{quantaplus/operators.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/*******************************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{some of "{}operators.h"{} methods implementation.}}
+\DoxyCodeLine{3 \textcolor{comment}{}}
+\DoxyCodeLine{4 \textcolor{comment}{ref: [N. Zettili, “Quantum Mechanics, Concepts and Applications,” Wiley, Chichester, 2001.]}}
+\DoxyCodeLine{5 \textcolor{comment}{}}
+\DoxyCodeLine{6 \textcolor{comment}{by:  Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{7 \textcolor{comment}{     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{8 \textcolor{comment}{     VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{9 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
+\DoxyCodeLine{10 \textcolor{comment}{*******************************************************************************************/}}
+\DoxyCodeLine{11 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_INCLUDE\_OPERATORS\_HPP}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define QUANTAPLUS\_INCLUDE\_OPERATORS\_HPP}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_INCLUDE\_OPERATORS\_H}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#error \_\_FILE\_\_ should only be included from operators.h.}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// OPERATORS\_H}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{20 \textcolor{comment}{  Function: KroneckerDelta}}
+\DoxyCodeLine{21 \textcolor{comment}{}}
+\DoxyCodeLine{22 \textcolor{comment}{  Summary:  Function of two variables, usually just non-\/negative integers.}}
+\DoxyCodeLine{23 \textcolor{comment}{        }}
+\DoxyCodeLine{24 \textcolor{comment}{  Args: const int \& i , const int \& j}}
+\DoxyCodeLine{25 \textcolor{comment}{          integer variables.}}
+\DoxyCodeLine{26 \textcolor{comment}{            }}
+\DoxyCodeLine{27 \textcolor{comment}{  Returns:  int}}
+\DoxyCodeLine{28 \textcolor{comment}{              The function return 1 if the variables are equal, and 0 otherwise.}}
+\DoxyCodeLine{29 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{30 \textcolor{keywordtype}{int} KroneckerDelta(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \& i, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \& j)}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{keywordflow}{if}  (i==j)\{\textcolor{keywordflow}{return} (1);\}}
+\DoxyCodeLine{33     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{34     \textcolor{keywordflow}{return} (0);}
+\DoxyCodeLine{35 \}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{38 \textcolor{comment}{  Function:  HOscillatorMatrixElements}}
+\DoxyCodeLine{39 \textcolor{comment}{}}
+\DoxyCodeLine{40 \textcolor{comment}{  Summary: The matrix representation of Hrmonic Oscillator Hamiltonian operator }}
+\DoxyCodeLine{41 \textcolor{comment}{       in the N -\/space. ( <n'|H|n> = hbar*omega (n+1/2) delat\_\{n',n\} ).}}
+\DoxyCodeLine{42 \textcolor{comment}{        }}
+\DoxyCodeLine{43 \textcolor{comment}{  Args:   const int\& R, const int\& C}}
+\DoxyCodeLine{44 \textcolor{comment}{        rows and columns. }}
+\DoxyCodeLine{45 \textcolor{comment}{          }}
+\DoxyCodeLine{46 \textcolor{comment}{  Returns:  QM\_operator<T>}}
+\DoxyCodeLine{47 \textcolor{comment}{        Matrix of arbitrary size and generic type T.}}
+\DoxyCodeLine{48 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{49 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{50 QM\_operator<T> HOscillatorMatrixElements(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& R, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& C)}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52     QM\_operator<T> H(R,C);}
+\DoxyCodeLine{53      }
+\DoxyCodeLine{54     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<(int)H.rows(); i++)\{}
+\DoxyCodeLine{55         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<(int)H.cols();j++)\{}
+\DoxyCodeLine{56             H(i,j) = (i+1./2.)*KroneckerDelta(i,j); }
+\DoxyCodeLine{57         \}}
+\DoxyCodeLine{58     \}}
+\DoxyCodeLine{59     \textcolor{keywordflow}{return} H;}
+\DoxyCodeLine{60 \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{63 \textcolor{comment}{  Function: PositionOperator}}
+\DoxyCodeLine{64 \textcolor{comment}{}}
+\DoxyCodeLine{65 \textcolor{comment}{  Summary: N -\/representation of the position operator.}}
+\DoxyCodeLine{66 \textcolor{comment}{       X = sqrt\{hbar/(2m*omega)\}*(sqrt\{n\} delta\_\{n',n-\/1\} + sqrt\{n+1\} delta\_\{n',m+1\}).   }}
+\DoxyCodeLine{67 \textcolor{comment}{  }}
+\DoxyCodeLine{68 \textcolor{comment}{  Args:   const int\& R, const int\& C}}
+\DoxyCodeLine{69 \textcolor{comment}{        rows and columns.         }}
+\DoxyCodeLine{70 \textcolor{comment}{  }}
+\DoxyCodeLine{71 \textcolor{comment}{  Returns:  QM\_operator<T>}}
+\DoxyCodeLine{72 \textcolor{comment}{        Matrix of arbitrary size and generic type T.}}
+\DoxyCodeLine{73 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{74 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{75 QM\_operator<T> PositionOperator(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& R, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& C)}
+\DoxyCodeLine{76 \{}
+\DoxyCodeLine{77     QM\_operator<T> H(R,C);}
+\DoxyCodeLine{78      }
+\DoxyCodeLine{79     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<(int)H.rows(); i++)\{}
+\DoxyCodeLine{80         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<(int)H.cols();j++)\{}
+\DoxyCodeLine{81             H(i,j) = sqrt(j)*KroneckerDelta(i,j-\/1) + sqrt(j+1)*KroneckerDelta(i,j+1);}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83     \}}
+\DoxyCodeLine{84     \textcolor{keywordflow}{return} H;}
+\DoxyCodeLine{85 \}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{88 \textcolor{comment}{  Function:  MomentumOperator}}
+\DoxyCodeLine{89 \textcolor{comment}{}}
+\DoxyCodeLine{90 \textcolor{comment}{  Summary: N -\/representation of the Momentum operator.}}
+\DoxyCodeLine{91 \textcolor{comment}{       P = i*sqrt\{m*hbar*omega/2\}*(-\/sqrt\{n\} delta\_\{n',n-\/1\} + sqrt\{n+1\} delta\_\{n',m+1\}).}}
+\DoxyCodeLine{92 \textcolor{comment}{}}
+\DoxyCodeLine{93 \textcolor{comment}{  Args:   const int\& R, const int\& C}}
+\DoxyCodeLine{94 \textcolor{comment}{        rows and columns. }}
+\DoxyCodeLine{95 \textcolor{comment}{             }}
+\DoxyCodeLine{96 \textcolor{comment}{  Returns:  QM\_operator<T>}}
+\DoxyCodeLine{97 \textcolor{comment}{        Matrix of arbitrary size and generic type T.}}
+\DoxyCodeLine{98 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{99 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{100 QM\_operator<T> MomentumOperator(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& R, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& C)}
+\DoxyCodeLine{101 \{}
+\DoxyCodeLine{102  }
+\DoxyCodeLine{103     QM\_operator<T> H(R,C);}
+\DoxyCodeLine{104  }
+\DoxyCodeLine{105     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<(int)H.rows(); i++)\{}
+\DoxyCodeLine{106         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<(int)H.cols();j++)\{}
+\DoxyCodeLine{107             H(i,j) = sqrt(j+1)*KroneckerDelta(i,j+1) -\/ sqrt(j)*KroneckerDelta(i,j-\/1);}
+\DoxyCodeLine{108         \}}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110     \textcolor{keywordflow}{return} H;}
+\DoxyCodeLine{111 \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{114 \textcolor{comment}{  Function: LoweringOperator  }}
+\DoxyCodeLine{115 \textcolor{comment}{}}
+\DoxyCodeLine{116 \textcolor{comment}{  Summary: The matrix elements of Lowering Operator (a).}}
+\DoxyCodeLine{117 \textcolor{comment}{        <n'|a|n> = sqrt\{n\} delta\_\{n',n-\/1\}}}
+\DoxyCodeLine{118 \textcolor{comment}{        }}
+\DoxyCodeLine{119 \textcolor{comment}{  Args:   const int\& R, const int\& C}}
+\DoxyCodeLine{120 \textcolor{comment}{        rows and columns.       }}
+\DoxyCodeLine{121 \textcolor{comment}{          }}
+\DoxyCodeLine{122 \textcolor{comment}{  Returns:  QM\_operator<T>}}
+\DoxyCodeLine{123 \textcolor{comment}{        Matrix of arbitrary size and generic type T.}}
+\DoxyCodeLine{124 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{125 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{126 QM\_operator<T> LoweringOperator(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& R, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& C)}
+\DoxyCodeLine{127 \{ }
+\DoxyCodeLine{128     QM\_operator<T> H(R,C);}
+\DoxyCodeLine{129  }
+\DoxyCodeLine{130     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<(int)H.rows(); i++)\{}
+\DoxyCodeLine{131         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<(int)H.cols();j++)\{}
+\DoxyCodeLine{132             H(i,j) = sqrt(j)*KroneckerDelta(i,j-\/1);}
+\DoxyCodeLine{133         \}}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135     \textcolor{keywordflow}{return} H;}
+\DoxyCodeLine{136 \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{139 \textcolor{comment}{  Function: RisingOperator }}
+\DoxyCodeLine{140 \textcolor{comment}{}}
+\DoxyCodeLine{141 \textcolor{comment}{  Summary: The matrix elements of Rising Operator (a\string^dagger).  }}
+\DoxyCodeLine{142 \textcolor{comment}{        <n'|a\string^dagger|n> = sqrt\{n+1\} delta\_\{n',n+1\}}}
+\DoxyCodeLine{143 \textcolor{comment}{ }}
+\DoxyCodeLine{144 \textcolor{comment}{  Args:   const int\& R, const int\& C}}
+\DoxyCodeLine{145 \textcolor{comment}{        rows and columns.       }}
+\DoxyCodeLine{146 \textcolor{comment}{          }}
+\DoxyCodeLine{147 \textcolor{comment}{  Returns:  QM\_operator<T>}}
+\DoxyCodeLine{148 \textcolor{comment}{        Matrix of arbitrary size and generic type T.}}
+\DoxyCodeLine{149 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{150 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{151 QM\_operator<T> RisingOperator(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& R, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& C)}
+\DoxyCodeLine{152 \{    }
+\DoxyCodeLine{153     QM\_operator<T> H(R,C);}
+\DoxyCodeLine{154  }
+\DoxyCodeLine{155     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<(int)H.rows(); i++)\{}
+\DoxyCodeLine{156         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<(int)H.cols();j++)\{}
+\DoxyCodeLine{157             H(i,j) = sqrt(j+1)*KroneckerDelta(i,j+1);}
+\DoxyCodeLine{158         \}}
+\DoxyCodeLine{159     \}}
+\DoxyCodeLine{160     \textcolor{keywordflow}{return} H;}
+\DoxyCodeLine{161 \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{164 \textcolor{comment}{  Function: Hamiltonian}}
+\DoxyCodeLine{165 \textcolor{comment}{}}
+\DoxyCodeLine{166 \textcolor{comment}{  Summary:   }}
+\DoxyCodeLine{167 \textcolor{comment}{        }}
+\DoxyCodeLine{168 \textcolor{comment}{  Args: QM\_operator<T> A}}
+\DoxyCodeLine{169 \textcolor{comment}{        matrix of type T}}
+\DoxyCodeLine{170 \textcolor{comment}{    QM\_operator<T> B}}
+\DoxyCodeLine{171 \textcolor{comment}{        matrix of type T}}
+\DoxyCodeLine{172 \textcolor{comment}{    Bra<T> coff}}
+\DoxyCodeLine{173 \textcolor{comment}{        row vector of type T     }}
+\DoxyCodeLine{174 \textcolor{comment}{          }}
+\DoxyCodeLine{175 \textcolor{comment}{  Returns:  QM\_operator<T>}}
+\DoxyCodeLine{176 \textcolor{comment}{        Matrix of arbitrary size and generic type T. }}
+\DoxyCodeLine{177 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{178 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{179 QM\_operator<T> Hamiltonian(QM\_operator<T> A, QM\_operator<T> B, Bra<T> coff)}
+\DoxyCodeLine{180 \{}
+\DoxyCodeLine{181     \textcolor{keywordtype}{int} l = (int)coff.cols();}
+\DoxyCodeLine{182     QM\_operator<T> res((\textcolor{keywordtype}{int})A.rows(),(\textcolor{keywordtype}{int})A.cols());}
+\DoxyCodeLine{183     QM\_operator<T> a((\textcolor{keywordtype}{int})A.rows(),(\textcolor{keywordtype}{int})A.cols());}
+\DoxyCodeLine{184     a = -\/0.25 *B.pow(2);}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186     QM\_operator<T> b((\textcolor{keywordtype}{int})A.rows(),(\textcolor{keywordtype}{int})A.cols());}
+\DoxyCodeLine{187     b = QM\_operator<T>::Zero((\textcolor{keywordtype}{int})A.rows(),(\textcolor{keywordtype}{int})A.cols()) ;}
+\DoxyCodeLine{188 }
+\DoxyCodeLine{189     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<l; i++)\{}
+\DoxyCodeLine{190         b += coff[i]*pow(0.5,0.5*i)*A.pow(i);}
+\DoxyCodeLine{191     \}}
+\DoxyCodeLine{192 }
+\DoxyCodeLine{193     res = a + b;}
+\DoxyCodeLine{194     res.conservativeResize(res.rows()-\/1, res.cols()-\/1);}
+\DoxyCodeLine{195     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{196 \}}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{199 \textcolor{comment}{  Function: eval}}
+\DoxyCodeLine{200 \textcolor{comment}{}}
+\DoxyCodeLine{201 \textcolor{comment}{  Summary:  gives the eigenvalues of the square matrix.  }}
+\DoxyCodeLine{202 \textcolor{comment}{        }}
+\DoxyCodeLine{203 \textcolor{comment}{  Args: QM\_operator<T>\& A}}
+\DoxyCodeLine{204 \textcolor{comment}{        Square matrix of dynamic size.     }}
+\DoxyCodeLine{205 \textcolor{comment}{          }}
+\DoxyCodeLine{206 \textcolor{comment}{  Returns:  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>}}
+\DoxyCodeLine{207 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{208 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{209 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> eval(QM\_operator<T>\& A)}
+\DoxyCodeLine{210 \{}
+\DoxyCodeLine{211     \textcolor{keywordflow}{return} \mbox{\hyperlink{braket_8hpp_a17d0c190b5f4a652d2a2f99dab2b234d}{QuantumEigenValue}}(A);}
+\DoxyCodeLine{212 \}}
+\DoxyCodeLine{213 }
+\DoxyCodeLine{214 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{215 \textcolor{comment}{  Function: evec}}
+\DoxyCodeLine{216 \textcolor{comment}{}}
+\DoxyCodeLine{217 \textcolor{comment}{  Summary:  gives the eigenvectors of the square matrix.  }}
+\DoxyCodeLine{218 \textcolor{comment}{        }}
+\DoxyCodeLine{219 \textcolor{comment}{  Args: QM\_operator<T>\& A}}
+\DoxyCodeLine{220 \textcolor{comment}{        Square matrix of dynamic size.     }}
+\DoxyCodeLine{221 \textcolor{comment}{          }}
+\DoxyCodeLine{222 \textcolor{comment}{  Returns:  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>}}
+\DoxyCodeLine{223 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{224 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{225 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> evec(QM\_operator<T>\& A)}
+\DoxyCodeLine{226 \{}
+\DoxyCodeLine{227     \textcolor{keywordflow}{return} \mbox{\hyperlink{braket_8hpp_a70cd510b5961285bd618666bd1ca1f91}{QuantumEigenVector}}(A);}
+\DoxyCodeLine{228 \}}
+\DoxyCodeLine{229 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Overloaded eigenvectors -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{230 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{231 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> evec(\textcolor{keyword}{const} QM\_operator<T>\& A, \textcolor{keyword}{const} QM\_operator<T>\& B, \textcolor{keyword}{const} Bra<T>\& coff)}
+\DoxyCodeLine{232 \{}
+\DoxyCodeLine{233     QM\_operator<T> res = Hamiltonian(A,B,coff);}
+\DoxyCodeLine{234     \textcolor{keywordflow}{return} \mbox{\hyperlink{braket_8hpp_a70cd510b5961285bd618666bd1ca1f91}{QuantumEigenVector}}(res);}
+\DoxyCodeLine{235 \}}
+\DoxyCodeLine{236 }
+\DoxyCodeLine{237 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{238 \textcolor{comment}{//}}
+\DoxyCodeLine{239 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{240 \textcolor{keywordtype}{int} Factorial(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& n)}
+\DoxyCodeLine{241 \{}
+\DoxyCodeLine{242         \textcolor{keywordflow}{return} n == 0? 1 : n * Factorial(n-\/1);}
+\DoxyCodeLine{243 \}}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{246 \textcolor{comment}{  Function:  wave\_function}}
+\DoxyCodeLine{247 \textcolor{comment}{}}
+\DoxyCodeLine{248 \textcolor{comment}{  Summary:   }}
+\DoxyCodeLine{249 \textcolor{comment}{        }}
+\DoxyCodeLine{250 \textcolor{comment}{  Args: const int\& n}}
+\DoxyCodeLine{251 \textcolor{comment}{        the order of the wave function}}
+\DoxyCodeLine{252 \textcolor{comment}{    const double\& x}}
+\DoxyCodeLine{253 \textcolor{comment}{             }}
+\DoxyCodeLine{254 \textcolor{comment}{          }}
+\DoxyCodeLine{255 \textcolor{comment}{  Returns:  double}}
+\DoxyCodeLine{256 \textcolor{comment}{        the wave function values for given x and order n.}}
+\DoxyCodeLine{257 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{258 \textcolor{keywordtype}{double} wave\_function(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& n,\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x)}
+\DoxyCodeLine{259 \{ }
+\DoxyCodeLine{260     \textcolor{keywordflow}{return} (1./pow(M\_PI,0.25)) *(1/(sqrt(pow(2,n))*Factorial(n)))*std::hermite(n,x)*exp(-\/pow(x,2)/2.);}
+\DoxyCodeLine{261 \}}
+\DoxyCodeLine{262 \textcolor{comment}{/*double wave\_function(const int\& n,const double\& x)}}
+\DoxyCodeLine{263 \textcolor{comment}{\{ }}
+\DoxyCodeLine{264 \textcolor{comment}{    return sqrt(2)*sin(n*M\_PI*x);}}
+\DoxyCodeLine{265 \textcolor{comment}{\}*/}}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{268 \textcolor{comment}{  Function:  coefficients}}
+\DoxyCodeLine{269 \textcolor{comment}{}}
+\DoxyCodeLine{270 \textcolor{comment}{  Summary:   }}
+\DoxyCodeLine{271 \textcolor{comment}{        }}
+\DoxyCodeLine{272 \textcolor{comment}{  Args:      }}
+\DoxyCodeLine{273 \textcolor{comment}{          }}
+\DoxyCodeLine{274 \textcolor{comment}{  Returns:  std::vector<T> }}
+\DoxyCodeLine{275 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{276 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{277 std::vector<T> coefficients(\textcolor{keyword}{const} QM\_operator<T>\& A, \textcolor{keyword}{const} QM\_operator<T> \&B,\textcolor{keyword}{const} Bra<T> \&coff, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& n)}
+\DoxyCodeLine{278 \{   }
+\DoxyCodeLine{279     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Evec;}
+\DoxyCodeLine{280     std::vector<T> ci;}
+\DoxyCodeLine{281     Evec = evec(A,B,coff);}
+\DoxyCodeLine{282     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<(int)Evec.rows();i++)\{}
+\DoxyCodeLine{283         ci.push\_back( Evec(i,n));}
+\DoxyCodeLine{284     \}}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286     \textcolor{keywordflow}{return} ci;}
+\DoxyCodeLine{287 \}}
+\DoxyCodeLine{288 }
+\DoxyCodeLine{289 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{290 \textcolor{comment}{  Function:  wave\_function\_H}}
+\DoxyCodeLine{291 \textcolor{comment}{}}
+\DoxyCodeLine{292 \textcolor{comment}{  Summary:   }}
+\DoxyCodeLine{293 \textcolor{comment}{        }}
+\DoxyCodeLine{294 \textcolor{comment}{  Args:      }}
+\DoxyCodeLine{295 \textcolor{comment}{          }}
+\DoxyCodeLine{296 \textcolor{comment}{  Returns:  }}
+\DoxyCodeLine{297 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{298 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{299 T  wave\_function\_H(\textcolor{keyword}{const} QM\_operator<T>\& A, \textcolor{keyword}{const} QM\_operator<T> \&B, \textcolor{keyword}{const} Bra<T> \&coff, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& n)}
+\DoxyCodeLine{300 \{   }
+\DoxyCodeLine{301     std::vector<T> ci;}
+\DoxyCodeLine{302     ci = coefficients(A,B,coff,n);}
+\DoxyCodeLine{303     T res=0.0;}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<(int)ci.size(); i++)\{}
+\DoxyCodeLine{306         res += ci[i]*wave\_function(i,x);}
+\DoxyCodeLine{307     \}}
+\DoxyCodeLine{308     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{309 \}}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{312 \textcolor{comment}{  Function:  Kronecker-\/Product}}
+\DoxyCodeLine{313 \textcolor{comment}{}}
+\DoxyCodeLine{314 \textcolor{comment}{  Summary:  An operation on two matrices of arbitrary size resulting in a block matrix }}
+\DoxyCodeLine{315 \textcolor{comment}{        }}
+\DoxyCodeLine{316 \textcolor{comment}{  Args:  const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \&mt1}}
+\DoxyCodeLine{317 \textcolor{comment}{        matrix of dynamic (m × n) size.}}
+\DoxyCodeLine{318 \textcolor{comment}{     const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt2}}
+\DoxyCodeLine{319 \textcolor{comment}{        matrix of dynamic (p × q) size. }}
+\DoxyCodeLine{320 \textcolor{comment}{          }}
+\DoxyCodeLine{321 \textcolor{comment}{  Returns: Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }}
+\DoxyCodeLine{322 \textcolor{comment}{        block matrix of size (pm × qn).}}
+\DoxyCodeLine{323 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{324 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{325 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }
+\DoxyCodeLine{326 KroneckerProduct( \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt1, }
+\DoxyCodeLine{327           \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt2)}
+\DoxyCodeLine{328 \{   }
+\DoxyCodeLine{329     \textcolor{keywordtype}{int} rowA = (int)mt1.rows();}
+\DoxyCodeLine{330     \textcolor{keywordtype}{int} colA = (int)mt1.cols();}
+\DoxyCodeLine{331     \textcolor{keywordtype}{int} rowB = (int)mt2.rows();}
+\DoxyCodeLine{332     \textcolor{keywordtype}{int} colB = (int)mt2.cols();}
+\DoxyCodeLine{333     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  res((rowA*rowB),(colA*colB));}
+\DoxyCodeLine{334     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < rowA; i++)}
+\DoxyCodeLine{335     \{}
+\DoxyCodeLine{336         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < rowB; k++) }
+\DoxyCodeLine{337         \{}
+\DoxyCodeLine{338             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < colA; j++)  }
+\DoxyCodeLine{339             \{}
+\DoxyCodeLine{340                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < colB; l++)  }
+\DoxyCodeLine{341                 \{}
+\DoxyCodeLine{342                     res(i*rowB+k,j*colB+l)=mt1(i,j)*mt2(k,l);           }
+\DoxyCodeLine{343                 \}}
+\DoxyCodeLine{344             \}}
+\DoxyCodeLine{345         \}}
+\DoxyCodeLine{346     \}}
+\DoxyCodeLine{347     \textcolor{keywordflow}{return} res;    }
+\DoxyCodeLine{348 \}               }
+\DoxyCodeLine{349 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Overloaded Kronecker-\/Product -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{350 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{351 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }
+\DoxyCodeLine{352 KroneckerProduct( \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt1, }
+\DoxyCodeLine{353           \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt2, }
+\DoxyCodeLine{354           \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt3)}
+\DoxyCodeLine{355 \{   }
+\DoxyCodeLine{356     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> temp = KroneckerProduct(mt1,mt2) ;}
+\DoxyCodeLine{357     \textcolor{keywordflow}{return} KroneckerProduct(temp,mt3);}
+\DoxyCodeLine{358 \}}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{361 \textcolor{comment}{  Function: Id}}
+\DoxyCodeLine{362 \textcolor{comment}{}}
+\DoxyCodeLine{363 \textcolor{comment}{  Summary: Unit operator operating on a spin of length S.}}
+\DoxyCodeLine{364 \textcolor{comment}{        }}
+\DoxyCodeLine{365 \textcolor{comment}{  Args: const double\& S}}
+\DoxyCodeLine{366 \textcolor{comment}{           spin quantum number.  }}
+\DoxyCodeLine{367 \textcolor{comment}{          }}
+\DoxyCodeLine{368 \textcolor{comment}{  Returns: Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>}}
+\DoxyCodeLine{369 \textcolor{comment}{        Identity matrix of dynamic size.}}
+\DoxyCodeLine{370 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{371 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{372 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Id(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& S)}
+\DoxyCodeLine{373 \{}
+\DoxyCodeLine{374     \textcolor{keywordflow}{return} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::Identity( \textcolor{keywordtype}{int}(2*S+1), \textcolor{keywordtype}{int}(2*S+1));}
+\DoxyCodeLine{375 \}}
+\DoxyCodeLine{376 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// OPERATORS\_TPP}}
+
+\end{DoxyCode}

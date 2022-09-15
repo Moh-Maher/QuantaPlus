@@ -1,0 +1,55 @@
+\hypertarget{cgc_8hpp}{}\doxysection{quantaplus/cgc.hpp File Reference}
+\label{cgc_8hpp}\index{quantaplus/cgc.hpp@{quantaplus/cgc.hpp}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{cgc_8hpp_ae97487eeee85f8398d4d8a448c4e0432}\label{cgc_8hpp_ae97487eeee85f8398d4d8a448c4e0432}} 
+double {\bfseries Square\+Root} (const double \&x, const double \&curr, const double \&prev)
+\item 
+\mbox{\Hypertarget{cgc_8hpp_a09aa38248aff1f52ad3bb9021ac5791d}\label{cgc_8hpp_a09aa38248aff1f52ad3bb9021ac5791d}} 
+double {\bfseries Square\+Root} (const double \&x)
+\item 
+\mbox{\Hypertarget{cgc_8hpp_aa307eaa3fe89cb0f360beeb2806bad58}\label{cgc_8hpp_aa307eaa3fe89cb0f360beeb2806bad58}} 
+double {\bfseries Factorial} (const double \&n)
+\item 
+\mbox{\Hypertarget{cgc_8hpp_a99595de0a63bca0f673aefd93238c6bb}\label{cgc_8hpp_a99595de0a63bca0f673aefd93238c6bb}} 
+double {\bfseries Frac\+Factorial} (const double \&n)
+\item 
+double \mbox{\hyperlink{cgc_8hpp_aad2dcf8246c27f5435115387ef070fc5}{Clebsch\+Gordan}} (const double \&j1, const double \&j2, const double \&m1, const double \&m2, const double \&J, const double \&M)
+\item 
+\mbox{\Hypertarget{cgc_8hpp_a3acdf990bad130748b7be84eb14e2e59}\label{cgc_8hpp_a3acdf990bad130748b7be84eb14e2e59}} 
+double {\bfseries Clebsch\+Gordan} (const CGCcoeff \&cgc)
+\item 
+\mbox{\Hypertarget{cgc_8hpp_a977ed594579af94c781dc5948cf02e4c}\label{cgc_8hpp_a977ed594579af94c781dc5948cf02e4c}} 
+std\+::vector$<$ double $>$ {\bfseries MQuantum\+Number} (const double \&j)
+\item 
+\mbox{\Hypertarget{cgc_8hpp_a8de810f4173a9f76658448995c058552}\label{cgc_8hpp_a8de810f4173a9f76658448995c058552}} 
+std\+::vector$<$ double $>$ {\bfseries possibleJ} (const double \&j1, const double \&j2)
+\item 
+\mbox{\Hypertarget{cgc_8hpp_a687e9bf3520384a15e1ae88f1a7fe0c9}\label{cgc_8hpp_a687e9bf3520384a15e1ae88f1a7fe0c9}} 
+void {\bfseries List\+Of\+All\+CGCs} (const double \&j1, const double \&j2)
+\item 
+std\+::map$<$ CGCcoeff, std\+::vector$<$ CGCcoeff $>$ $>$ \mbox{\hyperlink{cgc_8hpp_a793b3cf32b4cf73353c02ad1299b8436}{CGCcoeff\+Map}} (const double \&j1, const double \&j2)
+\item 
+\mbox{\Hypertarget{cgc_8hpp_a96bcd47139bfbb5dbf907a81303a8514}\label{cgc_8hpp_a96bcd47139bfbb5dbf907a81303a8514}} 
+void {\bfseries Coupled\+States} (const double \&j1, const double \&j2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+some of \mbox{\hyperlink{cgc_8h}{cgc.\+h}} methods definitions. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cgc_8hpp_a793b3cf32b4cf73353c02ad1299b8436}\label{cgc_8hpp_a793b3cf32b4cf73353c02ad1299b8436}} 
+\index{cgc.hpp@{cgc.hpp}!CGCcoeffMap@{CGCcoeffMap}}
+\index{CGCcoeffMap@{CGCcoeffMap}!cgc.hpp@{cgc.hpp}}
+\doxysubsubsection{\texorpdfstring{CGCcoeffMap()}{CGCcoeffMap()}}
+{\footnotesize\ttfamily std\+::map$<$ CGCcoeff, std\+::vector$<$ CGCcoeff $>$ $>$ CGCcoeff\+Map (\begin{DoxyParamCaption}\item[{const double \&}]{j1,  }\item[{const double \&}]{j2 }\end{DoxyParamCaption})}
+
+@\+TODO under construction\mbox{\Hypertarget{cgc_8hpp_aad2dcf8246c27f5435115387ef070fc5}\label{cgc_8hpp_aad2dcf8246c27f5435115387ef070fc5}} 
+\index{cgc.hpp@{cgc.hpp}!ClebschGordan@{ClebschGordan}}
+\index{ClebschGordan@{ClebschGordan}!cgc.hpp@{cgc.hpp}}
+\doxysubsubsection{\texorpdfstring{ClebschGordan()}{ClebschGordan()}}
+{\footnotesize\ttfamily double Clebsch\+Gordan (\begin{DoxyParamCaption}\item[{const double \&}]{j1,  }\item[{const double \&}]{j2,  }\item[{const double \&}]{m1,  }\item[{const double \&}]{m2,  }\item[{const double \&}]{J,  }\item[{const double \&}]{M }\end{DoxyParamCaption})}
+
+Calculate Clebsch–\+Gordan Coefficients using the Generalized power series representations. 

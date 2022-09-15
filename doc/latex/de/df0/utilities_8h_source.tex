@@ -1,0 +1,122 @@
+\hypertarget{utilities_8h_source}{}\doxysection{utilities.\+h}
+\label{utilities_8h_source}\index{quantaplus/utilities.h@{quantaplus/utilities.h}}
+\mbox{\hyperlink{utilities_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{6 \textcolor{comment}{by:  Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{7 \textcolor{comment}{     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{8 \textcolor{comment}{     VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{9 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
+\DoxyCodeLine{10 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{11 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_UTILITIES\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define QUANTAPLUS\_UTILITIES\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <Eigen/Dense>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include<string>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include<sstream>}}
+\DoxyCodeLine{17 \textcolor{comment}{//\#include <algorithm> // for using : str.find\_first\_not\_of( "{}string"{} ) == std::string::npos}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <complex>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include<cmath>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include<fstream>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <valarray>} }
+\DoxyCodeLine{23  }
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25 \textcolor{comment}{/* colors */}}
+\DoxyCodeLine{26 \textcolor{comment}{/*}}
+\DoxyCodeLine{27 \textcolor{comment}{\#define RST  "{}\(\backslash\)x1B[0m"{}}}
+\DoxyCodeLine{28 \textcolor{comment}{\#define KRED  "{}\(\backslash\)x1B[31m"{}}}
+\DoxyCodeLine{29 \textcolor{comment}{\#define KGRN  "{}\(\backslash\)x1B[32m"{}}}
+\DoxyCodeLine{30 \textcolor{comment}{\#define KYEL  "{}\(\backslash\)x1B[33m"{}}}
+\DoxyCodeLine{31 \textcolor{comment}{\#define KBLU  "{}\(\backslash\)x1B[34m"{}}}
+\DoxyCodeLine{32 \textcolor{comment}{\#define KMAG  "{}\(\backslash\)x1B[35m"{}}}
+\DoxyCodeLine{33 \textcolor{comment}{\#define KCYN  "{}\(\backslash\)x1B[36m"{}}}
+\DoxyCodeLine{34 \textcolor{comment}{\#define KWHT  "{}\(\backslash\)x1B[37m"{}}}
+\DoxyCodeLine{35 \textcolor{comment}{}}
+\DoxyCodeLine{36 \textcolor{comment}{\#define FRED(x) KRED x RST}}
+\DoxyCodeLine{37 \textcolor{comment}{\#define FGRN(x) KGRN x RST}}
+\DoxyCodeLine{38 \textcolor{comment}{\#define FYEL(x) KYEL x RST}}
+\DoxyCodeLine{39 \textcolor{comment}{\#define FBLU(x) KBLU x RST}}
+\DoxyCodeLine{40 \textcolor{comment}{\#define FMAG(x) KMAG x RST}}
+\DoxyCodeLine{41 \textcolor{comment}{\#define FCYN(x) KCYN x RST}}
+\DoxyCodeLine{42 \textcolor{comment}{\#define FWHT(x) KWHT x RST}}
+\DoxyCodeLine{43 \textcolor{comment}{}}
+\DoxyCodeLine{44 \textcolor{comment}{\#define BOLD(x) "{}\(\backslash\)x1B[1m"{} x RST}}
+\DoxyCodeLine{45 \textcolor{comment}{\#define UNDL(x) "{}\(\backslash\)x1B[4m"{} x RST}}
+\DoxyCodeLine{46 \textcolor{comment}{*/}}
+\DoxyCodeLine{47 \textcolor{comment}{//namespace QuantaPlus\{}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{52 \textcolor{keyword}{class }\mbox{\hyperlink{classOutput}{Output}}}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54     \textcolor{keyword}{public}:}
+\DoxyCodeLine{55      }
+\DoxyCodeLine{56     std::ofstream \mbox{\hyperlink{classOutput_a0d64b7f883163d64e9cdc63eeed255f8}{takeData}}; }
+\DoxyCodeLine{57      }
+\DoxyCodeLine{62     \mbox{\hyperlink{classOutput_aaf1fa8ec9f30ca6edc4b200e10ecc331}{Output}}(std::string fileName) }
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         \mbox{\hyperlink{classOutput_a0d64b7f883163d64e9cdc63eeed255f8}{takeData}}.open(fileName + \textcolor{stringliteral}{"{}.dat"{}});}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     }
+\DoxyCodeLine{68     \mbox{\hyperlink{classOutput_a61d0840daf98bea49e4dc471f235eeab}{\string~Output}}()}
+\DoxyCodeLine{69     \{}
+\DoxyCodeLine{70         \mbox{\hyperlink{classOutput_a0d64b7f883163d64e9cdc63eeed255f8}{takeData}}.close();}
+\DoxyCodeLine{71     \} }
+\DoxyCodeLine{72 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{classOutput_a6e2ec5526f8bb254f4a6ac664ffae3a7}{writeOutput}}(std::string output)}
+\DoxyCodeLine{77     \{}
+\DoxyCodeLine{78         \mbox{\hyperlink{classOutput_a0d64b7f883163d64e9cdc63eeed255f8}{takeData}} << output << std::endl;}
+\DoxyCodeLine{79     \}}
+\DoxyCodeLine{80 \};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{86 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{87 std::string \mbox{\hyperlink{utilities_8h_a72d5f0b0e1c1cba04079e1d5c1f5489b}{ToString}}(\textcolor{keyword}{const} T\& numb)}
+\DoxyCodeLine{88 \{}
+\DoxyCodeLine{89     std::stringstream ss;}
+\DoxyCodeLine{90     ss << numb;}
+\DoxyCodeLine{91     \textcolor{keywordflow}{return} ss.str();}
+\DoxyCodeLine{92 \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{99 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, \textcolor{keyword}{typename} T2>}
+\DoxyCodeLine{100 std::string \mbox{\hyperlink{utilities_8h_ae27b37f2b1678156d9c08e9e6a07f505}{ToFraction}}(T1 numer, T2 denom)}
+\DoxyCodeLine{101 \{}
+\DoxyCodeLine{102     std::string res = ToString<T1>(numer);}
+\DoxyCodeLine{103     \textcolor{keywordflow}{if}(denom != 1)}
+\DoxyCodeLine{104     \{}
+\DoxyCodeLine{105         res += \textcolor{stringliteral}{"{}/"{}};}
+\DoxyCodeLine{106         res += ToString<T2>(denom);}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{109 \}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{115 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{116 \textcolor{keywordtype}{void} \mbox{\hyperlink{utilities_8h_a067404ba2f57aaa932139cfedbd80152}{MatrixToString}}(T \&mat)}
+\DoxyCodeLine{117 \{}
+\DoxyCodeLine{118     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mat.GetRow(); i++) \{}
+\DoxyCodeLine{119         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mat.GetCol(); j++) \{}
+\DoxyCodeLine{120             decimalToFraction(mat.table[i][j]);}
+\DoxyCodeLine{121             std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{122         \}}
+\DoxyCodeLine{123         std::cout<<std::endl;}
+\DoxyCodeLine{124     \}}
+\DoxyCodeLine{125 \}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{keywordtype}{void} \mbox{\hyperlink{utilities_8h_a465fa2a9548c330821047927c5fc2830}{ComplexNumPrint}}( std::complex<double> complex\_number, \textcolor{keywordtype}{bool} numerical\_flag); }
+\DoxyCodeLine{128 \textcolor{keywordtype}{void} \mbox{\hyperlink{utilities_8h_a8cd5543ec111ce4c7056583c661cf4e6}{ResultPrint}}(\textcolor{keyword}{const} std::complex<double>\& complex\_num); }
+\DoxyCodeLine{129 \textcolor{keywordtype}{void} \mbox{\hyperlink{utilities_8h_a3feef7b7ca5855c640a7dfdc69f1aeec}{NResultPrint}}(\textcolor{keyword}{const} std::complex<double>\& complex\_num); }
+\DoxyCodeLine{130 \textcolor{keywordtype}{void} DecimalToFraction(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& decimal\_number);\textcolor{comment}{//void DecimalToFraction(double number); ///< Convert decimal to fraction}}
+\DoxyCodeLine{131 \textcolor{keywordtype}{void} \mbox{\hyperlink{utilities_8h_a53ff940c101ac477a6a101057ae9d194}{StringMatrix}}(\textcolor{keywordtype}{int} r, \textcolor{keywordtype}{int} c, \textcolor{keywordtype}{double} *array); }
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133 \textcolor{keywordtype}{bool} \mbox{\hyperlink{utilities_8h_ae4ce46e98672668ddf638acf2968405e}{IsNumber}}(\textcolor{keyword}{const} std::string\& str); }
+\DoxyCodeLine{134 \textcolor{keywordtype}{void} \mbox{\hyperlink{utilities_8h_ac32970f6a22bb186a4058aa9f921e83f}{Warning}}(\textcolor{keyword}{const} std::string \& str); }
+\DoxyCodeLine{135 \textcolor{keywordtype}{bool} \mbox{\hyperlink{utilities_8h_add7f53073ab793dd24d49776442c0c4c}{validInteger}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x); }
+\DoxyCodeLine{136 \textcolor{keywordtype}{bool} \mbox{\hyperlink{utilities_8h_a933513b556b720bead0537c76a3ccfc6}{halfInteger}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x); }
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138 \textcolor{comment}{//void TolaTex(std::string fname, std::string data);}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#include"{}include/utilities.hpp"{}}}
+\DoxyCodeLine{141 \textcolor{comment}{//\}//end of namespace QuantaPlus}}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

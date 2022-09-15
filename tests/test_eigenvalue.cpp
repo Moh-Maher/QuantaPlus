@@ -8,9 +8,9 @@ by:  Mohammed Maher Abdelrahim Mohammed
 *******************************************************************************************/
 #include<iostream>
 #include<complex>
-#include"braket.h"
-#include"angularmomentum.h"
-#include"timer.h"
+#include"../quantaplus/braket.h"
+#include"../quantaplus/angularmomentum.h"
+#include"../quantaplus/timer.h"
 
 using namespace QuantaPlus;
 typedef std::complex<double>  complex;

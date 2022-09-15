@@ -1,0 +1,177 @@
+\hypertarget{classQuantaPlus_1_1CGCcoeff}{}\doxysection{Quanta\+Plus\+::CGCcoeff Class Reference}
+\label{classQuantaPlus_1_1CGCcoeff}\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+
+
+{\ttfamily \#include $<$cgc.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a8b3b3464bc36e5fbb61cb4bf89b2fddd}{CGCcoeff}} ()=default
+\begin{DoxyCompactList}\small\item\em Defaulte constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a5289620175fa63354b878838fc8bc1b0}{CGCcoeff}} (double J1, double J2, double M1, double M2, double J, double M)
+\begin{DoxyCompactList}\small\item\em constructor with input \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a2906b971bdfb14a17d86e672293d880b}{CGCcoeff}} (double J, double M)
+\begin{DoxyCompactList}\small\item\em overloaded constructor with input \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a38abf1733c0b66cd1e549da1e44f5fb4}{CGCcoeff}} (double J1, double J2, double J, double M)
+\begin{DoxyCompactList}\small\item\em overloaded constructor with input \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a983ebdef1df246ff3d30614a9e9741c1}{CGCcoeff}} (const \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&gc)
+\begin{DoxyCompactList}\small\item\em overloaded constructor with input \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a7cc88a081ab25e77308558c64c22a001}{operator$<$}} (const \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a6b7fb4f8a541cd0dc1e52f6399f48340}{operator==}} (const \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&CG)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}} =0
+\begin{DoxyCompactList}\small\item\em the angular momentum (spin or orbital) of the first particle (or system) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}} =0
+\begin{DoxyCompactList}\small\item\em the angular momentum (spin or orbital) of the second particle (or system) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}} =0
+\begin{DoxyCompactList}\small\item\em magnetic quantum number of the first particle (or system) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}} =0
+\begin{DoxyCompactList}\small\item\em magnetic quantum number of the second particle (or system) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}} =0
+\begin{DoxyCompactList}\small\item\em total angular momentum\+: $\vert$j1 -\/ j2$\vert$ \texorpdfstring{$<$}{<}= j \texorpdfstring{$<$}{<}= $\vert$j1 + j2$\vert$ \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}} =0
+\begin{DoxyCompactList}\small\item\em total m located within the rang -\/j\texorpdfstring{$<$}{<}m\texorpdfstring{$<$}{<}j \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} is a class for Clebsch–\+Gordan Coefficients representation \texorpdfstring{$<$}{<}j1, j2; m1, m2 $\vert$ j, m \texorpdfstring{$>$}{>}. Note that the coefficients \texorpdfstring{$<$}{<}j1, j2; m1, m2 $\vert$ j, m \texorpdfstring{$>$}{>} vanishes unless m1+m2=m. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a8b3b3464bc36e5fbb61cb4bf89b2fddd}\label{classQuantaPlus_1_1CGCcoeff_a8b3b3464bc36e5fbb61cb4bf89b2fddd}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!CGCcoeff@{CGCcoeff}}
+\index{CGCcoeff@{CGCcoeff}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{CGCcoeff()}{CGCcoeff()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Quanta\+Plus\+::\+CGCcoeff\+::\+CGCcoeff (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+Defaulte constructor. 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a5289620175fa63354b878838fc8bc1b0}\label{classQuantaPlus_1_1CGCcoeff_a5289620175fa63354b878838fc8bc1b0}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!CGCcoeff@{CGCcoeff}}
+\index{CGCcoeff@{CGCcoeff}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{CGCcoeff()}{CGCcoeff()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Quanta\+Plus\+::\+CGCcoeff\+::\+CGCcoeff (\begin{DoxyParamCaption}\item[{double}]{J1,  }\item[{double}]{J2,  }\item[{double}]{M1,  }\item[{double}]{M2,  }\item[{double}]{J,  }\item[{double}]{M }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor with input 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a2906b971bdfb14a17d86e672293d880b}\label{classQuantaPlus_1_1CGCcoeff_a2906b971bdfb14a17d86e672293d880b}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!CGCcoeff@{CGCcoeff}}
+\index{CGCcoeff@{CGCcoeff}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{CGCcoeff()}{CGCcoeff()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Quanta\+Plus\+::\+CGCcoeff\+::\+CGCcoeff (\begin{DoxyParamCaption}\item[{double}]{J,  }\item[{double}]{M }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+overloaded constructor with input 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a38abf1733c0b66cd1e549da1e44f5fb4}\label{classQuantaPlus_1_1CGCcoeff_a38abf1733c0b66cd1e549da1e44f5fb4}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!CGCcoeff@{CGCcoeff}}
+\index{CGCcoeff@{CGCcoeff}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{CGCcoeff()}{CGCcoeff()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Quanta\+Plus\+::\+CGCcoeff\+::\+CGCcoeff (\begin{DoxyParamCaption}\item[{double}]{J1,  }\item[{double}]{J2,  }\item[{double}]{J,  }\item[{double}]{M }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+overloaded constructor with input 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a983ebdef1df246ff3d30614a9e9741c1}\label{classQuantaPlus_1_1CGCcoeff_a983ebdef1df246ff3d30614a9e9741c1}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!CGCcoeff@{CGCcoeff}}
+\index{CGCcoeff@{CGCcoeff}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{CGCcoeff()}{CGCcoeff()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Quanta\+Plus\+::\+CGCcoeff\+::\+CGCcoeff (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&}]{gc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+overloaded constructor with input 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a7cc88a081ab25e77308558c64c22a001}\label{classQuantaPlus_1_1CGCcoeff_a7cc88a081ab25e77308558c64c22a001}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool Quanta\+Plus\+::\+CGCcoeff\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&}]{rhs }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+overloading operator \char`\"{}$<$\char`\"{}. required to be used in a std\+::map \mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a6b7fb4f8a541cd0dc1e52f6399f48340}\label{classQuantaPlus_1_1CGCcoeff_a6b7fb4f8a541cd0dc1e52f6399f48340}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!operator==@{operator==}}
+\index{operator==@{operator==}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Quanta\+Plus\+::\+CGCcoeff\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&}]{CG }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Overloading the logical \char`\"{}==\char`\"{} operator 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}\label{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!j@{j}}
+\index{j@{j}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{j}{j}}
+{\footnotesize\ttfamily double Quanta\+Plus\+::\+CGCcoeff\+::j =0}
+
+
+
+total angular momentum\+: $\vert$j1 -\/ j2$\vert$ \texorpdfstring{$<$}{<}= j \texorpdfstring{$<$}{<}= $\vert$j1 + j2$\vert$ 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}\label{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!j1@{j1}}
+\index{j1@{j1}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{j1}{j1}}
+{\footnotesize\ttfamily double Quanta\+Plus\+::\+CGCcoeff\+::j1 =0}
+
+
+
+the angular momentum (spin or orbital) of the first particle (or system) 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}\label{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!j2@{j2}}
+\index{j2@{j2}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{j2}{j2}}
+{\footnotesize\ttfamily double Quanta\+Plus\+::\+CGCcoeff\+::j2 =0}
+
+
+
+the angular momentum (spin or orbital) of the second particle (or system) 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}\label{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!m@{m}}
+\index{m@{m}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily double Quanta\+Plus\+::\+CGCcoeff\+::m =0}
+
+
+
+total m located within the rang -\/j\texorpdfstring{$<$}{<}m\texorpdfstring{$<$}{<}j 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}\label{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!m1@{m1}}
+\index{m1@{m1}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{m1}{m1}}
+{\footnotesize\ttfamily double Quanta\+Plus\+::\+CGCcoeff\+::m1 =0}
+
+
+
+magnetic quantum number of the first particle (or system) 
+
+\mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}\label{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}} 
+\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!m2@{m2}}
+\index{m2@{m2}!QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
+\doxysubsubsection{\texorpdfstring{m2}{m2}}
+{\footnotesize\ttfamily double Quanta\+Plus\+::\+CGCcoeff\+::m2 =0}
+
+
+
+magnetic quantum number of the second particle (or system) 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+quantaplus/\mbox{\hyperlink{cgc_8h}{cgc.\+h}}\end{DoxyCompactItemize}

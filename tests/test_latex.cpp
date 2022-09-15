@@ -7,12 +7,12 @@ by:  Mohammed Maher Abdelrahim Mohammed
 *******************************************************************************************/
 #include<iostream>
 #include<complex>
-#include"braket.h"
-#include"angularmomentum.h"
 #include<ctime>  
-#include"utilities.h"
-#include"latex.h"
-#include"timer.h"
+#include"../quantaplus/braket.h"
+#include"../quantaplus/angularmomentum.h"
+#include"../quantaplus/utilities.h"
+#include"../quantaplus/latex.h"
+#include"../quantaplus/timer.h"
 using namespace QuantaPlus;
 	typedef std::complex<double>  complex;
 	using std::cout;

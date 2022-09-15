@@ -1,0 +1,778 @@
+\hypertarget{namespaceQuantaPlus}{}\doxysection{Quanta\+Plus Namespace Reference}
+\label{namespaceQuantaPlus}\index{QuantaPlus@{QuantaPlus}}
+
+
+Generic \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} interfaces and implementations.  
+
+
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}}
+\item 
+class \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} is a publicly derived class from the well designed Eigen\+::\+Matrix, where the \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} vectors are matrices with one row, and Dynamic-\/size column. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}}
+\item 
+class \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} is a publicly inherited class from the well designed Eigen\+::\+Matrix, where the \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} vectors are matrices with one column and Dynamic-\/size rows. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\+\_\+operator}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespaceQuantaPlus_a456793d842fc471e04c7cca64dff2248}{operator$<$$<$}} (std\+::ostream \&out, const \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&t)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_ae1ef2728eb0b7eaaf97d8de7c41a1a46}\label{namespaceQuantaPlus_ae1ef2728eb0b7eaaf97d8de7c41a1a46}} 
+std\+::complex$<$ double $>$ {\bfseries i} (0, 1)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_af4faba7cb0e2682f889d82c9fba516c5}\label{namespaceQuantaPlus_af4faba7cb0e2682f889d82c9fba516c5}} 
+const double {\bfseries ZETA\+\_\+2} = M\+\_\+\+PI$\ast$M\+\_\+\+PI/6.
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a8ea0b15ecc5c125689a9c16e8e610a25}\label{namespaceQuantaPlus_a8ea0b15ecc5c125689a9c16e8e610a25}} 
+const double {\bfseries ZETA\+\_\+3} = 1.\+2020569031595942
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a8eee5c6089b39bf418e1a5cb342d4cce}\label{namespaceQuantaPlus_a8eee5c6089b39bf418e1a5cb342d4cce}} 
+const double {\bfseries ZETA\+\_\+4} = (pow(M\+\_\+\+PI,4))/90.
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a92e2e6d635a6e3437362bf947ea52d3c}\label{namespaceQuantaPlus_a92e2e6d635a6e3437362bf947ea52d3c}} 
+const double {\bfseries ZETA\+\_\+5} = 1.\+0369277551433699
+\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_ab0a809fee2ac98783ddfa6053318800c}{SPEED\+\_\+\+OF\+\_\+\+LIGHT}} = 299792458
+\begin{DoxyCompactList}\small\item\em PDG2008. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_acb86a990234aa3058f8b49288b0a38f1}{PLANCK\+\_\+\+CONSTANT}} = 6.\+62606896 $\ast$ 1.e-\/34
+\begin{DoxyCompactList}\small\item\em PDG2009. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a0d1d4fbef3c8cd8bb916f2ca5df90b4d}\label{namespaceQuantaPlus_a0d1d4fbef3c8cd8bb916f2ca5df90b4d}} 
+const double {\bfseries PLANCK\+\_\+\+CONSTANT\+\_\+\+REDUCED} = 6.\+58211899 $\ast$ 1.e-\/16
+\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a0a080b8e5c088d90d356900b62ba5ca3}{FINE\+\_\+\+STRUCTURE\+\_\+\+CONSTANT}} = 1. / 137.\+035999679
+\begin{DoxyCompactList}\small\item\em PDG2008. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a691c245676fefdd2dbd306a1795f46e1}{HIGGS\+\_\+\+VEV}} = 246.\+22
+\begin{DoxyCompactList}\small\item\em Higgs vacuum expectation value. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_ac757892e05d62aa187c2de65b261be9e}{HBarC}} = 197.\+3269631
+\begin{DoxyCompactList}\small\item\em Conversion constant $\hbar c$ in $\mathrm{MeV}\cdot\mathrm{fm}$ {\bfseries [Amsler\+:2008zzb]}. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a8c33c68434f776c310c3b1e306a03c0b}{HBar\+C2}} = 0.\+389379304
+\begin{DoxyCompactList}\small\item\em Conversion constant $(\hbar c)^2$ in $\mathrm{GeV}^2\cdot\mathrm{mbarn}$ {\bfseries [Amsler\+:2008zzb]}. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a79f3162b1f69705f636f512e41f8233c}{CONV\+\_\+\+GEVm1\+\_\+\+TO\+\_\+\+FM}} = 0.\+1973269631
+\begin{DoxyCompactList}\small\item\em Conversion constant $\mathrm{GeV}^{-1} \rightarrow \mathrm{fm}$. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_ac7c145c84f0b2d2e438219c1953f35c5}{CONV\+\_\+\+GEVm2\+\_\+\+TO\+\_\+\+NBARN}} = 0.\+389379304e+6
+\begin{DoxyCompactList}\small\item\em Conversion constant $\mathrm{GeV}^{-2} \rightarrow \mathrm{nbarn}$. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a20351e0004daa5df077637a163cc49dc}{CONV\+\_\+\+GEVm2\+\_\+\+TO\+\_\+\+PBARN}} = 0.\+389379304e+9
+\begin{DoxyCompactList}\small\item\em Conversion constant $\mathrm{GeV}^{-2} \rightarrow \mathrm{pbarn}$. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a33630636af54b9834a5f23c7c885b753}\label{namespaceQuantaPlus_a33630636af54b9834a5f23c7c885b753}} 
+int {\bfseries NF}
+\item 
+int const \mbox{\hyperlink{namespaceQuantaPlus_a139a4799075a6b46407f378176906e4d}{CA}} = 3
+\begin{DoxyCompactList}\small\item\em -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- for SU(3) QCD \end{DoxyCompactList}\item 
+double const \mbox{\hyperlink{namespaceQuantaPlus_a5efec3dec7ddffcba8e0358e770367bb}{CF}} = 4./3.
+\begin{DoxyCompactList}\small\item\em -\/-\/---for SU(3) QCD \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_abae160131813788ec644666ad0d10199}\label{namespaceQuantaPlus_abae160131813788ec644666ad0d10199}} 
+const double {\bfseries TR} = 0.\+5
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a9883a82a37225f63efcaca6c5ed99ab0}{lambda1}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a2b0645cd4bf3c12dc7ff6d2d2ad9de79}{lambda2}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_ac74d11bec1fd85924c91a848a5b0f035}{lambda3}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_abd0b650814a0ee4ee7414e1dd37c4517}{lambda4}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a0f0996c79faa68cef8c715601677e6ac}{lambda5}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a2e621d77ea2d9a0919ebb82db3692b16}{lambda6}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a55b40d1f458157884973578af7dcc94f}{lambda7}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a014c675be083d73e09a1ea75308a42ea}{lambda8}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_ac934e204e1fcd5356a4d6afeb26373cb}{F1}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a6a8fb03ce7549554d55f0d7c94950429}{F2}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a264a4dbe320cf321e846ddd0122d91c5}{F3}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a9cd1361401440df6fd86556fdbf7301b}{F4}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a9ed134b9612e72546c5791a47b66b15b}{F5}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a34cffb9f9e5280ef989e18c495b49880}{F6}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a6d8696af572dede673862b5b70b3be13}{F7}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_ac5c0f1c523821acc756e2a3258ae47b9}{F8}} \mbox{[}9\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a0750e535a4303138a69f3fa7adace3ba}{sigma1}} \mbox{[}4\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a095b981b4b1ae23850b95e019af092e3}{sigma2}} \mbox{[}4\mbox{]}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespaceQuantaPlus_a222b8e659d78a9fc097411a35e67e9d2}{sigma3}} \mbox{[}4\mbox{]}
+\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a9c1ccd8377ebcce6737f8417a1b65949}{PROTON\+\_\+\+MASS}} = 0.\+938272013
+\begin{DoxyCompactList}\small\item\em PDG2010. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a6701f5b3640b4db00af5da41a2018533}{ELECTRON\+\_\+\+MASS}} = 0.\+510998910e-\/3
+\begin{DoxyCompactList}\small\item\em PDG2008. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_ab21334d6f721ad6390f194ea824e1ddd}{MUON\+\_\+\+MASS}} = 105.\+658367e-\/3
+\begin{DoxyCompactList}\small\item\em PDG2008. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a31663a6aff9ecc02b5452f432a6e1d75}{TAU\+\_\+\+MASS}} = 1.\+77684
+\begin{DoxyCompactList}\small\item\em PDG2008. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_ab033a3ca10df2fd92a9b85fc9800dd6d}{QUARK\+\_\+\+UP\+\_\+\+MASS}} = 0.\+0024
+\begin{DoxyCompactList}\small\item\em PDG2010. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a52973864780f357502114abe4e557294}{QUARK\+\_\+\+DOWN\+\_\+\+MASS}} = 0.\+0049
+\begin{DoxyCompactList}\small\item\em PDG2010. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a4adae1eb5cbf8698755aec245373a3db}{QUARK\+\_\+\+STRANGE\+\_\+\+MASS}} = 0.\+1
+\begin{DoxyCompactList}\small\item\em PDG2010. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a2b6e8a0adf88a1dfccaa507d63e19030}{QUARK\+\_\+\+CHARM\+\_\+\+MASS}} = 1.\+29
+\begin{DoxyCompactList}\small\item\em PDG2010. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_aec805021fbc1d39e00921c56409056b4}{QUARK\+\_\+\+BOTTOM\+\_\+\+MASS}} = 4.\+19
+\begin{DoxyCompactList}\small\item\em PDG2010. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a1c85d98b1b7c7d367dfd68b98ebfca07}{QUARK\+\_\+\+TOP\+\_\+\+MASS}} = 173.\+21
+\begin{DoxyCompactList}\small\item\em 172.\+9; PDG2010 \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_ab4ffa55a94c58b624a4b39db2ea15fdf}{PI\+\_\+\+ZERO\+\_\+\+MASS}} = 0.\+1349766
+\begin{DoxyCompactList}\small\item\em PDG2010. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_aed5039ba34c43e481b259b50b7993b7e}\label{namespaceQuantaPlus_aed5039ba34c43e481b259b50b7993b7e}} 
+const double {\bfseries W\+\_\+\+BOSON\+\_\+\+MASS} = 80.\+1
+\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a583465fc37b4ebbb2bee0ea0c35ec907}{Z\+\_\+\+BOSON\+\_\+\+MASS}} = 91.\+1876
+\begin{DoxyCompactList}\small\item\em PDG2010. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a99c4c64597fde7d826ab5983d738e5f3}\label{namespaceQuantaPlus_a99c4c64597fde7d826ab5983d738e5f3}} 
+const double {\bfseries HIGGS\+\_\+\+BOSON\+\_\+\+MASS} = 125.\+18
+\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a3bf387f0f8eafc49a499f4b4fdfb6f65}{U\+\_\+\+ELEC\+\_\+\+CHARGE}} = 2. / 3.
+\begin{DoxyCompactList}\small\item\em Electric charge of up quark (in units of e) \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_aca56d02622f7294f99d485fb72c34548}{D\+\_\+\+ELEC\+\_\+\+CHARGE}} = -\/1. / 3.
+\begin{DoxyCompactList}\small\item\em Electric charge of down quark (in units of e) \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_aeda4e7d3a227593f7e79fa53b88be777}{S\+\_\+\+ELEC\+\_\+\+CHARGE}} = -\/1. / 3.
+\begin{DoxyCompactList}\small\item\em Electric charge of strange quark (in units of e) \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a64c5a20f8d62ca435f7fb176d5074416}{C\+\_\+\+ELEC\+\_\+\+CHARGE}} = 2. / 3.
+\begin{DoxyCompactList}\small\item\em Electric charge of charm quark (in units of e) \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a5bc730bd96c438b808b8cfe7d939213e}{B\+\_\+\+ELEC\+\_\+\+CHARGE}} = -\/1. / 3.
+\begin{DoxyCompactList}\small\item\em Electric charge of bottom quark (in units of e) \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a52faf06d62a0dc7fb56d03dbc792b2a8}{T\+\_\+\+ELEC\+\_\+\+CHARGE}} = 2. / 3.
+\begin{DoxyCompactList}\small\item\em Electric charge of top quark (in units of e) \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a8c3195473baf4f42bee4c3083f42296f}{U2\+\_\+\+ELEC\+\_\+\+CHARGE}} = 4. / 9.
+\begin{DoxyCompactList}\small\item\em Square of electric charge of up quark. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a29e87e5766f7055e3208368b0235b734}{D2\+\_\+\+ELEC\+\_\+\+CHARGE}} = 1. / 9.
+\begin{DoxyCompactList}\small\item\em Square of electric charge of down quark. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a288ec8a9b9839e7a1728897604d73d45}{S2\+\_\+\+ELEC\+\_\+\+CHARGE}} = 1. / 9.
+\begin{DoxyCompactList}\small\item\em Square of electric charge of strange quark. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_adb0f53ad2a999416d1bbc9fe06c69a33}{C2\+\_\+\+ELEC\+\_\+\+CHARGE}} = 4. / 9.
+\begin{DoxyCompactList}\small\item\em Square of electric charge of charm quark. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_ad83b49275e4f7b1ce8fc069ea3e33447}{B2\+\_\+\+ELEC\+\_\+\+CHARGE}} = 1. / 9.
+\begin{DoxyCompactList}\small\item\em Square of electric charge of bottom quark. \end{DoxyCompactList}\item 
+const double \mbox{\hyperlink{namespaceQuantaPlus_a68b5099e726cc6cc941319a58ffa2c2b}{T2\+\_\+\+ELEC\+\_\+\+CHARGE}} = 1. / 9.
+\begin{DoxyCompactList}\small\item\em Square of electric charge of top quark. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_af6f4e0fc0f22200a6b30a0f2210b5643}\label{namespaceQuantaPlus_af6f4e0fc0f22200a6b30a0f2210b5643}} 
+const double {\bfseries POSITRON\+\_\+\+CHARGE} = 0.\+30282211985966434
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generic \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} interfaces and implementations. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceQuantaPlus_a456793d842fc471e04c7cca64dff2248}\label{namespaceQuantaPlus_a456793d842fc471e04c7cca64dff2248}} 
+\index{QuantaPlus@{QuantaPlus}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& Quanta\+Plus\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{out,  }\item[{const \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} \&}]{t }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Overloaded \char`\"{}$<$$<$\char`\"{} operator 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceQuantaPlus_ad83b49275e4f7b1ce8fc069ea3e33447}\label{namespaceQuantaPlus_ad83b49275e4f7b1ce8fc069ea3e33447}} 
+\index{QuantaPlus@{QuantaPlus}!B2\_ELEC\_CHARGE@{B2\_ELEC\_CHARGE}}
+\index{B2\_ELEC\_CHARGE@{B2\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{B2\_ELEC\_CHARGE}{B2\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+B2\+\_\+\+ELEC\+\_\+\+CHARGE = 1. / 9.}
+
+
+
+Square of electric charge of bottom quark. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a5bc730bd96c438b808b8cfe7d939213e}\label{namespaceQuantaPlus_a5bc730bd96c438b808b8cfe7d939213e}} 
+\index{QuantaPlus@{QuantaPlus}!B\_ELEC\_CHARGE@{B\_ELEC\_CHARGE}}
+\index{B\_ELEC\_CHARGE@{B\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{B\_ELEC\_CHARGE}{B\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+B\+\_\+\+ELEC\+\_\+\+CHARGE = -\/1. / 3.}
+
+
+
+Electric charge of bottom quark (in units of e) 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_adb0f53ad2a999416d1bbc9fe06c69a33}\label{namespaceQuantaPlus_adb0f53ad2a999416d1bbc9fe06c69a33}} 
+\index{QuantaPlus@{QuantaPlus}!C2\_ELEC\_CHARGE@{C2\_ELEC\_CHARGE}}
+\index{C2\_ELEC\_CHARGE@{C2\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{C2\_ELEC\_CHARGE}{C2\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+C2\+\_\+\+ELEC\+\_\+\+CHARGE = 4. / 9.}
+
+
+
+Square of electric charge of charm quark. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a64c5a20f8d62ca435f7fb176d5074416}\label{namespaceQuantaPlus_a64c5a20f8d62ca435f7fb176d5074416}} 
+\index{QuantaPlus@{QuantaPlus}!C\_ELEC\_CHARGE@{C\_ELEC\_CHARGE}}
+\index{C\_ELEC\_CHARGE@{C\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{C\_ELEC\_CHARGE}{C\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+C\+\_\+\+ELEC\+\_\+\+CHARGE = 2. / 3.}
+
+
+
+Electric charge of charm quark (in units of e) 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a139a4799075a6b46407f378176906e4d}\label{namespaceQuantaPlus_a139a4799075a6b46407f378176906e4d}} 
+\index{QuantaPlus@{QuantaPlus}!CA@{CA}}
+\index{CA@{CA}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{CA}{CA}}
+{\footnotesize\ttfamily int const Quanta\+Plus\+::\+CA = 3}
+
+
+
+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- for SU(3) QCD 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a5efec3dec7ddffcba8e0358e770367bb}\label{namespaceQuantaPlus_a5efec3dec7ddffcba8e0358e770367bb}} 
+\index{QuantaPlus@{QuantaPlus}!CF@{CF}}
+\index{CF@{CF}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{CF}{CF}}
+{\footnotesize\ttfamily double const Quanta\+Plus\+::\+CF = 4./3.}
+
+
+
+-\/-\/---for SU(3) QCD 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a79f3162b1f69705f636f512e41f8233c}\label{namespaceQuantaPlus_a79f3162b1f69705f636f512e41f8233c}} 
+\index{QuantaPlus@{QuantaPlus}!CONV\_GEVm1\_TO\_FM@{CONV\_GEVm1\_TO\_FM}}
+\index{CONV\_GEVm1\_TO\_FM@{CONV\_GEVm1\_TO\_FM}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{CONV\_GEVm1\_TO\_FM}{CONV\_GEVm1\_TO\_FM}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+CONV\+\_\+\+GEVm1\+\_\+\+TO\+\_\+\+FM = 0.\+1973269631}
+
+
+
+Conversion constant $\mathrm{GeV}^{-1} \rightarrow \mathrm{fm}$. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_ac7c145c84f0b2d2e438219c1953f35c5}\label{namespaceQuantaPlus_ac7c145c84f0b2d2e438219c1953f35c5}} 
+\index{QuantaPlus@{QuantaPlus}!CONV\_GEVm2\_TO\_NBARN@{CONV\_GEVm2\_TO\_NBARN}}
+\index{CONV\_GEVm2\_TO\_NBARN@{CONV\_GEVm2\_TO\_NBARN}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{CONV\_GEVm2\_TO\_NBARN}{CONV\_GEVm2\_TO\_NBARN}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+CONV\+\_\+\+GEVm2\+\_\+\+TO\+\_\+\+NBARN = 0.\+389379304e+6}
+
+
+
+Conversion constant $\mathrm{GeV}^{-2} \rightarrow \mathrm{nbarn}$. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a20351e0004daa5df077637a163cc49dc}\label{namespaceQuantaPlus_a20351e0004daa5df077637a163cc49dc}} 
+\index{QuantaPlus@{QuantaPlus}!CONV\_GEVm2\_TO\_PBARN@{CONV\_GEVm2\_TO\_PBARN}}
+\index{CONV\_GEVm2\_TO\_PBARN@{CONV\_GEVm2\_TO\_PBARN}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{CONV\_GEVm2\_TO\_PBARN}{CONV\_GEVm2\_TO\_PBARN}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+CONV\+\_\+\+GEVm2\+\_\+\+TO\+\_\+\+PBARN = 0.\+389379304e+9}
+
+
+
+Conversion constant $\mathrm{GeV}^{-2} \rightarrow \mathrm{pbarn}$. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a29e87e5766f7055e3208368b0235b734}\label{namespaceQuantaPlus_a29e87e5766f7055e3208368b0235b734}} 
+\index{QuantaPlus@{QuantaPlus}!D2\_ELEC\_CHARGE@{D2\_ELEC\_CHARGE}}
+\index{D2\_ELEC\_CHARGE@{D2\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{D2\_ELEC\_CHARGE}{D2\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+D2\+\_\+\+ELEC\+\_\+\+CHARGE = 1. / 9.}
+
+
+
+Square of electric charge of down quark. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_aca56d02622f7294f99d485fb72c34548}\label{namespaceQuantaPlus_aca56d02622f7294f99d485fb72c34548}} 
+\index{QuantaPlus@{QuantaPlus}!D\_ELEC\_CHARGE@{D\_ELEC\_CHARGE}}
+\index{D\_ELEC\_CHARGE@{D\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{D\_ELEC\_CHARGE}{D\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+D\+\_\+\+ELEC\+\_\+\+CHARGE = -\/1. / 3.}
+
+
+
+Electric charge of down quark (in units of e) 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a6701f5b3640b4db00af5da41a2018533}\label{namespaceQuantaPlus_a6701f5b3640b4db00af5da41a2018533}} 
+\index{QuantaPlus@{QuantaPlus}!ELECTRON\_MASS@{ELECTRON\_MASS}}
+\index{ELECTRON\_MASS@{ELECTRON\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{ELECTRON\_MASS}{ELECTRON\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+ELECTRON\+\_\+\+MASS = 0.\+510998910e-\/3}
+
+
+
+PDG2008. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_ac934e204e1fcd5356a4d6afeb26373cb}\label{namespaceQuantaPlus_ac934e204e1fcd5356a4d6afeb26373cb}} 
+\index{QuantaPlus@{QuantaPlus}!F1@{F1}}
+\index{F1@{F1}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{F1}{F1}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::\+F1\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 0.5, 0.0,}
+\DoxyCodeLine{                    0.5, 0.0, 0.0,}
+\DoxyCodeLine{                    0.0, 0.0, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a6a8fb03ce7549554d55f0d7c94950429}\label{namespaceQuantaPlus_a6a8fb03ce7549554d55f0d7c94950429}} 
+\index{QuantaPlus@{QuantaPlus}!F2@{F2}}
+\index{F2@{F2}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{F2}{F2}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::\+F2\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.00, -\/i/2., 0.00,}
+\DoxyCodeLine{                            i/2.,  0.00, 0.00,}
+\DoxyCodeLine{                            0.00,  0.00, 0.00\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a264a4dbe320cf321e846ddd0122d91c5}\label{namespaceQuantaPlus_a264a4dbe320cf321e846ddd0122d91c5}} 
+\index{QuantaPlus@{QuantaPlus}!F3@{F3}}
+\index{F3@{F3}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{F3}{F3}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::\+F3\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.5, 0.0, 0.0,}
+\DoxyCodeLine{                0.0,-\/0.5, 0.0,}
+\DoxyCodeLine{                0.0, 0.0, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a9cd1361401440df6fd86556fdbf7301b}\label{namespaceQuantaPlus_a9cd1361401440df6fd86556fdbf7301b}} 
+\index{QuantaPlus@{QuantaPlus}!F4@{F4}}
+\index{F4@{F4}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{F4}{F4}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::\+F4\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 0.0, 0.5,}
+\DoxyCodeLine{                0.0, 0.0, 0.0,}
+\DoxyCodeLine{                0.5, 0.0, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a9ed134b9612e72546c5791a47b66b15b}\label{namespaceQuantaPlus_a9ed134b9612e72546c5791a47b66b15b}} 
+\index{QuantaPlus@{QuantaPlus}!F5@{F5}}
+\index{F5@{F5}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{F5}{F5}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::\+F5\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 0.0,-\/i/2.,}
+\DoxyCodeLine{                0.0, 0.0,  0.0,}
+\DoxyCodeLine{               i/2., 0.0,  0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a34cffb9f9e5280ef989e18c495b49880}\label{namespaceQuantaPlus_a34cffb9f9e5280ef989e18c495b49880}} 
+\index{QuantaPlus@{QuantaPlus}!F6@{F6}}
+\index{F6@{F6}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{F6}{F6}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::\+F6\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 0.0, 0.0,}
+\DoxyCodeLine{                0.0, 0.0, 0.5,}
+\DoxyCodeLine{                0.0, 0.5, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a6d8696af572dede673862b5b70b3be13}\label{namespaceQuantaPlus_a6d8696af572dede673862b5b70b3be13}} 
+\index{QuantaPlus@{QuantaPlus}!F7@{F7}}
+\index{F7@{F7}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{F7}{F7}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::\+F7\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0,  0.0,  0.0,}
+\DoxyCodeLine{                0.0,  0.0,-\/i/2.,}
+\DoxyCodeLine{                0.0, i/2.,  0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_ac5c0f1c523821acc756e2a3258ae47b9}\label{namespaceQuantaPlus_ac5c0f1c523821acc756e2a3258ae47b9}} 
+\index{QuantaPlus@{QuantaPlus}!F8@{F8}}
+\index{F8@{F8}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{F8}{F8}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::\+F8\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{ 0.5/sqrt(3), 0.0000000000, 0.0000000000000,}
+\DoxyCodeLine{                 0.000000000, 0.5/sqrt(3) , 0.0000000000000,}
+\DoxyCodeLine{                 0.000000000, 0.0000000000, -\/2.*0.5/sqrt(3)\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a0a080b8e5c088d90d356900b62ba5ca3}\label{namespaceQuantaPlus_a0a080b8e5c088d90d356900b62ba5ca3}} 
+\index{QuantaPlus@{QuantaPlus}!FINE\_STRUCTURE\_CONSTANT@{FINE\_STRUCTURE\_CONSTANT}}
+\index{FINE\_STRUCTURE\_CONSTANT@{FINE\_STRUCTURE\_CONSTANT}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{FINE\_STRUCTURE\_CONSTANT}{FINE\_STRUCTURE\_CONSTANT}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+FINE\+\_\+\+STRUCTURE\+\_\+\+CONSTANT = 1. / 137.\+035999679}
+
+
+
+PDG2008. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_ac757892e05d62aa187c2de65b261be9e}\label{namespaceQuantaPlus_ac757892e05d62aa187c2de65b261be9e}} 
+\index{QuantaPlus@{QuantaPlus}!HBarC@{HBarC}}
+\index{HBarC@{HBarC}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{HBarC}{HBarC}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+HBarC = 197.\+3269631}
+
+
+
+Conversion constant $\hbar c$ in $\mathrm{MeV}\cdot\mathrm{fm}$ {\bfseries [Amsler\+:2008zzb]}. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a8c33c68434f776c310c3b1e306a03c0b}\label{namespaceQuantaPlus_a8c33c68434f776c310c3b1e306a03c0b}} 
+\index{QuantaPlus@{QuantaPlus}!HBarC2@{HBarC2}}
+\index{HBarC2@{HBarC2}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{HBarC2}{HBarC2}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+HBar\+C2 = 0.\+389379304}
+
+
+
+Conversion constant $(\hbar c)^2$ in $\mathrm{GeV}^2\cdot\mathrm{mbarn}$ {\bfseries [Amsler\+:2008zzb]}. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a691c245676fefdd2dbd306a1795f46e1}\label{namespaceQuantaPlus_a691c245676fefdd2dbd306a1795f46e1}} 
+\index{QuantaPlus@{QuantaPlus}!HIGGS\_VEV@{HIGGS\_VEV}}
+\index{HIGGS\_VEV@{HIGGS\_VEV}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{HIGGS\_VEV}{HIGGS\_VEV}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+HIGGS\+\_\+\+VEV = 246.\+22}
+
+
+
+Higgs vacuum expectation value. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a9883a82a37225f63efcaca6c5ed99ab0}\label{namespaceQuantaPlus_a9883a82a37225f63efcaca6c5ed99ab0}} 
+\index{QuantaPlus@{QuantaPlus}!lambda1@{lambda1}}
+\index{lambda1@{lambda1}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{lambda1}{lambda1}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::lambda1\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 1.0, 0.0,}
+\DoxyCodeLine{                                 1.0, 0.0, 0.0,}
+\DoxyCodeLine{                                 0.0, 0.0, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a2b0645cd4bf3c12dc7ff6d2d2ad9de79}\label{namespaceQuantaPlus_a2b0645cd4bf3c12dc7ff6d2d2ad9de79}} 
+\index{QuantaPlus@{QuantaPlus}!lambda2@{lambda2}}
+\index{lambda2@{lambda2}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{lambda2}{lambda2}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::lambda2\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0,  -\/i, 0.0,}
+\DoxyCodeLine{                                   i, 0.0, 0.0,}
+\DoxyCodeLine{                                 0.0, 0.0, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_ac74d11bec1fd85924c91a848a5b0f035}\label{namespaceQuantaPlus_ac74d11bec1fd85924c91a848a5b0f035}} 
+\index{QuantaPlus@{QuantaPlus}!lambda3@{lambda3}}
+\index{lambda3@{lambda3}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{lambda3}{lambda3}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::lambda3\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{1.0,  0.0, 0.0,}
+\DoxyCodeLine{                                 0.0, -\/1.0, 0.0,}
+\DoxyCodeLine{                                 0.0,  0.0, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_abd0b650814a0ee4ee7414e1dd37c4517}\label{namespaceQuantaPlus_abd0b650814a0ee4ee7414e1dd37c4517}} 
+\index{QuantaPlus@{QuantaPlus}!lambda4@{lambda4}}
+\index{lambda4@{lambda4}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{lambda4}{lambda4}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::lambda4\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 0.0, 1.0,}
+\DoxyCodeLine{                                 0.0, 0.0, 0.0,}
+\DoxyCodeLine{                                 1.0, 0.0, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a0f0996c79faa68cef8c715601677e6ac}\label{namespaceQuantaPlus_a0f0996c79faa68cef8c715601677e6ac}} 
+\index{QuantaPlus@{QuantaPlus}!lambda5@{lambda5}}
+\index{lambda5@{lambda5}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{lambda5}{lambda5}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::lambda5\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 0.0,  -\/i,}
+\DoxyCodeLine{                             0.0, 0.0, 0.0,}
+\DoxyCodeLine{                           i, 0.0, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a2e621d77ea2d9a0919ebb82db3692b16}\label{namespaceQuantaPlus_a2e621d77ea2d9a0919ebb82db3692b16}} 
+\index{QuantaPlus@{QuantaPlus}!lambda6@{lambda6}}
+\index{lambda6@{lambda6}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{lambda6}{lambda6}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::lambda6\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 0.0, 0.0,}
+\DoxyCodeLine{                                 0.0, 0.0, 1.0,}
+\DoxyCodeLine{                                 0.0, 1.0 ,0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a55b40d1f458157884973578af7dcc94f}\label{namespaceQuantaPlus_a55b40d1f458157884973578af7dcc94f}} 
+\index{QuantaPlus@{QuantaPlus}!lambda7@{lambda7}}
+\index{lambda7@{lambda7}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{lambda7}{lambda7}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::lambda7\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.0, 0.0, 0.0,}
+\DoxyCodeLine{                                 0.0, 0.0,  -\/i,}
+\DoxyCodeLine{                                 0.0,   i, 0.0\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a014c675be083d73e09a1ea75308a42ea}\label{namespaceQuantaPlus_a014c675be083d73e09a1ea75308a42ea}} 
+\index{QuantaPlus@{QuantaPlus}!lambda8@{lambda8}}
+\index{lambda8@{lambda8}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{lambda8}{lambda8}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::lambda8\mbox{[}9\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0.5773502691896258, 0.0000000000000000,   0.0000000000000000, }
+\DoxyCodeLine{                                0.0000000000000000, 0.5773502691896258,   0.0000000000000000,}
+\DoxyCodeLine{                                0.0000000000000000, 0.0000000000000000, -\/ 1.1547005383792517\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_ab21334d6f721ad6390f194ea824e1ddd}\label{namespaceQuantaPlus_ab21334d6f721ad6390f194ea824e1ddd}} 
+\index{QuantaPlus@{QuantaPlus}!MUON\_MASS@{MUON\_MASS}}
+\index{MUON\_MASS@{MUON\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{MUON\_MASS}{MUON\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+MUON\+\_\+\+MASS = 105.\+658367e-\/3}
+
+
+
+PDG2008. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_ab4ffa55a94c58b624a4b39db2ea15fdf}\label{namespaceQuantaPlus_ab4ffa55a94c58b624a4b39db2ea15fdf}} 
+\index{QuantaPlus@{QuantaPlus}!PI\_ZERO\_MASS@{PI\_ZERO\_MASS}}
+\index{PI\_ZERO\_MASS@{PI\_ZERO\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{PI\_ZERO\_MASS}{PI\_ZERO\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+PI\+\_\+\+ZERO\+\_\+\+MASS = 0.\+1349766}
+
+
+
+PDG2010. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_acb86a990234aa3058f8b49288b0a38f1}\label{namespaceQuantaPlus_acb86a990234aa3058f8b49288b0a38f1}} 
+\index{QuantaPlus@{QuantaPlus}!PLANCK\_CONSTANT@{PLANCK\_CONSTANT}}
+\index{PLANCK\_CONSTANT@{PLANCK\_CONSTANT}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{PLANCK\_CONSTANT}{PLANCK\_CONSTANT}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+PLANCK\+\_\+\+CONSTANT = 6.\+62606896 $\ast$ 1.e-\/34}
+
+
+
+PDG2009. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a9c1ccd8377ebcce6737f8417a1b65949}\label{namespaceQuantaPlus_a9c1ccd8377ebcce6737f8417a1b65949}} 
+\index{QuantaPlus@{QuantaPlus}!PROTON\_MASS@{PROTON\_MASS}}
+\index{PROTON\_MASS@{PROTON\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{PROTON\_MASS}{PROTON\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+PROTON\+\_\+\+MASS = 0.\+938272013}
+
+
+
+PDG2010. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_aec805021fbc1d39e00921c56409056b4}\label{namespaceQuantaPlus_aec805021fbc1d39e00921c56409056b4}} 
+\index{QuantaPlus@{QuantaPlus}!QUARK\_BOTTOM\_MASS@{QUARK\_BOTTOM\_MASS}}
+\index{QUARK\_BOTTOM\_MASS@{QUARK\_BOTTOM\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{QUARK\_BOTTOM\_MASS}{QUARK\_BOTTOM\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+QUARK\+\_\+\+BOTTOM\+\_\+\+MASS = 4.\+19}
+
+
+
+PDG2010. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a2b6e8a0adf88a1dfccaa507d63e19030}\label{namespaceQuantaPlus_a2b6e8a0adf88a1dfccaa507d63e19030}} 
+\index{QuantaPlus@{QuantaPlus}!QUARK\_CHARM\_MASS@{QUARK\_CHARM\_MASS}}
+\index{QUARK\_CHARM\_MASS@{QUARK\_CHARM\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{QUARK\_CHARM\_MASS}{QUARK\_CHARM\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+QUARK\+\_\+\+CHARM\+\_\+\+MASS = 1.\+29}
+
+
+
+PDG2010. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a52973864780f357502114abe4e557294}\label{namespaceQuantaPlus_a52973864780f357502114abe4e557294}} 
+\index{QuantaPlus@{QuantaPlus}!QUARK\_DOWN\_MASS@{QUARK\_DOWN\_MASS}}
+\index{QUARK\_DOWN\_MASS@{QUARK\_DOWN\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{QUARK\_DOWN\_MASS}{QUARK\_DOWN\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+QUARK\+\_\+\+DOWN\+\_\+\+MASS = 0.\+0049}
+
+
+
+PDG2010. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a4adae1eb5cbf8698755aec245373a3db}\label{namespaceQuantaPlus_a4adae1eb5cbf8698755aec245373a3db}} 
+\index{QuantaPlus@{QuantaPlus}!QUARK\_STRANGE\_MASS@{QUARK\_STRANGE\_MASS}}
+\index{QUARK\_STRANGE\_MASS@{QUARK\_STRANGE\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{QUARK\_STRANGE\_MASS}{QUARK\_STRANGE\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+QUARK\+\_\+\+STRANGE\+\_\+\+MASS = 0.\+1}
+
+
+
+PDG2010. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a1c85d98b1b7c7d367dfd68b98ebfca07}\label{namespaceQuantaPlus_a1c85d98b1b7c7d367dfd68b98ebfca07}} 
+\index{QuantaPlus@{QuantaPlus}!QUARK\_TOP\_MASS@{QUARK\_TOP\_MASS}}
+\index{QUARK\_TOP\_MASS@{QUARK\_TOP\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{QUARK\_TOP\_MASS}{QUARK\_TOP\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+QUARK\+\_\+\+TOP\+\_\+\+MASS = 173.\+21}
+
+
+
+172.\+9; PDG2010 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_ab033a3ca10df2fd92a9b85fc9800dd6d}\label{namespaceQuantaPlus_ab033a3ca10df2fd92a9b85fc9800dd6d}} 
+\index{QuantaPlus@{QuantaPlus}!QUARK\_UP\_MASS@{QUARK\_UP\_MASS}}
+\index{QUARK\_UP\_MASS@{QUARK\_UP\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{QUARK\_UP\_MASS}{QUARK\_UP\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+QUARK\+\_\+\+UP\+\_\+\+MASS = 0.\+0024}
+
+
+
+PDG2010. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a288ec8a9b9839e7a1728897604d73d45}\label{namespaceQuantaPlus_a288ec8a9b9839e7a1728897604d73d45}} 
+\index{QuantaPlus@{QuantaPlus}!S2\_ELEC\_CHARGE@{S2\_ELEC\_CHARGE}}
+\index{S2\_ELEC\_CHARGE@{S2\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{S2\_ELEC\_CHARGE}{S2\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+S2\+\_\+\+ELEC\+\_\+\+CHARGE = 1. / 9.}
+
+
+
+Square of electric charge of strange quark. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_aeda4e7d3a227593f7e79fa53b88be777}\label{namespaceQuantaPlus_aeda4e7d3a227593f7e79fa53b88be777}} 
+\index{QuantaPlus@{QuantaPlus}!S\_ELEC\_CHARGE@{S\_ELEC\_CHARGE}}
+\index{S\_ELEC\_CHARGE@{S\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{S\_ELEC\_CHARGE}{S\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+S\+\_\+\+ELEC\+\_\+\+CHARGE = -\/1. / 3.}
+
+
+
+Electric charge of strange quark (in units of e) 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a0750e535a4303138a69f3fa7adace3ba}\label{namespaceQuantaPlus_a0750e535a4303138a69f3fa7adace3ba}} 
+\index{QuantaPlus@{QuantaPlus}!sigma1@{sigma1}}
+\index{sigma1@{sigma1}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{sigma1}{sigma1}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::sigma1\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0., 1.,}
+\DoxyCodeLine{                1., 0.\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a095b981b4b1ae23850b95e019af092e3}\label{namespaceQuantaPlus_a095b981b4b1ae23850b95e019af092e3}} 
+\index{QuantaPlus@{QuantaPlus}!sigma2@{sigma2}}
+\index{sigma2@{sigma2}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{sigma2}{sigma2}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::sigma2\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{0., i,}
+\DoxyCodeLine{                   -\/i, 0.\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_a222b8e659d78a9fc097411a35e67e9d2}\label{namespaceQuantaPlus_a222b8e659d78a9fc097411a35e67e9d2}} 
+\index{QuantaPlus@{QuantaPlus}!sigma3@{sigma3}}
+\index{sigma3@{sigma3}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{sigma3}{sigma3}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ Quanta\+Plus\+::sigma3\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{1., 0.,}
+\DoxyCodeLine{                                0.,-\/1.\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceQuantaPlus_ab0a809fee2ac98783ddfa6053318800c}\label{namespaceQuantaPlus_ab0a809fee2ac98783ddfa6053318800c}} 
+\index{QuantaPlus@{QuantaPlus}!SPEED\_OF\_LIGHT@{SPEED\_OF\_LIGHT}}
+\index{SPEED\_OF\_LIGHT@{SPEED\_OF\_LIGHT}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{SPEED\_OF\_LIGHT}{SPEED\_OF\_LIGHT}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+SPEED\+\_\+\+OF\+\_\+\+LIGHT = 299792458}
+
+
+
+PDG2008. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a68b5099e726cc6cc941319a58ffa2c2b}\label{namespaceQuantaPlus_a68b5099e726cc6cc941319a58ffa2c2b}} 
+\index{QuantaPlus@{QuantaPlus}!T2\_ELEC\_CHARGE@{T2\_ELEC\_CHARGE}}
+\index{T2\_ELEC\_CHARGE@{T2\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{T2\_ELEC\_CHARGE}{T2\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+T2\+\_\+\+ELEC\+\_\+\+CHARGE = 1. / 9.}
+
+
+
+Square of electric charge of top quark. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a52faf06d62a0dc7fb56d03dbc792b2a8}\label{namespaceQuantaPlus_a52faf06d62a0dc7fb56d03dbc792b2a8}} 
+\index{QuantaPlus@{QuantaPlus}!T\_ELEC\_CHARGE@{T\_ELEC\_CHARGE}}
+\index{T\_ELEC\_CHARGE@{T\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{T\_ELEC\_CHARGE}{T\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+T\+\_\+\+ELEC\+\_\+\+CHARGE = 2. / 3.}
+
+
+
+Electric charge of top quark (in units of e) 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a31663a6aff9ecc02b5452f432a6e1d75}\label{namespaceQuantaPlus_a31663a6aff9ecc02b5452f432a6e1d75}} 
+\index{QuantaPlus@{QuantaPlus}!TAU\_MASS@{TAU\_MASS}}
+\index{TAU\_MASS@{TAU\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{TAU\_MASS}{TAU\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+TAU\+\_\+\+MASS = 1.\+77684}
+
+
+
+PDG2008. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a8c3195473baf4f42bee4c3083f42296f}\label{namespaceQuantaPlus_a8c3195473baf4f42bee4c3083f42296f}} 
+\index{QuantaPlus@{QuantaPlus}!U2\_ELEC\_CHARGE@{U2\_ELEC\_CHARGE}}
+\index{U2\_ELEC\_CHARGE@{U2\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{U2\_ELEC\_CHARGE}{U2\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+U2\+\_\+\+ELEC\+\_\+\+CHARGE = 4. / 9.}
+
+
+
+Square of electric charge of up quark. 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a3bf387f0f8eafc49a499f4b4fdfb6f65}\label{namespaceQuantaPlus_a3bf387f0f8eafc49a499f4b4fdfb6f65}} 
+\index{QuantaPlus@{QuantaPlus}!U\_ELEC\_CHARGE@{U\_ELEC\_CHARGE}}
+\index{U\_ELEC\_CHARGE@{U\_ELEC\_CHARGE}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{U\_ELEC\_CHARGE}{U\_ELEC\_CHARGE}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+U\+\_\+\+ELEC\+\_\+\+CHARGE = 2. / 3.}
+
+
+
+Electric charge of up quark (in units of e) 
+
+\mbox{\Hypertarget{namespaceQuantaPlus_a583465fc37b4ebbb2bee0ea0c35ec907}\label{namespaceQuantaPlus_a583465fc37b4ebbb2bee0ea0c35ec907}} 
+\index{QuantaPlus@{QuantaPlus}!Z\_BOSON\_MASS@{Z\_BOSON\_MASS}}
+\index{Z\_BOSON\_MASS@{Z\_BOSON\_MASS}!QuantaPlus@{QuantaPlus}}
+\doxysubsubsection{\texorpdfstring{Z\_BOSON\_MASS}{Z\_BOSON\_MASS}}
+{\footnotesize\ttfamily const double Quanta\+Plus\+::\+Z\+\_\+\+BOSON\+\_\+\+MASS = 91.\+1876}
+
+
+
+PDG2010. 
+

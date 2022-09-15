@@ -1,0 +1,272 @@
+\hypertarget{braket_8hpp}{}\doxysection{quantaplus/braket.hpp File Reference}
+\label{braket_8hpp}\index{quantaplus/braket.hpp@{quantaplus/braket.hpp}}
+
+
+Bra\+Ket.\+hpp is a part of \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} provides support for \mbox{\hyperlink{braket_8h_source}{braket.\+h}}.  
+
+
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename U $>$ }\\void \mbox{\hyperlink{braket_8hpp_a861a32e30741e5db945c913a94007e20}{Result\+Print}} (Bra$<$ U $>$ \&bra)
+\begin{DoxyCompactList}\small\item\em Print \texorpdfstring{$<$}{<}Bra$\vert$ elements in fractional symbolic form \char`\"{}z = n/d + in/d\char`\"{}, where i = sqrt\mbox{[}-\/1\mbox{]};. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\void \mbox{\hyperlink{braket_8hpp_a951926027e8912ead8d8441873ff792e}{NResult\+Print}} (Bra$<$ U $>$ \&bra)
+\begin{DoxyCompactList}\small\item\em Print \texorpdfstring{$<$}{<}Bra$\vert$ elements in fractional numeric form. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\void \mbox{\hyperlink{braket_8hpp_aa6459ed1b3a9e72f39494970e6a863b5}{Result\+Print}} (Ket$<$ U $>$ \&ket)
+\begin{DoxyCompactList}\small\item\em An overlaoded version to print $\vert$\+Ket\texorpdfstring{$>$}{>} elements fractional symbolic form\+: \char`\"{}z = n/d + in/d\char`\"{}, where i = sqrt\mbox{[}-\/1\mbox{]};. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename U $>$ }\\void \mbox{\hyperlink{braket_8hpp_a8eb37bafc417d984a4002ccaca22e389}{NResult\+Print}} (Ket$<$ U $>$ \&ket)
+\begin{DoxyCompactList}\small\item\em An overlaoded version to print $\vert$\+Ket\texorpdfstring{$>$}{>} elements in fractional numeric form. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{braket_8hpp_af0545d2aa66edf087bc2954d9a196981}{literal\+\_\+printf}} (const char $\ast$fmt...)
+\begin{DoxyCompactList}\small\item\em Function to print \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} variables (Ket, Bra and C-\/numbers) in a symbolic form. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, 1 $>$ \mbox{\hyperlink{braket_8hpp_a70cd510b5961285bd618666bd1ca1f91}{Quantum\+Eigen\+Vector}} (Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mat, const int \&col\+\_\+number)
+\begin{DoxyCompactList}\small\item\em compute specific Eigen vectors for Eigen\+::\+Matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \mbox{\hyperlink{braket_8hpp_ae99ba4ac94b9f5e575e95d1d10b349e8}{Quantum\+Eigen\+Vector}} (Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em overloaded version to compute all the Eigen vectors for Eigen\+::\+Matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{braket_8hpp_a17d0c190b5f4a652d2a2f99dab2b234d}{Quantum\+Eigen\+Value}} (Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mat, const int \&i)
+\begin{DoxyCompactList}\small\item\em compute specific Eigen values for Eigen\+::\+Matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \mbox{\hyperlink{braket_8hpp_a22984e5dcf0bdcd3051013ddb4bbc02e}{Quantum\+Eigen\+Value}} (const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mat)
+\begin{DoxyCompactList}\small\item\em overloaded version to compute all Eigen values for Eigen\+::\+Matrix. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Bra$<$ T $>$ \mbox{\hyperlink{braket_8hpp_a14ba0b4c2ae4f6414a9ac7df566c1a43}{Dual\+Conj}} (const Ket$<$ T $>$ \&ket)
+\begin{DoxyCompactList}\small\item\em transform the Ket vector into it\textquotesingle{}s Bra dual Conjugate. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\Ket$<$ T $>$ \mbox{\hyperlink{braket_8hpp_af910b628858779b9da3c1f81d4de769b}{Dual\+Conj}} (const Bra$<$ T $>$ \&bra)
+\begin{DoxyCompactList}\small\item\em transform the Bra vector into it\textquotesingle{}s Ket dual Conjugate. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{braket_8hpp_a088212ab42e51d0c522a6e5c4e499b85}{Bra\+Ket}} (const Bra$<$ T $>$ \&bra, const Ket$<$ T $>$ \&ket)
+\begin{DoxyCompactList}\small\item\em Scalar product for Bra and Ket vectors. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{braket_8hpp_aa2ce16cf5b41d44d6b8b54bc5fba59bf}{Expect\+Value}} (const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mat, const Ket$<$ T $>$ \&ket)
+\begin{DoxyCompactList}\small\item\em Compute the expectation value of given operator and normalized quantum state ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bra\+Ket.\+hpp is a part of \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} provides support for \mbox{\hyperlink{braket_8h_source}{braket.\+h}}. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{braket_8hpp_a088212ab42e51d0c522a6e5c4e499b85}\label{braket_8hpp_a088212ab42e51d0c522a6e5c4e499b85}} 
+\index{braket.hpp@{braket.hpp}!BraKet@{BraKet}}
+\index{BraKet@{BraKet}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{BraKet()}{BraKet()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T Bra\+Ket (\begin{DoxyParamCaption}\item[{const Bra$<$ T $>$ \&}]{bra,  }\item[{const Ket$<$ T $>$ \&}]{ket }\end{DoxyParamCaption})}
+
+
+
+Scalar product for Bra and Ket vectors. 
+
+\DoxyHorRuler{0}
+ \begin{DoxyReturn}{Returns}
+generic type value ( int, double or complex). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{braket_8hpp_af910b628858779b9da3c1f81d4de769b}\label{braket_8hpp_af910b628858779b9da3c1f81d4de769b}} 
+\index{braket.hpp@{braket.hpp}!DualConj@{DualConj}}
+\index{DualConj@{DualConj}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{DualConj()}{DualConj()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Ket$<$ T $>$ Dual\+Conj (\begin{DoxyParamCaption}\item[{const Bra$<$ T $>$ \&}]{bra }\end{DoxyParamCaption})}
+
+
+
+transform the Bra vector into it\textquotesingle{}s Ket dual Conjugate. 
+
+\DoxyHorRuler{0}
+ \mbox{\Hypertarget{braket_8hpp_a14ba0b4c2ae4f6414a9ac7df566c1a43}\label{braket_8hpp_a14ba0b4c2ae4f6414a9ac7df566c1a43}} 
+\index{braket.hpp@{braket.hpp}!DualConj@{DualConj}}
+\index{DualConj@{DualConj}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{DualConj()}{DualConj()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Bra$<$ T $>$ Dual\+Conj (\begin{DoxyParamCaption}\item[{const Ket$<$ T $>$ \&}]{ket }\end{DoxyParamCaption})}
+
+
+
+transform the Ket vector into it\textquotesingle{}s Bra dual Conjugate. 
+
+\DoxyHorRuler{0}
+ \mbox{\Hypertarget{braket_8hpp_aa2ce16cf5b41d44d6b8b54bc5fba59bf}\label{braket_8hpp_aa2ce16cf5b41d44d6b8b54bc5fba59bf}} 
+\index{braket.hpp@{braket.hpp}!ExpectValue@{ExpectValue}}
+\index{ExpectValue@{ExpectValue}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{ExpectValue()}{ExpectValue()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T Expect\+Value (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&}]{mat,  }\item[{const Ket$<$ T $>$ \&}]{ket }\end{DoxyParamCaption})}
+
+
+
+Compute the expectation value of given operator and normalized quantum state ~\newline
+ 
+
+\DoxyHorRuler{0}
+ \mbox{\Hypertarget{braket_8hpp_af0545d2aa66edf087bc2954d9a196981}\label{braket_8hpp_af0545d2aa66edf087bc2954d9a196981}} 
+\index{braket.hpp@{braket.hpp}!literal\_printf@{literal\_printf}}
+\index{literal\_printf@{literal\_printf}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{literal\_printf()}{literal\_printf()}}
+{\footnotesize\ttfamily void literal\+\_\+printf (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmt... }\end{DoxyParamCaption})}
+
+
+
+Function to print \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} variables (Ket, Bra and C-\/numbers) in a symbolic form. 
+
+\DoxyHorRuler{0}
+ 
+
+literal\+\_\+printf is a \char`\"{}variadic function\char`\"{} takes a variable number of arguments, and like normal printf it needs format specifiers to define the type of data to be printed. ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em fmt...} & is a user defined format specifier.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Ket<std::complex<double>> A(3); \textcolor{comment}{// deceleration of complex ket vector |A> with three rows. }}
+\DoxyCodeLine{Bra<std::complex<double>> B(3); \textcolor{comment}{// deceleration of complex Bra vector <B| with three columns.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{A <<1.-\/2.5i, 1i,-\/0.25i;  \textcolor{comment}{// initialization of A, |A> = (1-\/2.5i, i, -\/0.25i), column vector.}}
+\DoxyCodeLine{B << 2.5, 3.7, 2.5+3.5i; \textcolor{comment}{// initialization of B, <B| = (2.5, 3.7, 2.5+3.5i), row vector.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{braket_8hpp_af0545d2aa66edf087bc2954d9a196981}{literal\_printf}}(\textcolor{stringliteral}{"{}kb"{}}, A, B); \textcolor{comment}{// use format specifier 'kb' to literally print (Ket) A and (Bra) B, respectively. }}
+
+\end{DoxyCode}
+
+
+\begin{DoxyVerb}|Ket> =
+1-5/2i  
+1i  
+-1/4i
+
+<Bra| = 5/2 37/10   5/2+7/2i    
+\end{DoxyVerb}
+ \mbox{\Hypertarget{braket_8hpp_a951926027e8912ead8d8441873ff792e}\label{braket_8hpp_a951926027e8912ead8d8441873ff792e}} 
+\index{braket.hpp@{braket.hpp}!NResultPrint@{NResultPrint}}
+\index{NResultPrint@{NResultPrint}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{NResultPrint()}{NResultPrint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename U $>$ \\
+void NResult\+Print (\begin{DoxyParamCaption}\item[{Bra$<$ U $>$ \&}]{bra }\end{DoxyParamCaption})}
+
+
+
+Print \texorpdfstring{$<$}{<}Bra$\vert$ elements in fractional numeric form. 
+
+\DoxyHorRuler{0}
+ \mbox{\Hypertarget{braket_8hpp_a8eb37bafc417d984a4002ccaca22e389}\label{braket_8hpp_a8eb37bafc417d984a4002ccaca22e389}} 
+\index{braket.hpp@{braket.hpp}!NResultPrint@{NResultPrint}}
+\index{NResultPrint@{NResultPrint}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{NResultPrint()}{NResultPrint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename U $>$ \\
+void NResult\+Print (\begin{DoxyParamCaption}\item[{Ket$<$ U $>$ \&}]{ket }\end{DoxyParamCaption})}
+
+
+
+An overlaoded version to print $\vert$\+Ket\texorpdfstring{$>$}{>} elements in fractional numeric form. 
+
+\DoxyHorRuler{0}
+ \mbox{\Hypertarget{braket_8hpp_a22984e5dcf0bdcd3051013ddb4bbc02e}\label{braket_8hpp_a22984e5dcf0bdcd3051013ddb4bbc02e}} 
+\index{braket.hpp@{braket.hpp}!QuantumEigenValue@{QuantumEigenValue}}
+\index{QuantumEigenValue@{QuantumEigenValue}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{QuantumEigenValue()}{QuantumEigenValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ Quantum\+Eigen\+Value (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+
+
+overloaded version to compute all Eigen values for Eigen\+::\+Matrix. 
+
+\DoxyHorRuler{0}
+ 
+\begin{DoxyParams}{Parameters}
+{\em mt} & is a Dynamic-\/size Eigen\+::\+Matrix. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+all eigenvalues for a given matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{braket_8hpp_a17d0c190b5f4a652d2a2f99dab2b234d}\label{braket_8hpp_a17d0c190b5f4a652d2a2f99dab2b234d}} 
+\index{braket.hpp@{braket.hpp}!QuantumEigenValue@{QuantumEigenValue}}
+\index{QuantumEigenValue@{QuantumEigenValue}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{QuantumEigenValue()}{QuantumEigenValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T Quantum\+Eigen\+Value (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&}]{mat,  }\item[{const int \&}]{i }\end{DoxyParamCaption})}
+
+
+
+compute specific Eigen values for Eigen\+::\+Matrix. 
+
+\DoxyHorRuler{0}
+ 
+\begin{DoxyParams}{Parameters}
+{\em mt} & is Dynamic-\/size Eigen\+::\+Matrix. \\
+\hline
+{\em i} & the selector var to pick the specified Eigen value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+selected eigenvalues for a given matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{braket_8hpp_ae99ba4ac94b9f5e575e95d1d10b349e8}\label{braket_8hpp_ae99ba4ac94b9f5e575e95d1d10b349e8}} 
+\index{braket.hpp@{braket.hpp}!QuantumEigenVector@{QuantumEigenVector}}
+\index{QuantumEigenVector@{QuantumEigenVector}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{QuantumEigenVector()}{QuantumEigenVector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ Quantum\+Eigen\+Vector (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&}]{mat }\end{DoxyParamCaption})}
+
+
+
+overloaded version to compute all the Eigen vectors for Eigen\+::\+Matrix. 
+
+\DoxyHorRuler{0}
+ 
+\begin{DoxyParams}{Parameters}
+{\em mt} & is a square Eigen\+::\+Matrix with Dynamic-\/size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+eigenvectors for a given matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{braket_8hpp_a70cd510b5961285bd618666bd1ca1f91}\label{braket_8hpp_a70cd510b5961285bd618666bd1ca1f91}} 
+\index{braket.hpp@{braket.hpp}!QuantumEigenVector@{QuantumEigenVector}}
+\index{QuantumEigenVector@{QuantumEigenVector}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{QuantumEigenVector()}{QuantumEigenVector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, 1 $>$ Quantum\+Eigen\+Vector (\begin{DoxyParamCaption}\item[{Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&}]{mat,  }\item[{const int \&}]{col\+\_\+number }\end{DoxyParamCaption})}
+
+
+
+compute specific Eigen vectors for Eigen\+::\+Matrix. 
+
+\DoxyHorRuler{0}
+ 
+\begin{DoxyParams}{Parameters}
+{\em mt} & is a square Eigen\+::\+Matrix with Dynamic-\/size. \\
+\hline
+{\em col\+\_\+number} & is the column of the selected eigen vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Specified column of eigenvector for a given matrix. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{braket_8hpp_a861a32e30741e5db945c913a94007e20}\label{braket_8hpp_a861a32e30741e5db945c913a94007e20}} 
+\index{braket.hpp@{braket.hpp}!ResultPrint@{ResultPrint}}
+\index{ResultPrint@{ResultPrint}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{ResultPrint()}{ResultPrint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename U $>$ \\
+void Result\+Print (\begin{DoxyParamCaption}\item[{Bra$<$ U $>$ \&}]{bra }\end{DoxyParamCaption})}
+
+
+
+Print \texorpdfstring{$<$}{<}Bra$\vert$ elements in fractional symbolic form \char`\"{}z = n/d + in/d\char`\"{}, where i = sqrt\mbox{[}-\/1\mbox{]};. 
+
+\DoxyHorRuler{0}
+ \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{utilities_8h_a465fa2a9548c330821047927c5fc2830}{Complex\+Num\+Print( std\+::complex$<$double$>$ complex\+\_\+number, bool numerical\+\_\+flag)}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{braket_8hpp_aa6459ed1b3a9e72f39494970e6a863b5}\label{braket_8hpp_aa6459ed1b3a9e72f39494970e6a863b5}} 
+\index{braket.hpp@{braket.hpp}!ResultPrint@{ResultPrint}}
+\index{ResultPrint@{ResultPrint}!braket.hpp@{braket.hpp}}
+\doxysubsubsection{\texorpdfstring{ResultPrint()}{ResultPrint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename U $>$ \\
+void Result\+Print (\begin{DoxyParamCaption}\item[{Ket$<$ U $>$ \&}]{ket }\end{DoxyParamCaption})}
+
+
+
+An overlaoded version to print $\vert$\+Ket\texorpdfstring{$>$}{>} elements fractional symbolic form\+: \char`\"{}z = n/d + in/d\char`\"{}, where i = sqrt\mbox{[}-\/1\mbox{]};. 
+
+\DoxyHorRuler{0}
+ 

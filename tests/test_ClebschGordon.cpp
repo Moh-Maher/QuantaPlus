@@ -6,8 +6,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          
 *******************************************************************************************/
 #include<iostream>
-#include"cgc.h"
-#include"timer.h" 
+#include"../quantaplus/cgc.h"
+#include"../quantaplus/timer.h" 
 
 using namespace QuantaPlus;
 int main(){

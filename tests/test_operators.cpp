@@ -8,9 +8,9 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<complex>
 //#include"braket.h"
-#include"operators.h"
+#include"../quantaplus/operators.h"
  
-#include"timer.h"
+#include"../quantaplus/timer.h"
  
  
 using namespace QuantaPlus;

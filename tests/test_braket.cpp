@@ -1,4 +1,4 @@
-/*******************************************************************************************
+ /*******************************************************************************************
 testing " BraKet.h".
 by:  Mohammed Maher Abdelrahim Mohammed
      UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-COSENZA
@@ -8,8 +8,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<complex>
 
-#include"braket.h"
-#include"timer.h"
+#include"../quantaplus/braket.h"
+#include"../quantaplus/timer.h"
  
  
 using namespace QuantaPlus;
@@ -36,8 +36,9 @@ int main()
 	brB << 6., 3.-1i, 5.;  // <B| = (6, 3-i, 5)  it's a row vector.
 	ktA <<1.-2i, 1i,-1i;   // |A> = (1-i, i, -i) it's a column vector.
 	
-	
+	 
 	time_count.Start(); //<--clock stuff
+ 
 	//-----------------------------------------------------------------
 	cout<<"--------|A>------------"<<endl;
     	ResultPrint(ktA);

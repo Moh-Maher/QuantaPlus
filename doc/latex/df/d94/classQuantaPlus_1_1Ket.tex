@@ -1,0 +1,141 @@
+\hypertarget{classQuantaPlus_1_1Ket}{}\doxysection{Quanta\+Plus\+::Ket\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{classQuantaPlus_1_1Ket}\index{QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}}
+
+
+\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} is a publicly inherited class from the well designed Eigen\+::\+Matrix, where the \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} vectors are matrices with one column and Dynamic-\/size rows.  
+
+
+
+
+{\ttfamily \#include $<$braket.\+h$>$}
+
+Inheritance diagram for Quanta\+Plus\+::Ket\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{df/d94/classQuantaPlus_1_1Ket}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuantaPlus_1_1Ket_a865cf644af95d8cd01fe542a3643b70e}{Ket}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuantaPlus_1_1Ket_a8d08803889fe347d06bc9d4ce82460ae}{Ket}} (int row)
+\begin{DoxyCompactList}\small\item\em Constructor with fixed Number of rows. Create an empty one column vector. Allocate fixed numbers of rows at compile-\/time. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Derived $>$ }\\\mbox{\hyperlink{classQuantaPlus_1_1Ket_a4e4ee50c390b689d54b3742c97649b65}{Ket}} (const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&other)
+\begin{DoxyCompactList}\small\item\em Constructor allows us to construct \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} from Eigen expressions. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Derived $>$ }\\\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} \& \mbox{\hyperlink{classQuantaPlus_1_1Ket_a95f629a98c0a9d7e60decbe6d7ab5f96}{operator=}} (const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&other)
+\item 
+bool \mbox{\hyperlink{classQuantaPlus_1_1Ket_a00d2029312a5cf8df374023b07843679}{operator==}} (const \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}}$<$ T $>$ \&ket) const
+\begin{DoxyCompactList}\small\item\em Overloading the logical operator ==. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classQuantaPlus_1_1Ket_a6f6d27758073f4e98716d63497abca3b}{$\sim$\+Ket}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Quanta\+Plus\+::\+Ket$<$ T $>$}
+\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} is a publicly inherited class from the well designed Eigen\+::\+Matrix, where the \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} vectors are matrices with one column and Dynamic-\/size rows. 
+
+\DoxyHorRuler{0}
+
+
+Kets belong to the Hilbert (vector) space H, or, in short, to the ket-\/space.. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1Ket_a865cf644af95d8cd01fe542a3643b70e}\label{classQuantaPlus_1_1Ket_a865cf644af95d8cd01fe542a3643b70e}} 
+\index{QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}!Ket@{Ket}}
+\index{Ket@{Ket}!QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Ket()}{Ket()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Quanta\+Plus\+::\+Ket}}$<$ T $>$\+::\+Ket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor. 
+
+Create an empty one column vector. Dynamically allocate numbers of rows at run-\/time. \mbox{\Hypertarget{classQuantaPlus_1_1Ket_a8d08803889fe347d06bc9d4ce82460ae}\label{classQuantaPlus_1_1Ket_a8d08803889fe347d06bc9d4ce82460ae}} 
+\index{QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}!Ket@{Ket}}
+\index{Ket@{Ket}!QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Ket()}{Ket()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Quanta\+Plus\+::\+Ket}}$<$ T $>$\+::\+Ket (\begin{DoxyParamCaption}\item[{int}]{row }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with fixed Number of rows. Create an empty one column vector. Allocate fixed numbers of rows at compile-\/time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & is the Number of rows. 
+\begin{DoxyCode}{1}
+\DoxyCodeLine{  \textcolor{keyword}{using namespace }std::complex\_literals; \textcolor{comment}{//needed to use the literal imaginary unit [ 1.i = sqrt(-\/1)] }}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classQuantaPlus_1_1Ket}{QuantaPlus::Ket<std::complex<double>}}> A(3); \textcolor{comment}{//deceleration of (an empty) complex Ket vector |A> with three rows}}
+\DoxyCodeLine{}
+\DoxyCodeLine{A << 2.5, 3.7, 2.5+3.5i; \textcolor{comment}{// initialization of Ket A ,|A> = 2.5, 3.7, 2.5+3.5i}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{utilities_8h_a8cd5543ec111ce4c7056583c661cf4e6}{ResultPrint}}(A); \textcolor{comment}{// print the content of |A>.}}
+
+\end{DoxyCode}
+ \begin{DoxyVerb} 5/2
+ 37/10
+ 5/2+7/2i\end{DoxyVerb}
+\\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+Result\+Print(\+Ket$<$\+U$>$\& ket) 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classQuantaPlus_1_1Ket_a4e4ee50c390b689d54b3742c97649b65}\label{classQuantaPlus_1_1Ket_a4e4ee50c390b689d54b3742c97649b65}} 
+\index{QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}!Ket@{Ket}}
+\index{Ket@{Ket}!QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Ket()}{Ket()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+template$<$typename Derived $>$ \\
+\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Quanta\+Plus\+::\+Ket}}$<$ T $>$\+::\+Ket (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor allows us to construct \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} from Eigen expressions. 
+
+In order to make any \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} object to work within the Eigen framework, we construct \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} from Eigen expressions using Eigen API contained in its base class \char`\"{}\+Eigen\+::\+Matrix\+Base$<$\+Derived$>$\char`\"{}. \mbox{\Hypertarget{classQuantaPlus_1_1Ket_a6f6d27758073f4e98716d63497abca3b}\label{classQuantaPlus_1_1Ket_a6f6d27758073f4e98716d63497abca3b}} 
+\index{QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}!````~Ket@{$\sim$Ket}}
+\index{````~Ket@{$\sim$Ket}!QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Ket()}{~Ket()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Quanta\+Plus\+::\+Ket}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor. ~\newline
+ 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1Ket_a95f629a98c0a9d7e60decbe6d7ab5f96}\label{classQuantaPlus_1_1Ket_a95f629a98c0a9d7e60decbe6d7ab5f96}} 
+\index{QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+template$<$typename Derived $>$ \\
+\mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} \& \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Quanta\+Plus\+::\+Ket}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method allows us to assign Eigen expressions to \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} \mbox{\Hypertarget{classQuantaPlus_1_1Ket_a00d2029312a5cf8df374023b07843679}\label{classQuantaPlus_1_1Ket_a00d2029312a5cf8df374023b07843679}} 
+\index{QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!QuantaPlus::Ket$<$ T $>$@{QuantaPlus::Ket$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Quanta\+Plus\+::\+Ket}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}}$<$ T $>$ \&}]{ket }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Overloading the logical operator ==. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+quantaplus/\mbox{\hyperlink{braket_8h}{braket.\+h}}\end{DoxyCompactItemize}

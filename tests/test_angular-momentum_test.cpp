@@ -9,12 +9,12 @@
 #include<iostream>
 #include<complex>
 #include<ctime>
-#include"utilities.h"
-#include"angularmomentum.h"
-#include"braket.h"
-#include"timer.h"
-#include"latex.h"
-#include"operators.h"
+#include"../quantaplus/utilities.h"
+#include"../quantaplus/angularmomentum.h"
+#include"../quantaplus/braket.h"
+#include"../quantaplus/timer.h"
+#include"../quantaplus/latex.h"
+#include"../quantaplus/operators.h"
 
 using namespace QuantaPlus;
 	typedef std::complex<double>  complex;

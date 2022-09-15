@@ -1,11 +1,11 @@
 #include<iostream>
 #include<complex>
 #include<cmath>
-#include"angularmomentum.h"
-#include"braket.h"
-#include"operators.h"
+#include"../quantaplus/angularmomentum.h"
+#include"../quantaplus/braket.h"
+#include"../quantaplus/operators.h"
 //#include"constants.h"
-#include"timer.h"
+#include"../quantaplus/timer.h"
 
 using namespace QuantaPlus;
 /*--------------------------------------------------------------------------------------------

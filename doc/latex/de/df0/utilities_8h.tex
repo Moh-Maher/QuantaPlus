@@ -1,0 +1,170 @@
+\hypertarget{utilities_8h}{}\doxysection{quantaplus/utilities.h File Reference}
+\label{utilities_8h}\index{quantaplus/utilities.h@{quantaplus/utilities.h}}
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$valarray$>$}\newline
+{\ttfamily \#include \char`\"{}include/utilities.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classOutput}{Output}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::string \mbox{\hyperlink{utilities_8h_a72d5f0b0e1c1cba04079e1d5c1f5489b}{To\+String}} (const T \&numb)
+\item 
+{\footnotesize template$<$typename T1 , typename T2 $>$ }\\std\+::string \mbox{\hyperlink{utilities_8h_ae27b37f2b1678156d9c08e9e6a07f505}{To\+Fraction}} (T1 numer, T2 denom)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{utilities_8h_a067404ba2f57aaa932139cfedbd80152}{Matrix\+To\+String}} (T \&mat)
+\item 
+void \mbox{\hyperlink{utilities_8h_a465fa2a9548c330821047927c5fc2830}{Complex\+Num\+Print}} (std\+::complex$<$ double $>$ complex\+\_\+number, bool numerical\+\_\+flag)
+\begin{DoxyCompactList}\small\item\em Print any complex number as z = x + iy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a8cd5543ec111ce4c7056583c661cf4e6}{Result\+Print}} (const std\+::complex$<$ double $>$ \&complex\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Print the calculated in fraction and symbolic forms (e.\+g\+: 15/7, i/2, √2/19. ..) ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_a3feef7b7ca5855c640a7dfdc69f1aeec}{NResult\+Print}} (const std\+::complex$<$ double $>$ \&complex\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Print calculated result in numeric form. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{utilities_8h_a3abd41d79d0dcb8f206db00cb3da882a}\label{utilities_8h_a3abd41d79d0dcb8f206db00cb3da882a}} 
+void {\bfseries Decimal\+To\+Fraction} (const double \&decimal\+\_\+number)
+\item 
+void \mbox{\hyperlink{utilities_8h_a53ff940c101ac477a6a101057ae9d194}{String\+Matrix}} (int r, int c, double $\ast$array)
+\begin{DoxyCompactList}\small\item\em Print array elements in fractions form. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utilities_8h_ae4ce46e98672668ddf638acf2968405e}{Is\+Number}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Gives True if str is an integer, and False otherwise. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{utilities_8h_ac32970f6a22bb186a4058aa9f921e83f}{Warning}} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Show warnings in highlighted from. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utilities_8h_add7f53073ab793dd24d49776442c0c4c}{valid\+Integer}} (const double \&x)
+\begin{DoxyCompactList}\small\item\em Check if the input is an integer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{utilities_8h_a933513b556b720bead0537c76a3ccfc6}{half\+Integer}} (const double \&x)
+\begin{DoxyCompactList}\small\item\em Check if the input is a half-\/integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{utilities_8h}{utilities.\+h}} is a part of QUANTAPLUS library. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{utilities_8h_a465fa2a9548c330821047927c5fc2830}\label{utilities_8h_a465fa2a9548c330821047927c5fc2830}} 
+\index{utilities.h@{utilities.h}!ComplexNumPrint@{ComplexNumPrint}}
+\index{ComplexNumPrint@{ComplexNumPrint}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{ComplexNumPrint()}{ComplexNumPrint()}}
+{\footnotesize\ttfamily void Complex\+Num\+Print (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{complex\+\_\+number,  }\item[{bool}]{numerical\+\_\+flag }\end{DoxyParamCaption})}
+
+
+
+Print any complex number as z = x + iy. 
+
+\mbox{\Hypertarget{utilities_8h_a933513b556b720bead0537c76a3ccfc6}\label{utilities_8h_a933513b556b720bead0537c76a3ccfc6}} 
+\index{utilities.h@{utilities.h}!halfInteger@{halfInteger}}
+\index{halfInteger@{halfInteger}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{halfInteger()}{halfInteger()}}
+{\footnotesize\ttfamily bool half\+Integer (\begin{DoxyParamCaption}\item[{const double \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Check if the input is a half-\/integer. 
+
+\mbox{\Hypertarget{utilities_8h_ae4ce46e98672668ddf638acf2968405e}\label{utilities_8h_ae4ce46e98672668ddf638acf2968405e}} 
+\index{utilities.h@{utilities.h}!IsNumber@{IsNumber}}
+\index{IsNumber@{IsNumber}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{IsNumber()}{IsNumber()}}
+{\footnotesize\ttfamily bool Is\+Number (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Gives True if str is an integer, and False otherwise. 
+
+\mbox{\Hypertarget{utilities_8h_a067404ba2f57aaa932139cfedbd80152}\label{utilities_8h_a067404ba2f57aaa932139cfedbd80152}} 
+\index{utilities.h@{utilities.h}!MatrixToString@{MatrixToString}}
+\index{MatrixToString@{MatrixToString}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{MatrixToString()}{MatrixToString()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Matrix\+To\+String (\begin{DoxyParamCaption}\item[{T \&}]{mat }\end{DoxyParamCaption})}
+
+print the elements of QUANTx\+::matrix$<$\+T, R,\+C$>$ in fractions form 
+\begin{DoxyParams}{Parameters}
+{\em mat} & is Dynamic-\/size matrix with numeric elements. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utilities_8h_a3feef7b7ca5855c640a7dfdc69f1aeec}\label{utilities_8h_a3feef7b7ca5855c640a7dfdc69f1aeec}} 
+\index{utilities.h@{utilities.h}!NResultPrint@{NResultPrint}}
+\index{NResultPrint@{NResultPrint}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{NResultPrint()}{NResultPrint()}}
+{\footnotesize\ttfamily void NResult\+Print (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ double $>$ \&}]{complex\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Print calculated result in numeric form. 
+
+\mbox{\Hypertarget{utilities_8h_a8cd5543ec111ce4c7056583c661cf4e6}\label{utilities_8h_a8cd5543ec111ce4c7056583c661cf4e6}} 
+\index{utilities.h@{utilities.h}!ResultPrint@{ResultPrint}}
+\index{ResultPrint@{ResultPrint}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{ResultPrint()}{ResultPrint()}}
+{\footnotesize\ttfamily void Result\+Print (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ double $>$ \&}]{complex\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Print the calculated in fraction and symbolic forms (e.\+g\+: 15/7, i/2, √2/19. ..) ~\newline
+ 
+
+\mbox{\Hypertarget{utilities_8h_a53ff940c101ac477a6a101057ae9d194}\label{utilities_8h_a53ff940c101ac477a6a101057ae9d194}} 
+\index{utilities.h@{utilities.h}!StringMatrix@{StringMatrix}}
+\index{StringMatrix@{StringMatrix}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{StringMatrix()}{StringMatrix()}}
+{\footnotesize\ttfamily void String\+Matrix (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{int}]{c,  }\item[{double $\ast$}]{array }\end{DoxyParamCaption})}
+
+
+
+Print array elements in fractions form. 
+
+\mbox{\Hypertarget{utilities_8h_ae27b37f2b1678156d9c08e9e6a07f505}\label{utilities_8h_ae27b37f2b1678156d9c08e9e6a07f505}} 
+\index{utilities.h@{utilities.h}!ToFraction@{ToFraction}}
+\index{ToFraction@{ToFraction}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{ToFraction()}{ToFraction()}}
+{\footnotesize\ttfamily template$<$typename T1 , typename T2 $>$ \\
+std\+::string To\+Fraction (\begin{DoxyParamCaption}\item[{T1}]{numer,  }\item[{T2}]{denom }\end{DoxyParamCaption})}
+
+print two numbers in literal fraction form (without any manipulation) 
+\begin{DoxyParams}{Parameters}
+{\em numer} & is the numerator of the fraction. \\
+\hline
+{\em denom} & is the denominator. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utilities_8h_a72d5f0b0e1c1cba04079e1d5c1f5489b}\label{utilities_8h_a72d5f0b0e1c1cba04079e1d5c1f5489b}} 
+\index{utilities.h@{utilities.h}!ToString@{ToString}}
+\index{ToString@{ToString}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::string To\+String (\begin{DoxyParamCaption}\item[{const T \&}]{numb }\end{DoxyParamCaption})}
+
+convert input into string. 
+\begin{DoxyParams}{Parameters}
+{\em numb} & is a generic variable of any type. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{utilities_8h_add7f53073ab793dd24d49776442c0c4c}\label{utilities_8h_add7f53073ab793dd24d49776442c0c4c}} 
+\index{utilities.h@{utilities.h}!validInteger@{validInteger}}
+\index{validInteger@{validInteger}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{validInteger()}{validInteger()}}
+{\footnotesize\ttfamily bool valid\+Integer (\begin{DoxyParamCaption}\item[{const double \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Check if the input is an integer. 
+
+\mbox{\Hypertarget{utilities_8h_ac32970f6a22bb186a4058aa9f921e83f}\label{utilities_8h_ac32970f6a22bb186a4058aa9f921e83f}} 
+\index{utilities.h@{utilities.h}!Warning@{Warning}}
+\index{Warning@{Warning}!utilities.h@{utilities.h}}
+\doxysubsubsection{\texorpdfstring{Warning()}{Warning()}}
+{\footnotesize\ttfamily void Warning (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Show warnings in highlighted from. 
+

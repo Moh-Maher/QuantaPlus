@@ -1,0 +1,55 @@
+\hypertarget{angularmomentum_8h_source}{}\doxysection{angularmomentum.\+h}
+\label{angularmomentum_8h_source}\index{quantaplus/angularmomentum.h@{quantaplus/angularmomentum.h}}
+\mbox{\hyperlink{angularmomentum_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{6 \textcolor{comment}{by:  Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{7 \textcolor{comment}{     UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{8 \textcolor{comment}{     VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{9 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
+\DoxyCodeLine{10 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{11 \textcolor{comment}{//\#pragma once}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_ANGULARMOMENTUM\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define QUANTAPLUS\_ANGULARMOMENTUM\_H}}
+\DoxyCodeLine{14 \textcolor{comment}{//\#include <unsupported/Eigen/MatrixFunctions>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <Eigen/Dense>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{comment}{//\#include"{}operators.h"{}}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{25 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum}} : \textcolor{keyword}{public} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>\textcolor{comment}{//public QM\_operator<T> }}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \textcolor{keyword}{public}:}
+\DoxyCodeLine{29         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum}}():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>()\{\} \textcolor{comment}{// Default constructor.}}
+\DoxyCodeLine{30         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a9ba000bf20ad20ff4f7b4c95b6ed8548}{AngularMomentum}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col)\{\} }
+\DoxyCodeLine{31     }
+\DoxyCodeLine{32         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
+\DoxyCodeLine{33         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ae356db9c9e81fdff79d657d826e3eb2d}{AngularMomentum}}(\textcolor{keyword}{const} Eigen::MatrixBase<Derived>\& other)}
+\DoxyCodeLine{34         :Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other)\{ \} }
+\DoxyCodeLine{35         }
+\DoxyCodeLine{37         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
+\DoxyCodeLine{38         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum}}\& \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a69af7c55662b9609c2154e96a2c4b398}{operator=}}(\textcolor{keyword}{const} Eigen::MatrixBase <Derived>\& other)}
+\DoxyCodeLine{39         \{}
+\DoxyCodeLine{40             this-\/>Eigen::Matrix<T,Eigen::Dynamic ,Eigen::Dynamic>::operator=(other);}
+\DoxyCodeLine{41             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43      }
+\DoxyCodeLine{44         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ad8d8b9a96847a18ae7b8e02b23208d29}{AngularMomentum\_JSquare}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{45         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}{AngularMomentum\_Jx}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{46         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}{AngularMomentum\_Jy}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{47         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}{AngularMomentum\_Jz}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{48         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}{AngularMomentum\_JPlus}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{49         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_aa39de889e0e19948cc2799f0a0fa2e14}{AngularMomentum\_JMinus}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{50         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}{RotationByAngle}}(\textcolor{keyword}{const} std::string\& dir, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& alpha); }
+\DoxyCodeLine{51         }
+\DoxyCodeLine{52         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a235d2488145c8d69d7aaf62bd6c959ec}{\string~AngularMomentum}}()\{\} }
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \};}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#include"{}include/angularmomentum.hpp"{}}}
+\DoxyCodeLine{56 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
