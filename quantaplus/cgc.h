@@ -1,6 +1,7 @@
 /*! \file cgc.h is a part of QUANTAPLUS library. 
-*Calculation of the Clebsch–Gordan Coefficients Generalized power series representations.
-	ref: https://functions.wolfram.com/HypergeometricFunctions/ClebschGordan/06/01/                                     
+* Calculation of the Clebsch–Gordan Coefficients Generalized power series representations.
+* For more details see:
+<a href="https://functions.wolfram.com/HypergeometricFunctions/ClebschGordan/06/01/" >functions.wolfram</a>          
 */
 /*-----------------------------------------------------------------------
 by:  Mohammed Maher Abdelrahim Mohammed
@@ -22,18 +23,20 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 namespace QuantaPlus {
 
-/*! \class CGCcoeff
-* CGCcoeff is a class for Clebsch–Gordan Coefficients representation <j1, j2; m1, m2 | j, m >.
-* Note that the coefficients  <j1, j2; m1, m2 | j, m > vanishes unless m1+m2=m.
-*/
+/*!******************************************************************************************************
+* \class CGCcoeff
+* \brief CGCcoeff is a class for Clebsch–Gordan Coefficients representation \f$<j_1, j_2; m_1, m_2 | j, m >\f$.
+*
+* Note that the coefficients \f$<j_1, j_2; m_1, m_2 | j, m >\f$ = 0. unless \f$m1+m2=m\f$.
+********************************************************************************************************/
 class CGCcoeff {
 	public:
-		double j1=0; ///< the angular momentum (spin or orbital) of the first particle (or system) 
-		double j2=0; ///< the angular momentum (spin or orbital) of the second particle (or system) 
+		double j1=0; ///< the the first particle angular momentum (spin or orbital). 
+		double j2=0; ///< the angular momentum (spin or orbital) of the second particle.
 		double m1=0; ///< magnetic quantum number of the first particle (or system) 
 		double m2=0; ///< magnetic quantum number of the second particle (or system) 
-		double j=0; ///< total angular momentum: |j1 - j2| <= j <= |j1 + j2|
-		double m=0; ///< total m located within the rang -j<m<j
+		double j=0; ///< total angular momentum: \f$|j1 - j2| <= j <= |j1 + j2|\f$
+		double m=0; ///< total \f$m\f$ located within the rang \f$-j<m<j\f$
 		 
 		CGCcoeff() = default; ///< Defaulte constructor
 		

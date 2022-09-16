@@ -77,6 +77,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">utilities.h File Reference</div></div>
 </div><!--header-->
@@ -87,6 +88,7 @@ $(function() {
 <code>#include &lt;complex&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;valarray&gt;</code><br />
 <code>#include &quot;include/utilities.hpp&quot;</code><br />
@@ -95,329 +97,62 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d13/classOutput.html">Output</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/dd5/classQuantaPlus_1_1Output.html">QuantaPlus::Output</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to handle output operations and files.  <a href="../../db/dd5/classQuantaPlus_1_1Output.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/df3/classQuantaPlus_1_1ElapsedTime.html">QuantaPlus::ElapsedTime</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to displays information about the execution time.  <a href="../../d9/df3/classQuantaPlus_1_1ElapsedTime.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:da/dc8/namespaceQuantaPlus"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html">QuantaPlus</a></td></tr>
+<tr class="memdesc:da/dc8/namespaceQuantaPlus"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic <a class="el" href="../../da/dc8/namespaceQuantaPlus.html" title="Generic QuantaPlus interfaces and implementations.">QuantaPlus</a> interfaces and implementations. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a72d5f0b0e1c1cba04079e1d5c1f5489b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a72d5f0b0e1c1cba04079e1d5c1f5489b"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#a72d5f0b0e1c1cba04079e1d5c1f5489b">ToString</a> (const T &amp;numb)</td></tr>
-<tr class="separator:a72d5f0b0e1c1cba04079e1d5c1f5489b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae27b37f2b1678156d9c08e9e6a07f505"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:ae27b37f2b1678156d9c08e9e6a07f505"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#ae27b37f2b1678156d9c08e9e6a07f505">ToFraction</a> (T1 numer, T2 denom)</td></tr>
-<tr class="separator:ae27b37f2b1678156d9c08e9e6a07f505"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a067404ba2f57aaa932139cfedbd80152"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a067404ba2f57aaa932139cfedbd80152"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#a067404ba2f57aaa932139cfedbd80152">MatrixToString</a> (T &amp;mat)</td></tr>
-<tr class="separator:a067404ba2f57aaa932139cfedbd80152"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a465fa2a9548c330821047927c5fc2830"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#a465fa2a9548c330821047927c5fc2830">ComplexNumPrint</a> (std::complex&lt; double &gt; complex_number, bool numerical_flag)</td></tr>
-<tr class="memdesc:a465fa2a9548c330821047927c5fc2830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print any complex number as z = x + iy.  <a href="../../de/df0/utilities_8h.html#a465fa2a9548c330821047927c5fc2830">More...</a><br /></td></tr>
-<tr class="separator:a465fa2a9548c330821047927c5fc2830"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cd5543ec111ce4c7056583c661cf4e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#a8cd5543ec111ce4c7056583c661cf4e6">ResultPrint</a> (const std::complex&lt; double &gt; &amp;complex_num)</td></tr>
-<tr class="memdesc:a8cd5543ec111ce4c7056583c661cf4e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the calculated in fraction and symbolic forms (e.g: 15/7, i/2, √2/19. ..) <br  />
-  <a href="../../de/df0/utilities_8h.html#a8cd5543ec111ce4c7056583c661cf4e6">More...</a><br /></td></tr>
-<tr class="separator:a8cd5543ec111ce4c7056583c661cf4e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3feef7b7ca5855c640a7dfdc69f1aeec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#a3feef7b7ca5855c640a7dfdc69f1aeec">NResultPrint</a> (const std::complex&lt; double &gt; &amp;complex_num)</td></tr>
-<tr class="memdesc:a3feef7b7ca5855c640a7dfdc69f1aeec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print calculated result in numeric form.  <a href="../../de/df0/utilities_8h.html#a3feef7b7ca5855c640a7dfdc69f1aeec">More...</a><br /></td></tr>
-<tr class="separator:a3feef7b7ca5855c640a7dfdc69f1aeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3abd41d79d0dcb8f206db00cb3da882a"><td class="memItemLeft" align="right" valign="top"><a id="a3abd41d79d0dcb8f206db00cb3da882a" name="a3abd41d79d0dcb8f206db00cb3da882a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>DecimalToFraction</b> (const double &amp;decimal_number)</td></tr>
-<tr class="separator:a3abd41d79d0dcb8f206db00cb3da882a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53ff940c101ac477a6a101057ae9d194"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#a53ff940c101ac477a6a101057ae9d194">StringMatrix</a> (int r, int c, double *array)</td></tr>
-<tr class="memdesc:a53ff940c101ac477a6a101057ae9d194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print array elements in fractions form.  <a href="../../de/df0/utilities_8h.html#a53ff940c101ac477a6a101057ae9d194">More...</a><br /></td></tr>
-<tr class="separator:a53ff940c101ac477a6a101057ae9d194"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae4ce46e98672668ddf638acf2968405e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#ae4ce46e98672668ddf638acf2968405e">IsNumber</a> (const std::string &amp;str)</td></tr>
-<tr class="memdesc:ae4ce46e98672668ddf638acf2968405e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives True if str is an integer, and False otherwise.  <a href="../../de/df0/utilities_8h.html#ae4ce46e98672668ddf638acf2968405e">More...</a><br /></td></tr>
-<tr class="separator:ae4ce46e98672668ddf638acf2968405e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac32970f6a22bb186a4058aa9f921e83f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#ac32970f6a22bb186a4058aa9f921e83f">Warning</a> (const std::string &amp;str)</td></tr>
-<tr class="memdesc:ac32970f6a22bb186a4058aa9f921e83f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show warnings in highlighted from.  <a href="../../de/df0/utilities_8h.html#ac32970f6a22bb186a4058aa9f921e83f">More...</a><br /></td></tr>
-<tr class="separator:ac32970f6a22bb186a4058aa9f921e83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add7f53073ab793dd24d49776442c0c4c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#add7f53073ab793dd24d49776442c0c4c">validInteger</a> (const double &amp;x)</td></tr>
-<tr class="memdesc:add7f53073ab793dd24d49776442c0c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the input is an integer.  <a href="../../de/df0/utilities_8h.html#add7f53073ab793dd24d49776442c0c4c">More...</a><br /></td></tr>
-<tr class="separator:add7f53073ab793dd24d49776442c0c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a933513b556b720bead0537c76a3ccfc6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/df0/utilities_8h.html#a933513b556b720bead0537c76a3ccfc6">halfInteger</a> (const double &amp;x)</td></tr>
-<tr class="memdesc:a933513b556b720bead0537c76a3ccfc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the input is a half-integer.  <a href="../../de/df0/utilities_8h.html#a933513b556b720bead0537c76a3ccfc6">More...</a><br /></td></tr>
-<tr class="separator:a933513b556b720bead0537c76a3ccfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a722b8ec542bc1f936da3aaef55259"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae7a722b8ec542bc1f936da3aaef55259"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#ae7a722b8ec542bc1f936da3aaef55259">QuantaPlus::ToString</a> (const T &amp;numb)</td></tr>
+<tr class="separator:ae7a722b8ec542bc1f936da3aaef55259"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf5a67030172f17f578c7be7c27577fd"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
+<tr class="memitem:abf5a67030172f17f578c7be7c27577fd"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#abf5a67030172f17f578c7be7c27577fd">QuantaPlus::ToFraction</a> (T1 numer, T2 denom)</td></tr>
+<tr class="separator:abf5a67030172f17f578c7be7c27577fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adaf9b9bebb4bfc4ee41c41b0dea84b3c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:adaf9b9bebb4bfc4ee41c41b0dea84b3c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#adaf9b9bebb4bfc4ee41c41b0dea84b3c">QuantaPlus::MatrixToString</a> (T &amp;mat)</td></tr>
+<tr class="separator:adaf9b9bebb4bfc4ee41c41b0dea84b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b830961ce855f2fbe47d1eab54c2a31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a1b830961ce855f2fbe47d1eab54c2a31">QuantaPlus::ComplexNumPrint</a> (std::complex&lt; double &gt; complex_number, bool numerical_flag)</td></tr>
+<tr class="memdesc:a1b830961ce855f2fbe47d1eab54c2a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print any complex number as z = x + iy.  <a href="../../da/dc8/namespaceQuantaPlus.html#a1b830961ce855f2fbe47d1eab54c2a31">More...</a><br /></td></tr>
+<tr class="separator:a1b830961ce855f2fbe47d1eab54c2a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1002abc85cb4fc5ceba7c81883ce25dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a1002abc85cb4fc5ceba7c81883ce25dd">QuantaPlus::ResultPrint</a> (const std::complex&lt; double &gt; &amp;complex_num)</td></tr>
+<tr class="memdesc:a1002abc85cb4fc5ceba7c81883ce25dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the calculated in fraction and symbolic forms (e.g: 15/7, i/2, √2/19. ..) <br  />
+  <a href="../../da/dc8/namespaceQuantaPlus.html#a1002abc85cb4fc5ceba7c81883ce25dd">More...</a><br /></td></tr>
+<tr class="separator:a1002abc85cb4fc5ceba7c81883ce25dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87942db7e68bba48516039f085744a5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a87942db7e68bba48516039f085744a5e">QuantaPlus::NResultPrint</a> (const std::complex&lt; double &gt; &amp;complex_num)</td></tr>
+<tr class="memdesc:a87942db7e68bba48516039f085744a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print calculated result in numeric form.  <a href="../../da/dc8/namespaceQuantaPlus.html#a87942db7e68bba48516039f085744a5e">More...</a><br /></td></tr>
+<tr class="separator:a87942db7e68bba48516039f085744a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95fb62d38cb670827994868b006318a5"><td class="memItemLeft" align="right" valign="top"><a id="a95fb62d38cb670827994868b006318a5" name="a95fb62d38cb670827994868b006318a5"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::DecimalToFraction</b> (const double &amp;decimal_number)</td></tr>
+<tr class="separator:a95fb62d38cb670827994868b006318a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bb78b439295e3b0683a3395f20cc915"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a0bb78b439295e3b0683a3395f20cc915">QuantaPlus::StringMatrix</a> (int r, int c, double *array)</td></tr>
+<tr class="memdesc:a0bb78b439295e3b0683a3395f20cc915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print array elements in fractions form.  <a href="../../da/dc8/namespaceQuantaPlus.html#a0bb78b439295e3b0683a3395f20cc915">More...</a><br /></td></tr>
+<tr class="separator:a0bb78b439295e3b0683a3395f20cc915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75bf13f84d2bb1469588603e8c450383"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a75bf13f84d2bb1469588603e8c450383">QuantaPlus::IsNumber</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a75bf13f84d2bb1469588603e8c450383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives True if str is an integer, and False otherwise.  <a href="../../da/dc8/namespaceQuantaPlus.html#a75bf13f84d2bb1469588603e8c450383">More...</a><br /></td></tr>
+<tr class="separator:a75bf13f84d2bb1469588603e8c450383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41fddde6a1231212fec05777db36a26c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a41fddde6a1231212fec05777db36a26c">QuantaPlus::Warning</a> (const std::string &amp;str)</td></tr>
+<tr class="memdesc:a41fddde6a1231212fec05777db36a26c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show warnings in highlighted from.  <a href="../../da/dc8/namespaceQuantaPlus.html#a41fddde6a1231212fec05777db36a26c">More...</a><br /></td></tr>
+<tr class="separator:a41fddde6a1231212fec05777db36a26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6eb262dc23d879cb79c6ca28179a94a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#ad6eb262dc23d879cb79c6ca28179a94a">QuantaPlus::validInteger</a> (const double &amp;x)</td></tr>
+<tr class="memdesc:ad6eb262dc23d879cb79c6ca28179a94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the input is an integer.  <a href="../../da/dc8/namespaceQuantaPlus.html#ad6eb262dc23d879cb79c6ca28179a94a">More...</a><br /></td></tr>
+<tr class="separator:ad6eb262dc23d879cb79c6ca28179a94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6210f298a3163e63970a7a0d33fda73f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a6210f298a3163e63970a7a0d33fda73f">QuantaPlus::halfInteger</a> (const double &amp;x)</td></tr>
+<tr class="memdesc:a6210f298a3163e63970a7a0d33fda73f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the input is a half-integer.  <a href="../../da/dc8/namespaceQuantaPlus.html#a6210f298a3163e63970a7a0d33fda73f">More...</a><br /></td></tr>
+<tr class="separator:a6210f298a3163e63970a7a0d33fda73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="../../de/df0/utilities_8h.html">utilities.h</a> is a part of QUANTAPLUS library. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="a465fa2a9548c330821047927c5fc2830" name="a465fa2a9548c330821047927c5fc2830"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a465fa2a9548c330821047927c5fc2830">&#9670;&#160;</a></span>ComplexNumPrint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ComplexNumPrint </td>
-          <td>(</td>
-          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>complex_number</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>numerical_flag</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print any complex number as z = x + iy. </p>
-
-</div>
-</div>
-<a id="a933513b556b720bead0537c76a3ccfc6" name="a933513b556b720bead0537c76a3ccfc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a933513b556b720bead0537c76a3ccfc6">&#9670;&#160;</a></span>halfInteger()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool halfInteger </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the input is a half-integer. </p>
-
-</div>
-</div>
-<a id="ae4ce46e98672668ddf638acf2968405e" name="ae4ce46e98672668ddf638acf2968405e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4ce46e98672668ddf638acf2968405e">&#9670;&#160;</a></span>IsNumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool IsNumber </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Gives True if str is an integer, and False otherwise. </p>
-
-</div>
-</div>
-<a id="a067404ba2f57aaa932139cfedbd80152" name="a067404ba2f57aaa932139cfedbd80152"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a067404ba2f57aaa932139cfedbd80152">&#9670;&#160;</a></span>MatrixToString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void MatrixToString </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>mat</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >print the elements of QUANTx::matrix&lt;T, R,C&gt; in fractions form </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mat</td><td>is Dynamic-size matrix with numeric elements. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a3feef7b7ca5855c640a7dfdc69f1aeec" name="a3feef7b7ca5855c640a7dfdc69f1aeec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3feef7b7ca5855c640a7dfdc69f1aeec">&#9670;&#160;</a></span>NResultPrint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void NResultPrint </td>
-          <td>(</td>
-          <td class="paramtype">const std::complex&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>complex_num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print calculated result in numeric form. </p>
-
-</div>
-</div>
-<a id="a8cd5543ec111ce4c7056583c661cf4e6" name="a8cd5543ec111ce4c7056583c661cf4e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cd5543ec111ce4c7056583c661cf4e6">&#9670;&#160;</a></span>ResultPrint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ResultPrint </td>
-          <td>(</td>
-          <td class="paramtype">const std::complex&lt; double &gt; &amp;&#160;</td>
-          <td class="paramname"><em>complex_num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print the calculated in fraction and symbolic forms (e.g: 15/7, i/2, √2/19. ..) <br  />
- </p>
-
-</div>
-</div>
-<a id="a53ff940c101ac477a6a101057ae9d194" name="a53ff940c101ac477a6a101057ae9d194"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53ff940c101ac477a6a101057ae9d194">&#9670;&#160;</a></span>StringMatrix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void StringMatrix </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>r</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>c</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>array</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Print array elements in fractions form. </p>
-
-</div>
-</div>
-<a id="ae27b37f2b1678156d9c08e9e6a07f505" name="ae27b37f2b1678156d9c08e9e6a07f505"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae27b37f2b1678156d9c08e9e6a07f505">&#9670;&#160;</a></span>ToFraction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T1 , typename T2 &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string ToFraction </td>
-          <td>(</td>
-          <td class="paramtype">T1&#160;</td>
-          <td class="paramname"><em>numer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T2&#160;</td>
-          <td class="paramname"><em>denom</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >print two numbers in literal fraction form (without any manipulation) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">numer</td><td>is the numerator of the fraction. </td></tr>
-    <tr><td class="paramname">denom</td><td>is the denominator. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a72d5f0b0e1c1cba04079e1d5c1f5489b" name="a72d5f0b0e1c1cba04079e1d5c1f5489b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72d5f0b0e1c1cba04079e1d5c1f5489b">&#9670;&#160;</a></span>ToString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string ToString </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>numb</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >convert input into string. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">numb</td><td>is a generic variable of any type. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="add7f53073ab793dd24d49776442c0c4c" name="add7f53073ab793dd24d49776442c0c4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add7f53073ab793dd24d49776442c0c4c">&#9670;&#160;</a></span>validInteger()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool validInteger </td>
-          <td>(</td>
-          <td class="paramtype">const double &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Check if the input is an integer. </p>
-
-</div>
-</div>
-<a id="ac32970f6a22bb186a4058aa9f921e83f" name="ac32970f6a22bb186a4058aa9f921e83f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac32970f6a22bb186a4058aa9f921e83f">&#9670;&#160;</a></span>Warning()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Warning </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Show warnings in highlighted from. </p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6

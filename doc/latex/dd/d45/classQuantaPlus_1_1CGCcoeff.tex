@@ -2,6 +2,11 @@
 \label{classQuantaPlus_1_1CGCcoeff}\index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}}
 
 
+\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} is a class for Clebsch–\+Gordan Coefficients representation $<j_1, j_2; m_1, m_2 | j, m >$.  
+
+
+
+
 {\ttfamily \#include $<$cgc.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -25,21 +30,26 @@ bool \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a6b7fb4f8a541cd0dc1e52f6399f48
 \begin{DoxyCompactItemize}
 \item 
 double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}} =0
-\begin{DoxyCompactList}\small\item\em the angular momentum (spin or orbital) of the first particle (or system) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em the the first particle angular momentum (spin or orbital). \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}} =0
-\begin{DoxyCompactList}\small\item\em the angular momentum (spin or orbital) of the second particle (or system) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em the angular momentum (spin or orbital) of the second particle. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}} =0
 \begin{DoxyCompactList}\small\item\em magnetic quantum number of the first particle (or system) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}} =0
 \begin{DoxyCompactList}\small\item\em magnetic quantum number of the second particle (or system) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a0fd804249943d2c74ccd0de68dc07077}{j}} =0
-\begin{DoxyCompactList}\small\item\em total angular momentum\+: $\vert$j1 -\/ j2$\vert$ \texorpdfstring{$<$}{<}= j \texorpdfstring{$<$}{<}= $\vert$j1 + j2$\vert$ \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em total angular momentum\+: $|j1 - j2| <= j <= |j1 + j2|$ \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}{m}} =0
-\begin{DoxyCompactList}\small\item\em total m located within the rang -\/j\texorpdfstring{$<$}{<}m\texorpdfstring{$<$}{<}j \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em total $m$ located within the rang $-j<m<j$ \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} is a class for Clebsch–\+Gordan Coefficients representation \texorpdfstring{$<$}{<}j1, j2; m1, m2 $\vert$ j, m \texorpdfstring{$>$}{>}. Note that the coefficients \texorpdfstring{$<$}{<}j1, j2; m1, m2 $\vert$ j, m \texorpdfstring{$>$}{>} vanishes unless m1+m2=m. 
+\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}} is a class for Clebsch–\+Gordan Coefficients representation $<j_1, j_2; m_1, m_2 | j, m >$. 
+
+\DoxyHorRuler{0}
+
+
+Note that the coefficients $<j_1, j_2; m_1, m_2 | j, m >$ = 0. unless $m1+m2=m$. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a8b3b3464bc36e5fbb61cb4bf89b2fddd}\label{classQuantaPlus_1_1CGCcoeff_a8b3b3464bc36e5fbb61cb4bf89b2fddd}} 
@@ -118,7 +128,7 @@ Overloading the logical \char`\"{}==\char`\"{} operator
 
 
 
-total angular momentum\+: $\vert$j1 -\/ j2$\vert$ \texorpdfstring{$<$}{<}= j \texorpdfstring{$<$}{<}= $\vert$j1 + j2$\vert$ 
+total angular momentum\+: $|j1 - j2| <= j <= |j1 + j2|$ 
 
 \mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}\label{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}} 
 \index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!j1@{j1}}
@@ -128,7 +138,7 @@ total angular momentum\+: $\vert$j1 -\/ j2$\vert$ \texorpdfstring{$<$}{<}= j \te
 
 
 
-the angular momentum (spin or orbital) of the first particle (or system) 
+the the first particle angular momentum (spin or orbital). 
 
 \mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}\label{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}} 
 \index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!j2@{j2}}
@@ -138,7 +148,7 @@ the angular momentum (spin or orbital) of the first particle (or system)
 
 
 
-the angular momentum (spin or orbital) of the second particle (or system) 
+the angular momentum (spin or orbital) of the second particle. 
 
 \mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}\label{classQuantaPlus_1_1CGCcoeff_a18b018b81d21045054fcbe48e2ce55cb}} 
 \index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!m@{m}}
@@ -148,7 +158,7 @@ the angular momentum (spin or orbital) of the second particle (or system)
 
 
 
-total m located within the rang -\/j\texorpdfstring{$<$}{<}m\texorpdfstring{$<$}{<}j 
+total $m$ located within the rang $-j<m<j$ 
 
 \mbox{\Hypertarget{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}\label{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}} 
 \index{QuantaPlus::CGCcoeff@{QuantaPlus::CGCcoeff}!m1@{m1}}

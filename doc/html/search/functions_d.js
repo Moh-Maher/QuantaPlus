@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['validinteger_0',['validInteger',['../de/df0/utilities_8h.html#add7f53073ab793dd24d49776442c0c4c',1,'utilities.h']]]
+  ['stringmatrix_0',['StringMatrix',['../da/dc8/namespaceQuantaPlus.html#a0bb78b439295e3b0683a3395f20cc915',1,'QuantaPlus']]]
 ];

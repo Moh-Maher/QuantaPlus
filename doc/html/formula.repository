@@ -5,3 +5,19 @@
 \_form#4=71x13:$\mathrm{GeV}^{-1} \rightarrow \mathrm{fm}$
 \_form#5=89x13:$\mathrm{GeV}^{-2} \rightarrow \mathrm{nbarn}$
 \_form#6=90x15:$\mathrm{GeV}^{-2} \rightarrow \mathrm{pbarn}$
+\_form#7=150x14:$|j1 - j2| <= j <= |j1 + j2|$
+\_form#8=65x11:$-j<m<j$
+\_form#9=121x14:$<j_1, j_2; m_1, m_2 | j, m >$
+\_form#10=13x6:$m$
+\_form#11=79x10:$m1+m2=m$
+\_form#12=13x11:$J^2$
+\_form#13=13x13:$J_x$
+\_form#14=13x14:$J_y$
+\_form#15=11x13:$J_z$
+\_form#16=14x14:$J_+$
+\_form#17=14x10:$J_-$
+\_form#18=33x14:$R_n(\alpha)$
+\_form#19=9x6:$n$
+\_form#20=14x14:$J_{+}$
+\_form#21=14x10:$J_{-}$
+\_form#22=33x14:$R_{n}(\alpha)$

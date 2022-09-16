@@ -1,0 +1,84 @@
+\hypertarget{classQuantaPlus_1_1Output}{}\doxysection{Quanta\+Plus\+::Output Class Reference}
+\label{classQuantaPlus_1_1Output}\index{QuantaPlus::Output@{QuantaPlus::Output}}
+
+
+Class to handle output operations and files.  
+
+
+
+
+{\ttfamily \#include $<$utilities.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuantaPlus_1_1Output_a51efc8cda101d198ab1531bd0ad08262}{Output}} (std\+::string file\+Name)
+\item 
+\mbox{\hyperlink{classQuantaPlus_1_1Output_a2a5681dad4e6d2f6dc903fd5b6466c57}{$\sim$\+Output}} ()
+\begin{DoxyCompactList}\small\item\em Destructor to close the output file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQuantaPlus_1_1Output_a9570196f54f30980c1a5819e9d061577}{write\+Output}} (std\+::string output)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ofstream \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{take\+Data}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classQuantaPlus_1_1Output}{Output}} stream class object to operate on files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to handle output operations and files. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1Output_a51efc8cda101d198ab1531bd0ad08262}\label{classQuantaPlus_1_1Output_a51efc8cda101d198ab1531bd0ad08262}} 
+\index{QuantaPlus::Output@{QuantaPlus::Output}!Output@{Output}}
+\index{Output@{Output}!QuantaPlus::Output@{QuantaPlus::Output}}
+\doxysubsubsection{\texorpdfstring{Output()}{Output()}}
+{\footnotesize\ttfamily Quanta\+Plus\+::\+Output\+::\+Output (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+constructor receive input string represents thefile name 
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & is the name of the output file without the extension which is already set to be \char`\"{}.\+dat\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQuantaPlus_1_1Output_a2a5681dad4e6d2f6dc903fd5b6466c57}\label{classQuantaPlus_1_1Output_a2a5681dad4e6d2f6dc903fd5b6466c57}} 
+\index{QuantaPlus::Output@{QuantaPlus::Output}!````~Output@{$\sim$Output}}
+\index{````~Output@{$\sim$Output}!QuantaPlus::Output@{QuantaPlus::Output}}
+\doxysubsubsection{\texorpdfstring{$\sim$Output()}{~Output()}}
+{\footnotesize\ttfamily Quanta\+Plus\+::\+Output\+::$\sim$\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor to close the output file. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1Output_a9570196f54f30980c1a5819e9d061577}\label{classQuantaPlus_1_1Output_a9570196f54f30980c1a5819e9d061577}} 
+\index{QuantaPlus::Output@{QuantaPlus::Output}!writeOutput@{writeOutput}}
+\index{writeOutput@{writeOutput}!QuantaPlus::Output@{QuantaPlus::Output}}
+\doxysubsubsection{\texorpdfstring{writeOutput()}{writeOutput()}}
+{\footnotesize\ttfamily void Quanta\+Plus\+::\+Output\+::write\+Output (\begin{DoxyParamCaption}\item[{std\+::string}]{output }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+function to write output to file 
+\begin{DoxyParams}{Parameters}
+{\em output} & represent the received data contents. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}\label{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}} 
+\index{QuantaPlus::Output@{QuantaPlus::Output}!takeData@{takeData}}
+\index{takeData@{takeData}!QuantaPlus::Output@{QuantaPlus::Output}}
+\doxysubsubsection{\texorpdfstring{takeData}{takeData}}
+{\footnotesize\ttfamily std\+::ofstream Quanta\+Plus\+::\+Output\+::take\+Data}
+
+
+
+\mbox{\hyperlink{classQuantaPlus_1_1Output}{Output}} stream class object to operate on files. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+quantaplus/\mbox{\hyperlink{utilities_8h}{utilities.\+h}}\end{DoxyCompactItemize}

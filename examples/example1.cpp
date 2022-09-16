@@ -20,7 +20,6 @@
 #include"../quantaplus/braket.h" // BraKet vectors
 #include"../quantaplus/latex.h"
 #include"../quantaplus/utilities.h"
-#include"../quantaplus/timer.h"
 
 using namespace QuantaPlus;
 	using std::cout;

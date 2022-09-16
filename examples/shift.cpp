@@ -3,7 +3,6 @@
 #include<cmath>
 #include"../quantaplus/braket.h"
 #include"../quantaplus/operators.h"
-#include"../quantaplus/timer.h"
 #include"../quantaplus/utilities.h"
  
 using namespace QuantaPlus;

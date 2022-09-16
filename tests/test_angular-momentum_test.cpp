@@ -12,7 +12,6 @@
 #include"../quantaplus/utilities.h"
 #include"../quantaplus/angularmomentum.h"
 #include"../quantaplus/braket.h"
-#include"../quantaplus/timer.h"
 #include"../quantaplus/latex.h"
 #include"../quantaplus/operators.h"
 

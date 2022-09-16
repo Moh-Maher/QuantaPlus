@@ -13,7 +13,6 @@
 #include"../quantaplus/angularmomentum.h"
 #include"../quantaplus/braket.h"
 #include"../quantaplus/latex.h"
-#include"../quantaplus/timer.h"
 #include"../quantaplus/operators.h"
 
 using namespace QuantaPlus;

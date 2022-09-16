@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['validinteger_0',['validInteger',['../de/df0/utilities_8h.html#add7f53073ab793dd24d49776442c0c4c',1,'utilities.hpp']]]
+  ['warning_0',['Warning',['../da/dc8/namespaceQuantaPlus.html#a41fddde6a1231212fec05777db36a26c',1,'QuantaPlus']]],
+  ['writeoutput_1',['writeOutput',['../db/dd5/classQuantaPlus_1_1Output.html#a9570196f54f30980c1a5819e9d061577',1,'QuantaPlus::Output']]]
 ];

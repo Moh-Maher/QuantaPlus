@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quantaplus_0',['QuantaPlus',['../index.html',1,'']]]
+  ['bibliography_0',['Bibliography',['../d0/de3/citelist.html',1,'']]]
 ];

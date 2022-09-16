@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tofraction_0',['ToFraction',['../de/df0/utilities_8h.html#ae27b37f2b1678156d9c08e9e6a07f505',1,'utilities.h']]],
-  ['tostring_1',['ToString',['../de/df0/utilities_8h.html#a72d5f0b0e1c1cba04079e1d5c1f5489b',1,'utilities.h']]]
+  ['resultprint_0',['ResultPrint',['../da/dc8/namespaceQuantaPlus.html#a1002abc85cb4fc5ceba7c81883ce25dd',1,'QuantaPlus']]],
+  ['rotationbyangle_1',['RotationByAngle',['../dc/d98/classQuantaPlus_1_1AngularMomentum.html#a2d44373d1129836d7c217f35871bbf80',1,'QuantaPlus::AngularMomentum']]]
 ];

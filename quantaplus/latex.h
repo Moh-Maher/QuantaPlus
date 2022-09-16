@@ -18,11 +18,14 @@
 #include"operators.h"
 #include"utilities.h"
 
+namespace QuantaPlus{
 //using namespace QuantaPlus;
-//map container holding the "capital/lower" Greek letters and their corresponding escape characters--
+/*!
+map container holding the "capital/lower" Greek letters and their corresponding escape characters--
 
-//-----A,B,Γ,Δ,Ε,Ζ,Η,Θ,Ι,Κ,Λ,Μ,Ν,Ξ,Ο,Π,Ρ,Σ,Τ,Υ,Φ,Χ,Ψ,Ω----------
-//-----α,β,γ,δ,ε,ζ,η,θ,ι,κ,λ,μ,ν,ξ,ο,π,ρ,σ,τ,υ,φ,χ,ψ,ω----------
+ -----A,B,Γ,Δ,Ε,Ζ,Η,Θ,Ι,Κ,Λ,Μ,Ν,Ξ,Ο,Π,Ρ,Σ,Τ,Υ,Φ,Χ,Ψ,Ω----------
+-----α,β,γ,δ,ε,ζ,η,θ,ι,κ,λ,μ,ν,ξ,ο,π,ρ,σ,τ,υ,φ,χ,ψ,ω----------
+*/
 std::map<std::string, std::string> GreekLatters = { 
 	{"Alpha","\u0391"}, {"Beta","\u0392"}, {"Gamma","\u0393"},
 	{"Delta","\u0394"}, {"Epsilon","\u0395"}, {"Zeta","\u0396"},
@@ -56,42 +59,18 @@ std::string Greek(const std::string& letter_name){
 	auto from = GreekLatters.find(letter_name);
 	return from->second;
 }
-/*********************************************************************************
-  Class:    LaTex.
-
-  Summary:  generate LaTex files. 
-
-  Methods:  BeginLaTex()
-              set and initiate the LaTex typesetting file document class.
-            
-            EndLaTex()
-              end the LaTex typesetting file document class.
-            
-            Typing()
-              allows to directly write normal text or even latex commands 
-            
-            ToLaTex()
-              transform multiple input into latex format.
-            
-            MathOperation()
-              transform multiple mathematical operations into latex equations.
-            
-            LaTex()
-              Constructor.
-            
-            LaTex(std::string filename)
-              Copy Constructor.
-            
-            ~LaTex()
-              Destructor.
+/*!********************************************************************************
+  \class:    LaTex
+  \brief Class to generate LaTex files. 
 ********************************************************************************/
 class LaTex {
 	private:
-		//output file
-		std::ofstream ofile;
-		// the output file name including the path 
-		std::string file_path;
-		//map container holding string function names and their corresponding laTex math commands--
+		
+		std::ofstream ofile; ///< Output file
+		 
+		std::string file_path; ///<the output file name including the path 
+		
+		/*!map container holding string function names and their corresponding laTex math commands*/
 		std::map<std::string, std::string> MathFunctions = {
 		{"Exp", "\\exp"}, {"Sin", "\\sin"}, {"Cos", "\\cos"}, {"Tan", "\\tan"}, 
 		{"Log", "\\log"}, {"Ln", "\\ln"}, {"Lg", "\\lg"}, {"Cot", "\\cot"}, {"Csc", "\\csc"},
@@ -99,13 +78,14 @@ class LaTex {
 		{"Sgn", "\\sgn"}, {"Det", "\\det"}, {"Sqrt", "\\sqrt"} 
 		};
 	public: 
-		//default constructor, with default value for file path/name.tex 				
+		/*!\brief Default constructor, with default value for file path/name.tex */			
 		LaTex(): file_path("output/default.tex") {}
 		
-		//constructor, with input value for filename.
+		/*!\brief Constructor, with input value for filename.*/
 		LaTex(std::string filename): file_path(filename) {}	
 		
 		//method for quick start the Latex file settings.
+		/*!\brief Set and initiate the LaTex typesetting document class.*/
 		void BeginLaTex() 
 		{	
 			ofile.open(file_path);
@@ -120,26 +100,28 @@ class LaTex {
 			ofile<<"\\begin{document}\n";
 			ofile.close();
 		}
-		//close the Latex file document. 
+		/*!\brief close the Latex file document.*/
 		void EndLaTex()
 		{
 			ofile.open(file_path,std::ios_base::app);
 			ofile<<"\\end{document}\n";
 			ofile.close();
 		}
-		//direct typing into the Latex file with appending.
+		//Direct typing into the Latex file with appending.
+		/*!\brief Method allows us to directly write normal text or even latex commands*/
 		void Typing(std::string text)
 		{
 			ofile.open(file_path,std::ios_base::app);
 			ofile<<text;
 			ofile.close();
 		}
-		//function with multiple inputs (equation or text) transformed to latex format.
+		/*!\brief Function with multiple inputs (equation or text) transformed to latex format.*/
 		void ToLaTex(const char* fmt...);
-		//function with multiple inputs (equation) transformed to latex format.
+		/*!\brief Function with multiple inputs (equation) transformed to latex format.*/
 		void MathOperation(const char* fmt...);
-		//convert string name of math function into its equivalent latex command.
+		/*!\brief Convert string name of math function into its equivalent latex command.*/
 		std::string LaTexMath(const std::string& function_name);
 };
 #include"include/latex.hpp"
+} //end of QuantaPlus namespace
 #endif

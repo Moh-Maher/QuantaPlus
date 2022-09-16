@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['elapsedtime_0',['ElapsedTime',['../dd/d83/classElapsedTime.html',1,'']]]
+  ['elapsedtime_0',['ElapsedTime',['../d9/df3/classQuantaPlus_1_1ElapsedTime.html',1,'QuantaPlus']]]
 ];

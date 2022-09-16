@@ -18,6 +18,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include <complex>
 #include<iostream>
 #include<cmath>
+#include<ctime>
 #include<fstream>
 #include <valarray> 
  
@@ -44,10 +45,10 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #define BOLD(x)	"\x1B[1m" x RST
 #define UNDL(x)	"\x1B[4m" x RST
 */
-//namespace QuantaPlus{
+namespace QuantaPlus{
 
 /*! \class Output
-* class to handle output operations and files.
+* \brief Class to handle output operations and files.
 */
 class Output
 {
@@ -77,6 +78,31 @@ class Output
 	{
 		takeData << output << std::endl;
 	}
+};
+
+/*! \class ElapsedTime
+* \brief Class to displays information about the execution time.
+*/
+class ElapsedTime{
+	public:
+		void Start(){
+			start = std::clock();
+		}
+		void End()
+		{
+			std::cout<<"------------------------------------------"<<std::endl;
+			duration = static_cast<double>(std::clock() - start) /static_cast<double> CLOCKS_PER_SEC;
+			
+			if (duration < 60.0) {
+				std::cout << "Elapsed time: " << duration << " seconds !!" << std::endl;
+			}
+			else {
+				std::cout << "Elapsed time: " << duration/60.0 << " mins" << std::endl;
+			}
+		}
+	private:
+		std::clock_t start;
+		double duration;
 };
 
 /*!
@@ -138,5 +164,5 @@ bool halfInteger(const double& x); ///< Check if the input is a half-integer.
 //void TolaTex(std::string fname, std::string data);
 
 #include"include/utilities.hpp"
-//}//end of namespace QuantaPlus
+}//end of namespace QuantaPlus
 #endif

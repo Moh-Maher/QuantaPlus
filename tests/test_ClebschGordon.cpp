@@ -7,7 +7,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 *******************************************************************************************/
 #include<iostream>
 #include"../quantaplus/cgc.h"
-#include"../quantaplus/timer.h" 
+#include"../quantaplus/utilities.h"
 
 using namespace QuantaPlus;
 int main(){
