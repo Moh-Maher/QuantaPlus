@@ -8,10 +8,15 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<complex>
 #include<ctime>  
-#include"../quantaplus/braket.h"
-#include"../quantaplus/angularmomentum.h"
-#include"../quantaplus/utilities.h"
-#include"../quantaplus/latex.h"
+
+#include"../quantaplus/quantaplus.h"
+/*
+#include"../quantaplus/braket/ket.h"
+#include"../quantaplus/braket/bra.h"
+#include"../quantaplus/operators/angularmomentum.h"
+#include"../quantaplus/utilities/utilities.h"
+#include"../quantaplus/utilities/latex.h"
+*/
  
 using namespace QuantaPlus;
 	typedef std::complex<double>  complex;
@@ -36,10 +41,10 @@ int main()
  
 	 
 	psi_Ket <<-1.+1i, 3, 2.+3i; 
-	psi_Bra = DualConj(psi_Ket);
+	psi_Bra = psi_Ket.conjugate();
 	 
 	phi_Bra << 6., -1i, 5;
-	phi_Ket = DualConj(phi_Bra); 
+	phi_Ket = phi_Bra.conjugate(); 
 	A <<5., 3.+2i, 3i , -1i, 3i, 8., 1.-1i, 1., 4.;
 	
 	

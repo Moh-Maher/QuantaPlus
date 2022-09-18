@@ -1,13 +1,14 @@
-\hypertarget{latex_8h}{}\doxysection{quantaplus/latex.h File Reference}
-\label{latex_8h}\index{quantaplus/latex.h@{quantaplus/latex.h}}
+\hypertarget{latex_8h}{}\doxysection{quantaplus/utilities/latex.h File Reference}
+\label{latex_8h}\index{quantaplus/utilities/latex.h@{quantaplus/utilities/latex.h}}
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstdarg$>$}\newline
 {\ttfamily \#include $<$map$>$}\newline
-{\ttfamily \#include \char`\"{}braket.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}operators.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../braket/ket.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../braket/bra.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../operators/operators.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}include/latex.\+hpp\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -17,12 +18,18 @@ class \mbox{\hyperlink{classQuantaPlus_1_1LaTex}{Quanta\+Plus\+::\+La\+Tex}}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}
-\begin{DoxyCompactList}\small\item\em Generic \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} interfaces and implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Namespace of the {\bfseries{\mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}}} C++ library. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{namespaceQuantaPlus_a62186f9f9bda38caa74baaabc24bae00}\label{namespaceQuantaPlus_a62186f9f9bda38caa74baaabc24bae00}} 
 std\+::string {\bfseries Quanta\+Plus\+::\+Greek} (const std\+::string \&letter\+\_\+name)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a996aa9e6c55b1899612ece8cb6fff975}\label{namespaceQuantaPlus_a996aa9e6c55b1899612ece8cb6fff975}} 
+std\+::string {\bfseries Quanta\+Plus\+::\+La\+Tex\+Math\+Fraction} (const double \&decimal\+\_\+number)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a25e5a3237e5f9161c587efb37dcd9d46}\label{namespaceQuantaPlus_a25e5a3237e5f9161c587efb37dcd9d46}} 
+std\+::string {\bfseries Quanta\+Plus\+::\+Real\+And\+Imaginary} (double x, double y, std\+::string separator)
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}

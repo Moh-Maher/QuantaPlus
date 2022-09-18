@@ -1,5 +1,5 @@
 \hypertarget{cgc_8h_source}{}\doxysection{cgc.\+h}
-\label{cgc_8h_source}\index{quantaplus/cgc.h@{quantaplus/cgc.h}}
+\label{cgc_8h_source}\index{quantaplus/operators/cgc.h@{quantaplus/operators/cgc.h}}
 \mbox{\hyperlink{cgc_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
@@ -10,15 +10,15 @@
 \DoxyCodeLine{10 \textcolor{comment}{     mohammed.maher@unical.it }}
 \DoxyCodeLine{11 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
 \DoxyCodeLine{12 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_CLEBSCHGORDON\_H}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#define QUANTAPLUS\_CLEBSCHGORDON\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_OPERATORS\_CLEBSCHGORDON\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define QUANTAPLUS\_OPERATORS\_CLEBSCHGORDON\_H}}
 \DoxyCodeLine{15 \textcolor{comment}{//\#include<iostream>}}
 \DoxyCodeLine{16 \textcolor{preprocessor}{\#include<limits>}}
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#include<cmath>}}
 \DoxyCodeLine{18 \textcolor{preprocessor}{\#include<complex>}}
 \DoxyCodeLine{19 \textcolor{preprocessor}{\#include<vector>}}
 \DoxyCodeLine{20 \textcolor{preprocessor}{\#include<map>}}
-\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include<stdexcept>}}
 \DoxyCodeLine{22 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{angularmomentum_8h}{angularmomentum.h}}"{}}}
 \DoxyCodeLine{23 }
 \DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}} \{}
@@ -76,20 +76,336 @@
 \DoxyCodeLine{78         \}}
 \DoxyCodeLine{79 \};}
 \DoxyCodeLine{81 \textcolor{keyword}{inline} std::ostream\& \mbox{\hyperlink{namespaceQuantaPlus_a456793d842fc471e04c7cca64dff2248}{operator <<}}(std::ostream\& out, \textcolor{keyword}{const} \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}}\& t)\{}
-\DoxyCodeLine{82     out<<\textcolor{stringliteral}{"{}|"{}};DecimalToFraction(t.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}});}
+\DoxyCodeLine{82     out<<\textcolor{stringliteral}{"{}|"{}};\mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(t.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_afcce9cee0b0dc1cbd2468688ebd1c674}{j1}});}
 \DoxyCodeLine{83     out<<\textcolor{stringliteral}{"{}, "{}};}
-\DoxyCodeLine{84     DecimalToFraction(t.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}});}
+\DoxyCodeLine{84     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(t.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a22873a2cc2bf5ac51e85027250a48856}{j2}});}
 \DoxyCodeLine{85     out<<\textcolor{stringliteral}{"{}; "{}};}
-\DoxyCodeLine{86     DecimalToFraction(t.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}});}
+\DoxyCodeLine{86     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(t.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a204b73b360abb9ab4d8b97eda79fd1fb}{m1}});}
 \DoxyCodeLine{87     out<<\textcolor{stringliteral}{"{}, "{}};}
-\DoxyCodeLine{88     DecimalToFraction(t.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}});}
+\DoxyCodeLine{88     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(t.\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff_a102eb060ccac0e9ca601861de6f9229c}{m2}});}
 \DoxyCodeLine{89     out<<\textcolor{stringliteral}{"{} >"{}};}
 \DoxyCodeLine{90  }
 \DoxyCodeLine{91     \textcolor{keywordflow}{return} out;}
 \DoxyCodeLine{92 \}}
 \DoxyCodeLine{93 }
-\DoxyCodeLine{94 \textcolor{preprocessor}{\#include"{}include/cgc.hpp"{}}}
-\DoxyCodeLine{95 \} \textcolor{comment}{//end of namespace QuantaPlus}}
-\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{94 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{95 \textcolor{comment}{  Function: SquareRoot  }}
+\DoxyCodeLine{96 \textcolor{comment}{}}
+\DoxyCodeLine{97 \textcolor{comment}{  Summary: gives the given current value if  it's equivalent to given previous one, else it}}
+\DoxyCodeLine{98 \textcolor{comment}{  will recursively call it self. }}
+\DoxyCodeLine{99 \textcolor{comment}{        }}
+\DoxyCodeLine{100 \textcolor{comment}{  Args: const double\& x}}
+\DoxyCodeLine{101 \textcolor{comment}{        }}
+\DoxyCodeLine{102 \textcolor{comment}{    const double\& curr}}
+\DoxyCodeLine{103 \textcolor{comment}{        }}
+\DoxyCodeLine{104 \textcolor{comment}{    const double\& prev  }}
+\DoxyCodeLine{105 \textcolor{comment}{          }}
+\DoxyCodeLine{106 \textcolor{comment}{  Returns:  double}}
+\DoxyCodeLine{107 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{108 \textcolor{keywordtype}{double} SquareRoot(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& curr, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& prev)}
+\DoxyCodeLine{109 \{}
+\DoxyCodeLine{110         \textcolor{keywordflow}{return} curr == prev}
+\DoxyCodeLine{111                ? curr}
+\DoxyCodeLine{112                : SquareRoot(x, 0.5 * (curr + x / curr), curr);}
+\DoxyCodeLine{113 \}}
+\DoxyCodeLine{114 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ overloaded SquareRoot -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{115 \textcolor{keywordtype}{double} SquareRoot(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x)}
+\DoxyCodeLine{116 \{}
+\DoxyCodeLine{117     \textcolor{keywordflow}{return} x >= 0 \&\& x < std::numeric\_limits<double>::infinity()}
+\DoxyCodeLine{118                ? SquareRoot(x, x, 0)}
+\DoxyCodeLine{119                : std::numeric\_limits<double>::quiet\_NaN();}
+\DoxyCodeLine{120 \}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{123 \textcolor{comment}{  Function: Factorial }}
+\DoxyCodeLine{124 \textcolor{comment}{}}
+\DoxyCodeLine{125 \textcolor{comment}{  Summary:  Factorial of an positive integer.  }}
+\DoxyCodeLine{126 \textcolor{comment}{        }}
+\DoxyCodeLine{127 \textcolor{comment}{  Args:  const std::size\_t\& n}}
+\DoxyCodeLine{128 \textcolor{comment}{         positive integer.     }}
+\DoxyCodeLine{129 \textcolor{comment}{          }}
+\DoxyCodeLine{130 \textcolor{comment}{  Returns: std::size\_t}}
+\DoxyCodeLine{131 \textcolor{comment}{        large integer.}}
+\DoxyCodeLine{132 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{133 \textcolor{comment}{/*std::size\_t Factorial(const std::size\_t\& n)}}
+\DoxyCodeLine{134 \textcolor{comment}{\{}}
+\DoxyCodeLine{135 \textcolor{comment}{        return n == 0? 1 : n * Factorial(n-\/1);}}
+\DoxyCodeLine{136 \textcolor{comment}{\}*/}}
+\DoxyCodeLine{137 \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/overloaded Factorial -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{138 \textcolor{keywordtype}{double} Factorial(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& n)}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140         \textcolor{keywordflow}{return} n == 0? 1 : n * Factorial(n-\/1);}
+\DoxyCodeLine{141 \}}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{144 \textcolor{comment}{  Function: FracFactorial }}
+\DoxyCodeLine{145 \textcolor{comment}{}}
+\DoxyCodeLine{146 \textcolor{comment}{  Summary:  Factorial of fractional numbers (using gamma functions) }}
+\DoxyCodeLine{147 \textcolor{comment}{        }}
+\DoxyCodeLine{148 \textcolor{comment}{  Args: const double\& n}}
+\DoxyCodeLine{149 \textcolor{comment}{        fractional number     }}
+\DoxyCodeLine{150 \textcolor{comment}{          }}
+\DoxyCodeLine{151 \textcolor{comment}{  Returns:  double}}
+\DoxyCodeLine{152 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{153 \textcolor{keywordtype}{double} FracFactorial(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& n)}
+\DoxyCodeLine{154 \{  }
+\DoxyCodeLine{155     \textcolor{keywordflow}{return} tgamma(n+1.);}
+\DoxyCodeLine{156 \}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{161 \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceQuantaPlus_a52817e4985f83794d044674ca7b78d2c}{ClebschGordan}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j1, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j2, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& m1, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& m2, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& J, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& M)\{}
+\DoxyCodeLine{162     \textcolor{keywordflow}{if}( !validAngularMomentum(j1) || !validAngularMomentum(m1) || !validAngularMomentum(j2) || !validAngularMomentum(m2) || !validAngularMomentum(J) )\{}
+\DoxyCodeLine{163         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}clebsch\_gordan: all parameters must be multiples of 0.5."{}});}
+\DoxyCodeLine{164     \}}
+\DoxyCodeLine{165     \textcolor{keywordflow}{if}( (validInteger(j1) \&\& halfInteger(m1)) || (halfInteger(j1) \&\& validInteger(m1)) )\{}
+\DoxyCodeLine{166         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}clebsch\_gordan: j1 and m1 must both be integral or half integral."{}});}
+\DoxyCodeLine{167     \}}
+\DoxyCodeLine{168     \textcolor{keywordflow}{if}( (validInteger(j2) \&\& halfInteger(m2)) || (halfInteger(j2) \&\& validInteger(m2)) )\{}
+\DoxyCodeLine{169         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}clebsch\_gordan: j2 and m2 must both be integral or half integral."{}});}
+\DoxyCodeLine{170     \}}
+\DoxyCodeLine{171     \textcolor{keywordflow}{if}( (validInteger(j1 + j2) \&\& !validInteger(J)) || (halfInteger(j1 + j2) \&\& !halfInteger(J)) )\{}
+\DoxyCodeLine{172         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}clebsch\_gordan: J is no valid value for j1 and j2 combination."{}});}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174     \textcolor{keywordflow}{if}( j1 < 0 || j2 < 0 )\{}
+\DoxyCodeLine{175         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}clebsch\_gordan: j1 and j2 must be non-\/negative."{}});}
+\DoxyCodeLine{176     \}}
+\DoxyCodeLine{177     \textcolor{keywordflow}{if}( J > j1 + j2 || J < abs(j1 -\/ j2) )\{}
+\DoxyCodeLine{178         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}clebsch\_gordan: J must be |j1-\/j2| <= J <= j1+j2."{}});}
+\DoxyCodeLine{179     \}}
+\DoxyCodeLine{180     \textcolor{keywordflow}{if}( abs(m1) > j1 || abs(m2) > j2 || abs(M) > J )\{}
+\DoxyCodeLine{181         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}clebsch\_gordan: m1 and m2 must be |m1| <= j1 and |m2| <= j2 and |m1+m2| <= J"{}});}
+\DoxyCodeLine{182     \}}
+\DoxyCodeLine{183     \textcolor{keywordflow}{if}( m1 + m2 != M )\{}
+\DoxyCodeLine{184         \textcolor{keywordflow}{throw} std::domain\_error(\textcolor{stringliteral}{"{}clebsch\_gordan: m1 + m2 != M."{}});}
+\DoxyCodeLine{185     \} }
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187     \textcolor{comment}{//auto const \& f = Factorial;}}
+\DoxyCodeLine{188     \textcolor{keywordtype}{double} numerator = (2 * J + 1) * Factorial(J + j1 -\/ j2) * Factorial(J -\/ j1 + j2) * Factorial(j1 + j2 -\/ J);}
+\DoxyCodeLine{189     numerator *= Factorial(J + M) * Factorial(J -\/ M) * Factorial(j1 -\/ m1) * Factorial(j1 + m1) * Factorial(j2 -\/ m2) * Factorial(j2 + m2);}
+\DoxyCodeLine{190     \textcolor{keywordtype}{double} denominator = Factorial(j1 + j2 + J + 1);}
+\DoxyCodeLine{191     }
+\DoxyCodeLine{192     \textcolor{comment}{//int const min = std::max(0., std::max(j2 -\/ J -\/ m1, j1 + m2 -\/ J));}}
+\DoxyCodeLine{193     \textcolor{comment}{//int const max = std::min(j2 + m2, std::min(j1 -\/ m1, j1 + j2 -\/ J));}}
+\DoxyCodeLine{194     \textcolor{keywordtype}{int} \textcolor{keyword}{const} min = (int)std::max(0., std::max(j2 -\/ J -\/ m1, j1 + m2 -\/ J));}
+\DoxyCodeLine{195     \textcolor{keywordtype}{int} \textcolor{keyword}{const} max = (int)std::min(j2 + m2, std::min(j1 -\/ m1, j1 + j2 -\/ J));}
+\DoxyCodeLine{196     \textcolor{keywordtype}{double} sum = min > max ? 1 : 0;}
+\DoxyCodeLine{197     }
+\DoxyCodeLine{198     \textcolor{keywordflow}{for}( \textcolor{keywordtype}{int} k = min; k <= max; ++k )\{}
+\DoxyCodeLine{199         sum += pow(-\/1., k) / (Factorial(k) * Factorial(j1 + j2 -\/ J -\/ k) * Factorial(j1 -\/ m1 -\/ k) * Factorial(j2 + m2 -\/ k) * Factorial(J -\/ j2 + m1 + k) * Factorial(J -\/ j1 -\/ m2 + k));}
+\DoxyCodeLine{200     \}}
+\DoxyCodeLine{201     \textcolor{keywordflow}{return} SquareRoot(numerator / denominator) * sum;}
+\DoxyCodeLine{202 \}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/overloaded ClebschGordan function -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{205 \textcolor{keywordtype}{double} \mbox{\hyperlink{namespaceQuantaPlus_a52817e4985f83794d044674ca7b78d2c}{ClebschGordan}}(\textcolor{keyword}{const} CGCcoeff\& cgc)\{}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 }
+\DoxyCodeLine{208     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceQuantaPlus_a52817e4985f83794d044674ca7b78d2c}{ClebschGordan}}(cgc.j1,cgc.j2,cgc.m1,cgc.m2,cgc.j,cgc.m);}
+\DoxyCodeLine{209 \}}
+\DoxyCodeLine{210 }
+\DoxyCodeLine{211 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{212 \textcolor{comment}{  Function: MQuantumNumber}}
+\DoxyCodeLine{213 \textcolor{comment}{}}
+\DoxyCodeLine{214 \textcolor{comment}{  Summary: calculate the possible magnetic quantum number m for given}}
+\DoxyCodeLine{215 \textcolor{comment}{       spin of length j.  }}
+\DoxyCodeLine{216 \textcolor{comment}{        }}
+\DoxyCodeLine{217 \textcolor{comment}{  Args: const double \&j}}
+\DoxyCodeLine{218 \textcolor{comment}{        the length of the spin quantum number.    }}
+\DoxyCodeLine{219 \textcolor{comment}{          }}
+\DoxyCodeLine{220 \textcolor{comment}{  Returns:  std::vector<double>}}
+\DoxyCodeLine{221 \textcolor{comment}{        list of all possible m values.}}
+\DoxyCodeLine{222 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{223 std::vector<double> MQuantumNumber(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&j)}
+\DoxyCodeLine{224 \{    }
+\DoxyCodeLine{225     \textcolor{keywordtype}{double} spin = j;}
+\DoxyCodeLine{226     std::vector<double> m\_values;}
+\DoxyCodeLine{227     \textcolor{keywordflow}{if}(validAngularMomentum(spin))}
+\DoxyCodeLine{228     \{}
+\DoxyCodeLine{229         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =-\/j; i<=j; i++)}
+\DoxyCodeLine{230         \{       }
+\DoxyCodeLine{231             \textcolor{keywordflow}{if}(i==0)\{m\_values.push\_back(0);\}}
+\DoxyCodeLine{232             \textcolor{keywordflow}{else} m\_values.push\_back(i);  }
+\DoxyCodeLine{233         \}}
+\DoxyCodeLine{234     \}}
+\DoxyCodeLine{235     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{236         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}the system has physically invalid spin!."{}});}
+\DoxyCodeLine{237     \}   }
+\DoxyCodeLine{238     \textcolor{keywordflow}{return} m\_values;}
+\DoxyCodeLine{239 \}}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{242 \textcolor{comment}{  Function: possibleJ  }}
+\DoxyCodeLine{243 \textcolor{comment}{}}
+\DoxyCodeLine{244 \textcolor{comment}{  Summary: calculate the possible total angular momenta values   }}
+\DoxyCodeLine{245 \textcolor{comment}{        }}
+\DoxyCodeLine{246 \textcolor{comment}{  Args: const double\& j1}}
+\DoxyCodeLine{247 \textcolor{comment}{        first angular momentum. }}
+\DoxyCodeLine{248 \textcolor{comment}{    const double\& j2}}
+\DoxyCodeLine{249 \textcolor{comment}{        second angular momentum.     }}
+\DoxyCodeLine{250 \textcolor{comment}{          }}
+\DoxyCodeLine{251 \textcolor{comment}{  Returns: std::vector<double>}}
+\DoxyCodeLine{252 \textcolor{comment}{        list of all possible  total angular momenta J values.}}
+\DoxyCodeLine{253 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{254 std::vector<double> possibleJ(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j1, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j2)\{}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256     \textcolor{keywordtype}{double} Jmin = std::abs(j1-\/j2);}
+\DoxyCodeLine{257     \textcolor{keywordtype}{double} Jmax = j1+j2;}
+\DoxyCodeLine{258     std::vector<double> J\_values;}
+\DoxyCodeLine{259     \textcolor{keywordflow}{if}(validAngularMomentum(j1) \&\& validAngularMomentum(j2))}
+\DoxyCodeLine{260     \{}
+\DoxyCodeLine{261         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =Jmin; i<=Jmax; i++)}
+\DoxyCodeLine{262         \{       }
+\DoxyCodeLine{263             \textcolor{keywordflow}{if}(i==0)\{J\_values.push\_back(0);\}}
+\DoxyCodeLine{264             \textcolor{keywordflow}{else} J\_values.push\_back(i);  }
+\DoxyCodeLine{265         \}}
+\DoxyCodeLine{266     \}}
+\DoxyCodeLine{267     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{268         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}the system has physically invalid spin!."{}});}
+\DoxyCodeLine{269     \}}
+\DoxyCodeLine{270     \textcolor{keywordflow}{return} J\_values;}
+\DoxyCodeLine{271 \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{274 \textcolor{comment}{  Function: ListOfAllCGCs}}
+\DoxyCodeLine{275 \textcolor{comment}{}}
+\DoxyCodeLine{276 \textcolor{comment}{  Summary: calculate all Clebsch–Gordan Coefficients for addition of two angular}}
+\DoxyCodeLine{277 \textcolor{comment}{       momenta. }}
+\DoxyCodeLine{278 \textcolor{comment}{        }}
+\DoxyCodeLine{279 \textcolor{comment}{  Args: const double\& j1}}
+\DoxyCodeLine{280 \textcolor{comment}{        first angular momentum. }}
+\DoxyCodeLine{281 \textcolor{comment}{    const double\& j2}}
+\DoxyCodeLine{282 \textcolor{comment}{        second angular momentum.      }}
+\DoxyCodeLine{283 \textcolor{comment}{          }}
+\DoxyCodeLine{284 \textcolor{comment}{  Returns:  void}}
+\DoxyCodeLine{285 \textcolor{comment}{        print the list of all Clebsch–Gordan Coefficients.}}
+\DoxyCodeLine{286 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{287 \textcolor{keywordtype}{void} ListOfAllCGCs(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j1, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j2)}
+\DoxyCodeLine{288 \{}
+\DoxyCodeLine{289     std::vector<double> J = possibleJ(j1,j2);}
+\DoxyCodeLine{290     std::vector<double> M;  }
+\DoxyCodeLine{291  }
+\DoxyCodeLine{292     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& j : J)\{}
+\DoxyCodeLine{293         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0;i<int(2*j+1);i++)\{}
+\DoxyCodeLine{294             M.push\_back(MQuantumNumber(j)[i]);}
+\DoxyCodeLine{295         \}}
+\DoxyCodeLine{296     \}}
+\DoxyCodeLine{297     std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{298     std::cout<<\textcolor{stringliteral}{"{}Clebsch-\/Gordon coefficients for system with j1 = "{}};}
+\DoxyCodeLine{299     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(j1);}
+\DoxyCodeLine{300     std::cout<<\textcolor{stringliteral}{"{} and j2 = "{}};}
+\DoxyCodeLine{301     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(j2);}
+\DoxyCodeLine{302     std::cout<<\textcolor{stringliteral}{"{} :"{}}<<std::endl;}
+\DoxyCodeLine{303     std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{304     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& jj : J)\{}
+\DoxyCodeLine{305         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} m = -\/jj; m <= jj; ++m)\{}
+\DoxyCodeLine{306             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} m1 = -\/j1; m1 <= j1; ++m1) \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} m2 = -\/j2; m2 <= j2; ++m2)\{}
+\DoxyCodeLine{307                 \textcolor{keywordflow}{if}( (-\/jj <= std::abs(m1+m2)) \&\& (std::abs(m1+m2) <= jj) \&\& ( (m1+m2) == m) )\{}
+\DoxyCodeLine{308                     std::cout<<\textcolor{stringliteral}{"{}<"{}};}
+\DoxyCodeLine{309                     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(j1);}
+\DoxyCodeLine{310                     std::cout<<\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{311                     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(j2);}
+\DoxyCodeLine{312                     std::cout<<\textcolor{stringliteral}{"{}; "{}};}
+\DoxyCodeLine{313                     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(m1);}
+\DoxyCodeLine{314                     std::cout<<\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{315                     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(m2);}
+\DoxyCodeLine{316                     std::cout<<\textcolor{stringliteral}{"{} | "{}};}
+\DoxyCodeLine{317                     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(jj);}
+\DoxyCodeLine{318                     std::cout<<\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{319                     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(m1+m2);}
+\DoxyCodeLine{320                     std::cout<<\textcolor{stringliteral}{"{}> = "{}};}
+\DoxyCodeLine{321                     std::cout<<\textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{322                     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(\mbox{\hyperlink{namespaceQuantaPlus_a52817e4985f83794d044674ca7b78d2c}{ClebschGordan}}(j1,j2,m1,m2,jj,m));}
+\DoxyCodeLine{323                     std::cout<<std::endl;}
+\DoxyCodeLine{324                 \}}
+\DoxyCodeLine{325             \}   }
+\DoxyCodeLine{326         \}}
+\DoxyCodeLine{327     \} }
+\DoxyCodeLine{328 \}}
+\DoxyCodeLine{329 }
+\DoxyCodeLine{330 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{331 \textcolor{comment}{  Function: CGCcoeffMap  }}
+\DoxyCodeLine{332 \textcolor{comment}{}}
+\DoxyCodeLine{333 \textcolor{comment}{  Summary: store Clebsch–Gordan Coefficients as a map  }}
+\DoxyCodeLine{334 \textcolor{comment}{        }}
+\DoxyCodeLine{335 \textcolor{comment}{  Args: const double\& j1}}
+\DoxyCodeLine{336 \textcolor{comment}{        first angular momentum. }}
+\DoxyCodeLine{337 \textcolor{comment}{    const double\& j2}}
+\DoxyCodeLine{338 \textcolor{comment}{        second angular momentum.      }}
+\DoxyCodeLine{339 \textcolor{comment}{          }}
+\DoxyCodeLine{340 \textcolor{comment}{  Returns: std::map<CGCcoeff, std::vector<CGCcoeff>> }}
+\DoxyCodeLine{341 \textcolor{comment}{        mapping each GCcoeff to its all possible values}}
+\DoxyCodeLine{342 \textcolor{comment}{        stored as vector.}}
+\DoxyCodeLine{343 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{344 std::map<CGCcoeff, std::vector<CGCcoeff>>  \mbox{\hyperlink{namespaceQuantaPlus_ac2a8d9735cc1b52374532187f04bba5b}{CGCcoeffMap}} (\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j1, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j2)}
+\DoxyCodeLine{345 \{  }
+\DoxyCodeLine{346         std::map<CGCcoeff, std::vector<CGCcoeff>> CGCs;}
+\DoxyCodeLine{347     std::vector<double> J = possibleJ(j1,j2);}
+\DoxyCodeLine{348     std::vector<double> M;  }
+\DoxyCodeLine{349  }
+\DoxyCodeLine{350     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& j : J)\{}
+\DoxyCodeLine{351         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0;i<int(2*j+1);i++)\{}
+\DoxyCodeLine{352             M.push\_back(MQuantumNumber(j)[i]);}
+\DoxyCodeLine{353         \}}
+\DoxyCodeLine{354     \}}
+\DoxyCodeLine{355         }
+\DoxyCodeLine{356     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto}\& jj : J)\{}
+\DoxyCodeLine{357         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} m = -\/jj; m <= jj; ++m)\{}
+\DoxyCodeLine{358             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} m1 = -\/j1; m1 <= j1; ++m1) \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} m2 = -\/j2; m2 <= j2; ++m2)\{}
+\DoxyCodeLine{359                 \textcolor{keywordflow}{if}( (-\/jj <= std::abs(m1+m2)) \&\& (std::abs(m1+m2) <= jj) \&\& ( (m1+m2) == m) )\{}
+\DoxyCodeLine{360                     CGCs[\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}}(jj,m1+m2)].push\_back(\mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{CGCcoeff}}(j1,j2,m1,m2,jj,m1+m2));      }
+\DoxyCodeLine{361                 \}   }
+\DoxyCodeLine{362             \}}
+\DoxyCodeLine{363         \}    }
+\DoxyCodeLine{364     \}}
+\DoxyCodeLine{365     \textcolor{keywordflow}{return} CGCs;}
+\DoxyCodeLine{366 \}}
+\DoxyCodeLine{367 }
+\DoxyCodeLine{368 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{369 \textcolor{comment}{  Function:  CoupledStates }}
+\DoxyCodeLine{370 \textcolor{comment}{}}
+\DoxyCodeLine{371 \textcolor{comment}{  Summary: List the states of the coupled system.}}
+\DoxyCodeLine{372 \textcolor{comment}{        }}
+\DoxyCodeLine{373 \textcolor{comment}{  Args: const double\& j1}}
+\DoxyCodeLine{374 \textcolor{comment}{        first angular momentum. }}
+\DoxyCodeLine{375 \textcolor{comment}{    const double\& j2}}
+\DoxyCodeLine{376 \textcolor{comment}{        second angular momentum.     }}
+\DoxyCodeLine{377 \textcolor{comment}{          }}
+\DoxyCodeLine{378 \textcolor{comment}{  Returns: void}}
+\DoxyCodeLine{379 \textcolor{comment}{        print the list of all states of the coupled system.}}
+\DoxyCodeLine{380 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{381 \textcolor{keywordtype}{void} CoupledStates(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j1, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& j2)}
+\DoxyCodeLine{382 \{   }
+\DoxyCodeLine{383     std::map<CGCcoeff, std::vector<CGCcoeff>> res = \mbox{\hyperlink{namespaceQuantaPlus_ac2a8d9735cc1b52374532187f04bba5b}{CGCcoeffMap}}(j1,j2);}
+\DoxyCodeLine{384     std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{385     std::cout<<\textcolor{stringliteral}{"{}The states of the coupled system "{}};}
+\DoxyCodeLine{386     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(j1);}
+\DoxyCodeLine{387     std::cout<<\textcolor{stringliteral}{"{} + "{}};}
+\DoxyCodeLine{388     \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(j2);}
+\DoxyCodeLine{389     std::cout<<\textcolor{stringliteral}{"{} :"{}}<<std::endl;}
+\DoxyCodeLine{390     std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{391     }
+\DoxyCodeLine{392     \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} itr = res.begin(); itr!=res.end(); itr++) \{}
+\DoxyCodeLine{393 }
+\DoxyCodeLine{394         std::cout <<\textcolor{stringliteral}{"{}|"{}};\mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(itr-\/>first.j); std::cout<< \textcolor{stringliteral}{"{}, "{}};\mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(itr-\/>first.m);std::cout<<\textcolor{stringliteral}{"{}>"{}}<< \textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{395 }
+\DoxyCodeLine{396         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} vitr = itr-\/>second.begin(); vitr != itr-\/>second.end(); vitr++)\{}
+\DoxyCodeLine{397 }
+\DoxyCodeLine{398             \textcolor{keywordflow}{if}(\mbox{\hyperlink{namespaceQuantaPlus_a52817e4985f83794d044674ca7b78d2c}{ClebschGordan}}(*vitr)!=0)\{}
+\DoxyCodeLine{399                 }
+\DoxyCodeLine{400                 std::cout<<\textcolor{stringliteral}{"{}\{ "{}};}
+\DoxyCodeLine{401                 \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(\mbox{\hyperlink{namespaceQuantaPlus_a52817e4985f83794d044674ca7b78d2c}{ClebschGordan}}(*vitr));}
+\DoxyCodeLine{402                 }
+\DoxyCodeLine{403                 \textcolor{keywordflow}{if}(vitr==itr-\/>second.end()-\/1)\{}
+\DoxyCodeLine{404                     std::cout<<\textcolor{stringliteral}{"{} \} "{}}<<*vitr;}
+\DoxyCodeLine{405                 \}}
+\DoxyCodeLine{406                 \textcolor{keywordflow}{else} std::cout<<\textcolor{stringliteral}{"{} \} "{}}<<*vitr<<\textcolor{stringliteral}{"{} + "{}};}
+\DoxyCodeLine{407             \}}
+\DoxyCodeLine{408 }
+\DoxyCodeLine{409         \}}
+\DoxyCodeLine{410         std::cout<<std::endl;}
+\DoxyCodeLine{411     \} }
+\DoxyCodeLine{412 \}}
+\DoxyCodeLine{413  }
+\DoxyCodeLine{414 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{415 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

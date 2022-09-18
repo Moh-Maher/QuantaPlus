@@ -1,0 +1,123 @@
+\hypertarget{bra_8h_source}{}\doxysection{bra.\+h}
+\label{bra_8h_source}\index{quantaplus/braket/bra.h@{quantaplus/braket/bra.h}}
+\mbox{\hyperlink{bra_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//=================================================================================================}}
+\DoxyCodeLine{26 \textcolor{comment}{}\textcolor{comment}{//=================================================================================================}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_BRAKET\_BRA\_H}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define QUANTAPLUS\_BRAKET\_BRA\_H}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{32 \textcolor{comment}{// Includes}}
+\DoxyCodeLine{33 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include<Eigen/Dense>}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include"{}../utilities/print.h"{}}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{38 \textcolor{comment}{// NAMESPACE QUANTAPLUS DOCUMENTATION }}
+\DoxyCodeLine{39 \textcolor{comment}{//************************************}}
+\DoxyCodeLine{44 \textcolor{comment}{}}
+\DoxyCodeLine{45 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}} \{}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{48 \textcolor{comment}{//  CLASS DEFINITION}}
+\DoxyCodeLine{49 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{//*************************************************************************************************}}
+\DoxyCodeLine{58 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{59 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}} : \textcolor{keyword}{public} Eigen::Matrix<T,1, Eigen::Dynamic> }
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61   \textcolor{keyword}{public}:    }
+\DoxyCodeLine{62         \textcolor{comment}{//**Constructors***************************************************************************}}
+\DoxyCodeLine{65 \textcolor{comment}{}    \mbox{\hyperlink{classQuantaPlus_1_1Bra_af6f1caf2e96903d7948312c4405b26f4}{Bra}}();}
+\DoxyCodeLine{66     \mbox{\hyperlink{classQuantaPlus_1_1Bra_af6f1caf2e96903d7948312c4405b26f4}{Bra}}(\textcolor{keywordtype}{int} col);    }
+\DoxyCodeLine{68     \textcolor{comment}{//*****************************************************************************************}}
+\DoxyCodeLine{69     }
+\DoxyCodeLine{70     }
+\DoxyCodeLine{71     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{77 \textcolor{comment}{}    \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
+\DoxyCodeLine{78     \mbox{\hyperlink{classQuantaPlus_1_1Bra_a6e659cc599dc0a6ad18e42bfd7196c92}{Bra}}(\textcolor{keyword}{const} Eigen::MatrixBase<Derived>\& other)}
+\DoxyCodeLine{79     :Eigen::Matrix<T,1,Eigen::Dynamic>(other)\{ \}}
+\DoxyCodeLine{80     \textcolor{comment}{//*****************************************************************************************}}
+\DoxyCodeLine{81     }
+\DoxyCodeLine{82     }
+\DoxyCodeLine{83     \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{87 \textcolor{comment}{}    \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
+\DoxyCodeLine{88     \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra}}\& \mbox{\hyperlink{classQuantaPlus_1_1Bra_a874f942077cddda183cf26c16d0c7c5e}{operator=}}(\textcolor{keyword}{const} Eigen::MatrixBase <Derived>\& other)}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         this-\/>Eigen::Matrix<T,1 ,Eigen::Dynamic>::operator=(other);}
+\DoxyCodeLine{91         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93     }
+\DoxyCodeLine{95     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classQuantaPlus_1_1Bra_a7f918b1c09a0ff6265ffa5d02d508f98}{operator ==}}(\textcolor{keyword}{const} \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra<T>}}\& bra)\textcolor{keyword}{ const }}
+\DoxyCodeLine{96 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{97             \textcolor{keywordflow}{return} this-\/>Eigen::Matrix<T,1,Eigen::Dynamic>::operator==(bra);     }
+\DoxyCodeLine{98     \} }
+\DoxyCodeLine{99     \textcolor{comment}{//**************************************************************************************** }}
+\DoxyCodeLine{100     }
+\DoxyCodeLine{101     \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1Bra_ad7ff357e07e146b9e0e1980ab19a3c43}{Print}}(); }
+\DoxyCodeLine{102     \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1Bra_af9246ab7a71ec959c705a917c453bf11}{NPrint}}(); }
+\DoxyCodeLine{103     }
+\DoxyCodeLine{104     \textcolor{comment}{//**Destructor***************************************************************************** }}
+\DoxyCodeLine{107 \textcolor{comment}{}    \mbox{\hyperlink{classQuantaPlus_1_1Bra}{\string~Bra}}() = \textcolor{keywordflow}{default}; }
+\DoxyCodeLine{109     \textcolor{comment}{//***************************************************************************************** }}
+\DoxyCodeLine{110 \};}
+\DoxyCodeLine{111 \textcolor{comment}{//*************************************************************************************************}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{116 \textcolor{comment}{//  CONSTRUCTORS}}
+\DoxyCodeLine{117 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{122 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{123 \mbox{\hyperlink{classQuantaPlus_1_1Bra_af6f1caf2e96903d7948312c4405b26f4}{Bra<T>::Bra}}():Eigen::Matrix<T,1,Eigen::Dynamic>()}
+\DoxyCodeLine{124 \{\}}
+\DoxyCodeLine{125 \textcolor{comment}{//*************************************************************************************************}}
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{147 \textcolor{comment}{}\textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{148 \mbox{\hyperlink{classQuantaPlus_1_1Bra_af6f1caf2e96903d7948312c4405b26f4}{Bra<T>::Bra}}(\textcolor{keywordtype}{int} col):Eigen::Matrix<T,1,Eigen::Dynamic>(1,col)}
+\DoxyCodeLine{149 \{\}}
+\DoxyCodeLine{150 \textcolor{comment}{//*************************************************************************************************}}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{comment}{/*!**************************************************************** }}
+\DoxyCodeLine{154 \textcolor{comment}{* Print \(\backslash\)f\$<Bra |\(\backslash\)f\$ elements in fractional symbolic form }}
+\DoxyCodeLine{155 \textcolor{comment}{* \(\backslash\)f\$z =\(\backslash\)frac\{A\}\{B\} + i\(\backslash\)frac\{C\}\{D\}\(\backslash\)f\$, where \(\backslash\)f\$i = \(\backslash\)sqrt\{-\/1\}\(\backslash\)f\$;}}
+\DoxyCodeLine{156 \textcolor{comment}{******************************************************************/}}
+\DoxyCodeLine{157 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{158 \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1Bra_ad7ff357e07e146b9e0e1980ab19a3c43}{Bra<T>::Print}}()}
+\DoxyCodeLine{159 \{}
+\DoxyCodeLine{160     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < this-\/>rows(); row\_count++)}
+\DoxyCodeLine{161     \{   \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra<T>}} bra = *\textcolor{keyword}{this};}
+\DoxyCodeLine{162         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < this-\/>cols(); col\_count++)}
+\DoxyCodeLine{163         \{}
+\DoxyCodeLine{164             \mbox{\hyperlink{namespaceQuantaPlus_a1b830961ce855f2fbe47d1eab54c2a31}{ComplexNumPrint}}( bra(row\_count, col\_count),0 );}
+\DoxyCodeLine{165         \}}
+\DoxyCodeLine{166         std::cout<<std::endl;}
+\DoxyCodeLine{167     \}}
+\DoxyCodeLine{168 \}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170 \textcolor{comment}{/*!****************************************************************}}
+\DoxyCodeLine{171 \textcolor{comment}{* Print \(\backslash\)f\$< Bra |\(\backslash\)f\$ elements in fractional numeric form.}}
+\DoxyCodeLine{172 \textcolor{comment}{*****************************************************************/}}
+\DoxyCodeLine{173 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{174 \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1Bra_af9246ab7a71ec959c705a917c453bf11}{Bra<T>::NPrint}}()}
+\DoxyCodeLine{175 \{}
+\DoxyCodeLine{176     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < this-\/>rows(); row\_count++)}
+\DoxyCodeLine{177     \{   \mbox{\hyperlink{classQuantaPlus_1_1Bra}{Bra<T>}} bra = *\textcolor{keyword}{this};}
+\DoxyCodeLine{178         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < this-\/>cols(); col\_count++)}
+\DoxyCodeLine{179         \{}
+\DoxyCodeLine{180             \mbox{\hyperlink{namespaceQuantaPlus_a1b830961ce855f2fbe47d1eab54c2a31}{ComplexNumPrint}}( bra(row\_count, col\_count),1 );}
+\DoxyCodeLine{181         \}}
+\DoxyCodeLine{182         std::cout<<std::endl;}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184 \}}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{189 \textcolor{comment}{}\textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

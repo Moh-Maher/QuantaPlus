@@ -16,11 +16,14 @@
 --------------------------------------------------------------------------------------------------------------------------------------------*/
 #include<iostream>
 #include<complex>
-#include"../quantaplus/angularmomentum.h"  //  Angular Momentum Operators
-#include"../quantaplus/braket.h" // BraKet vectors
-#include"../quantaplus/latex.h"
-#include"../quantaplus/utilities.h"
-
+#include"../quantaplus/quantaplus.h"
+/*
+#include"../quantaplus/operators/angularmomentum.h"  //  Angular Momentum Operators
+#include"../quantaplus/braket/bra.h"
+#include"../quantaplus/braket/ket.h"
+#include"../quantaplus/utilities/latex.h"
+#include"../quantaplus/utilities/utilities.h"
+*/
 using namespace QuantaPlus;
 	using std::cout;
 	using std::endl;
@@ -55,23 +58,29 @@ int main()
 
 	cout<<"------------------[J^2]----------------------\n";
 
-	ResultPrint(J2);
+	J2.Print();
 
 	cout<<"------------------[J_x]----------------------\n";
-	ResultPrint(J_x);
+	 
+	J_x.Print();
 
 	cout<<"------------------[J_y]----------------------\n";
-	ResultPrint(J_y);
+ 
+	J_y.Print();
 
 	cout<<"------------------[J_z]----------------------\n";
-	ResultPrint(J_z);
-
+ 
+	J_z.Print();
+	
 	cout<<"######################################################################################\n";
 	cout<<"############### (b) RHS result of the commutator: [J_x, J_y] = i* J_z ################\n";
 	cout<<"######################################################################################\n";
+	
 	QM_operator<complex> commutatorJxJy((int)J_z.rows(),(int)J_z.cols());
+	
 	commutatorJxJy<<Commute(J_x, J_y);
-	ResultPrint(commutatorJxJy);
+ 
+	commutatorJxJy.Print();
 
 	cout<<"######################################################################################\n";
 	cout<<"##### (c) <J_x> and <(J_x)^2> with respect to the state | Ket > = {0, 0, 1, 0}:  #####\n";
@@ -110,7 +119,12 @@ int main()
 	complex delta_Jx(0,0);
 
 	delta_Jx = sqrt(JxSqr_MeanVal - pow( Jx_MeanVal , 2) );
-cout<<"Delta J_x= ";ResultPrint(delta_Jx);cout<<endl;
+	
+	cout<<"Delta J_x= ";
+	
+	ResultPrint(delta_Jx);
+	
+	cout<<endl;
 
 	//--------------------------------------------------------J_y---------------------------------------------------------------
 	cout<<"------------------Delta J_y----------------------\n";
@@ -141,7 +155,9 @@ cout<<"Delta J_x= ";ResultPrint(delta_Jx);cout<<endl;
 	complex delta_Jy(0,0);
 
 	delta_Jy = sqrt(JySqr_MeanVal - pow( Jy_MeanVal , 2) );
-	cout<<"Delta J_y= ";ResultPrint(delta_Jy);cout<<endl;
+	cout<<"Delta J_y= ";
+	ResultPrint(delta_Jy);
+	cout<<endl;
 	/*
 	cout<<"######################################################################################\n";
 	cout<<"##################  Delta J_x * Delta J_y >= 1/2 * |<[ J_x, J_y]>|:  #################\n";

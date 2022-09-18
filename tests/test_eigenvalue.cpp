@@ -8,10 +8,16 @@ by:  Mohammed Maher Abdelrahim Mohammed
 *******************************************************************************************/
 #include<iostream>
 #include<complex>
-#include"../quantaplus/braket.h"
-#include"../quantaplus/angularmomentum.h"
-#include"../quantaplus/utilities.h"
 
+#include"../quantaplus/quantaplus.h"
+/*
+#include"../quantaplus/braket/ket.h"
+#include"../quantaplus/braket/bra.h"
+#include"../quantaplus/eigenvectors/eigenvec.h"
+#include"../quantaplus/eigenvectors/eigenval.h"
+#include"../quantaplus/operators/angularmomentum.h"
+#include"../quantaplus/utilities/utilities.h"
+*/
 using namespace QuantaPlus;
 typedef std::complex<double>  complex;
 using std::cout;
@@ -22,11 +28,9 @@ int main() {
 	
 	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = (0,1)] 
  
-	//QM_operator<complex> A(3,3);
-	Eigen::Matrix<complex,Eigen::Dynamic,Eigen::Dynamic> A(3,3);
-	Eigen::Matrix<complex,Eigen::Dynamic,Eigen::Dynamic> vec;
-	Eigen::Matrix<complex,Eigen::Dynamic,Eigen::Dynamic> res;
- 
+ 	QM_operator<complex> A(3,3);
+ 	QM_operator<complex> vec(3,3);
+ 	QM_operator<complex> res(3,3);
  
 	A<<0.0, 1.0, 0.0,
 	   1.0, 0.0, 1.0,
@@ -34,18 +38,21 @@ int main() {
 	//cout<<H<<endl;
 	time_count.Start();
 	
-	NResultPrint(A);
+ 
+	A.NPrint();
 	//cout<<QuantumEigenValue(H,4)<<endl;
 	cout<<"----------EigenValues-----------"<<endl;
  
 	res = QuantumEigenValue(A);
 	//cout<<res<<endl;
-	ResultPrint(res);
+ 
+	res.Print();
 	cout<<endl;
 	cout<<"----------Eigenvectors-----------"<<endl;
 	 
 	vec =QuantumEigenVector(A);
-	ResultPrint(vec);
+ 
+	vec.Print();
 	// cout<<vec<<endl;
 	cout<<endl;
 	///<--clock stuff again

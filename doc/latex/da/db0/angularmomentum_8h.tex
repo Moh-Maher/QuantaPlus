@@ -1,24 +1,72 @@
-\hypertarget{angularmomentum_8h}{}\doxysection{quantaplus/angularmomentum.h File Reference}
-\label{angularmomentum_8h}\index{quantaplus/angularmomentum.h@{quantaplus/angularmomentum.h}}
+\hypertarget{angularmomentum_8h}{}\doxysection{quantaplus/operators/angularmomentum.h File Reference}
+\label{angularmomentum_8h}\index{quantaplus/operators/angularmomentum.h@{quantaplus/operators/angularmomentum.h}}
 
 
 Define and handle some fundamental quantum operators.  
 
 
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
-{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}include/angularmomentum.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../utilities/utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../utilities/print.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Quanta\+Plus\+::\+Angular\+Momentum$<$ T $>$}}
-\begin{DoxyCompactList}\small\item\em Provieds General Formalism of Angular Momentum operators. ~\newline
- \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}} is a publicly derived class from t\+QM\+\_\+operator$<$\+T$>$ \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The matrix representation of angular momentum operators. ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}
-\begin{DoxyCompactList}\small\item\em Generic \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} interfaces and implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Namespace of the {\bfseries{\mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}}} C++ library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_ad008f525de3844a744044b629c3d6429}\label{namespaceQuantaPlus_ad008f525de3844a744044b629c3d6429}} 
+bool {\bfseries Quanta\+Plus\+::valid\+Angular\+Momentum} (const double \&x)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_ab5b1f57355a21653f1bf206ae275def7}\label{namespaceQuantaPlus_ab5b1f57355a21653f1bf206ae275def7}} 
+double {\bfseries Quanta\+Plus\+::\+Kronecker\+Delta} (const double \&i, const double \&j)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_afb123cc8ca362f54d948c0d1ce6bed7d}\label{namespaceQuantaPlus_afb123cc8ca362f54d948c0d1ce6bed7d}} 
+{\footnotesize template$<$class T $>$ }\\Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ {\bfseries Quanta\+Plus\+::\+Commute} (Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt1, Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a3f67e5bddf8cf89804e5fe73a35ba25c}\label{namespaceQuantaPlus_a3f67e5bddf8cf89804e5fe73a35ba25c}} 
+{\footnotesize template$<$typename U $>$ }\\U {\bfseries Quanta\+Plus\+::\+Structure\+Constant} (Eigen\+::\+Matrix$<$ U, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt1, Eigen\+::\+Matrix$<$ U, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt2, Eigen\+::\+Matrix$<$ U, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt3)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a4febdfcd023baf0463604c58e47daee0}\label{namespaceQuantaPlus_a4febdfcd023baf0463604c58e47daee0}} 
+void {\bfseries Quanta\+Plus\+::\+Magnetic\+Quantum\+Number} (const double \&j)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a25a462f33672b591a153066f5b5f4485}\label{namespaceQuantaPlus_a25a462f33672b591a153066f5b5f4485}} 
+double {\bfseries Quanta\+Plus\+::\+Jsqr} (const double \&j, const double \&j1, const double \&m1, const double \&j2, const double \&m2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_acf10726d986d2698189a4779b72dc131}\label{namespaceQuantaPlus_acf10726d986d2698189a4779b72dc131}} 
+double {\bfseries Quanta\+Plus\+::\+Jx} (const double \&j, const double \&j1, const double \&m1, const double \&j2, const double \&m2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a82b5507395b20ea85a4ace8ffe3f7f0f}\label{namespaceQuantaPlus_a82b5507395b20ea85a4ace8ffe3f7f0f}} 
+std\+::complex$<$ double $>$ {\bfseries Quanta\+Plus\+::\+Jy} (const double \&j, const double \&j1, const double \&m1, const double \&j2, const double \&m2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_af8783b3934b1b9170e67224a33ee8a20}\label{namespaceQuantaPlus_af8783b3934b1b9170e67224a33ee8a20}} 
+double {\bfseries Quanta\+Plus\+::\+Jz} (const double \&j1, const double \&m1, const double \&j2, const double \&m2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_ad057f8a553d6ff2027164e04422c77a3}\label{namespaceQuantaPlus_ad057f8a553d6ff2027164e04422c77a3}} 
+double {\bfseries Quanta\+Plus\+::\+Jplus} (const double \&j, const double \&j1, const double \&m1, const double \&j2, const double \&m2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_aac74cdb74c07a2acf9868464b8e4ebe2}\label{namespaceQuantaPlus_aac74cdb74c07a2acf9868464b8e4ebe2}} 
+double {\bfseries Quanta\+Plus\+::\+Jminus} (const double \&j, const double \&j1, const double \&m1, const double \&j2, const double \&m2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_adff5594774836b730842fdf82bd79b53}\label{namespaceQuantaPlus_adff5594774836b730842fdf82bd79b53}} 
+{\footnotesize template$<$typename T $>$ }\\Angular\+Momentum$<$ T $>$ {\bfseries Quanta\+Plus\+::\+Matrix\+Exp} (Angular\+Momentum$<$ T $>$ \&A)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a5f0838312ca74fef41e9ec1a93f36e7c}\label{namespaceQuantaPlus_a5f0838312ca74fef41e9ec1a93f36e7c}} 
+{\footnotesize template$<$class T $>$ }\\Angular\+Momentum$<$ T $>$ {\bfseries Quanta\+Plus\+::\+Rotation\+By\+Angle} (const double \&a, const Angular\+Momentum$<$ T $>$ \&mat)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a92aff4e1e925017079431cb0c31660b9}\label{namespaceQuantaPlus_a92aff4e1e925017079431cb0c31660b9}} 
+const double {\bfseries Quanta\+Plus\+::h\+Bar} = 1.
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

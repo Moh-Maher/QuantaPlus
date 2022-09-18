@@ -9,11 +9,18 @@
 #include<iostream>
 #include<complex>
 #include<ctime>
-#include"../quantaplus/utilities.h"
-#include"../quantaplus/angularmomentum.h"
-#include"../quantaplus/braket.h"
-#include"../quantaplus/latex.h"
-#include"../quantaplus/operators.h"
+
+#include"../quantaplus/quantaplus.h"
+/*
+#include"../quantaplus/utilities/utilities.h"
+#include"../quantaplus/operators/angularmomentum.h"
+#include"../quantaplus/braket/ket.h"
+#include"../quantaplus/braket/bra.h"
+#include"../quantaplus/utilities/latex.h"
+#include"../quantaplus/operators/operators.h"
+*/
+
+
 
 using namespace QuantaPlus;
 	typedef std::complex<double>  complex;
@@ -51,26 +58,28 @@ int main()
 	cout<<" system:\n";
 
 	cout<<"------------S_x operator:-------------\n";
-	ResultPrint(S_x);
-
+	//ResultPrint(S_x);
+	S_x.Print();
 	cout<<"------------S_y operator:-------------\n";
-	ResultPrint(S_y);
+	//ResultPrint(S_y);
+	S_y.Print();
 	cout<<"------------S_z operator:-------------\n";
-	ResultPrint(S_z);
-
+	//ResultPrint(S_z);
+	S_z.Print();
 	cout<<"------------S^2 operator:-------------\n";
-	ResultPrint(S_sqr);
-
+	//ResultPrint(S_sqr);
+	S_sqr.Print();
 	cout<<"------------S_+ operator:-------------\n";
-	ResultPrint(S_plus);
+	//ResultPrint(S_plus);
+	S_plus.Print();
 	cout<<"------------S_- operator:-------------\n";
-	ResultPrint(S_minus);
-	
+	//ResultPrint(S_minus);
+	S_minus.Print();
 	cout<<"------------KroneckerProduct: Sx*Id(1/2)*Id(0) = -------------\n";
 	AngularMomentum<complex> res(8,8);
 	res=KroneckerProduct(S_x,Id<complex>(0.5),Id<complex>(0));
-	ResultPrint(res);
-	
+	//ResultPrint(res);
+	res.Print();
 	//uncomment the code below to generate latex file
 	 
 	LaTex mypdf("output/Angular_Momentum.tex");

@@ -1,0 +1,52 @@
+\hypertarget{eigenval_8h_source}{}\doxysection{eigenval.\+h}
+\label{eigenval_8h_source}\index{quantaplus/eigenvectors/eigenval.h@{quantaplus/eigenvectors/eigenval.h}}
+\mbox{\hyperlink{eigenval_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{4 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{5 \textcolor{comment}{  by:        Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{6 \textcolor{comment}{             UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{7 \textcolor{comment}{         VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{8 \textcolor{comment}{             mohammed.maher@unical.it  }}
+\DoxyCodeLine{9 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_EIGENVECTORS\_EIGENVAL\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define QUANTAPLUS\_EIGENVECTORS\_EIGENVAL\_H}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}} \{}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 \textcolor{comment}{/*!****************************************************************}}
+\DoxyCodeLine{17 \textcolor{comment}{* \(\backslash\)brief compute specific Eigen values for Eigen::Matrix.}}
+\DoxyCodeLine{18 \textcolor{comment}{* @param mt is Dynamic-\/size Eigen::Matrix.}}
+\DoxyCodeLine{19 \textcolor{comment}{* @param i the selector var to pick the specified Eigen value}}
+\DoxyCodeLine{20 \textcolor{comment}{* @return selected eigenvalues for a given matrix. }}
+\DoxyCodeLine{21 \textcolor{comment}{******************************************************************/}}
+\DoxyCodeLine{22 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{23 T \mbox{\hyperlink{namespaceQuantaPlus_a401420c10e050f8c970dfcb13874d99b}{QuantumEigenValue}}(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  \&mat,\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& i)}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> > eigensolver(mat);}
+\DoxyCodeLine{26    }
+\DoxyCodeLine{27     \textcolor{keywordflow}{if} (eigensolver.info() != Eigen::Success) abort();}
+\DoxyCodeLine{28    }
+\DoxyCodeLine{29     \textcolor{keywordflow}{return} eigensolver.eigenvalues()[i];}
+\DoxyCodeLine{30 \}}
+\DoxyCodeLine{31 \textcolor{comment}{/*!***********************************************************************}}
+\DoxyCodeLine{32 \textcolor{comment}{* \(\backslash\)brief overloaded version to compute all Eigen values for Eigen::Matrix.}}
+\DoxyCodeLine{33 \textcolor{comment}{* @param mt is a Dynamic-\/size Eigen::Matrix.}}
+\DoxyCodeLine{34 \textcolor{comment}{* @return all eigenvalues for a given matrix. }}
+\DoxyCodeLine{35 \textcolor{comment}{*************************************************************************/}}
+\DoxyCodeLine{36 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{37 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }
+\DoxyCodeLine{38 \mbox{\hyperlink{namespaceQuantaPlus_a401420c10e050f8c970dfcb13874d99b}{QuantumEigenValue}}(\textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  \&mat)}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> > eigensolver(mat);}
+\DoxyCodeLine{41    }
+\DoxyCodeLine{42     \textcolor{keywordflow}{if} (eigensolver.info() != Eigen::Success) abort();}
+\DoxyCodeLine{43    }
+\DoxyCodeLine{44     \textcolor{keywordflow}{return} eigensolver.eigenvalues();}
+\DoxyCodeLine{45 \}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

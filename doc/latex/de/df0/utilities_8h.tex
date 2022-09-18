@@ -1,5 +1,5 @@
-\hypertarget{utilities_8h}{}\doxysection{quantaplus/utilities.h File Reference}
-\label{utilities_8h}\index{quantaplus/utilities.h@{quantaplus/utilities.h}}
+\hypertarget{utilities_8h}{}\doxysection{quantaplus/utilities/utilities.h File Reference}
+\label{utilities_8h}\index{quantaplus/utilities/utilities.h@{quantaplus/utilities/utilities.h}}
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
 {\ttfamily \#include $<$string$>$}\newline
 {\ttfamily \#include $<$sstream$>$}\newline
@@ -8,8 +8,6 @@
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$ctime$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
-{\ttfamily \#include $<$valarray$>$}\newline
-{\ttfamily \#include \char`\"{}include/utilities.\+hpp\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -21,36 +19,19 @@ class \mbox{\hyperlink{classQuantaPlus_1_1ElapsedTime}{Quanta\+Plus\+::\+Elapsed
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}
-\begin{DoxyCompactList}\small\item\em Generic \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} interfaces and implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Namespace of the {\bfseries{\mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}}} C++ library. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\std\+::string \mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{Quanta\+Plus\+::\+To\+String}} (const T \&numb)
+\mbox{\Hypertarget{namespaceQuantaPlus_a75bf13f84d2bb1469588603e8c450383}\label{namespaceQuantaPlus_a75bf13f84d2bb1469588603e8c450383}} 
+bool {\bfseries Quanta\+Plus\+::\+Is\+Number} (const std\+::string \&str)
 \item 
-{\footnotesize template$<$typename T1 , typename T2 $>$ }\\std\+::string \mbox{\hyperlink{namespaceQuantaPlus_abf5a67030172f17f578c7be7c27577fd}{Quanta\+Plus\+::\+To\+Fraction}} (T1 numer, T2 denom)
+\mbox{\Hypertarget{namespaceQuantaPlus_ad6eb262dc23d879cb79c6ca28179a94a}\label{namespaceQuantaPlus_ad6eb262dc23d879cb79c6ca28179a94a}} 
+bool {\bfseries Quanta\+Plus\+::valid\+Integer} (const double \&x)
 \item 
-{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{namespaceQuantaPlus_adaf9b9bebb4bfc4ee41c41b0dea84b3c}{Quanta\+Plus\+::\+Matrix\+To\+String}} (T \&mat)
-\item 
-void \mbox{\hyperlink{namespaceQuantaPlus_a1b830961ce855f2fbe47d1eab54c2a31}{Quanta\+Plus\+::\+Complex\+Num\+Print}} (std\+::complex$<$ double $>$ complex\+\_\+number, bool numerical\+\_\+flag)
-\begin{DoxyCompactList}\small\item\em Print any complex number as z = x + iy. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceQuantaPlus_a1002abc85cb4fc5ceba7c81883ce25dd}{Quanta\+Plus\+::\+Result\+Print}} (const std\+::complex$<$ double $>$ \&complex\+\_\+num)
-\begin{DoxyCompactList}\small\item\em Print the calculated in fraction and symbolic forms (e.\+g\+: 15/7, i/2, √2/19. ..) ~\newline
- \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceQuantaPlus_a87942db7e68bba48516039f085744a5e}{Quanta\+Plus\+::\+NResult\+Print}} (const std\+::complex$<$ double $>$ \&complex\+\_\+num)
-\begin{DoxyCompactList}\small\item\em Print calculated result in numeric form. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}\label{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}} 
-void {\bfseries Quanta\+Plus\+::\+Decimal\+To\+Fraction} (const double \&decimal\+\_\+number)
-\item 
-void \mbox{\hyperlink{namespaceQuantaPlus_a0bb78b439295e3b0683a3395f20cc915}{Quanta\+Plus\+::\+String\+Matrix}} (int r, int c, double $\ast$array)
-\begin{DoxyCompactList}\small\item\em Print array elements in fractions form. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespaceQuantaPlus_a75bf13f84d2bb1469588603e8c450383}{Quanta\+Plus\+::\+Is\+Number}} (const std\+::string \&str)
-\begin{DoxyCompactList}\small\item\em Gives True if str is an integer, and False otherwise. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespaceQuantaPlus_a41fddde6a1231212fec05777db36a26c}{Quanta\+Plus\+::\+Warning}} (const std\+::string \&str)
-\begin{DoxyCompactList}\small\item\em Show warnings in highlighted from. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespaceQuantaPlus_ad6eb262dc23d879cb79c6ca28179a94a}{Quanta\+Plus\+::valid\+Integer}} (const double \&x)
-\begin{DoxyCompactList}\small\item\em Check if the input is an integer. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespaceQuantaPlus_a6210f298a3163e63970a7a0d33fda73f}{Quanta\+Plus\+::half\+Integer}} (const double \&x)
-\begin{DoxyCompactList}\small\item\em Check if the input is a half-\/integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\Hypertarget{namespaceQuantaPlus_a6210f298a3163e63970a7a0d33fda73f}\label{namespaceQuantaPlus_a6210f298a3163e63970a7a0d33fda73f}} 
+bool {\bfseries Quanta\+Plus\+::half\+Integer} (const double \&x)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

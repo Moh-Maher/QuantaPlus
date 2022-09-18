@@ -1,5 +1,5 @@
 \hypertarget{latex_8h_source}{}\doxysection{latex.\+h}
-\label{latex_8h_source}\index{quantaplus/latex.h@{quantaplus/latex.h}}
+\label{latex_8h_source}\index{quantaplus/utilities/latex.h@{quantaplus/utilities/latex.h}}
 \mbox{\hyperlink{latex_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
@@ -15,102 +15,407 @@
 \DoxyCodeLine{13 \textcolor{preprocessor}{\#include<iostream>}}
 \DoxyCodeLine{14 \textcolor{preprocessor}{\#include<cmath>}}
 \DoxyCodeLine{15 \textcolor{preprocessor}{\#include<string>}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#include<map>}}
-\DoxyCodeLine{17 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{braket_8h}{braket.h}}"{}}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{operators_8h}{operators.h}}"{}}}
-\DoxyCodeLine{19 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
-\DoxyCodeLine{22 \textcolor{comment}{//using namespace QuantaPlus;}}
-\DoxyCodeLine{29 \textcolor{comment}{}std::map<std::string, std::string> \mbox{\hyperlink{namespaceQuantaPlus_ae6bf737053e0b6707eea07edba89eb8a}{GreekLatters}} = \{ }
-\DoxyCodeLine{30     \{\textcolor{stringliteral}{"{}Alpha"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0391"{}}\}, \{\textcolor{stringliteral}{"{}Beta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0392"{}}\}, \{\textcolor{stringliteral}{"{}Gamma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0393"{}}\},}
-\DoxyCodeLine{31     \{\textcolor{stringliteral}{"{}Delta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0394"{}}\}, \{\textcolor{stringliteral}{"{}Epsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0395"{}}\}, \{\textcolor{stringliteral}{"{}Zeta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0396"{}}\},}
-\DoxyCodeLine{32     \{\textcolor{stringliteral}{"{}Eta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0397"{}}\}, \{\textcolor{stringliteral}{"{}Theta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0398"{}}\}, \{\textcolor{stringliteral}{"{}Iota"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0399"{}}\}, }
-\DoxyCodeLine{33     \{\textcolor{stringliteral}{"{}Kappa"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039A"{}}\}, \{\textcolor{stringliteral}{"{}Lambda"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039B"{}}\}, \{\textcolor{stringliteral}{"{}Mu"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039C"{}}\},}
-\DoxyCodeLine{34     \{\textcolor{stringliteral}{"{}Nu"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039D"{}}\}, \{\textcolor{stringliteral}{"{}Xi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039E"{}}\}, \{\textcolor{stringliteral}{"{}Omicron"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039F"{}}\},}
-\DoxyCodeLine{35     \{\textcolor{stringliteral}{"{}Pi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A0"{}}\}, \{\textcolor{stringliteral}{"{}Rho"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A1"{}}\}, \{\textcolor{stringliteral}{"{}Sigma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A3"{}}\},}
-\DoxyCodeLine{36     \{\textcolor{stringliteral}{"{}Tau"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A4"{}}\}, \{\textcolor{stringliteral}{"{}Upsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A5"{}}\}, \{\textcolor{stringliteral}{"{}Phi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A6"{}}\},}
-\DoxyCodeLine{37     \{\textcolor{stringliteral}{"{}Chi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A7"{}}\}, \{\textcolor{stringliteral}{"{}Psi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A8"{}}\}, \{\textcolor{stringliteral}{"{}Omega"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A9"{}}\}, }
-\DoxyCodeLine{38     }
-\DoxyCodeLine{39     \{\textcolor{stringliteral}{"{}\_alpha"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B1"{}}\}, \{\textcolor{stringliteral}{"{}beta"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B2"{}}\}, \{\textcolor{stringliteral}{"{}gamma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B3"{}}\},}
-\DoxyCodeLine{40     \{\textcolor{stringliteral}{"{}delta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B4"{}}\}, \{\textcolor{stringliteral}{"{}epsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B5"{}}\}, \{\textcolor{stringliteral}{"{}zeta"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B6"{}}\},}
-\DoxyCodeLine{41     \{\textcolor{stringliteral}{"{}eta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B7"{}}\}, \{\textcolor{stringliteral}{"{}theta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B8"{}}\}, \{\textcolor{stringliteral}{"{}iota"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B9"{}}\},}
-\DoxyCodeLine{42     \{\textcolor{stringliteral}{"{}kappa"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BA"{}}\}, \{\textcolor{stringliteral}{"{}lambda"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BB"{}}\}, \{\textcolor{stringliteral}{"{}mu"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BC"{}}\},}
-\DoxyCodeLine{43     \{\textcolor{stringliteral}{"{}nu"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BD"{}}\}, \{\textcolor{stringliteral}{"{}xi"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BE"{}}\}, \{\textcolor{stringliteral}{"{}omicron"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BF"{}}\},}
-\DoxyCodeLine{44     \{\textcolor{stringliteral}{"{}pi"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03C0"{}}\}, \{\textcolor{stringliteral}{"{}rho"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C1"{}}\}, \{\textcolor{stringliteral}{"{}sigma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C3"{}}\},}
-\DoxyCodeLine{45     \{\textcolor{stringliteral}{"{}tau"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C4"{}}\}, \{\textcolor{stringliteral}{"{}upsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C5"{}}\}, \{\textcolor{stringliteral}{"{}phi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C6"{}}\},}
-\DoxyCodeLine{46     \{\textcolor{stringliteral}{"{}chi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C7"{}}\}, \{\textcolor{stringliteral}{"{}psi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C8"{}}\}, \{\textcolor{stringliteral}{"{}omega"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C9"{}}\}}
-\DoxyCodeLine{47 \};}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
-\DoxyCodeLine{50 \textcolor{comment}{  Function: Greek}}
-\DoxyCodeLine{51 \textcolor{comment}{  }}
-\DoxyCodeLine{52 \textcolor{comment}{  Summary:  convert string name of a Greek letter into its }}
-\DoxyCodeLine{53 \textcolor{comment}{        equivalent Unicode escape characters to print it symbolically .  }}
-\DoxyCodeLine{54 \textcolor{comment}{             }}
-\DoxyCodeLine{55 \textcolor{comment}{  Returns:  string}}
-\DoxyCodeLine{56 \textcolor{comment}{             store the output directly into string variable.}}
-\DoxyCodeLine{57 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/} }
-\DoxyCodeLine{58 std::string Greek(\textcolor{keyword}{const} std::string\& letter\_name)\{}
-\DoxyCodeLine{59     \textcolor{keyword}{auto} from = \mbox{\hyperlink{namespaceQuantaPlus_ae6bf737053e0b6707eea07edba89eb8a}{GreekLatters}}.find(letter\_name);}
-\DoxyCodeLine{60     \textcolor{keywordflow}{return} from-\/>second;}
-\DoxyCodeLine{61 \}}
-\DoxyCodeLine{62 \textcolor{comment}{/*!********************************************************************************}}
-\DoxyCodeLine{63 \textcolor{comment}{  \(\backslash\)class:    LaTex}}
-\DoxyCodeLine{64 \textcolor{comment}{  \(\backslash\)brief Class to generate LaTex files. }}
-\DoxyCodeLine{65 \textcolor{comment}{********************************************************************************/}}
-\DoxyCodeLine{66 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1LaTex}{LaTex}} \{}
-\DoxyCodeLine{67     \textcolor{keyword}{private}:}
-\DoxyCodeLine{68         }
-\DoxyCodeLine{69         std::ofstream ofile; }
-\DoxyCodeLine{70          }
-\DoxyCodeLine{71         std::string file\_path; }
-\DoxyCodeLine{72         }
-\DoxyCodeLine{74         std::map<std::string, std::string> MathFunctions = \{}
-\DoxyCodeLine{75         \{\textcolor{stringliteral}{"{}Exp"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)exp"{}}\}, \{\textcolor{stringliteral}{"{}Sin"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sin"{}}\}, \{\textcolor{stringliteral}{"{}Cos"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)cos"{}}\}, \{\textcolor{stringliteral}{"{}Tan"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)tan"{}}\}, }
-\DoxyCodeLine{76         \{\textcolor{stringliteral}{"{}Log"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)log"{}}\}, \{\textcolor{stringliteral}{"{}Ln"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)ln"{}}\}, \{\textcolor{stringliteral}{"{}Lg"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)lg"{}}\}, \{\textcolor{stringliteral}{"{}Cot"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)cot"{}}\}, \{\textcolor{stringliteral}{"{}Csc"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)csc"{}}\},}
-\DoxyCodeLine{77         \{\textcolor{stringliteral}{"{}Sec"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sec"{}}\}, \{\textcolor{stringliteral}{"{}ASin"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arcsin"{}}\}, \{\textcolor{stringliteral}{"{}ACos"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arccos"{}}\}, \{\textcolor{stringliteral}{"{}ATan"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arctan"{}}\}, }
-\DoxyCodeLine{78         \{\textcolor{stringliteral}{"{}Sgn"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sgn"{}}\}, \{\textcolor{stringliteral}{"{}Det"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)det"{}}\}, \{\textcolor{stringliteral}{"{}Sqrt"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sqrt"{}}\} }
-\DoxyCodeLine{79         \};}
-\DoxyCodeLine{80     \textcolor{keyword}{public}: }
-\DoxyCodeLine{82         \mbox{\hyperlink{classQuantaPlus_1_1LaTex_ab6e26ce23ca32432f8b633a523d1a1fd}{LaTex}}(): file\_path(\textcolor{stringliteral}{"{}output/default.tex"{}}) \{\}}
-\DoxyCodeLine{83         }
-\DoxyCodeLine{85         \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a842d773064ec738ef04e0e805d240aef}{LaTex}}(std::string filename): file\_path(filename) \{\}    }
-\DoxyCodeLine{86         }
-\DoxyCodeLine{87         \textcolor{comment}{//method for quick start the Latex file settings.}}
-\DoxyCodeLine{89 \textcolor{comment}{}        \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a90d75fec58234179a6ce191d55689df0}{BeginLaTex}}() }
-\DoxyCodeLine{90         \{   }
-\DoxyCodeLine{91             ofile.open(file\_path);}
-\DoxyCodeLine{92             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)documentclass[10pt,a4paper]\{article\}\(\backslash\)n"{}};}
-\DoxyCodeLine{93             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[utf8]\{inputenc\}\(\backslash\)n"{}};}
-\DoxyCodeLine{94             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[T1]\{fontenc\}\(\backslash\)n"{}};}
-\DoxyCodeLine{95             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amsmath\}\(\backslash\)n"{}};}
-\DoxyCodeLine{96             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amssymb\}\(\backslash\)n"{}};}
-\DoxyCodeLine{97             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{graphicx\}\(\backslash\)n"{}};}
-\DoxyCodeLine{98             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{braket\}\(\backslash\)n"{}};}
-\DoxyCodeLine{99             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amsmath\}\(\backslash\)n"{}};}
-\DoxyCodeLine{100             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{document\}\(\backslash\)n"{}};}
-\DoxyCodeLine{101             ofile.close();}
-\DoxyCodeLine{102         \}}
-\DoxyCodeLine{104         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a1abfa4ee056961eab62d869ab045f9e4}{EndLaTex}}()}
-\DoxyCodeLine{105         \{}
-\DoxyCodeLine{106             ofile.open(file\_path,std::ios\_base::app);}
-\DoxyCodeLine{107             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{document\}\(\backslash\)n"{}};}
-\DoxyCodeLine{108             ofile.close();}
-\DoxyCodeLine{109         \}}
-\DoxyCodeLine{110         \textcolor{comment}{//Direct typing into the Latex file with appending.}}
-\DoxyCodeLine{112 \textcolor{comment}{}        \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a60174a77782d30327ba4939dfa750db3}{Typing}}(std::string text)}
-\DoxyCodeLine{113         \{}
-\DoxyCodeLine{114             ofile.open(file\_path,std::ios\_base::app);}
-\DoxyCodeLine{115             ofile<<text;}
-\DoxyCodeLine{116             ofile.close();}
-\DoxyCodeLine{117         \}}
-\DoxyCodeLine{119         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_af51b8708abe18eae341ae2e2f8715366}{ToLaTex}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...);}
-\DoxyCodeLine{121         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a7a10f52c1c68f52bc34a92a71d24260f}{MathOperation}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...);}
-\DoxyCodeLine{123         std::string \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a6d61490c4dcd0abf3ec2aef157c50b56}{LaTexMath}}(\textcolor{keyword}{const} std::string\& function\_name);}
-\DoxyCodeLine{124 \};}
-\DoxyCodeLine{125 \textcolor{preprocessor}{\#include"{}include/latex.hpp"{}}}
-\DoxyCodeLine{126 \} \textcolor{comment}{//end of QuantaPlus namespace}}
-\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <cstdarg>} \textcolor{comment}{// for Variable arguments handling}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include<map>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include"{}../braket/ket.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include"{}../braket/bra.h"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include"{}../operators/operators.h"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
+\DoxyCodeLine{24 \textcolor{comment}{//using namespace QuantaPlus;}}
+\DoxyCodeLine{31 \textcolor{comment}{}std::map<std::string, std::string> \mbox{\hyperlink{namespaceQuantaPlus_ae6bf737053e0b6707eea07edba89eb8a}{GreekLatters}} = \{ }
+\DoxyCodeLine{32     \{\textcolor{stringliteral}{"{}Alpha"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0391"{}}\}, \{\textcolor{stringliteral}{"{}Beta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0392"{}}\}, \{\textcolor{stringliteral}{"{}Gamma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0393"{}}\},}
+\DoxyCodeLine{33     \{\textcolor{stringliteral}{"{}Delta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0394"{}}\}, \{\textcolor{stringliteral}{"{}Epsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0395"{}}\}, \{\textcolor{stringliteral}{"{}Zeta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0396"{}}\},}
+\DoxyCodeLine{34     \{\textcolor{stringliteral}{"{}Eta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0397"{}}\}, \{\textcolor{stringliteral}{"{}Theta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0398"{}}\}, \{\textcolor{stringliteral}{"{}Iota"{}},\textcolor{stringliteral}{"{}\(\backslash\)u0399"{}}\}, }
+\DoxyCodeLine{35     \{\textcolor{stringliteral}{"{}Kappa"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039A"{}}\}, \{\textcolor{stringliteral}{"{}Lambda"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039B"{}}\}, \{\textcolor{stringliteral}{"{}Mu"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039C"{}}\},}
+\DoxyCodeLine{36     \{\textcolor{stringliteral}{"{}Nu"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039D"{}}\}, \{\textcolor{stringliteral}{"{}Xi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039E"{}}\}, \{\textcolor{stringliteral}{"{}Omicron"{}},\textcolor{stringliteral}{"{}\(\backslash\)u039F"{}}\},}
+\DoxyCodeLine{37     \{\textcolor{stringliteral}{"{}Pi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A0"{}}\}, \{\textcolor{stringliteral}{"{}Rho"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A1"{}}\}, \{\textcolor{stringliteral}{"{}Sigma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A3"{}}\},}
+\DoxyCodeLine{38     \{\textcolor{stringliteral}{"{}Tau"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A4"{}}\}, \{\textcolor{stringliteral}{"{}Upsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A5"{}}\}, \{\textcolor{stringliteral}{"{}Phi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A6"{}}\},}
+\DoxyCodeLine{39     \{\textcolor{stringliteral}{"{}Chi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A7"{}}\}, \{\textcolor{stringliteral}{"{}Psi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A8"{}}\}, \{\textcolor{stringliteral}{"{}Omega"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03A9"{}}\}, }
+\DoxyCodeLine{40     }
+\DoxyCodeLine{41     \{\textcolor{stringliteral}{"{}\_alpha"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B1"{}}\}, \{\textcolor{stringliteral}{"{}beta"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B2"{}}\}, \{\textcolor{stringliteral}{"{}gamma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B3"{}}\},}
+\DoxyCodeLine{42     \{\textcolor{stringliteral}{"{}delta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B4"{}}\}, \{\textcolor{stringliteral}{"{}epsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B5"{}}\}, \{\textcolor{stringliteral}{"{}zeta"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B6"{}}\},}
+\DoxyCodeLine{43     \{\textcolor{stringliteral}{"{}eta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B7"{}}\}, \{\textcolor{stringliteral}{"{}theta"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03B8"{}}\}, \{\textcolor{stringliteral}{"{}iota"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03B9"{}}\},}
+\DoxyCodeLine{44     \{\textcolor{stringliteral}{"{}kappa"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BA"{}}\}, \{\textcolor{stringliteral}{"{}lambda"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BB"{}}\}, \{\textcolor{stringliteral}{"{}mu"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BC"{}}\},}
+\DoxyCodeLine{45     \{\textcolor{stringliteral}{"{}nu"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BD"{}}\}, \{\textcolor{stringliteral}{"{}xi"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03BE"{}}\}, \{\textcolor{stringliteral}{"{}omicron"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03BF"{}}\},}
+\DoxyCodeLine{46     \{\textcolor{stringliteral}{"{}pi"{}}, \textcolor{stringliteral}{"{}\(\backslash\)u03C0"{}}\}, \{\textcolor{stringliteral}{"{}rho"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C1"{}}\}, \{\textcolor{stringliteral}{"{}sigma"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C3"{}}\},}
+\DoxyCodeLine{47     \{\textcolor{stringliteral}{"{}tau"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C4"{}}\}, \{\textcolor{stringliteral}{"{}upsilon"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C5"{}}\}, \{\textcolor{stringliteral}{"{}phi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C6"{}}\},}
+\DoxyCodeLine{48     \{\textcolor{stringliteral}{"{}chi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C7"{}}\}, \{\textcolor{stringliteral}{"{}psi"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C8"{}}\}, \{\textcolor{stringliteral}{"{}omega"{}},\textcolor{stringliteral}{"{}\(\backslash\)u03C9"{}}\}}
+\DoxyCodeLine{49 \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{52 \textcolor{comment}{  Function: Greek}}
+\DoxyCodeLine{53 \textcolor{comment}{  }}
+\DoxyCodeLine{54 \textcolor{comment}{  Summary:  convert string name of a Greek letter into its }}
+\DoxyCodeLine{55 \textcolor{comment}{        equivalent Unicode escape characters to print it symbolically .  }}
+\DoxyCodeLine{56 \textcolor{comment}{             }}
+\DoxyCodeLine{57 \textcolor{comment}{  Returns:  string}}
+\DoxyCodeLine{58 \textcolor{comment}{             store the output directly into string variable.}}
+\DoxyCodeLine{59 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/} }
+\DoxyCodeLine{60 std::string Greek(\textcolor{keyword}{const} std::string\& letter\_name)\{}
+\DoxyCodeLine{61     \textcolor{keyword}{auto} from = \mbox{\hyperlink{namespaceQuantaPlus_ae6bf737053e0b6707eea07edba89eb8a}{GreekLatters}}.find(letter\_name);}
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} from-\/>second;}
+\DoxyCodeLine{63 \}}
+\DoxyCodeLine{64 \textcolor{comment}{/*!********************************************************************************}}
+\DoxyCodeLine{65 \textcolor{comment}{  \(\backslash\)class:    LaTex}}
+\DoxyCodeLine{66 \textcolor{comment}{  \(\backslash\)brief Class to generate LaTex files. }}
+\DoxyCodeLine{67 \textcolor{comment}{********************************************************************************/}}
+\DoxyCodeLine{68 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1LaTex}{LaTex}} \{}
+\DoxyCodeLine{69     \textcolor{keyword}{private}:}
+\DoxyCodeLine{70         }
+\DoxyCodeLine{71         std::ofstream ofile; }
+\DoxyCodeLine{72          }
+\DoxyCodeLine{73         std::string file\_path; }
+\DoxyCodeLine{74         }
+\DoxyCodeLine{76         std::map<std::string, std::string> MathFunctions = \{}
+\DoxyCodeLine{77         \{\textcolor{stringliteral}{"{}Exp"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)exp"{}}\}, \{\textcolor{stringliteral}{"{}Sin"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sin"{}}\}, \{\textcolor{stringliteral}{"{}Cos"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)cos"{}}\}, \{\textcolor{stringliteral}{"{}Tan"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)tan"{}}\}, }
+\DoxyCodeLine{78         \{\textcolor{stringliteral}{"{}Log"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)log"{}}\}, \{\textcolor{stringliteral}{"{}Ln"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)ln"{}}\}, \{\textcolor{stringliteral}{"{}Lg"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)lg"{}}\}, \{\textcolor{stringliteral}{"{}Cot"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)cot"{}}\}, \{\textcolor{stringliteral}{"{}Csc"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)csc"{}}\},}
+\DoxyCodeLine{79         \{\textcolor{stringliteral}{"{}Sec"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sec"{}}\}, \{\textcolor{stringliteral}{"{}ASin"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arcsin"{}}\}, \{\textcolor{stringliteral}{"{}ACos"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arccos"{}}\}, \{\textcolor{stringliteral}{"{}ATan"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)arctan"{}}\}, }
+\DoxyCodeLine{80         \{\textcolor{stringliteral}{"{}Sgn"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sgn"{}}\}, \{\textcolor{stringliteral}{"{}Det"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)det"{}}\}, \{\textcolor{stringliteral}{"{}Sqrt"{}}, \textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sqrt"{}}\} }
+\DoxyCodeLine{81         \};}
+\DoxyCodeLine{82     \textcolor{keyword}{public}: }
+\DoxyCodeLine{84         \mbox{\hyperlink{classQuantaPlus_1_1LaTex_ab6e26ce23ca32432f8b633a523d1a1fd}{LaTex}}(): file\_path(\textcolor{stringliteral}{"{}output/default.tex"{}}) \{\}}
+\DoxyCodeLine{85         }
+\DoxyCodeLine{87         \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a842d773064ec738ef04e0e805d240aef}{LaTex}}(std::string filename): file\_path(filename) \{\}    }
+\DoxyCodeLine{88         }
+\DoxyCodeLine{89         \textcolor{comment}{//method for quick start the Latex file settings.}}
+\DoxyCodeLine{91 \textcolor{comment}{}        \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a90d75fec58234179a6ce191d55689df0}{BeginLaTex}}() }
+\DoxyCodeLine{92         \{   }
+\DoxyCodeLine{93             ofile.open(file\_path);}
+\DoxyCodeLine{94             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)documentclass[10pt,a4paper]\{article\}\(\backslash\)n"{}};}
+\DoxyCodeLine{95             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[utf8]\{inputenc\}\(\backslash\)n"{}};}
+\DoxyCodeLine{96             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage[T1]\{fontenc\}\(\backslash\)n"{}};}
+\DoxyCodeLine{97             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amsmath\}\(\backslash\)n"{}};}
+\DoxyCodeLine{98             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amssymb\}\(\backslash\)n"{}};}
+\DoxyCodeLine{99             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{graphicx\}\(\backslash\)n"{}};}
+\DoxyCodeLine{100             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{braket\}\(\backslash\)n"{}};}
+\DoxyCodeLine{101             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)usepackage\{amsmath\}\(\backslash\)n"{}};}
+\DoxyCodeLine{102             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{document\}\(\backslash\)n"{}};}
+\DoxyCodeLine{103             ofile.close();}
+\DoxyCodeLine{104         \}}
+\DoxyCodeLine{106         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a1abfa4ee056961eab62d869ab045f9e4}{EndLaTex}}()}
+\DoxyCodeLine{107         \{}
+\DoxyCodeLine{108             ofile.open(file\_path,std::ios\_base::app);}
+\DoxyCodeLine{109             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{document\}\(\backslash\)n"{}};}
+\DoxyCodeLine{110             ofile.close();}
+\DoxyCodeLine{111         \}}
+\DoxyCodeLine{112         \textcolor{comment}{//Direct typing into the Latex file with appending.}}
+\DoxyCodeLine{114 \textcolor{comment}{}        \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a60174a77782d30327ba4939dfa750db3}{Typing}}(std::string text)}
+\DoxyCodeLine{115         \{}
+\DoxyCodeLine{116             ofile.open(file\_path,std::ios\_base::app);}
+\DoxyCodeLine{117             ofile<<text;}
+\DoxyCodeLine{118             ofile.close();}
+\DoxyCodeLine{119         \}}
+\DoxyCodeLine{121         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_af51b8708abe18eae341ae2e2f8715366}{ToLaTex}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...);}
+\DoxyCodeLine{123         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a7a10f52c1c68f52bc34a92a71d24260f}{MathOperation}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...);}
+\DoxyCodeLine{125         std::string \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a6d61490c4dcd0abf3ec2aef157c50b56}{LaTexMath}}(\textcolor{keyword}{const} std::string\& function\_name);}
+\DoxyCodeLine{126 \};}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{129 \textcolor{comment}{  Function: LaTexMathFraction}}
+\DoxyCodeLine{130 \textcolor{comment}{  }}
+\DoxyCodeLine{131 \textcolor{comment}{  Summary:   convert decimal\_number into fraction form written in string format.}}
+\DoxyCodeLine{132 \textcolor{comment}{         Note: it's a modified version of [utilities.h] "{}DecimalToFraction"{} fucntion.}}
+\DoxyCodeLine{133 \textcolor{comment}{             }}
+\DoxyCodeLine{134 \textcolor{comment}{  Returns:  string}}
+\DoxyCodeLine{135 \textcolor{comment}{             store the output directly into string variable.}}
+\DoxyCodeLine{136 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/} }
+\DoxyCodeLine{137 std::string  LaTexMathFraction(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& decimal\_number) }
+\DoxyCodeLine{138 \{}
+\DoxyCodeLine{139     \textcolor{keywordtype}{int} signdec  = decimal\_number > 0 ? 1 : -\/1;}
+\DoxyCodeLine{140     std::string plusorminus;}
+\DoxyCodeLine{141     std::string resulted\_string;}
+\DoxyCodeLine{142     \textcolor{keywordflow}{if}(signdec>0) \{}
+\DoxyCodeLine{143         plusorminus=\textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{144     \}}
+\DoxyCodeLine{145     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(signdec<0) \{}
+\DoxyCodeLine{146         plusorminus=\textcolor{stringliteral}{"{}-\/"{}};}
+\DoxyCodeLine{147     \}}
+\DoxyCodeLine{148     }
+\DoxyCodeLine{149     \textcolor{keywordflow}{if}(!validInteger(abs(decimal\_number)) \&\& decimal\_number!=0 \&\& decimal\_number!=1.  \&\& decimal\_number!=-\/1. )}
+\DoxyCodeLine{150     \{}
+\DoxyCodeLine{151      }
+\DoxyCodeLine{152         \textcolor{keywordtype}{double} z = decimal\_number*decimal\_number;}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154         \textcolor{keywordflow}{if}(validInteger(z)) }
+\DoxyCodeLine{155         \{}
+\DoxyCodeLine{156             \textcolor{comment}{//std::cout<<plusorminus+"{}\(\backslash\)sqrt\{"{}<<z;}}
+\DoxyCodeLine{157             resulted\_string =plusorminus+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sqrt\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(z)+\textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{158         \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!validInteger(z)) }
+\DoxyCodeLine{161         \{ }
+\DoxyCodeLine{162             \textcolor{keywordtype}{int} cycles = 10;}
+\DoxyCodeLine{163             \textcolor{keywordtype}{double} precision = 5e-\/4;  }
+\DoxyCodeLine{164             \textcolor{keywordtype}{double} number = z;}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166             \textcolor{keywordtype}{int} sign  = number > 0 ? 1 : -\/1;}
+\DoxyCodeLine{167             number = number * sign; \textcolor{comment}{//abs(number);}}
+\DoxyCodeLine{168             \textcolor{keywordtype}{double} new\_number,whole\_part;}
+\DoxyCodeLine{169             \textcolor{keywordtype}{double} decimal\_part =  number -\/ (int)number;}
+\DoxyCodeLine{170             \textcolor{keywordtype}{int} counter = 0;}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172             std::valarray<double> vec\_1\{double((\textcolor{keywordtype}{int}) number), 1\}, vec\_2\{1,0\}, temporary;}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174             \textcolor{keywordflow}{while}( (decimal\_part > precision) \& (counter < cycles) )}
+\DoxyCodeLine{175             \{}
+\DoxyCodeLine{176                 new\_number = 1 / decimal\_part;}
+\DoxyCodeLine{177                 whole\_part = (int) new\_number;}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179                 temporary = vec\_1;}
+\DoxyCodeLine{180                 vec\_1 = whole\_part * vec\_1 + vec\_2;}
+\DoxyCodeLine{181                 vec\_2 = temporary;}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183                 decimal\_part = new\_number -\/ whole\_part;}
+\DoxyCodeLine{184                 counter += 1;}
+\DoxyCodeLine{185             \} }
+\DoxyCodeLine{186             \textcolor{keywordflow}{if}(validInteger(sqrt(sign * vec\_1[0])) \&\& validInteger(sqrt(vec\_1[1])))}
+\DoxyCodeLine{187             \{}
+\DoxyCodeLine{188                 resulted\_string =plusorminus+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)frac\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(sqrt(sign * vec\_1[0]))+\textcolor{stringliteral}{"{}\}\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(sqrt(vec\_1[1]))+\textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{189             \} }
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(validInteger(sqrt(sign * vec\_1[0])) \&\& (!validInteger(sqrt(vec\_1[1]))) )}
+\DoxyCodeLine{192             \{}
+\DoxyCodeLine{193                 resulted\_string =plusorminus+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)frac\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(sqrt(sign * vec\_1[0]))+\textcolor{stringliteral}{"{}\}\{\(\backslash\)\(\backslash\)sqrt\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(vec\_1[1])+\textcolor{stringliteral}{"{}\}\}"{}};}
+\DoxyCodeLine{194             \}}
+\DoxyCodeLine{195             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}( !validInteger(sqrt(sign * vec\_1[0])) \&\& (validInteger(sqrt(vec\_1[1]))) )}
+\DoxyCodeLine{196             \{}
+\DoxyCodeLine{197                 resulted\_string =plusorminus+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)frac\{\(\backslash\)\(\backslash\)sqrt\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(sign * vec\_1[0])+\textcolor{stringliteral}{"{}\}\}\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(sqrt(vec\_1[1]))+\textcolor{stringliteral}{"{}\}"{}};}
+\DoxyCodeLine{198             \}}
+\DoxyCodeLine{199             \textcolor{keywordflow}{else} }
+\DoxyCodeLine{200                 resulted\_string =plusorminus+\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)sqrt\{\(\backslash\)\(\backslash\)frac\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(sign * vec\_1[0])+\textcolor{stringliteral}{"{}\}\{"{}}+\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(sqrt(vec\_1[1]))+\textcolor{stringliteral}{"{}\}\}"{}};}
+\DoxyCodeLine{201      }
+\DoxyCodeLine{202         \}}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keywordflow}{else} resulted\_string=\mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(decimal\_number);\textcolor{comment}{//std::cout<<decimal\_number;}}
+\DoxyCodeLine{206 }
+\DoxyCodeLine{207 \textcolor{keywordflow}{return} resulted\_string;}
+\DoxyCodeLine{208 \}}
+\DoxyCodeLine{209 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{210 \textcolor{comment}{  Function: RealAndImaginary}}
+\DoxyCodeLine{211 \textcolor{comment}{  }}
+\DoxyCodeLine{212 \textcolor{comment}{  Summary:   convert tow double variables into string format, with }}
+\DoxyCodeLine{213 \textcolor{comment}{         chosen separator string. }}
+\DoxyCodeLine{214 \textcolor{comment}{             }}
+\DoxyCodeLine{215 \textcolor{comment}{  Returns:  string}}
+\DoxyCodeLine{216 \textcolor{comment}{             store the output directly into string variable.}}
+\DoxyCodeLine{217 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{218 std::string RealAndImaginary(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, std::string separator)}
+\DoxyCodeLine{219 \{}
+\DoxyCodeLine{220     std::string resulted\_string;}
+\DoxyCodeLine{221     \textcolor{keywordflow}{if}(x!=0 and y!=0) \{}
+\DoxyCodeLine{222         }
+\DoxyCodeLine{223         \textcolor{keywordflow}{if}(y<0) \{       }
+\DoxyCodeLine{224             \textcolor{keywordflow}{if}(y==-\/1)\{resulted\_string = LaTexMathFraction(x)+\textcolor{stringliteral}{"{}-\/i"{}}+separator;\}}
+\DoxyCodeLine{225             \textcolor{keywordflow}{else} resulted\_string = LaTexMathFraction(x)+LaTexMathFraction(y)+\textcolor{stringliteral}{"{}i"{}}+separator;}
+\DoxyCodeLine{226         \}}
+\DoxyCodeLine{227 }
+\DoxyCodeLine{228         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(y>0) \{}
+\DoxyCodeLine{229             \textcolor{keywordflow}{if}(y==1)\{resulted\_string =LaTexMathFraction(x)+\textcolor{stringliteral}{"{}+ i"{}}+separator;\}}
+\DoxyCodeLine{230             \textcolor{keywordflow}{else} resulted\_string = LaTexMathFraction(x)+\textcolor{stringliteral}{"{}+"{}}+LaTexMathFraction(y)+\textcolor{stringliteral}{"{}i"{}}+separator;}
+\DoxyCodeLine{231         \}}
+\DoxyCodeLine{232     \}}
+\DoxyCodeLine{233     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(y==0) \{   }
+\DoxyCodeLine{234         resulted\_string = LaTexMathFraction(x)+separator;}
+\DoxyCodeLine{235     \}}
+\DoxyCodeLine{236     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(x==0)\{}
+\DoxyCodeLine{237         \textcolor{keywordflow}{if}(y==-\/1)\{resulted\_string =\textcolor{stringliteral}{"{}-\/i"{}}+separator;\}}
+\DoxyCodeLine{238         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(y==1)\{resulted\_string =\textcolor{stringliteral}{"{} i"{}}+separator;\} }
+\DoxyCodeLine{239         \textcolor{keywordflow}{else} resulted\_string = LaTexMathFraction(y)+\textcolor{stringliteral}{"{}i"{}}+separator; }
+\DoxyCodeLine{240     \}}
+\DoxyCodeLine{241     \textcolor{keywordflow}{return}  resulted\_string;}
+\DoxyCodeLine{242 \}}
+\DoxyCodeLine{243 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{244 \textcolor{comment}{  Function: ToLaTex}}
+\DoxyCodeLine{245 \textcolor{comment}{  }}
+\DoxyCodeLine{246 \textcolor{comment}{  Summary:   convert multiple inputs into latex format.}}
+\DoxyCodeLine{247 \textcolor{comment}{  }}
+\DoxyCodeLine{248 \textcolor{comment}{  Args:     const char* fmt...}}
+\DoxyCodeLine{249 \textcolor{comment}{              multiple variables with identifier format "{}fmt"{}.}}
+\DoxyCodeLine{250 \textcolor{comment}{             }}
+\DoxyCodeLine{251 \textcolor{comment}{  Returns:  void}}
+\DoxyCodeLine{252 \textcolor{comment}{              print the output directly to the specified latex file}}
+\DoxyCodeLine{253 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{254 \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_af51b8708abe18eae341ae2e2f8715366}{LaTex::ToLaTex}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...)}
+\DoxyCodeLine{255 \{   }
+\DoxyCodeLine{256     va\_list args;}
+\DoxyCodeLine{257     va\_start(args, fmt);}
+\DoxyCodeLine{258  }
+\DoxyCodeLine{259     ofile.open(file\_path,std::ios\_base::app);  }
+\DoxyCodeLine{260  }
+\DoxyCodeLine{261     ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{align\}\(\backslash\)n"{}};    }
+\DoxyCodeLine{262     \textcolor{keywordflow}{while} (*fmt != \textcolor{charliteral}{'\(\backslash\)0'}) \{       }
+\DoxyCodeLine{263         \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'k'}) \{ }
+\DoxyCodeLine{264             }
+\DoxyCodeLine{265             \mbox{\hyperlink{classQuantaPlus_1_1Ket}{QuantaPlus::Ket<std::complex<double>}}> mt = va\_arg(args, \mbox{\hyperlink{classQuantaPlus_1_1Ket}{QuantaPlus::Ket}}<std::complex<double>>);}
+\DoxyCodeLine{266 }
+\DoxyCodeLine{267                 ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{pmatrix\}\(\backslash\)n"{}};}
+\DoxyCodeLine{268             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mt.rows(); i++)}
+\DoxyCodeLine{269                 \{}
+\DoxyCodeLine{270                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mt.cols(); j++)}
+\DoxyCodeLine{271                 \{ }
+\DoxyCodeLine{272                     \textcolor{keywordtype}{double} x = std::real(mt(i,j));}
+\DoxyCodeLine{273                     \textcolor{keywordtype}{double} y = std::imag(mt(i,j)); }
+\DoxyCodeLine{274                     ofile<<RealAndImaginary(x,y,\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}});   }
+\DoxyCodeLine{275                     \}}
+\DoxyCodeLine{276                 \}}
+\DoxyCodeLine{277                 ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{pmatrix\}"{}};}
+\DoxyCodeLine{278         \}}
+\DoxyCodeLine{279         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'b'}) \{ }
+\DoxyCodeLine{280             }
+\DoxyCodeLine{281             \mbox{\hyperlink{classQuantaPlus_1_1Bra}{QuantaPlus::Bra<std::complex<double>}}> mt = va\_arg(args, \mbox{\hyperlink{classQuantaPlus_1_1Bra}{QuantaPlus::Bra}}<std::complex<double>>);}
+\DoxyCodeLine{282 }
+\DoxyCodeLine{283             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{pmatrix\}\(\backslash\)n"{}};}
+\DoxyCodeLine{284             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mt.rows(); i++)}
+\DoxyCodeLine{285                 \{}
+\DoxyCodeLine{286                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mt.cols(); j++)}
+\DoxyCodeLine{287                 \{}
+\DoxyCodeLine{288                     \textcolor{keywordtype}{double} x = std::real(mt(i,j));}
+\DoxyCodeLine{289                     \textcolor{keywordtype}{double} y = std::imag(mt(i,j));}
+\DoxyCodeLine{290                     ofile<<RealAndImaginary(x,y,\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)quad"{}});                          }
+\DoxyCodeLine{291                     \}}
+\DoxyCodeLine{292                 }
+\DoxyCodeLine{293                 \}}
+\DoxyCodeLine{294                 ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{pmatrix\}"{}}; }
+\DoxyCodeLine{295             \}}
+\DoxyCodeLine{296         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'o'}) \{ }
+\DoxyCodeLine{297             }
+\DoxyCodeLine{298             \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QuantaPlus::QM\_operator<std::complex<double>}}> mt = va\_arg(args, \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QuantaPlus::QM\_operator}}<std::complex<double>>);}
+\DoxyCodeLine{299  }
+\DoxyCodeLine{300             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{pmatrix\}\(\backslash\)n"{}};}
+\DoxyCodeLine{301             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mt.rows(); i++)}
+\DoxyCodeLine{302                 \{}
+\DoxyCodeLine{303                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mt.cols(); j++)}
+\DoxyCodeLine{304                 \{               }
+\DoxyCodeLine{305                     \textcolor{keywordtype}{double} x = std::real(mt(i,j));}
+\DoxyCodeLine{306                     \textcolor{keywordtype}{double} y = std::imag(mt(i,j));}
+\DoxyCodeLine{307                     ofile<<RealAndImaginary(x,y,\textcolor{stringliteral}{"{} \&"{}});         }
+\DoxyCodeLine{308                     \}}
+\DoxyCodeLine{309                     ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}};}
+\DoxyCodeLine{310                 \} }
+\DoxyCodeLine{311                 ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{pmatrix\}"{}};}
+\DoxyCodeLine{312             \}}
+\DoxyCodeLine{313             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'t'}) \{ }
+\DoxyCodeLine{314                 \textcolor{keywordtype}{char}* s = va\_arg( args, \textcolor{keywordtype}{char} * );}
+\DoxyCodeLine{315                     ofile << s;}
+\DoxyCodeLine{316             \}}
+\DoxyCodeLine{317             ++fmt;}
+\DoxyCodeLine{318     \}}
+\DoxyCodeLine{319     va\_end(args);   }
+\DoxyCodeLine{320     ofile<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{321     ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{align\}\(\backslash\)n"{}}; }
+\DoxyCodeLine{322     ofile.close();}
+\DoxyCodeLine{323 \}}
+\DoxyCodeLine{324 \textcolor{comment}{/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{325 \textcolor{comment}{  Function: MathOperation}}
+\DoxyCodeLine{326 \textcolor{comment}{  }}
+\DoxyCodeLine{327 \textcolor{comment}{  Summary:   convert multiple mathematical operations into latex equations.}}
+\DoxyCodeLine{328 \textcolor{comment}{  }}
+\DoxyCodeLine{329 \textcolor{comment}{  Args:     const char* fmt...}}
+\DoxyCodeLine{330 \textcolor{comment}{              multiple variables with identifier format "{}fmt"{}.}}
+\DoxyCodeLine{331 \textcolor{comment}{             }}
+\DoxyCodeLine{332 \textcolor{comment}{  Returns:  void}}
+\DoxyCodeLine{333 \textcolor{comment}{              print the output directly to the specified latex file}}
+\DoxyCodeLine{334 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{335 \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a7a10f52c1c68f52bc34a92a71d24260f}{LaTex::MathOperation}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* fmt...)}
+\DoxyCodeLine{336 \{   }
+\DoxyCodeLine{337     va\_list args;}
+\DoxyCodeLine{338     va\_start(args, fmt); }
+\DoxyCodeLine{339     }
+\DoxyCodeLine{340     ofile.open(file\_path,std::ios\_base::app);}
+\DoxyCodeLine{341     }
+\DoxyCodeLine{342     ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{align\}\(\backslash\)n"{}};}
+\DoxyCodeLine{343     \textcolor{keywordflow}{while} (*fmt != \textcolor{charliteral}{'\(\backslash\)0'}) \{       }
+\DoxyCodeLine{344         \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'k'}) \{ }
+\DoxyCodeLine{345             }
+\DoxyCodeLine{346             \mbox{\hyperlink{classQuantaPlus_1_1Ket}{QuantaPlus::Ket<std::complex<double>}}> mt = va\_arg(args, \mbox{\hyperlink{classQuantaPlus_1_1Ket}{QuantaPlus::Ket}}<std::complex<double>>);}
+\DoxyCodeLine{347             }
+\DoxyCodeLine{348                 ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{pmatrix\}\(\backslash\)n"{}};}
+\DoxyCodeLine{349             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mt.rows(); i++)}
+\DoxyCodeLine{350                 \{}
+\DoxyCodeLine{351                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mt.cols(); j++) }
+\DoxyCodeLine{352                 \{                }
+\DoxyCodeLine{353                     \textcolor{keywordtype}{double} x = std::real(mt(i,j));}
+\DoxyCodeLine{354                     \textcolor{keywordtype}{double} y = std::imag(mt(i,j)); }
+\DoxyCodeLine{355                     ofile<<RealAndImaginary(x,y,\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}});     }
+\DoxyCodeLine{356                         ofile<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{357                     \}}
+\DoxyCodeLine{358                 \}}
+\DoxyCodeLine{359                 ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{pmatrix\}"{}};     }
+\DoxyCodeLine{360         \}}
+\DoxyCodeLine{361         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'b'}) \{}
+\DoxyCodeLine{362             }
+\DoxyCodeLine{363             \mbox{\hyperlink{classQuantaPlus_1_1Bra}{QuantaPlus::Bra<std::complex<double>}}> mt = va\_arg(args, \mbox{\hyperlink{classQuantaPlus_1_1Bra}{QuantaPlus::Bra}}<std::complex<double>>);}
+\DoxyCodeLine{364             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{pmatrix\}\(\backslash\)n"{}};}
+\DoxyCodeLine{365             }
+\DoxyCodeLine{366             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mt.rows(); i++)}
+\DoxyCodeLine{367                 \{}
+\DoxyCodeLine{368                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mt.cols(); j++) }
+\DoxyCodeLine{369                 \{}
+\DoxyCodeLine{370                     \textcolor{keywordtype}{double} x = std::real(mt(i,j));}
+\DoxyCodeLine{371                     \textcolor{keywordtype}{double} y = std::imag(mt(i,j));}
+\DoxyCodeLine{372                     ofile<<RealAndImaginary(x,y,\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)quad"{}});                          }
+\DoxyCodeLine{373                     \}}
+\DoxyCodeLine{374                 }
+\DoxyCodeLine{375                 \}}
+\DoxyCodeLine{376                 ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{pmatrix\}"{}};}
+\DoxyCodeLine{377             \}}
+\DoxyCodeLine{378         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'o'}) \{ }
+\DoxyCodeLine{379             }
+\DoxyCodeLine{380             \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QuantaPlus::QM\_operator<std::complex<double>}}> mt = va\_arg(args, \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QuantaPlus::QM\_operator}}<std::complex<double>>);}
+\DoxyCodeLine{381             ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)begin\{pmatrix\}\(\backslash\)n"{}};}
+\DoxyCodeLine{382             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mt.rows(); i++)}
+\DoxyCodeLine{383                 \{}
+\DoxyCodeLine{384                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mt.cols(); j++) }
+\DoxyCodeLine{385                 \{}
+\DoxyCodeLine{386                     \textcolor{keywordtype}{double} x = std::real(mt(i,j));}
+\DoxyCodeLine{387                     \textcolor{keywordtype}{double} y = std::imag(mt(i,j));}
+\DoxyCodeLine{388                     ofile<<RealAndImaginary(x,y,\textcolor{stringliteral}{"{}\&"{}});  }
+\DoxyCodeLine{389                     \}}
+\DoxyCodeLine{390                     ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)\(\backslash\)\(\backslash\)"{}};}
+\DoxyCodeLine{391                 \} }
+\DoxyCodeLine{392                 ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{pmatrix\}"{}};}
+\DoxyCodeLine{393                 }
+\DoxyCodeLine{394             \}}
+\DoxyCodeLine{395             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'n'}) \{ }
+\DoxyCodeLine{396             std::complex<double> c = va\_arg(args, std::complex<double>);}
+\DoxyCodeLine{397                 \textcolor{keywordtype}{double} x = std::real(c);}
+\DoxyCodeLine{398             \textcolor{keywordtype}{double} y = std::imag(c); }
+\DoxyCodeLine{399             ofile<<RealAndImaginary(x,y,\textcolor{stringliteral}{"{} \&"{}});  }
+\DoxyCodeLine{400             \}}
+\DoxyCodeLine{401             }
+\DoxyCodeLine{402             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'='}) \{ }
+\DoxyCodeLine{403                 \textcolor{keywordtype}{int} c = va\_arg(args, \textcolor{keywordtype}{int});}
+\DoxyCodeLine{404                     ofile << static\_cast<char>(c);}
+\DoxyCodeLine{405             \}}
+\DoxyCodeLine{406                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*fmt == \textcolor{charliteral}{'t'}) \{ }
+\DoxyCodeLine{407                 \textcolor{keywordtype}{char}* s = va\_arg( args, \textcolor{keywordtype}{char} * );}
+\DoxyCodeLine{408                     ofile << s;}
+\DoxyCodeLine{409             \}}
+\DoxyCodeLine{410             }
+\DoxyCodeLine{411             ++fmt;}
+\DoxyCodeLine{412     \}}
+\DoxyCodeLine{413     va\_end(args);   }
+\DoxyCodeLine{414     ofile<<\textcolor{stringliteral}{"{}\(\backslash\)\(\backslash\)end\{align\}\(\backslash\)n"{}};}
+\DoxyCodeLine{415     ofile<<\textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{416     ofile.close();}
+\DoxyCodeLine{417 \}}
+\DoxyCodeLine{418 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{419 \textcolor{comment}{  Function: LaTexMath}}
+\DoxyCodeLine{420 \textcolor{comment}{  }}
+\DoxyCodeLine{421 \textcolor{comment}{  Summary:  convert string name of math function into its }}
+\DoxyCodeLine{422 \textcolor{comment}{        equivalent latex command .  }}
+\DoxyCodeLine{423 \textcolor{comment}{             }}
+\DoxyCodeLine{424 \textcolor{comment}{  Returns:  string}}
+\DoxyCodeLine{425 \textcolor{comment}{             store the output directly into string variable.}}
+\DoxyCodeLine{426 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/} }
+\DoxyCodeLine{427 std::string \mbox{\hyperlink{classQuantaPlus_1_1LaTex_a6d61490c4dcd0abf3ec2aef157c50b56}{LaTex::LaTexMath}}(\textcolor{keyword}{const} std::string\& function\_name)\{}
+\DoxyCodeLine{428     \textcolor{keyword}{auto} from = MathFunctions.find(function\_name);}
+\DoxyCodeLine{429     \textcolor{keywordflow}{return} from-\/>second;}
+\DoxyCodeLine{430 \}}
+\DoxyCodeLine{431 \} \textcolor{comment}{//end of QuantaPlus namespace}}
+\DoxyCodeLine{432 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

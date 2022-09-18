@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>QuantaPlus: quantaplus/latex.h File Reference</title>
+<title>QuantaPlus: quantaplus/utilities/latex.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_c07d0ee52b103035834dd6c1e406d1ad.html">quantaplus</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_c07d0ee52b103035834dd6c1e406d1ad.html">quantaplus</a></li><li class="navelem"><a class="el" href="../../dir_f0d34dec474bbd90dbbeecc9df912ac6.html">utilities</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -86,11 +86,12 @@ $(function() {
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;cstdarg&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
-<code>#include &quot;<a class="el" href="../../da/d10/braket_8h_source.html">braket.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/d79/operators_8h_source.html">operators.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d9/de6/ket_8h_source.html">../braket/ket.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d0b/bra_8h_source.html">../braket/bra.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d7/d79/operators_8h_source.html">../operators/operators.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../de/df0/utilities_8h_source.html">utilities.h</a>&quot;</code><br />
-<code>#include &quot;include/latex.hpp&quot;</code><br />
 </div>
 <p><a href="../../dd/d14/latex_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -103,7 +104,7 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:da/dc8/namespaceQuantaPlus"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html">QuantaPlus</a></td></tr>
-<tr class="memdesc:da/dc8/namespaceQuantaPlus"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic <a class="el" href="../../da/dc8/namespaceQuantaPlus.html" title="Generic QuantaPlus interfaces and implementations.">QuantaPlus</a> interfaces and implementations. <br /></td></tr>
+<tr class="memdesc:da/dc8/namespaceQuantaPlus"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace of the <b><a class="el" href="../../da/dc8/namespaceQuantaPlus.html" title="Namespace of the QuantaPlus C++ library.">QuantaPlus</a></b> C++ library. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -111,6 +112,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a62186f9f9bda38caa74baaabc24bae00"><td class="memItemLeft" align="right" valign="top"><a id="a62186f9f9bda38caa74baaabc24bae00" name="a62186f9f9bda38caa74baaabc24bae00"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::Greek</b> (const std::string &amp;letter_name)</td></tr>
 <tr class="separator:a62186f9f9bda38caa74baaabc24bae00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a996aa9e6c55b1899612ece8cb6fff975"><td class="memItemLeft" align="right" valign="top"><a id="a996aa9e6c55b1899612ece8cb6fff975" name="a996aa9e6c55b1899612ece8cb6fff975"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::LaTexMathFraction</b> (const double &amp;decimal_number)</td></tr>
+<tr class="separator:a996aa9e6c55b1899612ece8cb6fff975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e5a3237e5f9161c587efb37dcd9d46"><td class="memItemLeft" align="right" valign="top"><a id="a25e5a3237e5f9161c587efb37dcd9d46" name="a25e5a3237e5f9161c587efb37dcd9d46"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::RealAndImaginary</b> (double x, double y, std::string separator)</td></tr>
+<tr class="separator:a25e5a3237e5f9161c587efb37dcd9d46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>

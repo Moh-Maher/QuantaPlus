@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>QuantaPlus: quantaplus/utilities.h Source File</title>
+<title>QuantaPlus: quantaplus/utilities/utilities.h Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_c07d0ee52b103035834dd6c1e406d1ad.html">quantaplus</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_c07d0ee52b103035834dd6c1e406d1ad.html">quantaplus</a></li><li class="navelem"><a class="el" href="../../dir_f0d34dec474bbd90dbbeecc9df912ac6.html">utilities</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -85,156 +85,99 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">     VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">     mohammed.maher@unical.it                                          </span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">-----------------------------------------------------------------------*/</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//#pragma once</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef QUANTAPLUS_UTILITIES_H</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define QUANTAPLUS_UTILITIES_H</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;Eigen/Dense&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef QUANTAPLUS_UTILITIES_UTILITIES_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define QUANTAPLUS_UTILITIES_UTILITIES_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include&lt;Eigen/Dense&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include&lt;string&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include&lt;sstream&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">//#include &lt;algorithm&gt; // for using : str.find_first_not_of( &quot;string&quot; ) == std::string::npos</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;complex&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include&lt;complex&gt;</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include&lt;iostream&gt;</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include&lt;cmath&gt;</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include&lt;ctime&gt;</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include&lt;fstream&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;valarray&gt;</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/* colors */</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">#define RST  &quot;\x1B[0m&quot;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">#define KRED  &quot;\x1B[31m&quot;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">#define KGRN  &quot;\x1B[32m&quot;</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">#define KYEL  &quot;\x1B[33m&quot;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">#define KBLU  &quot;\x1B[34m&quot;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">#define KMAG  &quot;\x1B[35m&quot;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">#define KCYN  &quot;\x1B[36m&quot;</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">#define KWHT  &quot;\x1B[37m&quot;</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">#define FRED(x) KRED x RST</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">#define FGRN(x) KGRN x RST</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">#define FYEL(x) KYEL x RST</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">#define FBLU(x) KBLU x RST</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">#define FMAG(x) KMAG x RST</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">#define FCYN(x) KCYN x RST</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">#define FWHT(x) KWHT x RST</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">#define BOLD(x) &quot;\x1B[1m&quot; x RST</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">#define UNDL(x) &quot;\x1B[4m&quot; x RST</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/dc8/namespaceQuantaPlus.html">QuantaPlus</a>{</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html">   53</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/dd5/classQuantaPlus_1_1Output.html">Output</a></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>     </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">   57</a></span>    std::ofstream <a class="code hl_variable" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">takeData</a>; </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>     </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html#a51efc8cda101d198ab1531bd0ad08262">   63</a></span>    <a class="code hl_function" href="../../db/dd5/classQuantaPlus_1_1Output.html#a51efc8cda101d198ab1531bd0ad08262">Output</a>(std::string fileName) </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_variable" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">takeData</a>.open(fileName + <span class="stringliteral">&quot;.dat&quot;</span>);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html#a2a5681dad4e6d2f6dc903fd5b6466c57">   69</a></span>    <a class="code hl_function" href="../../db/dd5/classQuantaPlus_1_1Output.html#a2a5681dad4e6d2f6dc903fd5b6466c57">~Output</a>()</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <a class="code hl_variable" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">takeData</a>.close();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    } </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html#a9570196f54f30980c1a5819e9d061577">   77</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/dd5/classQuantaPlus_1_1Output.html#a9570196f54f30980c1a5819e9d061577">writeOutput</a>(std::string output)</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_variable" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">takeData</a> &lt;&lt; output &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../d9/df3/classQuantaPlus_1_1ElapsedTime.html">   86</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/df3/classQuantaPlus_1_1ElapsedTime.html">ElapsedTime</a>{</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordtype">void</span> Start(){</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            start = std::clock();</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordtype">void</span> End()</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            std::cout&lt;&lt;<span class="stringliteral">&quot;------------------------------------------&quot;</span>&lt;&lt;std::endl;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            duration = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(std::clock() - start) /<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> CLOCKS_PER_SEC;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">if</span> (duration &lt; 60.0) {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Elapsed time: &quot;</span> &lt;&lt; duration &lt;&lt; <span class="stringliteral">&quot; seconds !!&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Elapsed time: &quot;</span> &lt;&lt; duration/60.0 &lt;&lt; <span class="stringliteral">&quot; mins&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            }</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        }</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        std::clock_t start;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordtype">double</span> duration;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/dc8/namespaceQuantaPlus.html">QuantaPlus</a>{</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html">   30</a></span><span class="keyword">class </span><a class="code hl_class" href="../../db/dd5/classQuantaPlus_1_1Output.html">Output</a></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>     </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">   34</a></span>    std::ofstream <a class="code hl_variable" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">takeData</a>; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>     </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html#a51efc8cda101d198ab1531bd0ad08262">   40</a></span>    <a class="code hl_function" href="../../db/dd5/classQuantaPlus_1_1Output.html#a51efc8cda101d198ab1531bd0ad08262">Output</a>(std::string fileName) </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_variable" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">takeData</a>.open(fileName + <span class="stringliteral">&quot;.dat&quot;</span>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html#a2a5681dad4e6d2f6dc903fd5b6466c57">   46</a></span>    <a class="code hl_function" href="../../db/dd5/classQuantaPlus_1_1Output.html#a2a5681dad4e6d2f6dc903fd5b6466c57">~Output</a>()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <a class="code hl_variable" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">takeData</a>.close();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    } </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../db/dd5/classQuantaPlus_1_1Output.html#a9570196f54f30980c1a5819e9d061577">   54</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/dd5/classQuantaPlus_1_1Output.html#a9570196f54f30980c1a5819e9d061577">writeOutput</a>(std::string output)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_variable" href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">takeData</a> &lt;&lt; output &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>};</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d9/df3/classQuantaPlus_1_1ElapsedTime.html">   63</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d9/df3/classQuantaPlus_1_1ElapsedTime.html">ElapsedTime</a>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordtype">void</span> Start(){</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            start = std::clock();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        }</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keywordtype">void</span> End()</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            std::cout&lt;&lt;<span class="stringliteral">&quot;------------------------------------------&quot;</span>&lt;&lt;std::endl;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            duration = <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(std::clock() - start) /<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span> CLOCKS_PER_SEC;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">if</span> (duration &lt; 60.0) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Elapsed time: &quot;</span> &lt;&lt; duration &lt;&lt; <span class="stringliteral">&quot; seconds !!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Elapsed time: &quot;</span> &lt;&lt; duration/60.0 &lt;&lt; <span class="stringliteral">&quot; mins&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        std::clock_t start;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordtype">double</span> duration;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">//--------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">//  Function to check if the input is an integer. </span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">//--------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keywordtype">bool</span> IsNumber(<span class="keyword">const</span> std::string&amp; str) </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordflow">return</span> str.find_first_not_of( <span class="stringliteral">&quot;0123456789&quot;</span> ) == std::string::npos;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">//--------------------------------------</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keywordtype">bool</span> validInteger(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; x)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(x) - x == 0;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">//--------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">//  Function to check if the input is a half integer. </span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">//--------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">bool</span> halfInteger(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; x)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span> !validInteger(x) &amp;&amp; validInteger(2*x);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">//--------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#ae7a722b8ec542bc1f936da3aaef55259">  113</a></span>std::string <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#ae7a722b8ec542bc1f936da3aaef55259">ToString</a>(<span class="keyword">const</span> T&amp; numb)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>{</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    std::stringstream ss;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    ss &lt;&lt; numb;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>}</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T1, <span class="keyword">typename</span> T2&gt;</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#abf5a67030172f17f578c7be7c27577fd">  126</a></span>std::string <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#abf5a67030172f17f578c7be7c27577fd">ToFraction</a>(T1 numer, T2 denom)</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>{</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    std::string res = ToString&lt;T1&gt;(numer);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordflow">if</span>(denom != 1)</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    {</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        res += <span class="stringliteral">&quot;/&quot;</span>;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        res += ToString&lt;T2&gt;(denom);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#adaf9b9bebb4bfc4ee41c41b0dea84b3c">  142</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#adaf9b9bebb4bfc4ee41c41b0dea84b3c">MatrixToString</a>(T &amp;mat)</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>{</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i =0; i&lt;mat.GetRow(); i++) {</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j =0; j&lt;mat.GetCol(); j++) {</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            decimalToFraction(mat.table[i][j]);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            std::cout&lt;&lt;<span class="stringliteral">&quot;\t&quot;</span>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        }</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        std::cout&lt;&lt;std::endl;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>}</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#a1b830961ce855f2fbe47d1eab54c2a31">  153</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#a1b830961ce855f2fbe47d1eab54c2a31">ComplexNumPrint</a>( std::complex&lt;double&gt; complex_number, <span class="keywordtype">bool</span> numerical_flag); </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#a1002abc85cb4fc5ceba7c81883ce25dd">  154</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#a1002abc85cb4fc5ceba7c81883ce25dd">ResultPrint</a>(<span class="keyword">const</span> std::complex&lt;double&gt;&amp; complex_num); </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#a87942db7e68bba48516039f085744a5e">  155</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#a87942db7e68bba48516039f085744a5e">NResultPrint</a>(<span class="keyword">const</span> std::complex&lt;double&gt;&amp; complex_num); </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keywordtype">void</span> DecimalToFraction(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; decimal_number);<span class="comment">//void DecimalToFraction(double number); ///&lt; Convert decimal to fraction</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#a0bb78b439295e3b0683a3395f20cc915">  157</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#a0bb78b439295e3b0683a3395f20cc915">StringMatrix</a>(<span class="keywordtype">int</span> r, <span class="keywordtype">int</span> c, <span class="keywordtype">double</span> *array); </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#a75bf13f84d2bb1469588603e8c450383">  159</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#a75bf13f84d2bb1469588603e8c450383">IsNumber</a>(<span class="keyword">const</span> std::string&amp; str); </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#a41fddde6a1231212fec05777db36a26c">  160</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#a41fddde6a1231212fec05777db36a26c">Warning</a>(<span class="keyword">const</span> std::string &amp; str); </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#ad6eb262dc23d879cb79c6ca28179a94a">  161</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#ad6eb262dc23d879cb79c6ca28179a94a">validInteger</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; x); </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="../../da/dc8/namespaceQuantaPlus.html#a6210f298a3163e63970a7a0d33fda73f">  162</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/dc8/namespaceQuantaPlus.html#a6210f298a3163e63970a7a0d33fda73f">halfInteger</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; x); </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">//void TolaTex(std::string fname, std::string data);</span></div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="preprocessor">#include&quot;include/utilities.hpp&quot;</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}<span class="comment">//end of namespace QuantaPlus</span></div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassQuantaPlus_1_1ElapsedTime_html"><div class="ttname"><a href="../../d9/df3/classQuantaPlus_1_1ElapsedTime.html">QuantaPlus::ElapsedTime</a></div><div class="ttdoc">Class to displays information about the execution time.</div><div class="ttdef"><b>Definition:</b> utilities.h:86</div></div>
-<div class="ttc" id="aclassQuantaPlus_1_1Output_html"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html">QuantaPlus::Output</a></div><div class="ttdoc">Class to handle output operations and files.</div><div class="ttdef"><b>Definition:</b> utilities.h:54</div></div>
-<div class="ttc" id="aclassQuantaPlus_1_1Output_html_a2a5681dad4e6d2f6dc903fd5b6466c57"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html#a2a5681dad4e6d2f6dc903fd5b6466c57">QuantaPlus::Output::~Output</a></div><div class="ttdeci">~Output()</div><div class="ttdoc">Destructor to close the output file.</div><div class="ttdef"><b>Definition:</b> utilities.h:69</div></div>
-<div class="ttc" id="aclassQuantaPlus_1_1Output_html_a51efc8cda101d198ab1531bd0ad08262"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html#a51efc8cda101d198ab1531bd0ad08262">QuantaPlus::Output::Output</a></div><div class="ttdeci">Output(std::string fileName)</div><div class="ttdef"><b>Definition:</b> utilities.h:63</div></div>
-<div class="ttc" id="aclassQuantaPlus_1_1Output_html_a6c9c4c3ebd873ec5a2556e1809502484"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">QuantaPlus::Output::takeData</a></div><div class="ttdeci">std::ofstream takeData</div><div class="ttdoc">Output stream class object to operate on files.</div><div class="ttdef"><b>Definition:</b> utilities.h:57</div></div>
-<div class="ttc" id="aclassQuantaPlus_1_1Output_html_a9570196f54f30980c1a5819e9d061577"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html#a9570196f54f30980c1a5819e9d061577">QuantaPlus::Output::writeOutput</a></div><div class="ttdeci">void writeOutput(std::string output)</div><div class="ttdef"><b>Definition:</b> utilities.h:77</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html">QuantaPlus</a></div><div class="ttdoc">Generic QuantaPlus interfaces and implementations.</div><div class="ttdef"><b>Definition:</b> angularmomentum.h:21</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_a0bb78b439295e3b0683a3395f20cc915"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#a0bb78b439295e3b0683a3395f20cc915">QuantaPlus::StringMatrix</a></div><div class="ttdeci">void StringMatrix(int r, int c, double *array)</div><div class="ttdoc">Print array elements in fractions form.</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_a1002abc85cb4fc5ceba7c81883ce25dd"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#a1002abc85cb4fc5ceba7c81883ce25dd">QuantaPlus::ResultPrint</a></div><div class="ttdeci">void ResultPrint(const std::complex&lt; double &gt; &amp;complex_num)</div><div class="ttdoc">Print the calculated in fraction and symbolic forms (e.g: 15/7, i/2, √2/19. ..)</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_a1b830961ce855f2fbe47d1eab54c2a31"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#a1b830961ce855f2fbe47d1eab54c2a31">QuantaPlus::ComplexNumPrint</a></div><div class="ttdeci">void ComplexNumPrint(std::complex&lt; double &gt; complex_number, bool numerical_flag)</div><div class="ttdoc">Print any complex number as z = x + iy.</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_a41fddde6a1231212fec05777db36a26c"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#a41fddde6a1231212fec05777db36a26c">QuantaPlus::Warning</a></div><div class="ttdeci">void Warning(const std::string &amp;str)</div><div class="ttdoc">Show warnings in highlighted from.</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_a6210f298a3163e63970a7a0d33fda73f"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#a6210f298a3163e63970a7a0d33fda73f">QuantaPlus::halfInteger</a></div><div class="ttdeci">bool halfInteger(const double &amp;x)</div><div class="ttdoc">Check if the input is a half-integer.</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_a75bf13f84d2bb1469588603e8c450383"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#a75bf13f84d2bb1469588603e8c450383">QuantaPlus::IsNumber</a></div><div class="ttdeci">bool IsNumber(const std::string &amp;str)</div><div class="ttdoc">Gives True if str is an integer, and False otherwise.</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_a87942db7e68bba48516039f085744a5e"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#a87942db7e68bba48516039f085744a5e">QuantaPlus::NResultPrint</a></div><div class="ttdeci">void NResultPrint(const std::complex&lt; double &gt; &amp;complex_num)</div><div class="ttdoc">Print calculated result in numeric form.</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_abf5a67030172f17f578c7be7c27577fd"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#abf5a67030172f17f578c7be7c27577fd">QuantaPlus::ToFraction</a></div><div class="ttdeci">std::string ToFraction(T1 numer, T2 denom)</div><div class="ttdef"><b>Definition:</b> utilities.h:126</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_ad6eb262dc23d879cb79c6ca28179a94a"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#ad6eb262dc23d879cb79c6ca28179a94a">QuantaPlus::validInteger</a></div><div class="ttdeci">bool validInteger(const double &amp;x)</div><div class="ttdoc">Check if the input is an integer.</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_adaf9b9bebb4bfc4ee41c41b0dea84b3c"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#adaf9b9bebb4bfc4ee41c41b0dea84b3c">QuantaPlus::MatrixToString</a></div><div class="ttdeci">void MatrixToString(T &amp;mat)</div><div class="ttdef"><b>Definition:</b> utilities.h:142</div></div>
-<div class="ttc" id="anamespaceQuantaPlus_html_ae7a722b8ec542bc1f936da3aaef55259"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html#ae7a722b8ec542bc1f936da3aaef55259">QuantaPlus::ToString</a></div><div class="ttdeci">std::string ToString(const T &amp;numb)</div><div class="ttdef"><b>Definition:</b> utilities.h:113</div></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>}<span class="comment">//end of namespace QuantaPlus</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassQuantaPlus_1_1ElapsedTime_html"><div class="ttname"><a href="../../d9/df3/classQuantaPlus_1_1ElapsedTime.html">QuantaPlus::ElapsedTime</a></div><div class="ttdoc">Class to displays information about the execution time.</div><div class="ttdef"><b>Definition:</b> utilities.h:63</div></div>
+<div class="ttc" id="aclassQuantaPlus_1_1Output_html"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html">QuantaPlus::Output</a></div><div class="ttdoc">Class to handle output operations and files.</div><div class="ttdef"><b>Definition:</b> utilities.h:31</div></div>
+<div class="ttc" id="aclassQuantaPlus_1_1Output_html_a2a5681dad4e6d2f6dc903fd5b6466c57"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html#a2a5681dad4e6d2f6dc903fd5b6466c57">QuantaPlus::Output::~Output</a></div><div class="ttdeci">~Output()</div><div class="ttdoc">Destructor to close the output file.</div><div class="ttdef"><b>Definition:</b> utilities.h:46</div></div>
+<div class="ttc" id="aclassQuantaPlus_1_1Output_html_a51efc8cda101d198ab1531bd0ad08262"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html#a51efc8cda101d198ab1531bd0ad08262">QuantaPlus::Output::Output</a></div><div class="ttdeci">Output(std::string fileName)</div><div class="ttdef"><b>Definition:</b> utilities.h:40</div></div>
+<div class="ttc" id="aclassQuantaPlus_1_1Output_html_a6c9c4c3ebd873ec5a2556e1809502484"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html#a6c9c4c3ebd873ec5a2556e1809502484">QuantaPlus::Output::takeData</a></div><div class="ttdeci">std::ofstream takeData</div><div class="ttdoc">Output stream class object to operate on files.</div><div class="ttdef"><b>Definition:</b> utilities.h:34</div></div>
+<div class="ttc" id="aclassQuantaPlus_1_1Output_html_a9570196f54f30980c1a5819e9d061577"><div class="ttname"><a href="../../db/dd5/classQuantaPlus_1_1Output.html#a9570196f54f30980c1a5819e9d061577">QuantaPlus::Output::writeOutput</a></div><div class="ttdeci">void writeOutput(std::string output)</div><div class="ttdef"><b>Definition:</b> utilities.h:54</div></div>
+<div class="ttc" id="anamespaceQuantaPlus_html"><div class="ttname"><a href="../../da/dc8/namespaceQuantaPlus.html">QuantaPlus</a></div><div class="ttdoc">Namespace of the QuantaPlus C++ library.</div><div class="ttdef"><b>Definition:</b> quantaplus.h:53</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

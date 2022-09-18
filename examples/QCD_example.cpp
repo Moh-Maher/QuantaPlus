@@ -1,11 +1,14 @@
 #include<iostream>
 #include<complex>
 #include<cmath>
-#include"../quantaplus/angularmomentum.h"
-#include"../quantaplus/braket.h"
-#include"../quantaplus/operators.h"
-#include"../quantaplus/utilities.h"
-
+#include"../quantaplus/quantaplus.h"
+/*
+#include"../quantaplus/operators/angularmomentum.h"
+#include"../quantaplus/braket/ket.h"
+#include"../quantaplus/braket/bra.h"
+#include"../quantaplus/operators/operators.h"
+#include"../quantaplus/utilities/utilities.h"
+*/
 using namespace QuantaPlus;
 /*--------------------------------------------------------------------------------------------
 ->> lambda_i(l_i) [with i =1...8] where "l_i" represent Gell-Mann matrices (source: phys_conts.h ) 
@@ -47,13 +50,15 @@ int main()
 	cout<<"******************[Right hand side ]*************************"<<endl;
 
 	rhs << -1i*f_ijk * f7;
-	ResultPrint(rhs);
+	//ResultPrint(rhs);
+	rhs.Print();
 	cout<<endl;
 
 	cout<<"******************[Left hand side ]*************************"<<endl;
 
 	com_res << Commute(f3,f6);
-	ResultPrint(com_res);
+	//ResultPrint(com_res);
+	com_res.Print();
 	cout<<"\n";
 
 	if(com_res == rhs)

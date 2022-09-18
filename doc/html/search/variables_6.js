@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['j_0',['j',['../dd/d45/classQuantaPlus_1_1CGCcoeff.html#a0fd804249943d2c74ccd0de68dc07077',1,'QuantaPlus::CGCcoeff']]],
-  ['j1_1',['j1',['../dd/d45/classQuantaPlus_1_1CGCcoeff.html#afcce9cee0b0dc1cbd2468688ebd1c674',1,'QuantaPlus::CGCcoeff']]],
-  ['j2_2',['j2',['../dd/d45/classQuantaPlus_1_1CGCcoeff.html#a22873a2cc2bf5ac51e85027250a48856',1,'QuantaPlus::CGCcoeff']]]
+  ['hbarc_0',['HBarC',['../da/dc8/namespaceQuantaPlus.html#ac757892e05d62aa187c2de65b261be9e',1,'QuantaPlus']]],
+  ['hbarc2_1',['HBarC2',['../da/dc8/namespaceQuantaPlus.html#a8c33c68434f776c310c3b1e306a03c0b',1,'QuantaPlus']]],
+  ['higgs_5fvev_2',['HIGGS_VEV',['../da/dc8/namespaceQuantaPlus.html#a691c245676fefdd2dbd306a1795f46e1',1,'QuantaPlus']]]
 ];

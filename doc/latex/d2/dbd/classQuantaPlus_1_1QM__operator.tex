@@ -26,6 +26,13 @@ Inheritance diagram for Quanta\+Plus\+::QM\+\_\+operator\texorpdfstring{$<$}{<} 
 \begin{DoxyCompactList}\small\item\em construct \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\+\_\+operator}} from Eigen expressions. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename Derived $>$ }\\\mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\+\_\+operator}} \& \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_af566d2e9cc968f64e67397be903e4e29}{operator=}} (const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&other)
 \item 
+\mbox{\Hypertarget{classQuantaPlus_1_1QM__operator_a96c99a32cc43b9feed67ac90290222f1}\label{classQuantaPlus_1_1QM__operator_a96c99a32cc43b9feed67ac90290222f1}} 
+Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ {\bfseries dagger} ()
+\item 
+void \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_ad35b778b3ea3d2c3d133f37d86ada458}{Print}} ()
+\item 
+void \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_af221827f0c997abc04f877ad4b1a7805}{NPrint}} ()
+\item 
 \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a5c000fa6fe68420c2574e65eebed550f}{$\sim$\+QM\+\_\+operator}} ()
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -81,13 +88,13 @@ Constructor with fixed Number of rows and columns. Create an empty one matrix. D
 \DoxyCodeLine{}
 \DoxyCodeLine{cout<<\textcolor{stringliteral}{"{}[ RisingOperator: ]"{}}<<endl;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\mbox{\hyperlink{namespaceQuantaPlus_a1002abc85cb4fc5ceba7c81883ce25dd}{QuantaPlus::ResultPrint}}(plus);}
+\DoxyCodeLine{QuantaPlus::ResultPrint(plus);}
 \DoxyCodeLine{}
 \DoxyCodeLine{cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<endl;}
 \DoxyCodeLine{}
 \DoxyCodeLine{cout<<\textcolor{stringliteral}{"{}[ LoweringOperator: ]"{}}<<endl;}
 \DoxyCodeLine{}
-\DoxyCodeLine{\mbox{\hyperlink{namespaceQuantaPlus_a1002abc85cb4fc5ceba7c81883ce25dd}{QuantaPlus::ResultPrint}}(minus);}
+\DoxyCodeLine{QuantaPlus::ResultPrint(minus);}
 \DoxyCodeLine{}
 \DoxyCodeLine{cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<endl;}
 
@@ -127,6 +134,18 @@ construct \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\+\_\+operator}} f
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuantaPlus_1_1QM__operator_af221827f0c997abc04f877ad4b1a7805}\label{classQuantaPlus_1_1QM__operator_af221827f0c997abc04f877ad4b1a7805}} 
+\index{QuantaPlus::QM\_operator$<$ T $>$@{QuantaPlus::QM\_operator$<$ T $>$}!NPrint@{NPrint}}
+\index{NPrint@{NPrint}!QuantaPlus::QM\_operator$<$ T $>$@{QuantaPlus::QM\_operator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{NPrint()}{NPrint()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{Quanta\+Plus\+::\+QM\+\_\+operator}}$<$ T $>$\+::\+NPrint}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & is an Eigen\+::\+Matrix with Dynamic-\/size rows or columns \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classQuantaPlus_1_1QM__operator_af566d2e9cc968f64e67397be903e4e29}\label{classQuantaPlus_1_1QM__operator_af566d2e9cc968f64e67397be903e4e29}} 
 \index{QuantaPlus::QM\_operator$<$ T $>$@{QuantaPlus::QM\_operator$<$ T $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!QuantaPlus::QM\_operator$<$ T $>$@{QuantaPlus::QM\_operator$<$ T $>$}}
@@ -135,7 +154,19 @@ construct \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\+\_\+operator}} f
 template$<$typename Derived $>$ \\
 \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\+\_\+operator}} \& \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{Quanta\+Plus\+::\+QM\+\_\+operator}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Assign Eigen expressions to QM\+\_\+operators \mbox{\Hypertarget{classQuantaPlus_1_1QM__operator_a5c000fa6fe68420c2574e65eebed550f}\label{classQuantaPlus_1_1QM__operator_a5c000fa6fe68420c2574e65eebed550f}} 
+Assign Eigen expressions to QM\+\_\+operators \mbox{\Hypertarget{classQuantaPlus_1_1QM__operator_ad35b778b3ea3d2c3d133f37d86ada458}\label{classQuantaPlus_1_1QM__operator_ad35b778b3ea3d2c3d133f37d86ada458}} 
+\index{QuantaPlus::QM\_operator$<$ T $>$@{QuantaPlus::QM\_operator$<$ T $>$}!Print@{Print}}
+\index{Print@{Print}!QuantaPlus::QM\_operator$<$ T $>$@{QuantaPlus::QM\_operator$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{Quanta\+Plus\+::\+QM\+\_\+operator}}$<$ T $>$\+::\+Print}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & is an Eigen\+::\+Matrix with Dynamic-\/size rows or columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQuantaPlus_1_1QM__operator_a5c000fa6fe68420c2574e65eebed550f}\label{classQuantaPlus_1_1QM__operator_a5c000fa6fe68420c2574e65eebed550f}} 
 \index{QuantaPlus::QM\_operator$<$ T $>$@{QuantaPlus::QM\_operator$<$ T $>$}!````~QM\_operator@{$\sim$QM\_operator}}
 \index{````~QM\_operator@{$\sim$QM\_operator}!QuantaPlus::QM\_operator$<$ T $>$@{QuantaPlus::QM\_operator$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{$\sim$QM\_operator()}{~QM\_operator()}}
@@ -150,4 +181,4 @@ Destructor.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-quantaplus/\mbox{\hyperlink{operators_8h}{operators.\+h}}\end{DoxyCompactItemize}
+quantaplus/operators/\mbox{\hyperlink{operators_8h}{operators.\+h}}\end{DoxyCompactItemize}

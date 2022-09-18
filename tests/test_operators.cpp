@@ -7,11 +7,11 @@ by:  Mohammed Maher Abdelrahim Mohammed
 *******************************************************************************************/
 #include<iostream>
 #include<complex>
-//#include"braket.h"
-#include"../quantaplus/operators.h"
- 
-#include"../quantaplus/utilities.h"
- 
+#include"../quantaplus/quantaplus.h"
+/*
+#include"../quantaplus/operators/hoscillator.h"
+#include"../quantaplus/utilities/utilities.h"
+*/
  
 using namespace QuantaPlus;
 typedef std::complex<double>  complex;
@@ -31,11 +31,14 @@ int main()
 	time_count.Start(); //<--clock stuff
 	//-----------------------------------------------------------------
 	cout<<"[ RisingOperator: ]"<<endl;
-	ResultPrint(plus);
+ 
+	plus.Print();
+
 	cout<<"-------------------"<<endl;
 	
 	cout<<"[ LoweringOperator: ]"<<endl;
-	ResultPrint(minus);
+ 
+	minus.Print();
 	cout<<"-------------------"<<endl;
 	
 	cout<<"[ Id matrix operator for spin = 3/2: ]"<<endl;

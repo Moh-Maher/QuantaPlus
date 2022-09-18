@@ -1,12 +1,13 @@
-\hypertarget{operators_8h}{}\doxysection{quantaplus/operators.h File Reference}
-\label{operators_8h}\index{quantaplus/operators.h@{quantaplus/operators.h}}
+\hypertarget{operators_8h}{}\doxysection{quantaplus/operators/operators.h File Reference}
+\label{operators_8h}\index{quantaplus/operators/operators.h@{quantaplus/operators/operators.h}}
 {\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
 {\ttfamily \#include $<$unsupported/\+Eigen/\+Matrix\+Functions$>$}\newline
 {\ttfamily \#include $<$complex$>$}\newline
-{\ttfamily \#include \char`\"{}braket.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include \char`\"{}include/operators.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../utilities/print.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../braket/ket.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../braket/bra.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -16,7 +17,24 @@ class \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{Quanta\+Plus\+::\+QM\+\_
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}
-\begin{DoxyCompactList}\small\item\em Generic \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} interfaces and implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Namespace of the {\bfseries{\mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}}} C++ library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a66aca136bb2b678b0d9ef84453506b38}\label{namespaceQuantaPlus_a66aca136bb2b678b0d9ef84453506b38}} 
+{\footnotesize template$<$typename T $>$ }\\int {\bfseries Quanta\+Plus\+::\+Kronecker\+Delta} (const T \&i, const T \&j)
+\item 
+{\footnotesize template$<$class T $>$ }\\Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \mbox{\hyperlink{namespaceQuantaPlus_ae18da19de97c464fc57f522154142b78}{Quanta\+Plus\+::\+Kronecker\+Product}} (const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt1, const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a616ea443b3f3f0826f82f803236547ec}\label{namespaceQuantaPlus_a616ea443b3f3f0826f82f803236547ec}} 
+{\footnotesize template$<$class T $>$ }\\Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ {\bfseries Quanta\+Plus\+::\+Kronecker\+Product} (const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt1, const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt2, const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mt3)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_add50e08ed72d8319d41c1dee6149a2f5}\label{namespaceQuantaPlus_add50e08ed72d8319d41c1dee6149a2f5}} 
+{\footnotesize template$<$typename T $>$ }\\Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ {\bfseries Quanta\+Plus\+::\+Id} (const double \&S)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a76e9d4a674ae8ed351e91a893478c16d}\label{namespaceQuantaPlus_a76e9d4a674ae8ed351e91a893478c16d}} 
+{\footnotesize template$<$typename U $>$ }\\Eigen\+::\+Matrix$<$ double, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ {\bfseries Quanta\+Plus\+::\+Cto\+RMateix} (Eigen\+::\+Matrix$<$ U, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mat)
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

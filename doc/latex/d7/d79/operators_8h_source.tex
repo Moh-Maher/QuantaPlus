@@ -1,5 +1,5 @@
 \hypertarget{operators_8h_source}{}\doxysection{operators.\+h}
-\label{operators_8h_source}\index{quantaplus/operators.h@{quantaplus/operators.h}}
+\label{operators_8h_source}\index{quantaplus/operators/operators.h@{quantaplus/operators/operators.h}}
 \mbox{\hyperlink{operators_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*!*****************************************************************}}
@@ -16,47 +16,183 @@
 \DoxyCodeLine{12 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
 \DoxyCodeLine{13 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
 \DoxyCodeLine{14 \textcolor{comment}{//\#pragma once}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_OPERATORS\_H}}
-\DoxyCodeLine{16 \textcolor{preprocessor}{\#define QUANTAPLUS\_OPERATORS\_H}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_OPERATORS\_OPERATORS\_H}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define QUANTAPLUS\_OPERATORS\_OPERATORS\_H}}
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#include <Eigen/Dense>}}
 \DoxyCodeLine{18 \textcolor{preprocessor}{\#include <unsupported/Eigen/MatrixFunctions>}}
 \DoxyCodeLine{19 \textcolor{preprocessor}{\#include<complex>}}
-\DoxyCodeLine{20 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{braket_8h}{braket.h}}"{}}}
-\DoxyCodeLine{21 \textcolor{preprocessor}{\#include<cmath>}}
-\DoxyCodeLine{22 \textcolor{preprocessor}{\#include<vector>}}
-\DoxyCodeLine{23 }
-\DoxyCodeLine{24 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{comment}{/*!*****************************************************************}}
-\DoxyCodeLine{27 \textcolor{comment}{* \(\backslash\)class QM\_operator}}
-\DoxyCodeLine{28 \textcolor{comment}{* \(\backslash\)brief QM\_operator is a publicly derived class from Eigen::Matrix, }}
-\DoxyCodeLine{29 \textcolor{comment}{*}}
-\DoxyCodeLine{30 \textcolor{comment}{* QM\_operator are square matrices with Dynamic-\/size.}}
-\DoxyCodeLine{31 \textcolor{comment}{******************************************************************/}}
-\DoxyCodeLine{32 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
-\DoxyCodeLine{33 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\_operator}}: \textcolor{keyword}{public} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>}
-\DoxyCodeLine{34 \{}
-\DoxyCodeLine{35     \textcolor{keyword}{public}:}
-\DoxyCodeLine{39         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_acc6794ebcceb99443927303aaff5b906}{QM\_operator}}():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>()\{\} }
-\DoxyCodeLine{40         }
-\DoxyCodeLine{88         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a93309d3cda541d70eed10ca2e3a70c1b}{QM\_operator}}(\textcolor{keywordtype}{int} row,\textcolor{keywordtype}{int} col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col)\{\}}
-\DoxyCodeLine{89         }
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include<cmath>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include<vector>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include"{}../utilities/print.h"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include"{}../braket/ket.h"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include"{}../braket/bra.h"{}}}
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{comment}{/*!*****************************************************************}}
+\DoxyCodeLine{28 \textcolor{comment}{* \(\backslash\)class QM\_operator}}
+\DoxyCodeLine{29 \textcolor{comment}{* \(\backslash\)brief QM\_operator is a publicly derived class from Eigen::Matrix, }}
+\DoxyCodeLine{30 \textcolor{comment}{*}}
+\DoxyCodeLine{31 \textcolor{comment}{* QM\_operator are square matrices with Dynamic-\/size.}}
+\DoxyCodeLine{32 \textcolor{comment}{******************************************************************/}}
+\DoxyCodeLine{33 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{34 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\_operator}}: \textcolor{keyword}{public} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \textcolor{keyword}{public}:}
+\DoxyCodeLine{40         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_acc6794ebcceb99443927303aaff5b906}{QM\_operator}}():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>()\{\} }
+\DoxyCodeLine{41         }
+\DoxyCodeLine{89         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a93309d3cda541d70eed10ca2e3a70c1b}{QM\_operator}}(\textcolor{keywordtype}{int} row,\textcolor{keywordtype}{int} col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col)\{\}}
 \DoxyCodeLine{90         }
-\DoxyCodeLine{91         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived> }
-\DoxyCodeLine{92         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a3b14cbed10261157c5a4b1797d090cf6}{QM\_operator}}(\textcolor{keyword}{const} Eigen::MatrixBase<Derived>\& other)}
-\DoxyCodeLine{93         :Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other)\{ \} }
-\DoxyCodeLine{94      }
-\DoxyCodeLine{96         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
-\DoxyCodeLine{97         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\_operator}}\& \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_af566d2e9cc968f64e67397be903e4e29}{operator=}}(\textcolor{keyword}{const} Eigen::MatrixBase <Derived>\& other)}
-\DoxyCodeLine{98         \{}
-\DoxyCodeLine{99             this-\/>Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::operator=(other);}
-\DoxyCodeLine{100             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{101         \} }
-\DoxyCodeLine{102         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a5c000fa6fe68420c2574e65eebed550f}{\string~QM\_operator}}()\{\} }
-\DoxyCodeLine{103 \};}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{105 \textcolor{preprocessor}{\#include"{}include/operators.hpp"{}}}
-\DoxyCodeLine{106 \} \textcolor{comment}{//end of namespace QuantaPlus}}
-\DoxyCodeLine{107 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{91         }
+\DoxyCodeLine{92         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived> }
+\DoxyCodeLine{93         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a3b14cbed10261157c5a4b1797d090cf6}{QM\_operator}}(\textcolor{keyword}{const} Eigen::MatrixBase<Derived>\& other)}
+\DoxyCodeLine{94         :Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other)\{ \} }
+\DoxyCodeLine{95      }
+\DoxyCodeLine{97         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
+\DoxyCodeLine{98         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator}{QM\_operator}}\& \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_af566d2e9cc968f64e67397be903e4e29}{operator=}}(\textcolor{keyword}{const} Eigen::MatrixBase <Derived>\& other)}
+\DoxyCodeLine{99         \{}
+\DoxyCodeLine{100             this-\/>Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::operator=(other);}
+\DoxyCodeLine{101             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{102         \}}
+\DoxyCodeLine{103         }
+\DoxyCodeLine{104           }
+\DoxyCodeLine{105         Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> dagger()}
+\DoxyCodeLine{106         \{}
+\DoxyCodeLine{107             \textcolor{keywordflow}{return} this-\/>conjugate().transpose();}
+\DoxyCodeLine{108         \}}
+\DoxyCodeLine{109         }
+\DoxyCodeLine{110         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_ad35b778b3ea3d2c3d133f37d86ada458}{Print}}();}
+\DoxyCodeLine{111         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_af221827f0c997abc04f877ad4b1a7805}{NPrint}}();}
+\DoxyCodeLine{112         \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_a5c000fa6fe68420c2574e65eebed550f}{\string~QM\_operator}}()\{\} }
+\DoxyCodeLine{113 \};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{116 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{117 \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_ad35b778b3ea3d2c3d133f37d86ada458}{QM\_operator<T>::Print}}()}
+\DoxyCodeLine{118 \{   }
+\DoxyCodeLine{119     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> mat = *\textcolor{keyword}{this};}
+\DoxyCodeLine{120     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < mat.rows(); row\_count++)}
+\DoxyCodeLine{121         \{}
+\DoxyCodeLine{122             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < mat.cols(); col\_count++)}
+\DoxyCodeLine{123             \{}
+\DoxyCodeLine{124             \mbox{\hyperlink{namespaceQuantaPlus_a1b830961ce855f2fbe47d1eab54c2a31}{ComplexNumPrint}}( mat(row\_count, col\_count),0 );}
+\DoxyCodeLine{125             \}}
+\DoxyCodeLine{126             std::cout<<std::endl;}
+\DoxyCodeLine{127         \}}
+\DoxyCodeLine{128 \}}
+\DoxyCodeLine{130 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{131 \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1QM__operator_af221827f0c997abc04f877ad4b1a7805}{QM\_operator<T>::NPrint}}()}
+\DoxyCodeLine{132 \{   }
+\DoxyCodeLine{133     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> mat = *\textcolor{keyword}{this};}
+\DoxyCodeLine{134     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < mat.rows(); row\_count++)}
+\DoxyCodeLine{135         \{}
+\DoxyCodeLine{136             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < mat.cols(); col\_count++)}
+\DoxyCodeLine{137             \{}
+\DoxyCodeLine{138             \mbox{\hyperlink{namespaceQuantaPlus_a1b830961ce855f2fbe47d1eab54c2a31}{ComplexNumPrint}}( mat(row\_count, col\_count),0 );}
+\DoxyCodeLine{139             \}}
+\DoxyCodeLine{140             std::cout<<std::endl;}
+\DoxyCodeLine{141         \}}
+\DoxyCodeLine{142 \}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{145 \textcolor{comment}{  Function: KroneckerDelta}}
+\DoxyCodeLine{146 \textcolor{comment}{}}
+\DoxyCodeLine{147 \textcolor{comment}{  Summary:  Function of two variables, usually just non-\/negative integers.}}
+\DoxyCodeLine{148 \textcolor{comment}{        }}
+\DoxyCodeLine{149 \textcolor{comment}{  Args: const int \& i , const int \& j}}
+\DoxyCodeLine{150 \textcolor{comment}{          integer variables.}}
+\DoxyCodeLine{151 \textcolor{comment}{            }}
+\DoxyCodeLine{152 \textcolor{comment}{  Returns:  int}}
+\DoxyCodeLine{153 \textcolor{comment}{              The function return 1 if the variables are equal, and 0 otherwise.}}
+\DoxyCodeLine{154 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{155 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{156 \textcolor{keywordtype}{int} KroneckerDelta(\textcolor{keyword}{const} T \& i, \textcolor{keyword}{const} T \& j)}
+\DoxyCodeLine{157 \{}
+\DoxyCodeLine{158     \textcolor{keywordflow}{if}  (i==j)\{\textcolor{keywordflow}{return} (1);\}}
+\DoxyCodeLine{159     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{160     \textcolor{keywordflow}{return} (0);}
+\DoxyCodeLine{161 \}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{164 \textcolor{comment}{  Function:  Kronecker-\/Product}}
+\DoxyCodeLine{165 \textcolor{comment}{}}
+\DoxyCodeLine{166 \textcolor{comment}{  Summary:  An operation on two matrices of arbitrary size resulting in a block matrix }}
+\DoxyCodeLine{167 \textcolor{comment}{        }}
+\DoxyCodeLine{168 \textcolor{comment}{  Args:  const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \&mt1}}
+\DoxyCodeLine{169 \textcolor{comment}{        matrix of dynamic (m × n) size.}}
+\DoxyCodeLine{170 \textcolor{comment}{     const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt2}}
+\DoxyCodeLine{171 \textcolor{comment}{        matrix of dynamic (p × q) size. }}
+\DoxyCodeLine{172 \textcolor{comment}{          }}
+\DoxyCodeLine{173 \textcolor{comment}{  Returns: Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }}
+\DoxyCodeLine{174 \textcolor{comment}{        block matrix of size (pm × qn).}}
+\DoxyCodeLine{175 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{176 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{177 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }
+\DoxyCodeLine{178 \mbox{\hyperlink{namespaceQuantaPlus_ae18da19de97c464fc57f522154142b78}{KroneckerProduct}}( \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt1, }
+\DoxyCodeLine{179           \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt2)}
+\DoxyCodeLine{180 \{   }
+\DoxyCodeLine{181     \textcolor{keywordtype}{int} rowA = (int)mt1.rows();}
+\DoxyCodeLine{182     \textcolor{keywordtype}{int} colA = (int)mt1.cols();}
+\DoxyCodeLine{183     \textcolor{keywordtype}{int} rowB = (int)mt2.rows();}
+\DoxyCodeLine{184     \textcolor{keywordtype}{int} colB = (int)mt2.cols();}
+\DoxyCodeLine{185     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  res((rowA*rowB),(colA*colB));}
+\DoxyCodeLine{186     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < rowA; i++)}
+\DoxyCodeLine{187     \{}
+\DoxyCodeLine{188         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < rowB; k++) }
+\DoxyCodeLine{189         \{}
+\DoxyCodeLine{190             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < colA; j++)  }
+\DoxyCodeLine{191             \{}
+\DoxyCodeLine{192                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < colB; l++)  }
+\DoxyCodeLine{193                 \{}
+\DoxyCodeLine{194                     res(i*rowB+k,j*colB+l)=mt1(i,j)*mt2(k,l);           }
+\DoxyCodeLine{195                 \}}
+\DoxyCodeLine{196             \}}
+\DoxyCodeLine{197         \}}
+\DoxyCodeLine{198     \}}
+\DoxyCodeLine{199     \textcolor{keywordflow}{return} res;    }
+\DoxyCodeLine{200 \}       }
+\DoxyCodeLine{201 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ Overloaded Kronecker-\/Product -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{202 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{203 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }
+\DoxyCodeLine{204 \mbox{\hyperlink{namespaceQuantaPlus_ae18da19de97c464fc57f522154142b78}{KroneckerProduct}}( \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt1, }
+\DoxyCodeLine{205           \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt2, }
+\DoxyCodeLine{206           \textcolor{keyword}{const} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \& mt3)}
+\DoxyCodeLine{207 \{   }
+\DoxyCodeLine{208     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> temp = \mbox{\hyperlink{namespaceQuantaPlus_ae18da19de97c464fc57f522154142b78}{KroneckerProduct}}(mt1,mt2) ;}
+\DoxyCodeLine{209     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespaceQuantaPlus_ae18da19de97c464fc57f522154142b78}{KroneckerProduct}}(temp,mt3);}
+\DoxyCodeLine{210 \}}
+\DoxyCodeLine{211 }
+\DoxyCodeLine{212 \textcolor{comment}{/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++}}
+\DoxyCodeLine{213 \textcolor{comment}{  Function: Id}}
+\DoxyCodeLine{214 \textcolor{comment}{}}
+\DoxyCodeLine{215 \textcolor{comment}{  Summary: Unit operator operating on a spin of length S.}}
+\DoxyCodeLine{216 \textcolor{comment}{        }}
+\DoxyCodeLine{217 \textcolor{comment}{  Args: const double\& S}}
+\DoxyCodeLine{218 \textcolor{comment}{           spin quantum number.  }}
+\DoxyCodeLine{219 \textcolor{comment}{          }}
+\DoxyCodeLine{220 \textcolor{comment}{  Returns: Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>}}
+\DoxyCodeLine{221 \textcolor{comment}{        Identity matrix of dynamic size.}}
+\DoxyCodeLine{222 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{223 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{224 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> Id(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& S)}
+\DoxyCodeLine{225 \{}
+\DoxyCodeLine{226     \textcolor{keywordflow}{return} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>::Identity( \textcolor{keywordtype}{int}(2*S+1), \textcolor{keywordtype}{int}(2*S+1));}
+\DoxyCodeLine{227 \}}
+\DoxyCodeLine{228  }
+\DoxyCodeLine{230 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{231 Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> CtoRMateix(Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>\& mat)}
+\DoxyCodeLine{232 \{   }
+\DoxyCodeLine{233     Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> realres((\textcolor{keywordtype}{int})mat.rows(),(\textcolor{keywordtype}{int})mat.cols());}
+\DoxyCodeLine{234     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < mat.rows(); row\_count++)}
+\DoxyCodeLine{235         \{}
+\DoxyCodeLine{236             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < mat.cols(); col\_count++)}
+\DoxyCodeLine{237             \{}
+\DoxyCodeLine{238             realres(row\_count,col\_count)= std::real(mat(row\_count, col\_count));}
+\DoxyCodeLine{239             \}}
+\DoxyCodeLine{240              }
+\DoxyCodeLine{241         \}}
+\DoxyCodeLine{242         \textcolor{keywordflow}{return} realres;}
+\DoxyCodeLine{243 \}}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{246 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

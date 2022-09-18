@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ket_0',['Ket',['../df/d94/classQuantaPlus_1_1Ket.html#a865cf644af95d8cd01fe542a3643b70e',1,'QuantaPlus::Ket::Ket()'],['../df/d94/classQuantaPlus_1_1Ket.html#a8d08803889fe347d06bc9d4ce82460ae',1,'QuantaPlus::Ket::Ket(int row)'],['../df/d94/classQuantaPlus_1_1Ket.html#a4e4ee50c390b689d54b3742c97649b65',1,'QuantaPlus::Ket::Ket(const Eigen::MatrixBase&lt; Derived &gt; &amp;other)']]]
+  ['latex_0',['LaTex',['../d8/d84/classQuantaPlus_1_1LaTex.html#ab6e26ce23ca32432f8b633a523d1a1fd',1,'QuantaPlus::LaTex::LaTex()'],['../d8/d84/classQuantaPlus_1_1LaTex.html#a842d773064ec738ef04e0e805d240aef',1,'QuantaPlus::LaTex::LaTex(std::string filename)']]],
+  ['latexmath_1',['LaTexMath',['../d8/d84/classQuantaPlus_1_1LaTex.html#a6d61490c4dcd0abf3ec2aef157c50b56',1,'QuantaPlus::LaTex']]]
 ];

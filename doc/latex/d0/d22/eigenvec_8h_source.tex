@@ -1,0 +1,52 @@
+\hypertarget{eigenvec_8h_source}{}\doxysection{eigenvec.\+h}
+\label{eigenvec_8h_source}\index{quantaplus/eigenvectors/eigenvec.h@{quantaplus/eigenvectors/eigenvec.h}}
+\mbox{\hyperlink{eigenvec_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{4 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{5 \textcolor{comment}{  by:        Mohammed Maher Abdelrahim Mohammed}}
+\DoxyCodeLine{6 \textcolor{comment}{             UNIVERSITÀ DELLA CALABRIA, DIPARTIMENTO DI FISICA AND INFN-\/COSENZA}}
+\DoxyCodeLine{7 \textcolor{comment}{         VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
+\DoxyCodeLine{8 \textcolor{comment}{             mohammed.maher@unical.it  }}
+\DoxyCodeLine{9 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_EIGENVECTORS\_EIGENVEC\_H}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define QUANTAPLUS\_EIGENVECTORS\_EIGENVEC\_H}}
+\DoxyCodeLine{12 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}} \{}
+\DoxyCodeLine{13  }
+\DoxyCodeLine{14 \textcolor{comment}{/*!****************************************************************}}
+\DoxyCodeLine{15 \textcolor{comment}{* \(\backslash\)brief compute specific Eigen vectors for Eigen::Matrix.}}
+\DoxyCodeLine{16 \textcolor{comment}{* @param mt is a square Eigen::Matrix with Dynamic-\/size.}}
+\DoxyCodeLine{17 \textcolor{comment}{* @param col\_number is the column of the selected eigen vector}}
+\DoxyCodeLine{18 \textcolor{comment}{* @return Specified column of eigenvector for a given matrix. }}
+\DoxyCodeLine{19 \textcolor{comment}{******************************************************************/}}
+\DoxyCodeLine{20 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{21 Eigen::Matrix<T,Eigen::Dynamic,1> }
+\DoxyCodeLine{22 \mbox{\hyperlink{namespaceQuantaPlus_a8b4706343b0accf0f39bd508f65bb171}{QuantumEigenVector}}(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \&mat, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& col\_number)}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>> eigensolver(mat);}
+\DoxyCodeLine{25    }
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (eigensolver.info() != Eigen::Success) abort();}
+\DoxyCodeLine{27   }
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} eigensolver.eigenvectors();\textcolor{comment}{//.col(col\_number);}}
+\DoxyCodeLine{29 \}}
+\DoxyCodeLine{30 \textcolor{comment}{/*!****************************************************************************}}
+\DoxyCodeLine{31 \textcolor{comment}{* \(\backslash\)brief overloaded version to compute all the Eigen vectors for Eigen::Matrix.}}
+\DoxyCodeLine{32 \textcolor{comment}{* @param mt is a square Eigen::Matrix with Dynamic-\/size.}}
+\DoxyCodeLine{33 \textcolor{comment}{* @return eigenvectors for a given matrix. }}
+\DoxyCodeLine{34 \textcolor{comment}{******************************************************************************/}}
+\DoxyCodeLine{35 \textcolor{keyword}{template}<\textcolor{keyword}{typename} T> }
+\DoxyCodeLine{36 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }
+\DoxyCodeLine{37 \mbox{\hyperlink{namespaceQuantaPlus_a8b4706343b0accf0f39bd508f65bb171}{QuantumEigenVector}}(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \&mat)}
+\DoxyCodeLine{38 \{}
+\DoxyCodeLine{39     Eigen::SelfAdjointEigenSolver<Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>> eigensolver(mat);}
+\DoxyCodeLine{40    }
+\DoxyCodeLine{41     \textcolor{keywordflow}{if} (eigensolver.info() != Eigen::Success) abort();}
+\DoxyCodeLine{42   }
+\DoxyCodeLine{43     \textcolor{keywordflow}{return} eigensolver.eigenvectors();\textcolor{comment}{//.col(col\_number);}}
+\DoxyCodeLine{44 \}}
+\DoxyCodeLine{45  }
+\DoxyCodeLine{46  }
+\DoxyCodeLine{47 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BRAKET\_HPP}}
+
+\end{DoxyCode}

@@ -8,8 +8,13 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #include<iostream>
 #include<complex>
 
-#include"../quantaplus/braket.h"
-#include"../quantaplus/utilities.h"
+#include"../quantaplus/quantaplus.h"
+
+/*
+#include"../quantaplus/utilities/utilities.h"
+#include"../quantaplus/braket/ket.h"
+#include"../quantaplus/braket/bra.h"
+*/
  
  
 using namespace QuantaPlus;
@@ -41,21 +46,22 @@ int main()
  
 	//-----------------------------------------------------------------
 	cout<<"--------|A>------------"<<endl;
-    	ResultPrint(ktA);
     	
+    	ktA.Print();
     	cout<<"--------<B|------------"<<endl;
-    	ResultPrint(brB);  
+    	
+    	brB.Print();
     	
     	cout<<"--------|B>------------"<<endl;
-    	ktB = DualConj(brB); // |B> = (<B|)^Dagger. (see any QM textbook).
-    	ResultPrint(ktB);
-	
+    	ktB = brB.conjugate(); // |B> = (<B|)^Dagger. (see any QM textbook).
+ 
+	ktB.Print();
 	cout<<"--------<A|------------"<<endl;
-    	brA = DualConj(ktA);  // <A| = (|A>)^Dagger. (see any QM textbook).
-    	ResultPrint(brA);
-    	
+    	brA =  ktA.conjugate();  // <A| = (|A>)^Dagger. (see any QM textbook).
+ 
+    	brA.Print();
     	cout<<"--------<A|B>----------"<<endl;
-    	BraKetAB = BraKet(brA,ktB);
+    	BraKetAB =  brA*ktB;
     	ResultPrint( BraKetAB);
     	
     	cout<<"--------<B|A>----------"<<endl;
@@ -64,11 +70,11 @@ int main()
     	ResultPrint( BraKetBA);  	
     	
     	cout<<"--------<A|A>--------"<<endl;
-    	BraKetAA = BraKet(brA,ktA);
+    	BraKetAA =  brA*ktA;
     	ResultPrint( BraKetAA);   	 
     	
     	cout<<"--------<B|B>--------"<<endl;
-    	BraKetBB = BraKet(brB,ktB);
+    	BraKetBB =  brB*ktB;
     	ResultPrint( BraKetBB);
 	//-----------------------------------------------------------------
    

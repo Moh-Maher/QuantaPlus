@@ -2,8 +2,8 @@
 \label{classQuantaPlus_1_1AngularMomentum}\index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
 
 
-Provieds General Formalism of Angular Momentum operators. ~\newline
- \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}} is a publicly derived class from t\+QM\+\_\+operator$<$\+T$>$  
+The matrix representation of angular momentum operators. ~\newline
+  
 
 
 
@@ -18,8 +18,6 @@ Inheritance diagram for Quanta\+Plus\+::Angular\+Momentum\texorpdfstring{$<$}{<}
 \end{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a84965b75374572c9492b1aafb9258847}{Angular\+Momentum}} ()
 \item 
 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a9ba000bf20ad20ff4f7b4c95b6ed8548}{Angular\+Momentum}} (int row, int col)
 \begin{DoxyCompactList}\small\item\em Constructor with row and column input. \end{DoxyCompactList}\item 
@@ -38,9 +36,13 @@ Inheritance diagram for Quanta\+Plus\+::Angular\+Momentum\texorpdfstring{$<$}{<}
 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}}$<$ T $>$ \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}{Angular\+Momentum\+\_\+\+JPlus}} (const double \&spin\+\_\+value)
 \begin{DoxyCompactList}\small\item\em The matrix representations of the raising operator $J_{+}$. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}}$<$ T $>$ \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_aa39de889e0e19948cc2799f0a0fa2e14}{Angular\+Momentum\+\_\+\+JMinus}} (const double \&spin\+\_\+value)
-\begin{DoxyCompactList}\small\item\em The matrix representations of the raising operator $J_{-}$. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The matrix representations of the lowering operator $J_{-}$. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}}$<$ T $>$ \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}{Rotation\+By\+Angle}} (const std\+::string \&dir, const double \&alpha)
 \begin{DoxyCompactList}\small\item\em Representation of the Rotation Operator in generic direction $R_{n}(\alpha)$. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ab27e8ab5ceb1eeeb8de1a7ccd2e1131f}{Print}} ()
+\item 
+void \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a1c4f3b9668273d89d81a6cf770043331}{NPrint}} ()
+\item 
 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a235d2488145c8d69d7aaf62bd6c959ec}{$\sim$\+Angular\+Momentum}} ()
 \begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -48,39 +50,19 @@ Inheritance diagram for Quanta\+Plus\+::Angular\+Momentum\texorpdfstring{$<$}{<}
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class T$>$\newline
 class Quanta\+Plus\+::\+Angular\+Momentum$<$ T $>$}
-Provieds General Formalism of Angular Momentum operators. ~\newline
- \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}} is a publicly derived class from t\+QM\+\_\+operator$<$\+T$>$ 
-
-\DoxyHorRuler{0}
+The matrix representation of angular momentum operators. ~\newline
  
 
+\DoxyHorRuler{0}
+
+
+\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}} is a publicly derived class from QM\+\_\+operator$<$\+T$>$, where eigenkets and operators will be represented by column vectors and square matrices, respectively. The matrices representing $J^2$ and $J_z$ in the $j,m$ eigenbasis are diagonal, their diagonal elements being equal to ( after set $\hbar=1$) $j(j+1)$ and $m$, respectively 
+
 \doxysubsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a84965b75374572c9492b1aafb9258847}\label{classQuantaPlus_1_1AngularMomentum_a84965b75374572c9492b1aafb9258847}} 
+\mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a9ba000bf20ad20ff4f7b4c95b6ed8548}\label{classQuantaPlus_1_1AngularMomentum_a9ba000bf20ad20ff4f7b4c95b6ed8548}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!AngularMomentum@{AngularMomentum}}
 \index{AngularMomentum@{AngularMomentum}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{AngularMomentum()}{AngularMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Quanta\+Plus\+::\+Angular\+Momentum}}$<$ T $>$\+::\+Angular\+Momentum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keywordtype}{double} spin = 1.5; \textcolor{comment}{// set physically valid spin value j = 3/2.}}
-\DoxyCodeLine{}
-\DoxyCodeLine{\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{QuantaPlus::AngularMomentum<complex>}} S\_x; \textcolor{comment}{// declaration of an empty ( and dynamically sized ) angular momentum operator. }}
-\DoxyCodeLine{}
-\DoxyCodeLine{S\_x = S\_x.\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}{AngularMomentum\_Jx}}(spin); \textcolor{comment}{// compute the J\_x component of the spin angular momentum operator J as a function of spin, and set S\_x = J\_x}}
-\DoxyCodeLine{}
-\DoxyCodeLine{\mbox{\hyperlink{namespaceQuantaPlus_a1002abc85cb4fc5ceba7c81883ce25dd}{QuantaPlus::ResultPrint}}(S\_x); \textcolor{comment}{//print it using QuantaPlus::ResultPrint function.}}
-
-\end{DoxyCode}
- output \begin{DoxyVerb}0    √3/2    0    0 
-√3/2 0       1    0 
-0    1       0    √3/2  
-0    0      √3/2  0 \end{DoxyVerb}
- \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a9ba000bf20ad20ff4f7b4c95b6ed8548}\label{classQuantaPlus_1_1AngularMomentum_a9ba000bf20ad20ff4f7b4c95b6ed8548}} 
-\index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!AngularMomentum@{AngularMomentum}}
-\index{AngularMomentum@{AngularMomentum}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{AngularMomentum()}{AngularMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+\doxysubsubsection{\texorpdfstring{AngularMomentum()}{AngularMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Quanta\+Plus\+::\+Angular\+Momentum}}$<$ T $>$\+::\+Angular\+Momentum (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -101,7 +83,7 @@ Constructor with row and column input.
  \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_ae356db9c9e81fdff79d657d826e3eb2d}\label{classQuantaPlus_1_1AngularMomentum_ae356db9c9e81fdff79d657d826e3eb2d}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!AngularMomentum@{AngularMomentum}}
 \index{AngularMomentum@{AngularMomentum}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{AngularMomentum()}{AngularMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\doxysubsubsection{\texorpdfstring{AngularMomentum()}{AngularMomentum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 template$<$typename Derived $>$ \\
 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Quanta\+Plus\+::\+Angular\+Momentum}}$<$ T $>$\+::\+Angular\+Momentum (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
@@ -133,9 +115,9 @@ Destructor.
 
 
 
-The matrix representations of the raising operator $J_{-}$. 
+The matrix representations of the lowering operator $J_{-}$. 
 
-\mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}\label{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}} 
+$<j^\prime, m^\prime|J_-|j, m > = \sqrt{j(j+1)-m(m+1)}\delta_{j^\prime, j}\delta_{m^\prime, m-1} $ \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}\label{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!AngularMomentum\_JPlus@{AngularMomentum\_JPlus}}
 \index{AngularMomentum\_JPlus@{AngularMomentum\_JPlus}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{AngularMomentum\_JPlus()}{AngularMomentum\_JPlus()}}
@@ -146,7 +128,7 @@ The matrix representations of the raising operator $J_{-}$.
 
 The matrix representations of the raising operator $J_{+}$. 
 
-\mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_ad8d8b9a96847a18ae7b8e02b23208d29}\label{classQuantaPlus_1_1AngularMomentum_ad8d8b9a96847a18ae7b8e02b23208d29}} 
+$<j^\prime, m^\prime|J_+|j, m > = \sqrt{j(j+1)-m(m-1)}\delta_{j^\prime, j}\delta_{m^\prime, m+1} $ \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_ad8d8b9a96847a18ae7b8e02b23208d29}\label{classQuantaPlus_1_1AngularMomentum_ad8d8b9a96847a18ae7b8e02b23208d29}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!AngularMomentum\_JSquare@{AngularMomentum\_JSquare}}
 \index{AngularMomentum\_JSquare@{AngularMomentum\_JSquare}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{AngularMomentum\_JSquare()}{AngularMomentum\_JSquare()}}
@@ -157,7 +139,7 @@ The matrix representations of the raising operator $J_{+}$.
 
 The matrix representations of the squared general angular momentum operator $J^2$. 
 
-\mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}\label{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}} 
+$<j^\prime, m^\prime|J^2|j, m > =  j(j+1)\delta_{j^\prime, j}\delta_{m^\prime, m} $ \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}\label{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!AngularMomentum\_Jx@{AngularMomentum\_Jx}}
 \index{AngularMomentum\_Jx@{AngularMomentum\_Jx}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{AngularMomentum\_Jx()}{AngularMomentum\_Jx()}}
@@ -168,7 +150,22 @@ The matrix representations of the squared general angular momentum operator $J^2
 
 The matrix representations of the angular momentum operator component $J_x$. 
 
-\mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}\label{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}} 
+$<j^\prime, m^\prime|J_x|j, m > = \frac{1}{2}  \left[\sqrt{j(j+1)-m(m+1)}\delta_{m^\prime, m+1} + \sqrt{j(j+1)-m(m-1)}\delta_{m^\prime, m-1}  \right]\delta_{j^\prime, j} $ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double} spin = 1.5; \textcolor{comment}{// set physically valid spin value j = 3/2.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{QuantaPlus::AngularMomentum<complex>}} S\_x; \textcolor{comment}{// declaration of an empty ( and dynamically sized ) angular momentum operator. }}
+\DoxyCodeLine{}
+\DoxyCodeLine{S\_x = S\_x.\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}{AngularMomentum\_Jx}}(spin); \textcolor{comment}{// compute the J\_x component of the spin angular momentum operator J as a function of spin, and set S\_x = J\_x}}
+\DoxyCodeLine{}
+\DoxyCodeLine{QuantaPlus::ResultPrint(S\_x); \textcolor{comment}{//print it using QuantaPlus::ResultPrint function.}}
+
+\end{DoxyCode}
+ output \begin{DoxyVerb}0    √3/2    0    0 
+√3/2 0       1    0 
+0    1       0    √3/2  
+0    0      √3/2  0 \end{DoxyVerb}
+ \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}\label{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!AngularMomentum\_Jy@{AngularMomentum\_Jy}}
 \index{AngularMomentum\_Jy@{AngularMomentum\_Jy}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{AngularMomentum\_Jy()}{AngularMomentum\_Jy()}}
@@ -179,7 +176,20 @@ The matrix representations of the angular momentum operator component $J_x$.
 
 The matrix representations of the angular momentum operator component $J_y$. 
 
-\mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}\label{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}} 
+$<j^\prime, m^\prime|J_y|j, m > = \frac{1}{2i}  \left[\sqrt{j(j+1)-m(m+1)}\delta_{m^\prime, m+1} - \sqrt{j(j+1)-m(m-1)}\delta_{m^\prime, m-1}  \right]\delta_{j^\prime, j} $ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double} spin = 0.5; \textcolor{comment}{// set physically valid spin value j = 1/2.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{QuantaPlus::AngularMomentum<complex>}} S\_y; \textcolor{comment}{// declaration of an empty ( and dynamically sized ) angular momentum operator. }}
+\DoxyCodeLine{}
+\DoxyCodeLine{S\_y = S\_y.\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}{AngularMomentum\_Jy}}(spin); \textcolor{comment}{// compute the J\_y component of the spin angular momentum operator J as a function of spin, and set S\_y = J\_y}}
+\DoxyCodeLine{}
+\DoxyCodeLine{QuantaPlus::ResultPrint(S\_y); \textcolor{comment}{//print it using QuantaPlus::ResultPrint function.}}
+
+\end{DoxyCode}
+ output \begin{DoxyVerb}0   -1/2i   
+1/2i    0\end{DoxyVerb}
+ \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}\label{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!AngularMomentum\_Jz@{AngularMomentum\_Jz}}
 \index{AngularMomentum\_Jz@{AngularMomentum\_Jz}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{AngularMomentum\_Jz()}{AngularMomentum\_Jz()}}
@@ -190,6 +200,36 @@ The matrix representations of the angular momentum operator component $J_y$.
 
 The matrix representations of the angular momentum operator component $J_z$. 
 
+$<j^\prime, m^\prime|J_z|j, m > =  m\delta_{j^\prime, j}\delta_{m^\prime, m} $ 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{double} spin = 2.5; \textcolor{comment}{// set physically valid spin value j = 5/2.}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{QuantaPlus::AngularMomentum<complex>}} S\_z; \textcolor{comment}{// declaration of an empty ( and dynamically sized ) angular momentum operator. }}
+\DoxyCodeLine{}
+\DoxyCodeLine{S\_z = S\_z.\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}{AngularMomentum\_Jz}}(spin); \textcolor{comment}{// compute the J\_z component of the spin angular momentum operator J as a function of spin, and set S\_z = J\_z}}
+\DoxyCodeLine{}
+\DoxyCodeLine{QuantaPlus::ResultPrint(S\_z); \textcolor{comment}{//print it using QuantaPlus::ResultPrint function.}}
+
+\end{DoxyCode}
+ output \begin{DoxyVerb}5/2    0    0    0    0    0    
+0      3/2  0    0    0    0    
+0      0    1/2  0    0    0    
+0      0    0    -1/2 0    0    
+0      0    0    0    -3/2 0    
+0      0    0    0    0    -5/2
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a1c4f3b9668273d89d81a6cf770043331}\label{classQuantaPlus_1_1AngularMomentum_a1c4f3b9668273d89d81a6cf770043331}} 
+\index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!NPrint@{NPrint}}
+\index{NPrint@{NPrint}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{NPrint()}{NPrint()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Quanta\+Plus\+::\+Angular\+Momentum}}$<$ T $>$\+::\+NPrint}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & is an Eigen\+::\+Matrix with Dynamic-\/size rows or columns \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a69af7c55662b9609c2154e96a2c4b398}\label{classQuantaPlus_1_1AngularMomentum_a69af7c55662b9609c2154e96a2c4b398}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
@@ -198,7 +238,19 @@ The matrix representations of the angular momentum operator component $J_z$.
 template$<$typename Derived $>$ \\
 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}} \& \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Quanta\+Plus\+::\+Angular\+Momentum}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const Eigen\+::\+Matrix\+Base$<$ Derived $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-Assign Eigen expressions to \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}} \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}\label{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}} 
+Assign Eigen expressions to \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Angular\+Momentum}} \mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_ab27e8ab5ceb1eeeb8de1a7ccd2e1131f}\label{classQuantaPlus_1_1AngularMomentum_ab27e8ab5ceb1eeeb8de1a7ccd2e1131f}} 
+\index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!Print@{Print}}
+\index{Print@{Print}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{Quanta\+Plus\+::\+Angular\+Momentum}}$<$ T $>$\+::\+Print}
+
+
+\begin{DoxyParams}{Parameters}
+{\em mat} & is an Eigen\+::\+Matrix with Dynamic-\/size rows or columns \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}\label{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}} 
 \index{QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}!RotationByAngle@{RotationByAngle}}
 \index{RotationByAngle@{RotationByAngle}!QuantaPlus::AngularMomentum$<$ T $>$@{QuantaPlus::AngularMomentum$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{RotationByAngle()}{RotationByAngle()}}
@@ -220,4 +272,4 @@ Representation of the Rotation Operator in generic direction $R_{n}(\alpha)$.
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-quantaplus/\mbox{\hyperlink{angularmomentum_8h}{angularmomentum.\+h}}\end{DoxyCompactItemize}
+quantaplus/operators/\mbox{\hyperlink{angularmomentum_8h}{angularmomentum.\+h}}\end{DoxyCompactItemize}

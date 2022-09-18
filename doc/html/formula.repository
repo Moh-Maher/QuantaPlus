@@ -1,23 +1,39 @@
-\_form#0=13x10:$\hbar c$
-\_form#1=51x10:$\mathrm{MeV}\cdot\mathrm{fm}$
-\_form#2=26x15:$(\hbar c)^2$
-\_form#3=75x13:$\mathrm{GeV}^2\cdot\mathrm{mbarn}$
-\_form#4=71x13:$\mathrm{GeV}^{-1} \rightarrow \mathrm{fm}$
-\_form#5=89x13:$\mathrm{GeV}^{-2} \rightarrow \mathrm{nbarn}$
-\_form#6=90x15:$\mathrm{GeV}^{-2} \rightarrow \mathrm{pbarn}$
-\_form#7=150x14:$|j1 - j2| <= j <= |j1 + j2|$
-\_form#8=65x11:$-j<m<j$
-\_form#9=121x14:$<j_1, j_2; m_1, m_2 | j, m >$
-\_form#10=13x6:$m$
-\_form#11=79x10:$m1+m2=m$
-\_form#12=13x11:$J^2$
-\_form#13=13x13:$J_x$
-\_form#14=13x14:$J_y$
-\_form#15=11x13:$J_z$
-\_form#16=14x14:$J_+$
-\_form#17=14x10:$J_-$
-\_form#18=33x14:$R_n(\alpha)$
-\_form#19=9x6:$n$
-\_form#20=14x14:$J_{+}$
-\_form#21=14x10:$J_{-}$
-\_form#22=33x14:$R_{n}(\alpha)$
+\_form#0=13x11:$J^2$
+\_form#1=11x13:$J_z$
+\_form#2=23x11:$j,m$
+\_form#3=29x10:$\hbar=1$
+\_form#4=44x14:$j(j+1)$
+\_form#5=13x6:$m$
+\_form#6=205x15:$<j^\prime, m^\prime|J^2|j, m > =  j(j+1)\delta_{j^\prime, j}\delta_{m^\prime, m} $
+\_form#7=503x24:$<j^\prime, m^\prime|J_x|j, m > = \frac{1}{2}  \left[\sqrt{j(j+1)-m(m+1)}\delta_{m^\prime, m+1} + \sqrt{j(j+1)-m(m-1)}\delta_{m^\prime, m-1}  \right]\delta_{j^\prime, j} $
+\_form#8=13x13:$J_x$
+\_form#9=506x24:$<j^\prime, m^\prime|J_y|j, m > = \frac{1}{2i}  \left[\sqrt{j(j+1)-m(m+1)}\delta_{m^\prime, m+1} - \sqrt{j(j+1)-m(m-1)}\delta_{m^\prime, m-1}  \right]\delta_{j^\prime, j} $
+\_form#10=13x14:$J_y$
+\_form#11=173x14:$<j^\prime, m^\prime|J_z|j, m > =  m\delta_{j^\prime, j}\delta_{m^\prime, m} $
+\_form#12=299x16:$<j^\prime, m^\prime|J_+|j, m > = \sqrt{j(j+1)-m(m-1)}\delta_{j^\prime, j}\delta_{m^\prime, m+1} $
+\_form#13=14x14:$J_{+}$
+\_form#14=300x16:$<j^\prime, m^\prime|J_-|j, m > = \sqrt{j(j+1)-m(m+1)}\delta_{j^\prime, j}\delta_{m^\prime, m-1} $
+\_form#15=14x10:$J_{-}$
+\_form#16=33x14:$R_{n}(\alpha)$
+\_form#17=121x14:$<j_1, j_2; m_1, m_2 | j, m >$
+\_form#18=79x10:$m1+m2=m$
+\_form#19=150x14:$|j1 - j2| <= j <= |j1 + j2|$
+\_form#20=65x11:$-j<m<j$
+\_form#21=13x10:$\hbar c$
+\_form#22=51x10:$\mathrm{MeV}\cdot\mathrm{fm}$
+\_form#23=26x15:$(\hbar c)^2$
+\_form#24=75x13:$\mathrm{GeV}^2\cdot\mathrm{mbarn}$
+\_form#25=71x13:$\mathrm{GeV}^{-1} \rightarrow \mathrm{fm}$
+\_form#26=89x13:$\mathrm{GeV}^{-2} \rightarrow \mathrm{nbarn}$
+\_form#27=90x15:$\mathrm{GeV}^{-2} \rightarrow \mathrm{pbarn}$
+\_form#28=38x14:$<Bra|$
+\_form#29=84x14:$z = n/d + in/d$
+\_form#30=49x14:$i = \sqrt{-1}$
+\_form#31=38x14:$<Bra |$
+\_form#32=60x15:$z =\frac{n}{d} + i\frac{n}{d}$
+\_form#33=38x14:$< Bra |$
+\_form#34=64x18:$z =\frac{A}{B} + i\frac{C}{D}$
+\_form#35=11x10:$H$
+\_form#36=15x13:$H_d$
+\_form#37=46x14:$<|ket>$
+\_form#38=33x14:$|ket>$

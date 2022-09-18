@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['halfinteger_0',['halfInteger',['../da/dc8/namespaceQuantaPlus.html#a6210f298a3163e63970a7a0d33fda73f',1,'QuantaPlus']]]
+  ['endlatex_0',['EndLaTex',['../d8/d84/classQuantaPlus_1_1LaTex.html#a1abfa4ee056961eab62d869ab045f9e4',1,'QuantaPlus::LaTex']]],
+  ['expectvalue_1',['ExpectValue',['../da/dc8/namespaceQuantaPlus.html#a81cce17f590894ee737efda3420921a2',1,'QuantaPlus']]]
 ];

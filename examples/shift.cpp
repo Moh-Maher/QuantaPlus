@@ -1,10 +1,12 @@
 #include<iostream>
 #include<complex>
 #include<cmath>
+#include"../quantaplus/quantaplus.h"
+/*
 #include"../quantaplus/braket.h"
 #include"../quantaplus/operators.h"
 #include"../quantaplus/utilities.h"
- 
+*/ 
 using namespace QuantaPlus;
 	typedef std::complex<double>  complex;
 	using std::cout;

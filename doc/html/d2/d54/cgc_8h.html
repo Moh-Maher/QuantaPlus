@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>QuantaPlus: quantaplus/cgc.h File Reference</title>
+<title>QuantaPlus: quantaplus/operators/cgc.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_c07d0ee52b103035834dd6c1e406d1ad.html">quantaplus</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_c07d0ee52b103035834dd6c1e406d1ad.html">quantaplus</a></li><li class="navelem"><a class="el" href="../../dir_2b31c680107a0863c73b6d26b61027c8.html">operators</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -90,26 +90,56 @@ $(function() {
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
 <code>#include &quot;<a class="el" href="../../da/db0/angularmomentum_8h_source.html">angularmomentum.h</a>&quot;</code><br />
-<code>#include &quot;include/cgc.hpp&quot;</code><br />
 </div>
 <p><a href="../../d2/d54/cgc_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d45/classQuantaPlus_1_1CGCcoeff.html">QuantaPlus::CGCcoeff</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dd/d45/classQuantaPlus_1_1CGCcoeff.html" title="CGCcoeff is a class for Clebsch–Gordan Coefficients representation .">CGCcoeff</a> is a class for Clebsch–Gordan Coefficients representation <picture><source srcset="../../form_9_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$&lt;j_1, j_2; m_1, m_2 | j, m &gt;$" src="../../form_9.png" width="121" height="14"/></picture>.  <a href="../../dd/d45/classQuantaPlus_1_1CGCcoeff.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dd/d45/classQuantaPlus_1_1CGCcoeff.html" title="CGCcoeff is a class for Clebsch–Gordan Coefficients representation .">CGCcoeff</a> is a class for Clebsch–Gordan Coefficients representation <picture><source srcset="../../form_17_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$&lt;j_1, j_2; m_1, m_2 | j, m &gt;$" src="../../form_17.png" width="121" height="14"/></picture>.  <a href="../../dd/d45/classQuantaPlus_1_1CGCcoeff.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:da/dc8/namespaceQuantaPlus"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html">QuantaPlus</a></td></tr>
-<tr class="memdesc:da/dc8/namespaceQuantaPlus"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic <a class="el" href="../../da/dc8/namespaceQuantaPlus.html" title="Generic QuantaPlus interfaces and implementations.">QuantaPlus</a> interfaces and implementations. <br /></td></tr>
+<tr class="memdesc:da/dc8/namespaceQuantaPlus"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace of the <b><a class="el" href="../../da/dc8/namespaceQuantaPlus.html" title="Namespace of the QuantaPlus C++ library.">QuantaPlus</a></b> C++ library. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a456793d842fc471e04c7cca64dff2248"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a456793d842fc471e04c7cca64dff2248">QuantaPlus::operator&lt;&lt;</a> (std::ostream &amp;out, const CGCcoeff &amp;t)</td></tr>
 <tr class="separator:a456793d842fc471e04c7cca64dff2248"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa57a5e2f78f8f50417c5fb654282242"><td class="memItemLeft" align="right" valign="top"><a id="afa57a5e2f78f8f50417c5fb654282242" name="afa57a5e2f78f8f50417c5fb654282242"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::SquareRoot</b> (const double &amp;x, const double &amp;curr, const double &amp;prev)</td></tr>
+<tr class="separator:afa57a5e2f78f8f50417c5fb654282242"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334f3e9357725cf480f7d15d899ffc56"><td class="memItemLeft" align="right" valign="top"><a id="a334f3e9357725cf480f7d15d899ffc56" name="a334f3e9357725cf480f7d15d899ffc56"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::SquareRoot</b> (const double &amp;x)</td></tr>
+<tr class="separator:a334f3e9357725cf480f7d15d899ffc56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f85ee34da21f3a11c63f443ba06ce49"><td class="memItemLeft" align="right" valign="top"><a id="a8f85ee34da21f3a11c63f443ba06ce49" name="a8f85ee34da21f3a11c63f443ba06ce49"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::Factorial</b> (const double &amp;n)</td></tr>
+<tr class="separator:a8f85ee34da21f3a11c63f443ba06ce49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43eb50bea4ef8bdfe231887d04e8b5e0"><td class="memItemLeft" align="right" valign="top"><a id="a43eb50bea4ef8bdfe231887d04e8b5e0" name="a43eb50bea4ef8bdfe231887d04e8b5e0"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::FracFactorial</b> (const double &amp;n)</td></tr>
+<tr class="separator:a43eb50bea4ef8bdfe231887d04e8b5e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52817e4985f83794d044674ca7b78d2c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a52817e4985f83794d044674ca7b78d2c">QuantaPlus::ClebschGordan</a> (const double &amp;j1, const double &amp;j2, const double &amp;m1, const double &amp;m2, const double &amp;J, const double &amp;M)</td></tr>
+<tr class="separator:a52817e4985f83794d044674ca7b78d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa9e69bde9b16c91587c9a63c5d63d7"><td class="memItemLeft" align="right" valign="top"><a id="aeaa9e69bde9b16c91587c9a63c5d63d7" name="aeaa9e69bde9b16c91587c9a63c5d63d7"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::ClebschGordan</b> (const CGCcoeff &amp;cgc)</td></tr>
+<tr class="separator:aeaa9e69bde9b16c91587c9a63c5d63d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a649c81f483ea7ba9447441c7ff961497"><td class="memItemLeft" align="right" valign="top"><a id="a649c81f483ea7ba9447441c7ff961497" name="a649c81f483ea7ba9447441c7ff961497"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::MQuantumNumber</b> (const double &amp;j)</td></tr>
+<tr class="separator:a649c81f483ea7ba9447441c7ff961497"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a628262b9a0a4c236e61c7293cd13fd0b"><td class="memItemLeft" align="right" valign="top"><a id="a628262b9a0a4c236e61c7293cd13fd0b" name="a628262b9a0a4c236e61c7293cd13fd0b"></a>
+std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::possibleJ</b> (const double &amp;j1, const double &amp;j2)</td></tr>
+<tr class="separator:a628262b9a0a4c236e61c7293cd13fd0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94eeaf083cfc4041b6268dd79b6cab2c"><td class="memItemLeft" align="right" valign="top"><a id="a94eeaf083cfc4041b6268dd79b6cab2c" name="a94eeaf083cfc4041b6268dd79b6cab2c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::ListOfAllCGCs</b> (const double &amp;j1, const double &amp;j2)</td></tr>
+<tr class="separator:a94eeaf083cfc4041b6268dd79b6cab2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2a8d9735cc1b52374532187f04bba5b"><td class="memItemLeft" align="right" valign="top">std::map&lt; CGCcoeff, std::vector&lt; CGCcoeff &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#ac2a8d9735cc1b52374532187f04bba5b">QuantaPlus::CGCcoeffMap</a> (const double &amp;j1, const double &amp;j2)</td></tr>
+<tr class="separator:ac2a8d9735cc1b52374532187f04bba5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41d73735ea0dd357b0221b208824a66f"><td class="memItemLeft" align="right" valign="top"><a id="a41d73735ea0dd357b0221b208824a66f" name="a41d73735ea0dd357b0221b208824a66f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::CoupledStates</b> (const double &amp;j1, const double &amp;j2)</td></tr>
+<tr class="separator:a41d73735ea0dd357b0221b208824a66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >is a part of QUANTAPLUS library. Calculation of the Clebsch–Gordan Coefficients Generalized power series representations. For more details see: <a href="https://functions.wolfram.com/HypergeometricFunctions/ClebschGordan/06/01/">functions.wolfram</a> <br  />

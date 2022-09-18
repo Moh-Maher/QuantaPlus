@@ -1,0 +1,38 @@
+\hypertarget{ket_8h}{}\doxysection{quantaplus/braket/ket.h File Reference}
+\label{ket_8h}\index{quantaplus/braket/ket.h@{quantaplus/braket/ket.h}}
+
+
+Fundamental operations on Ket vectors.  
+
+
+{\ttfamily \#include $<$Eigen/\+Dense$>$}\newline
+{\ttfamily \#include \char`\"{}../utilities/print.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}bra.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Quanta\+Plus\+::\+Ket$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} is a publicly inherited class from the well designed Eigen\+::\+Matrix, where the \mbox{\hyperlink{classQuantaPlus_1_1Ket}{Ket}} vectors are matrices with one column and Dynamic-\/size rows. Kets belong to the Hilbert (vector) space H, or, in short, to the ket-\/space.. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}
+\begin{DoxyCompactList}\small\item\em Namespace of the {\bfseries{\mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}}} C++ library. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\T \mbox{\hyperlink{namespaceQuantaPlus_a81cce17f590894ee737efda3420921a2}{Quanta\+Plus\+::\+Expect\+Value}} (const Eigen\+::\+Matrix$<$ T, Eigen\+::\+Dynamic, Eigen\+::\+Dynamic $>$ \&mat, const Ket$<$ T $>$ \&ket)
+\begin{DoxyCompactList}\small\item\em Compute the expectation value of given operator and normalized quantum state ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fundamental operations on Ket vectors. 
+
+Copyright (c) 2022 Mohammed Maher Abdelrahim Mohammed
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\+Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\+:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED \char`\"{}\+AS IS\char`\"{}, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 

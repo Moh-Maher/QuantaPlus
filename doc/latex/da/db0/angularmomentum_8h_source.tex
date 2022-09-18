@@ -1,5 +1,5 @@
 \hypertarget{angularmomentum_8h_source}{}\doxysection{angularmomentum.\+h}
-\label{angularmomentum_8h_source}\index{quantaplus/angularmomentum.h@{quantaplus/angularmomentum.h}}
+\label{angularmomentum_8h_source}\index{quantaplus/operators/angularmomentum.h@{quantaplus/operators/angularmomentum.h}}
 \mbox{\hyperlink{angularmomentum_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 \textcolor{comment}{/*!*********************************************************************}}
@@ -15,52 +15,563 @@
 \DoxyCodeLine{11 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
 \DoxyCodeLine{12 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
 \DoxyCodeLine{13 \textcolor{comment}{//\#pragma once}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_ANGULARMOMENTUM\_H}}
-\DoxyCodeLine{15 \textcolor{preprocessor}{\#define QUANTAPLUS\_ANGULARMOMENTUM\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_OPERATORS\_ANGULARMOMENTUM\_H}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define QUANTAPLUS\_OPERATORS\_ANGULARMOMENTUM\_H}}
 \DoxyCodeLine{16 \textcolor{comment}{//\#include <unsupported/Eigen/MatrixFunctions>}}
 \DoxyCodeLine{17 \textcolor{preprocessor}{\#include <Eigen/Dense>}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#include"{}\mbox{\hyperlink{utilities_8h}{utilities.h}}"{}}}
-\DoxyCodeLine{19 \textcolor{comment}{//\#include"{}operators.h"{}}}
-\DoxyCodeLine{20 }
-\DoxyCodeLine{21 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
-\DoxyCodeLine{22 }
-\DoxyCodeLine{23 \textcolor{comment}{/*!********************************************************************* }}
-\DoxyCodeLine{24 \textcolor{comment}{* \(\backslash\)class AngularMomentum}}
-\DoxyCodeLine{25 \textcolor{comment}{* \(\backslash\)brief Provieds General Formalism of Angular Momentum operators.   }}
-\DoxyCodeLine{26 \textcolor{comment}{* AngularMomentum is a publicly derived class from tQM\_operator<T>}}
-\DoxyCodeLine{27 \textcolor{comment}{**********************************************************************/}}
-\DoxyCodeLine{28 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
-\DoxyCodeLine{29 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum}} : \textcolor{keyword}{public} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>\textcolor{comment}{//public QM\_operator<T> }}
-\DoxyCodeLine{30 \{}
-\DoxyCodeLine{31     \textcolor{keyword}{public}:}
-\DoxyCodeLine{53         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a84965b75374572c9492b1aafb9258847}{AngularMomentum}}():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>()\{\} \textcolor{comment}{// Default constructor.}}
-\DoxyCodeLine{65 \textcolor{comment}{}        \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a9ba000bf20ad20ff4f7b4c95b6ed8548}{AngularMomentum}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col)\{\} }
-\DoxyCodeLine{66     }
-\DoxyCodeLine{67         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
-\DoxyCodeLine{68         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ae356db9c9e81fdff79d657d826e3eb2d}{AngularMomentum}}(\textcolor{keyword}{const} Eigen::MatrixBase<Derived>\& other)}
-\DoxyCodeLine{69         :Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other)\{ \} }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include"{}../utilities/utilities.h"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include"{}../utilities/print.h"{}}}
+\DoxyCodeLine{20 \textcolor{comment}{//\#include"{}operators.h"{}}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{comment}{/*!********************************************************************* }}
+\DoxyCodeLine{25 \textcolor{comment}{* \(\backslash\)class AngularMomentum}}
+\DoxyCodeLine{26 \textcolor{comment}{* \(\backslash\)brief The matrix representation of angular momentum operators.   }}
+\DoxyCodeLine{27 \textcolor{comment}{*}}
+\DoxyCodeLine{28 \textcolor{comment}{* AngularMomentum is a publicly derived class from QM\_operator<T>, }}
+\DoxyCodeLine{29 \textcolor{comment}{* where eigenkets and operators will be represented by column vectors }}
+\DoxyCodeLine{30 \textcolor{comment}{* and square matrices, respectively.}}
+\DoxyCodeLine{31 \textcolor{comment}{* The matrices representing \(\backslash\)f\$J\string^2\(\backslash\)f\$ and \(\backslash\)f\$J\_z\(\backslash\)f\$ in the \(\backslash\)f\$j,m\(\backslash\)f\$ eigenbasis are diagonal, their diagonal elements being equal to }}
+\DoxyCodeLine{32 \textcolor{comment}{* ( after set \(\backslash\)f\$\(\backslash\)hbar=1\(\backslash\)f\$) \(\backslash\)f\$j(j+1)\(\backslash\)f\$ and \(\backslash\)f\$m\(\backslash\)f\$, respectively}}
+\DoxyCodeLine{33 \textcolor{comment}{**********************************************************************/}}
+\DoxyCodeLine{34 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{35 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum}} : \textcolor{keyword}{public} Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>\textcolor{comment}{//public QM\_operator<T> }}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \textcolor{keyword}{public}:}
+\DoxyCodeLine{38         }
+\DoxyCodeLine{39         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum}}():Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>()\{\} \textcolor{comment}{// Default constructor.}}
+\DoxyCodeLine{40         }
+\DoxyCodeLine{52         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a9ba000bf20ad20ff4f7b4c95b6ed8548}{AngularMomentum}}(\textcolor{keywordtype}{int} row, \textcolor{keywordtype}{int} col):Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(row,col)\{\} }
+\DoxyCodeLine{53     }
+\DoxyCodeLine{54         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
+\DoxyCodeLine{55         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ae356db9c9e81fdff79d657d826e3eb2d}{AngularMomentum}}(\textcolor{keyword}{const} Eigen::MatrixBase<Derived>\& other)}
+\DoxyCodeLine{56         :Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>(other)\{ \} }
+\DoxyCodeLine{57         }
+\DoxyCodeLine{59         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
+\DoxyCodeLine{60         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum}}\& \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a69af7c55662b9609c2154e96a2c4b398}{operator=}}(\textcolor{keyword}{const} Eigen::MatrixBase <Derived>\& other)}
+\DoxyCodeLine{61         \{}
+\DoxyCodeLine{62             this-\/>Eigen::Matrix<T,Eigen::Dynamic ,Eigen::Dynamic>::operator=(other);}
+\DoxyCodeLine{63             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{64         \}}
+\DoxyCodeLine{65         }
+\DoxyCodeLine{69         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ad8d8b9a96847a18ae7b8e02b23208d29}{AngularMomentum\_JSquare}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
 \DoxyCodeLine{70         }
-\DoxyCodeLine{72         \textcolor{keyword}{template}<\textcolor{keyword}{typename} Derived>}
-\DoxyCodeLine{73         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum}}\& \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a69af7c55662b9609c2154e96a2c4b398}{operator=}}(\textcolor{keyword}{const} Eigen::MatrixBase <Derived>\& other)}
-\DoxyCodeLine{74         \{}
-\DoxyCodeLine{75             this-\/>Eigen::Matrix<T,Eigen::Dynamic ,Eigen::Dynamic>::operator=(other);}
-\DoxyCodeLine{76             \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
-\DoxyCodeLine{77         \}}
-\DoxyCodeLine{78      }
-\DoxyCodeLine{79         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ad8d8b9a96847a18ae7b8e02b23208d29}{AngularMomentum\_JSquare}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
-\DoxyCodeLine{80         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}{AngularMomentum\_Jx}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
-\DoxyCodeLine{81         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}{AngularMomentum\_Jy}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
-\DoxyCodeLine{82         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}{AngularMomentum\_Jz}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
-\DoxyCodeLine{83         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}{AngularMomentum\_JPlus}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
-\DoxyCodeLine{84         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_aa39de889e0e19948cc2799f0a0fa2e14}{AngularMomentum\_JMinus}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
-\DoxyCodeLine{85         }
-\DoxyCodeLine{90         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}{RotationByAngle}}(\textcolor{keyword}{const} std::string\& dir, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& alpha); }
-\DoxyCodeLine{91         }
-\DoxyCodeLine{92         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a235d2488145c8d69d7aaf62bd6c959ec}{\string~AngularMomentum}}()\{\} }
-\DoxyCodeLine{93 }
-\DoxyCodeLine{94 \};}
-\DoxyCodeLine{95 \textcolor{preprocessor}{\#include"{}include/angularmomentum.hpp"{}}}
-\DoxyCodeLine{96 \} \textcolor{comment}{//end of namespace QuantaPlus}}
-\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{93         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}{AngularMomentum\_Jx}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{94         }
+\DoxyCodeLine{116         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}{AngularMomentum\_Jy}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{117         }
+\DoxyCodeLine{140         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}{AngularMomentum\_Jz}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{141         }
+\DoxyCodeLine{145         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}{AngularMomentum\_JPlus}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{146         }
+\DoxyCodeLine{150         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_aa39de889e0e19948cc2799f0a0fa2e14}{AngularMomentum\_JMinus}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& spin\_value); }
+\DoxyCodeLine{151         }
+\DoxyCodeLine{156         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}{RotationByAngle}}(\textcolor{keyword}{const} std::string\& dir, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\& alpha); }
+\DoxyCodeLine{157         }
+\DoxyCodeLine{158         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ab27e8ab5ceb1eeeb8de1a7ccd2e1131f}{Print}}();}
+\DoxyCodeLine{159         \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a1c4f3b9668273d89d81a6cf770043331}{NPrint}}();}
+\DoxyCodeLine{160         \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a235d2488145c8d69d7aaf62bd6c959ec}{\string~AngularMomentum}}()\{\} }
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \};}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{165 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{166 \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ab27e8ab5ceb1eeeb8de1a7ccd2e1131f}{AngularMomentum<T>::Print}}()}
+\DoxyCodeLine{167 \{   }
+\DoxyCodeLine{168     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> mat = *\textcolor{keyword}{this};}
+\DoxyCodeLine{169     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < mat.rows(); row\_count++)}
+\DoxyCodeLine{170         \{}
+\DoxyCodeLine{171             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < mat.cols(); col\_count++)}
+\DoxyCodeLine{172             \{}
+\DoxyCodeLine{173             \mbox{\hyperlink{namespaceQuantaPlus_a1b830961ce855f2fbe47d1eab54c2a31}{ComplexNumPrint}}( mat(row\_count, col\_count),0 );}
+\DoxyCodeLine{174             \}}
+\DoxyCodeLine{175             std::cout<<std::endl;}
+\DoxyCodeLine{176         \}}
+\DoxyCodeLine{177 \}}
+\DoxyCodeLine{179 \textcolor{keyword}{template}<\textcolor{keyword}{class} T>}
+\DoxyCodeLine{180 \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a1c4f3b9668273d89d81a6cf770043331}{AngularMomentum<T>::NPrint}}()}
+\DoxyCodeLine{181 \{   }
+\DoxyCodeLine{182     Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> mat = *\textcolor{keyword}{this};}
+\DoxyCodeLine{183     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} row\_count = 0; row\_count < mat.rows(); row\_count++)}
+\DoxyCodeLine{184         \{}
+\DoxyCodeLine{185             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} col\_count = 0; col\_count < mat.cols(); col\_count++)}
+\DoxyCodeLine{186             \{}
+\DoxyCodeLine{187             \mbox{\hyperlink{namespaceQuantaPlus_a1b830961ce855f2fbe47d1eab54c2a31}{ComplexNumPrint}}( mat(row\_count, col\_count),0 );}
+\DoxyCodeLine{188             \}}
+\DoxyCodeLine{189             std::cout<<std::endl;}
+\DoxyCodeLine{190         \}}
+\DoxyCodeLine{191 \}}
+\DoxyCodeLine{192 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{193 \textcolor{comment}{ Check the physically valid (spin or orbital) angular m omentum }}
+\DoxyCodeLine{194 \textcolor{comment}{ : True only if j is a nonnegative half-\/integer value}}
+\DoxyCodeLine{195 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{196 \textcolor{keywordtype}{bool} validAngularMomentum(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x)}
+\DoxyCodeLine{197 \{}
+\DoxyCodeLine{198     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(2*x) -\/ 2*x == 0;}
+\DoxyCodeLine{199 \}}
+\DoxyCodeLine{200 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{201 \textcolor{comment}{              Kronecker Delta:  δ[ij] =  1 => (if i=j) OR 0 => (otherwise).}}
+\DoxyCodeLine{202 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{203 \textcolor{keywordtype}{double} KroneckerDelta(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& i, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j)}
+\DoxyCodeLine{204 \{}
+\DoxyCodeLine{205     \textcolor{keywordflow}{if}  (i==j)\{\textcolor{keywordflow}{return} (1);\}}
+\DoxyCodeLine{206     \textcolor{keywordflow}{else} }
+\DoxyCodeLine{207     \textcolor{keywordflow}{return} (0);}
+\DoxyCodeLine{208 \}}
+\DoxyCodeLine{209 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{210 \textcolor{comment}{//      commutation relation: [A,B] = A*B -\/ B*A}}
+\DoxyCodeLine{211 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{212 \textcolor{keyword}{template}<\textcolor{keyword}{class} T> }
+\DoxyCodeLine{213 Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> }
+\DoxyCodeLine{214     Commute( Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>\& mt1, }
+\DoxyCodeLine{215          Eigen::Matrix<T, Eigen::Dynamic, Eigen::Dynamic>\& mt2 )}
+\DoxyCodeLine{216 \{  }
+\DoxyCodeLine{217     \textcolor{keywordflow}{return} (mt1*mt2 -\/ mt2*mt1);}
+\DoxyCodeLine{218 \}}
+\DoxyCodeLine{219 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{220 \textcolor{comment}{//      compute structure constants}}
+\DoxyCodeLine{221 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{222 \textcolor{keyword}{template} <\textcolor{keyword}{typename} U>}
+\DoxyCodeLine{223 U StructureConstant( Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>\& mt1, }
+\DoxyCodeLine{224              Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>\& mt2, }
+\DoxyCodeLine{225              Eigen::Matrix<U,Eigen::Dynamic,Eigen::Dynamic>\& mt3 )}
+\DoxyCodeLine{226 \{}
+\DoxyCodeLine{227     U sum = \textcolor{keyword}{static\_cast<}U\textcolor{keyword}{>}(0.0);}
+\DoxyCodeLine{228     \textcolor{keyword}{const} std::complex<double> I\{0.,1.\};}
+\DoxyCodeLine{229 }
+\DoxyCodeLine{230     Eigen::Matrix<U,3,3> cm, prod;}
+\DoxyCodeLine{231     cm = Commute(mt2,mt3);}
+\DoxyCodeLine{232     prod = mt1 * cm ;}
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0; i<3; i++)}
+\DoxyCodeLine{235     \{}
+\DoxyCodeLine{236         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j=0; j<(3); j++)}
+\DoxyCodeLine{237         \{}
+\DoxyCodeLine{238             \textcolor{keywordflow}{if}(i==j)}
+\DoxyCodeLine{239             \{}
+\DoxyCodeLine{240                 sum += prod(i,i);}
+\DoxyCodeLine{241             \}}
+\DoxyCodeLine{242         \}}
+\DoxyCodeLine{243     \}}
+\DoxyCodeLine{244     \textcolor{keywordflow}{return} std::real(-\/0.25*I*sum);}
+\DoxyCodeLine{245 \}}
+\DoxyCodeLine{246 \textcolor{comment}{//***************************************************************************** }}
+\DoxyCodeLine{247 \textcolor{keyword}{const} \textcolor{keywordtype}{double} hBar = 1.; \textcolor{comment}{//6.58211899 * 1.e-\/16;}}
+\DoxyCodeLine{248 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{249 \textcolor{comment}{//           Magnatic\_Quantum\_Number : m which is run from -\/j to j. (-\/j<= m <= j).                      }}
+\DoxyCodeLine{250 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{251 \textcolor{keywordtype}{void} MagneticQuantumNumber(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&j)}
+\DoxyCodeLine{252 \{    }
+\DoxyCodeLine{253     \textcolor{keywordtype}{double} spin = j;}
+\DoxyCodeLine{254     \textcolor{keywordflow}{if}(validAngularMomentum(spin))}
+\DoxyCodeLine{255     \{}
+\DoxyCodeLine{256         \textcolor{keywordtype}{double} m[int(2*j+1)]=\{\};}
+\DoxyCodeLine{257         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =-\/j; i<=j; i++)}
+\DoxyCodeLine{258         \{       \textcolor{keywordflow}{if}(i==0)\{m[int(std::abs(j+i))]=0;\}}
+\DoxyCodeLine{259             \textcolor{keywordflow}{else} m[int(std::abs(j+i))]=i;   }
+\DoxyCodeLine{260         \}}
+\DoxyCodeLine{261         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0;i<int(2*j+1);i++)}
+\DoxyCodeLine{262         \{   \textcolor{keywordflow}{if}(i!=\textcolor{keywordtype}{int}(2*j+1)-\/1)\{}
+\DoxyCodeLine{263             \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(m[i]); \textcolor{comment}{// [source utilities.h ]}}
+\DoxyCodeLine{264             std::cout<<\textcolor{stringliteral}{"{}, "{}};}
+\DoxyCodeLine{265             \}}
+\DoxyCodeLine{266             \textcolor{keywordflow}{else} \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(m[i]);}
+\DoxyCodeLine{267         \}}
+\DoxyCodeLine{268         std::cout<<std::endl;}
+\DoxyCodeLine{269     \}}
+\DoxyCodeLine{270      }
+\DoxyCodeLine{271     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{272         std::cout<<\textcolor{stringliteral}{"{}spin ("{}}<<spin<<\textcolor{stringliteral}{"{} = "{}};}
+\DoxyCodeLine{273         \mbox{\hyperlink{namespaceQuantaPlus_a95fb62d38cb670827994868b006318a5}{DecimalToFraction}}(spin); std::cout<<\textcolor{stringliteral}{"{}) is physically invalid!"{}}<<std::endl;}
+\DoxyCodeLine{274     \}}
+\DoxyCodeLine{275 \}}
+\DoxyCodeLine{276 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{277 \textcolor{comment}{//      The square of the angular momentum J\string^2 :  }}
+\DoxyCodeLine{278 \textcolor{comment}{//          <j',m'|J\string^2|j, m> = ℏ\string^2 j(j+1) δ[j'j] * δ[m'm].             }}
+\DoxyCodeLine{279 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{280 \textcolor{keywordtype}{double} Jsqr(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j2, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m2)}
+\DoxyCodeLine{281 \{}
+\DoxyCodeLine{282     \textcolor{keywordflow}{return} hBar*hBar*j*(j+1) * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);}
+\DoxyCodeLine{283 \}}
+\DoxyCodeLine{284 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{285 \textcolor{comment}{//      The x-\/component of the angular momentum operator J: }}
+\DoxyCodeLine{286 \textcolor{comment}{//          Eq (5.70) of N. Zettili.                                   }}
+\DoxyCodeLine{287 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{288 \textcolor{keywordtype}{double} Jx(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j1,\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j2,\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m2)}
+\DoxyCodeLine{289 \{ }
+\DoxyCodeLine{290     \textcolor{keywordtype}{double} res1,res2;}
+\DoxyCodeLine{291 }
+\DoxyCodeLine{292     res1 = sqrt(j*(j+1)-\/m2*(m2+1))* KroneckerDelta(m1,m2+1);}
+\DoxyCodeLine{293     res2 =   sqrt(j*(j+1)-\/m2*(m2-\/1))*  KroneckerDelta(m1,m2-\/1);}
+\DoxyCodeLine{294     \textcolor{keywordflow}{return} hBar*0.5*(res1+res2)*KroneckerDelta(j1,j2);}
+\DoxyCodeLine{295 \}}
+\DoxyCodeLine{296 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{297 \textcolor{comment}{//      The y-\/component of the angular momentumo peratorJ: }}
+\DoxyCodeLine{298 \textcolor{comment}{//          Eq (5.71) of N. Zettili.                                    }}
+\DoxyCodeLine{299 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{300 std::complex<double>  Jy(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j1,\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j2,\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m2)}
+\DoxyCodeLine{301 \{}
+\DoxyCodeLine{302     std::complex<double> Im(0.,1.);}
+\DoxyCodeLine{303     \textcolor{keywordtype}{double} res1,res2;}
+\DoxyCodeLine{304 }
+\DoxyCodeLine{305     res1 = sqrt(j*(j+1)-\/m2*(m2+1))* KroneckerDelta(m1,m2+1);}
+\DoxyCodeLine{306     res2 =   sqrt(j*(j+1)-\/m2*(m2-\/1))*  KroneckerDelta(m1,m2-\/1);}
+\DoxyCodeLine{307     \textcolor{comment}{//return hBar*(-\/0.5*Im)*(res1-\/res2)*KroneckerDelta(j1,j2);}}
+\DoxyCodeLine{308     \textcolor{keywordflow}{return} hBar*(1./(2.*Im))*(res1-\/res2)*KroneckerDelta(j1,j2);}
+\DoxyCodeLine{309 \}}
+\DoxyCodeLine{310 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{311 \textcolor{comment}{//      The z-\/component of the angular momentum operator J: }}
+\DoxyCodeLine{312 \textcolor{comment}{//           <j',m'|J\_Z|j, m> =  mℏ δ[j'j] * δ[m'm]. }}
+\DoxyCodeLine{313 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{314 \textcolor{comment}{/*double Jz(const double \& j, const double \& j1, const double \& m1, const double \& j2, const double \& m2)}}
+\DoxyCodeLine{315 \textcolor{comment}{\{}}
+\DoxyCodeLine{316 \textcolor{comment}{    return hBar*m2 * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);}}
+\DoxyCodeLine{317 \textcolor{comment}{\}*/}}
+\DoxyCodeLine{318 \textcolor{keywordtype}{double} Jz(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j2, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m2)}
+\DoxyCodeLine{319 \{}
+\DoxyCodeLine{320     \textcolor{keywordflow}{return} hBar*m2 * KroneckerDelta(j1,j2) *KroneckerDelta(m1,m2);}
+\DoxyCodeLine{321 \}}
+\DoxyCodeLine{322 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{323 \textcolor{comment}{//      The J+ angular momentum operator J: }}
+\DoxyCodeLine{324 \textcolor{comment}{//          Eq (5.69) of N. Zettili.                                   }}
+\DoxyCodeLine{325 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{326 \textcolor{keywordtype}{double} Jplus(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j1,\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j2,\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m2)}
+\DoxyCodeLine{327 \{ }
+\DoxyCodeLine{328     \textcolor{keywordtype}{double} res;}
+\DoxyCodeLine{329     res = sqrt(j*(j+1)-\/m2*(m2+1))* KroneckerDelta(m1,m2+1);}
+\DoxyCodeLine{330     \textcolor{keywordflow}{return} hBar*(res)*KroneckerDelta(j1,j2);}
+\DoxyCodeLine{331 \}}
+\DoxyCodeLine{332 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{333 \textcolor{comment}{        The J-\/ angular momentum operator J: Eq (5.69) of N. Zettili.                                   }}
+\DoxyCodeLine{334 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{335 \textcolor{keywordtype}{double} Jminus(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j1,\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m1, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \& j2,\textcolor{keyword}{const} \textcolor{keywordtype}{double} \& m2)}
+\DoxyCodeLine{336 \{ }
+\DoxyCodeLine{337     \textcolor{keywordtype}{double} res;}
+\DoxyCodeLine{338     res = sqrt(j*(j+1)-\/m2*(m2-\/1))* KroneckerDelta(m1,m2-\/1);}
+\DoxyCodeLine{339     \textcolor{keywordflow}{return} hBar*(res)*KroneckerDelta(j1,j2);}
+\DoxyCodeLine{340 \}}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{343 \textcolor{comment}{//      J-\/ Angular Momentum perator}}
+\DoxyCodeLine{344 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{345 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{346 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ad8d8b9a96847a18ae7b8e02b23208d29}{AngularMomentum<T>::AngularMomentum\_JSquare}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&j)}
+\DoxyCodeLine{347 \textcolor{comment}{//AngularMomentum<T> AngularMomentum\_JSquare(const double \&j)}}
+\DoxyCodeLine{348 \{}
+\DoxyCodeLine{349     \textcolor{keyword}{const} \textcolor{keywordtype}{int} max =int(2*j+1);}
+\DoxyCodeLine{350     std::complex<double> temarr[max*max]\{\};}
+\DoxyCodeLine{351     \textcolor{keywordtype}{double} sp = j;}
+\DoxyCodeLine{352   }
+\DoxyCodeLine{353     \textcolor{keywordflow}{if}(validAngularMomentum(sp))}
+\DoxyCodeLine{354     \{    }
+\DoxyCodeLine{355             \textcolor{keywordtype}{double} M[max]=\{\};}
+\DoxyCodeLine{356             \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =-\/j; i<=j; i++)}
+\DoxyCodeLine{357             \{}
+\DoxyCodeLine{358                     M[std::abs(\textcolor{keywordtype}{int}(j+i))]=i;   }
+\DoxyCodeLine{359             \}}
+\DoxyCodeLine{360              }
+\DoxyCodeLine{361             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<max;i++)}
+\DoxyCodeLine{362             \{}
+\DoxyCodeLine{363                     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k=0;k<max;k++)}
+\DoxyCodeLine{364                     \{              }
+\DoxyCodeLine{365                         temarr[k+(i*max)] = Jsqr(j,j,-\/M[i],j,-\/M[k]);}
+\DoxyCodeLine{366                     \}        }
+\DoxyCodeLine{367             \}}
+\DoxyCodeLine{368         \}   }
+\DoxyCodeLine{369     }
+\DoxyCodeLine{370     \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{371         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}the system has physically invalid spin!."{}});}
+\DoxyCodeLine{372     \}}
+\DoxyCodeLine{373     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} temp(max,max);}
+\DoxyCodeLine{374     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<max; i++)}
+\DoxyCodeLine{375     \{}
+\DoxyCodeLine{376         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<max; j++)}
+\DoxyCodeLine{377         \{}
+\DoxyCodeLine{378                 temp(i,j)= temarr[j+i*max];}
+\DoxyCodeLine{379         \}}
+\DoxyCodeLine{380     \}}
+\DoxyCodeLine{381 }
+\DoxyCodeLine{382     \textcolor{keywordflow}{return} temp;    }
+\DoxyCodeLine{383 \}}
+\DoxyCodeLine{384 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{385 \textcolor{comment}{//      Jx Angular Momentum perator}}
+\DoxyCodeLine{386 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{387 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{388 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}{AngularMomentum<T>::AngularMomentum\_Jx}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&j)}
+\DoxyCodeLine{389 \textcolor{comment}{//AngularMomentum<T> AngularMomentum\_Jx(const double \&j)}}
+\DoxyCodeLine{390 \{}
+\DoxyCodeLine{391     \textcolor{keyword}{const} \textcolor{keywordtype}{int} max =int(2*j+1);}
+\DoxyCodeLine{392     std::complex<double> temarr[max*max]\{\};}
+\DoxyCodeLine{393     \textcolor{keywordtype}{double} sp = j;}
+\DoxyCodeLine{394 }
+\DoxyCodeLine{395     \textcolor{keywordflow}{if}(validAngularMomentum(sp))}
+\DoxyCodeLine{396     \{    }
+\DoxyCodeLine{397         \textcolor{keywordtype}{double} M[max]=\{\};}
+\DoxyCodeLine{398         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =-\/j; i<=j; i++)}
+\DoxyCodeLine{399         \{}
+\DoxyCodeLine{400                 M[std::abs(\textcolor{keywordtype}{int}(j+i))]=i;   }
+\DoxyCodeLine{401         \}}
+\DoxyCodeLine{402          }
+\DoxyCodeLine{403         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<max;i++)}
+\DoxyCodeLine{404         \{}
+\DoxyCodeLine{405                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k=0;k<max;k++)}
+\DoxyCodeLine{406                 \{   }
+\DoxyCodeLine{407                 temarr[k+(i*max)] = Jx(j,j,-\/M[i],j,-\/M[k]);}
+\DoxyCodeLine{408                 \}       }
+\DoxyCodeLine{409 }
+\DoxyCodeLine{410         \}   }
+\DoxyCodeLine{411     \}}
+\DoxyCodeLine{412 }
+\DoxyCodeLine{413     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{414     \{}
+\DoxyCodeLine{415     \textcolor{comment}{//std::cout<<"{}the system has physically invalid spin!"{}<<std::endl;}}
+\DoxyCodeLine{416         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}the system has physically invalid spin!."{}});}
+\DoxyCodeLine{417     \} }
+\DoxyCodeLine{418     }
+\DoxyCodeLine{419     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} temp(max,max);}
+\DoxyCodeLine{420     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<max; i++)}
+\DoxyCodeLine{421     \{}
+\DoxyCodeLine{422         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<max; j++)}
+\DoxyCodeLine{423         \{}
+\DoxyCodeLine{424                 temp(i,j)= temarr[j+i*max];}
+\DoxyCodeLine{425         \}}
+\DoxyCodeLine{426     \}}
+\DoxyCodeLine{427     \textcolor{keywordflow}{return} temp;      }
+\DoxyCodeLine{428 \}}
+\DoxyCodeLine{429 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{430 \textcolor{comment}{//      Jy Angular Momentum perator}}
+\DoxyCodeLine{431 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{432 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{433 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}{AngularMomentum<T>::AngularMomentum\_Jy}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&j)}
+\DoxyCodeLine{434 \textcolor{comment}{//AngularMomentum<T> AngularMomentum\_Jy(const double \&j)}}
+\DoxyCodeLine{435 \{}
+\DoxyCodeLine{436     \textcolor{keyword}{const} \textcolor{keywordtype}{int} max =int(2*j+1);}
+\DoxyCodeLine{437     std::complex<double> temarr[max*max]\{\};}
+\DoxyCodeLine{438     \textcolor{keywordtype}{double} sp = j;}
+\DoxyCodeLine{439 }
+\DoxyCodeLine{440     \textcolor{keywordflow}{if}(validAngularMomentum(sp))}
+\DoxyCodeLine{441     \{    }
+\DoxyCodeLine{442         \textcolor{keywordtype}{double} M[max]=\{\};}
+\DoxyCodeLine{443         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =-\/j; i<=j; i++)}
+\DoxyCodeLine{444         \{}
+\DoxyCodeLine{445                 M[std::abs(\textcolor{keywordtype}{int}(j+i))]=i;   }
+\DoxyCodeLine{446         \}}
+\DoxyCodeLine{447          }
+\DoxyCodeLine{448         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<max;i++)}
+\DoxyCodeLine{449         \{}
+\DoxyCodeLine{450                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k=0;k<max;k++)}
+\DoxyCodeLine{451                 \{   }
+\DoxyCodeLine{452                 temarr[k+(i*max)] = Jy(j,j,-\/M[i],j,-\/M[k]);}
+\DoxyCodeLine{453                 \}   }
+\DoxyCodeLine{454         \}}
+\DoxyCodeLine{455     \}}
+\DoxyCodeLine{456 }
+\DoxyCodeLine{457     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{458     \{}
+\DoxyCodeLine{459         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}the system has physically invalid spin!."{}});}
+\DoxyCodeLine{460     \}}
+\DoxyCodeLine{461      }
+\DoxyCodeLine{462     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} temp(max,max);}
+\DoxyCodeLine{463     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<max; i++)}
+\DoxyCodeLine{464     \{}
+\DoxyCodeLine{465         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<max; j++)}
+\DoxyCodeLine{466         \{}
+\DoxyCodeLine{467                 temp(i,j)= temarr[j+i*max];}
+\DoxyCodeLine{468         \}}
+\DoxyCodeLine{469     \}}
+\DoxyCodeLine{470 }
+\DoxyCodeLine{471     \textcolor{keywordflow}{return} temp;       }
+\DoxyCodeLine{472 \}}
+\DoxyCodeLine{473 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{474 \textcolor{comment}{//      Jz Angular Momentum perator}}
+\DoxyCodeLine{475 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{476 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{477 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}{AngularMomentum<T>::AngularMomentum\_Jz}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&j)}
+\DoxyCodeLine{478 \textcolor{comment}{//AngularMomentum<T> AngularMomentum\_Jz(const double \&j)}}
+\DoxyCodeLine{479 \{}
+\DoxyCodeLine{480     \textcolor{keyword}{const} \textcolor{keywordtype}{int} max =int(2*j+1);}
+\DoxyCodeLine{481     std::complex<double> temarr[max*max]\{\};}
+\DoxyCodeLine{482     \textcolor{keywordtype}{double} sp = j;}
+\DoxyCodeLine{483 }
+\DoxyCodeLine{484     \textcolor{keywordflow}{if}(validAngularMomentum(sp))}
+\DoxyCodeLine{485     \{    }
+\DoxyCodeLine{486         \textcolor{keywordtype}{double} M[max]=\{\};}
+\DoxyCodeLine{487         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =-\/j; i<=j; i++)}
+\DoxyCodeLine{488         \{       }
+\DoxyCodeLine{489                 M[std::abs(\textcolor{keywordtype}{int}(j+i))]=-\/i;   }
+\DoxyCodeLine{490         \}}
+\DoxyCodeLine{491          }
+\DoxyCodeLine{492         \textcolor{comment}{//for(int i=0;i<max;i++)}}
+\DoxyCodeLine{493         \textcolor{comment}{//\{}}
+\DoxyCodeLine{494                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k=0;k<max;k++)}
+\DoxyCodeLine{495                 \{       \textcolor{keywordflow}{if}( Jz(j,M[k],j,M[k]) ==0.)\{ temarr[k+(k*max)]=0.;\}}
+\DoxyCodeLine{496                 \textcolor{comment}{//temarr[k+(i*max)] = Jz(M[i],j,M[k],j,M[i]);}}
+\DoxyCodeLine{497                 \textcolor{keywordflow}{else} temarr[k+(k*max)] = Jz(j,M[k],j,M[k]);}
+\DoxyCodeLine{498                 \}}
+\DoxyCodeLine{499         \textcolor{comment}{//\} }}
+\DoxyCodeLine{500     \}}
+\DoxyCodeLine{501 }
+\DoxyCodeLine{502     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{503     \{}
+\DoxyCodeLine{504         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}the system has physically invalid spin!."{}});}
+\DoxyCodeLine{505     \} }
+\DoxyCodeLine{506     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} temp(max,max);}
+\DoxyCodeLine{507     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<max; i++)}
+\DoxyCodeLine{508     \{}
+\DoxyCodeLine{509         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<max; j++)}
+\DoxyCodeLine{510         \{       }
+\DoxyCodeLine{511                 temp(i,j)= temarr[j+i*max];}
+\DoxyCodeLine{512                    \textcolor{comment}{// temp(i,j)= temarr[i+j];}}
+\DoxyCodeLine{513         \}}
+\DoxyCodeLine{514     \}}
+\DoxyCodeLine{515 }
+\DoxyCodeLine{516     \textcolor{keywordflow}{return} temp;      }
+\DoxyCodeLine{517 \}}
+\DoxyCodeLine{518 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{519 \textcolor{comment}{//      J+ Angular Momentum perator}}
+\DoxyCodeLine{520 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{521 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{522 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_ae66c9d4a88f83ea0691885b38eca4db2}{AngularMomentum<T>::AngularMomentum\_JPlus}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&j)}
+\DoxyCodeLine{523 \textcolor{comment}{//AngularMomentum<T> AngularMomentum\_JPlus(const double \&j)}}
+\DoxyCodeLine{524 \{}
+\DoxyCodeLine{525     \textcolor{keyword}{const} \textcolor{keywordtype}{int} max =int(2*j+1);}
+\DoxyCodeLine{526     std::complex<double> temarr[max*max]\{\};}
+\DoxyCodeLine{527     \textcolor{keywordtype}{double} sp = j;}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{529     \textcolor{keywordflow}{if}(validAngularMomentum(sp))}
+\DoxyCodeLine{530     \{    }
+\DoxyCodeLine{531         \textcolor{keywordtype}{double} M[max]=\{\};}
+\DoxyCodeLine{532         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =-\/j; i<=j; i++)}
+\DoxyCodeLine{533         \{}
+\DoxyCodeLine{534                 M[std::abs(\textcolor{keywordtype}{int}(j+i))]=i;   }
+\DoxyCodeLine{535         \}}
+\DoxyCodeLine{536          }
+\DoxyCodeLine{537         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<max;i++)}
+\DoxyCodeLine{538         \{}
+\DoxyCodeLine{539                 \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k=0;k<max;k++)}
+\DoxyCodeLine{540                 \{   }
+\DoxyCodeLine{541                 temarr[k+(i*max)] = Jplus(j,j,-\/M[i],j,-\/M[k]);}
+\DoxyCodeLine{542                 \}}
+\DoxyCodeLine{543         \}}
+\DoxyCodeLine{544     \}}
+\DoxyCodeLine{545 }
+\DoxyCodeLine{546     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{547     \{}
+\DoxyCodeLine{548         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}the system has physically invalid spin!."{}});}
+\DoxyCodeLine{549     \} }
+\DoxyCodeLine{550     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} temp(max,max);}
+\DoxyCodeLine{551     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<max; i++)}
+\DoxyCodeLine{552     \{}
+\DoxyCodeLine{553         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<max; j++)}
+\DoxyCodeLine{554         \{}
+\DoxyCodeLine{555                 temp(i,j)= temarr[j+i*max];}
+\DoxyCodeLine{556         \}}
+\DoxyCodeLine{557     \}}
+\DoxyCodeLine{558 }
+\DoxyCodeLine{559     \textcolor{keywordflow}{return} temp;      }
+\DoxyCodeLine{560 \}}
+\DoxyCodeLine{561 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{562 \textcolor{comment}{//      J-\/ Angular Momentum perator}}
+\DoxyCodeLine{563 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{564 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{565 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_aa39de889e0e19948cc2799f0a0fa2e14}{AngularMomentum<T>::AngularMomentum\_JMinus}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&j)}
+\DoxyCodeLine{566 \textcolor{comment}{//AngularMomentum<T> AngularMomentum\_JMinus(const double \&j)}}
+\DoxyCodeLine{567 \{}
+\DoxyCodeLine{568     \textcolor{keyword}{const} \textcolor{keywordtype}{int} max =int(2*j+1);}
+\DoxyCodeLine{569     std::complex<double> temarr[max*max]\{\};}
+\DoxyCodeLine{570     \textcolor{keywordtype}{double} sp = j;}
+\DoxyCodeLine{571 }
+\DoxyCodeLine{572     \textcolor{keywordflow}{if}(validAngularMomentum(sp))}
+\DoxyCodeLine{573     \{    }
+\DoxyCodeLine{574         \textcolor{keywordtype}{double} M[max]=\{\};}
+\DoxyCodeLine{575         \textcolor{keywordflow}{for}(\textcolor{keyword}{auto} i =-\/j; i<=j; i++)}
+\DoxyCodeLine{576         \{}
+\DoxyCodeLine{577             M[std::abs(\textcolor{keywordtype}{int}(j+i))]=i;   }
+\DoxyCodeLine{578         \}}
+\DoxyCodeLine{579          }
+\DoxyCodeLine{580         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0;i<max;i++)}
+\DoxyCodeLine{581         \{}
+\DoxyCodeLine{582             \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} k=0;k<max;k++)}
+\DoxyCodeLine{583             \{     }
+\DoxyCodeLine{584                     temarr[k+(i*max)] = Jminus(j,j,-\/M[i],j,-\/M[k]);}
+\DoxyCodeLine{585             \}        }
+\DoxyCodeLine{586         \}}
+\DoxyCodeLine{587     \}}
+\DoxyCodeLine{588 }
+\DoxyCodeLine{589     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{590     \{}
+\DoxyCodeLine{591         \textcolor{keywordflow}{throw} std::invalid\_argument(\textcolor{stringliteral}{"{}the system has physically invalid spin!."{}});}
+\DoxyCodeLine{592     \} }
+\DoxyCodeLine{593     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} temp(max,max);}
+\DoxyCodeLine{594     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0; i<max; i++)}
+\DoxyCodeLine{595     \{}
+\DoxyCodeLine{596         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j=0; j<max; j++)}
+\DoxyCodeLine{597         \{}
+\DoxyCodeLine{598                 temp(i,j)= temarr[j+i*max];}
+\DoxyCodeLine{599         \}}
+\DoxyCodeLine{600     \}}
+\DoxyCodeLine{601 }
+\DoxyCodeLine{602     \textcolor{keywordflow}{return} temp;     }
+\DoxyCodeLine{603 \}}
+\DoxyCodeLine{604 }
+\DoxyCodeLine{605 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{606 \textcolor{comment}{//}}
+\DoxyCodeLine{607 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{608 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{609 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} MatrixExp(\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \&A)\{}
+\DoxyCodeLine{610 }
+\DoxyCodeLine{611 \textcolor{keywordflow}{return}  A.exp();}
+\DoxyCodeLine{612 \}}
+\DoxyCodeLine{613 }
+\DoxyCodeLine{614 \textcolor{comment}{/*template <typename T>}}
+\DoxyCodeLine{615 \textcolor{comment}{Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> MatrixExp(Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \&A, Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> \&V )\{}}
+\DoxyCodeLine{616 \textcolor{comment}{}}
+\DoxyCodeLine{617 \textcolor{comment}{return  A.exp()*V;}}
+\DoxyCodeLine{618 \textcolor{comment}{\}*/}}
+\DoxyCodeLine{619 }
+\DoxyCodeLine{620 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{621 \textcolor{comment}{//       }}
+\DoxyCodeLine{622 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{623 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{624 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2d44373d1129836d7c217f35871bbf80}{AngularMomentum<T>::RotationByAngle}}(\textcolor{keyword}{const} std::string\& dir, \textcolor{keyword}{const} \textcolor{keywordtype}{double} \&a)}
+\DoxyCodeLine{625 \textcolor{comment}{//AngularMomentum<T> RotationByAngle(const std::string\& dir, const double \&a)}}
+\DoxyCodeLine{626 \{}
+\DoxyCodeLine{627     \textcolor{keyword}{const} \textcolor{keywordtype}{double} spin= 3./2.;}
+\DoxyCodeLine{628     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} res;}
+\DoxyCodeLine{629     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<std::complex<double>}}> J;}
+\DoxyCodeLine{630     \textcolor{keywordflow}{if}(dir == \textcolor{stringliteral}{"{}x"{}})}
+\DoxyCodeLine{631     \{}
+\DoxyCodeLine{632         J = J.\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a2ca04cf4663d6dd1fd0a8f7d27a1e443}{AngularMomentum\_Jx}}(spin);}
+\DoxyCodeLine{633     \}}
+\DoxyCodeLine{634 }
+\DoxyCodeLine{635     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (dir==\textcolor{stringliteral}{"{}y"{}})\{}
+\DoxyCodeLine{636         J = J.\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a63e047df5bdf2d075a8a295c76f61a8a}{AngularMomentum\_Jy}}(spin);}
+\DoxyCodeLine{637     \}}
+\DoxyCodeLine{638 }
+\DoxyCodeLine{639     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(dir == \textcolor{stringliteral}{"{}z"{}})}
+\DoxyCodeLine{640     \{}
+\DoxyCodeLine{641         J = J.\mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum_a3e8d6ae5d78c0742aaa082eec3504fbc}{AngularMomentum\_Jz}}(spin);}
+\DoxyCodeLine{642     \}}
+\DoxyCodeLine{643     \textcolor{comment}{//std::complex<double> i(0.,1.);}}
+\DoxyCodeLine{644     res = -\/1.*std::complex<double>(0.,1.)*a*J;}
+\DoxyCodeLine{645     \textcolor{keywordflow}{return} MatrixExp(res);}
+\DoxyCodeLine{646 \}}
+\DoxyCodeLine{647 \textcolor{keyword}{template} <\textcolor{keyword}{class} T>}
+\DoxyCodeLine{648 \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} RotationByAngle(\textcolor{keyword}{const} \textcolor{keywordtype}{double} \&a, \textcolor{keyword}{const} \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}}\& mat)}
+\DoxyCodeLine{649 \{}
+\DoxyCodeLine{650      }
+\DoxyCodeLine{651     \mbox{\hyperlink{classQuantaPlus_1_1AngularMomentum}{AngularMomentum<T>}} res;}
+\DoxyCodeLine{652      }
+\DoxyCodeLine{653     res = -\/1.*std::complex<double>(0.,1.)*a*mat;}
+\DoxyCodeLine{654     \textcolor{keywordflow}{return} MatrixExp(res);}
+\DoxyCodeLine{655 \}}
+\DoxyCodeLine{656 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{657 \textcolor{comment}{//      Wigner functions }}
+\DoxyCodeLine{658 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{659 \textcolor{comment}{/*template <class T>}}
+\DoxyCodeLine{660 \textcolor{comment}{ AngularMomentum<T> AngularMomentum<T>::RotationByAngle(const std::string\& dir, const double \&a)}}
+\DoxyCodeLine{661 \textcolor{comment}{\{\}*/}}
+\DoxyCodeLine{662 \} \textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{663 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

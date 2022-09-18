@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>QuantaPlus: quantaplus/utilities.h File Reference</title>
+<title>QuantaPlus: quantaplus/utilities/utilities.h File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,13 +71,14 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="../../dir_c07d0ee52b103035834dd6c1e406d1ad.html">quantaplus</a></li>  </ul>
+<li class="navelem"><a class="el" href="../../dir_c07d0ee52b103035834dd6c1e406d1ad.html">quantaplus</a></li><li class="navelem"><a class="el" href="../../dir_f0d34dec474bbd90dbbeecc9df912ac6.html">utilities</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">utilities.h File Reference</div></div>
 </div><!--header-->
@@ -90,8 +91,6 @@ $(function() {
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;valarray&gt;</code><br />
-<code>#include &quot;include/utilities.hpp&quot;</code><br />
 </div>
 <p><a href="../../de/df0/utilities_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -107,47 +106,19 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:da/dc8/namespaceQuantaPlus"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html">QuantaPlus</a></td></tr>
-<tr class="memdesc:da/dc8/namespaceQuantaPlus"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generic <a class="el" href="../../da/dc8/namespaceQuantaPlus.html" title="Generic QuantaPlus interfaces and implementations.">QuantaPlus</a> interfaces and implementations. <br /></td></tr>
+<tr class="memdesc:da/dc8/namespaceQuantaPlus"><td class="mdescLeft">&#160;</td><td class="mdescRight">Namespace of the <b><a class="el" href="../../da/dc8/namespaceQuantaPlus.html" title="Namespace of the QuantaPlus C++ library.">QuantaPlus</a></b> C++ library. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae7a722b8ec542bc1f936da3aaef55259"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae7a722b8ec542bc1f936da3aaef55259"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#ae7a722b8ec542bc1f936da3aaef55259">QuantaPlus::ToString</a> (const T &amp;numb)</td></tr>
-<tr class="separator:ae7a722b8ec542bc1f936da3aaef55259"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf5a67030172f17f578c7be7c27577fd"><td class="memTemplParams" colspan="2">template&lt;typename T1 , typename T2 &gt; </td></tr>
-<tr class="memitem:abf5a67030172f17f578c7be7c27577fd"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#abf5a67030172f17f578c7be7c27577fd">QuantaPlus::ToFraction</a> (T1 numer, T2 denom)</td></tr>
-<tr class="separator:abf5a67030172f17f578c7be7c27577fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adaf9b9bebb4bfc4ee41c41b0dea84b3c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:adaf9b9bebb4bfc4ee41c41b0dea84b3c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#adaf9b9bebb4bfc4ee41c41b0dea84b3c">QuantaPlus::MatrixToString</a> (T &amp;mat)</td></tr>
-<tr class="separator:adaf9b9bebb4bfc4ee41c41b0dea84b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b830961ce855f2fbe47d1eab54c2a31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a1b830961ce855f2fbe47d1eab54c2a31">QuantaPlus::ComplexNumPrint</a> (std::complex&lt; double &gt; complex_number, bool numerical_flag)</td></tr>
-<tr class="memdesc:a1b830961ce855f2fbe47d1eab54c2a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print any complex number as z = x + iy.  <a href="../../da/dc8/namespaceQuantaPlus.html#a1b830961ce855f2fbe47d1eab54c2a31">More...</a><br /></td></tr>
-<tr class="separator:a1b830961ce855f2fbe47d1eab54c2a31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1002abc85cb4fc5ceba7c81883ce25dd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a1002abc85cb4fc5ceba7c81883ce25dd">QuantaPlus::ResultPrint</a> (const std::complex&lt; double &gt; &amp;complex_num)</td></tr>
-<tr class="memdesc:a1002abc85cb4fc5ceba7c81883ce25dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the calculated in fraction and symbolic forms (e.g: 15/7, i/2, √2/19. ..) <br  />
-  <a href="../../da/dc8/namespaceQuantaPlus.html#a1002abc85cb4fc5ceba7c81883ce25dd">More...</a><br /></td></tr>
-<tr class="separator:a1002abc85cb4fc5ceba7c81883ce25dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87942db7e68bba48516039f085744a5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a87942db7e68bba48516039f085744a5e">QuantaPlus::NResultPrint</a> (const std::complex&lt; double &gt; &amp;complex_num)</td></tr>
-<tr class="memdesc:a87942db7e68bba48516039f085744a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print calculated result in numeric form.  <a href="../../da/dc8/namespaceQuantaPlus.html#a87942db7e68bba48516039f085744a5e">More...</a><br /></td></tr>
-<tr class="separator:a87942db7e68bba48516039f085744a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95fb62d38cb670827994868b006318a5"><td class="memItemLeft" align="right" valign="top"><a id="a95fb62d38cb670827994868b006318a5" name="a95fb62d38cb670827994868b006318a5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::DecimalToFraction</b> (const double &amp;decimal_number)</td></tr>
-<tr class="separator:a95fb62d38cb670827994868b006318a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bb78b439295e3b0683a3395f20cc915"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a0bb78b439295e3b0683a3395f20cc915">QuantaPlus::StringMatrix</a> (int r, int c, double *array)</td></tr>
-<tr class="memdesc:a0bb78b439295e3b0683a3395f20cc915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print array elements in fractions form.  <a href="../../da/dc8/namespaceQuantaPlus.html#a0bb78b439295e3b0683a3395f20cc915">More...</a><br /></td></tr>
-<tr class="separator:a0bb78b439295e3b0683a3395f20cc915"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75bf13f84d2bb1469588603e8c450383"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a75bf13f84d2bb1469588603e8c450383">QuantaPlus::IsNumber</a> (const std::string &amp;str)</td></tr>
-<tr class="memdesc:a75bf13f84d2bb1469588603e8c450383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives True if str is an integer, and False otherwise.  <a href="../../da/dc8/namespaceQuantaPlus.html#a75bf13f84d2bb1469588603e8c450383">More...</a><br /></td></tr>
+<tr class="memitem:a75bf13f84d2bb1469588603e8c450383"><td class="memItemLeft" align="right" valign="top"><a id="a75bf13f84d2bb1469588603e8c450383" name="a75bf13f84d2bb1469588603e8c450383"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::IsNumber</b> (const std::string &amp;str)</td></tr>
 <tr class="separator:a75bf13f84d2bb1469588603e8c450383"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41fddde6a1231212fec05777db36a26c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a41fddde6a1231212fec05777db36a26c">QuantaPlus::Warning</a> (const std::string &amp;str)</td></tr>
-<tr class="memdesc:a41fddde6a1231212fec05777db36a26c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Show warnings in highlighted from.  <a href="../../da/dc8/namespaceQuantaPlus.html#a41fddde6a1231212fec05777db36a26c">More...</a><br /></td></tr>
-<tr class="separator:a41fddde6a1231212fec05777db36a26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6eb262dc23d879cb79c6ca28179a94a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#ad6eb262dc23d879cb79c6ca28179a94a">QuantaPlus::validInteger</a> (const double &amp;x)</td></tr>
-<tr class="memdesc:ad6eb262dc23d879cb79c6ca28179a94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the input is an integer.  <a href="../../da/dc8/namespaceQuantaPlus.html#ad6eb262dc23d879cb79c6ca28179a94a">More...</a><br /></td></tr>
+<tr class="memitem:ad6eb262dc23d879cb79c6ca28179a94a"><td class="memItemLeft" align="right" valign="top"><a id="ad6eb262dc23d879cb79c6ca28179a94a" name="ad6eb262dc23d879cb79c6ca28179a94a"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::validInteger</b> (const double &amp;x)</td></tr>
 <tr class="separator:ad6eb262dc23d879cb79c6ca28179a94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6210f298a3163e63970a7a0d33fda73f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dc8/namespaceQuantaPlus.html#a6210f298a3163e63970a7a0d33fda73f">QuantaPlus::halfInteger</a> (const double &amp;x)</td></tr>
-<tr class="memdesc:a6210f298a3163e63970a7a0d33fda73f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the input is a half-integer.  <a href="../../da/dc8/namespaceQuantaPlus.html#a6210f298a3163e63970a7a0d33fda73f">More...</a><br /></td></tr>
+<tr class="memitem:a6210f298a3163e63970a7a0d33fda73f"><td class="memItemLeft" align="right" valign="top"><a id="a6210f298a3163e63970a7a0d33fda73f" name="a6210f298a3163e63970a7a0d33fda73f"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>QuantaPlus::halfInteger</b> (const double &amp;x)</td></tr>
 <tr class="separator:a6210f298a3163e63970a7a0d33fda73f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

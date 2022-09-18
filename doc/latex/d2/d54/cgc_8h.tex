@@ -1,5 +1,5 @@
-\hypertarget{cgc_8h}{}\doxysection{quantaplus/cgc.h File Reference}
-\label{cgc_8h}\index{quantaplus/cgc.h@{quantaplus/cgc.h}}
+\hypertarget{cgc_8h}{}\doxysection{quantaplus/operators/cgc.h File Reference}
+\label{cgc_8h}\index{quantaplus/operators/cgc.h@{quantaplus/operators/cgc.h}}
 {\ttfamily \#include $<$limits$>$}\newline
 {\ttfamily \#include $<$cmath$>$}\newline
 {\ttfamily \#include $<$complex$>$}\newline
@@ -7,7 +7,6 @@
 {\ttfamily \#include $<$map$>$}\newline
 {\ttfamily \#include $<$stdexcept$>$}\newline
 {\ttfamily \#include \char`\"{}angularmomentum.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}include/cgc.\+hpp\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -17,11 +16,42 @@ class \mbox{\hyperlink{classQuantaPlus_1_1CGCcoeff}{Quanta\+Plus\+::\+CGCcoeff}}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}
-\begin{DoxyCompactList}\small\item\em Generic \mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}} interfaces and implementations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Namespace of the {\bfseries{\mbox{\hyperlink{namespaceQuantaPlus}{Quanta\+Plus}}}} C++ library. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 std\+::ostream \& \mbox{\hyperlink{namespaceQuantaPlus_a456793d842fc471e04c7cca64dff2248}{Quanta\+Plus\+::operator$<$$<$}} (std\+::ostream \&out, const CGCcoeff \&t)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_afa57a5e2f78f8f50417c5fb654282242}\label{namespaceQuantaPlus_afa57a5e2f78f8f50417c5fb654282242}} 
+double {\bfseries Quanta\+Plus\+::\+Square\+Root} (const double \&x, const double \&curr, const double \&prev)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a334f3e9357725cf480f7d15d899ffc56}\label{namespaceQuantaPlus_a334f3e9357725cf480f7d15d899ffc56}} 
+double {\bfseries Quanta\+Plus\+::\+Square\+Root} (const double \&x)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a8f85ee34da21f3a11c63f443ba06ce49}\label{namespaceQuantaPlus_a8f85ee34da21f3a11c63f443ba06ce49}} 
+double {\bfseries Quanta\+Plus\+::\+Factorial} (const double \&n)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a43eb50bea4ef8bdfe231887d04e8b5e0}\label{namespaceQuantaPlus_a43eb50bea4ef8bdfe231887d04e8b5e0}} 
+double {\bfseries Quanta\+Plus\+::\+Frac\+Factorial} (const double \&n)
+\item 
+double \mbox{\hyperlink{namespaceQuantaPlus_a52817e4985f83794d044674ca7b78d2c}{Quanta\+Plus\+::\+Clebsch\+Gordan}} (const double \&j1, const double \&j2, const double \&m1, const double \&m2, const double \&J, const double \&M)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_aeaa9e69bde9b16c91587c9a63c5d63d7}\label{namespaceQuantaPlus_aeaa9e69bde9b16c91587c9a63c5d63d7}} 
+double {\bfseries Quanta\+Plus\+::\+Clebsch\+Gordan} (const CGCcoeff \&cgc)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a649c81f483ea7ba9447441c7ff961497}\label{namespaceQuantaPlus_a649c81f483ea7ba9447441c7ff961497}} 
+std\+::vector$<$ double $>$ {\bfseries Quanta\+Plus\+::\+MQuantum\+Number} (const double \&j)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a628262b9a0a4c236e61c7293cd13fd0b}\label{namespaceQuantaPlus_a628262b9a0a4c236e61c7293cd13fd0b}} 
+std\+::vector$<$ double $>$ {\bfseries Quanta\+Plus\+::possibleJ} (const double \&j1, const double \&j2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a94eeaf083cfc4041b6268dd79b6cab2c}\label{namespaceQuantaPlus_a94eeaf083cfc4041b6268dd79b6cab2c}} 
+void {\bfseries Quanta\+Plus\+::\+List\+Of\+All\+CGCs} (const double \&j1, const double \&j2)
+\item 
+std\+::map$<$ CGCcoeff, std\+::vector$<$ CGCcoeff $>$ $>$ \mbox{\hyperlink{namespaceQuantaPlus_ac2a8d9735cc1b52374532187f04bba5b}{Quanta\+Plus\+::\+CGCcoeff\+Map}} (const double \&j1, const double \&j2)
+\item 
+\mbox{\Hypertarget{namespaceQuantaPlus_a41d73735ea0dd357b0221b208824a66f}\label{namespaceQuantaPlus_a41d73735ea0dd357b0221b208824a66f}} 
+void {\bfseries Quanta\+Plus\+::\+Coupled\+States} (const double \&j1, const double \&j2)
 \end{DoxyCompactItemize}
 
 

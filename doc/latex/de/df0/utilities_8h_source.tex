@@ -1,5 +1,5 @@
 \hypertarget{utilities_8h_source}{}\doxysection{utilities.\+h}
-\label{utilities_8h_source}\index{quantaplus/utilities.h@{quantaplus/utilities.h}}
+\label{utilities_8h_source}\index{quantaplus/utilities/utilities.h@{quantaplus/utilities/utilities.h}}
 \mbox{\hyperlink{utilities_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{1 }
@@ -9,137 +9,91 @@
 \DoxyCodeLine{8 \textcolor{comment}{     VIA P. BUCCI, CUBO 31 C, I-\/87036 COSENZA, ITALY}}
 \DoxyCodeLine{9 \textcolor{comment}{     mohammed.maher@unical.it                                          }}
 \DoxyCodeLine{10 \textcolor{comment}{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{11 \textcolor{comment}{//\#pragma once}}
-\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_UTILITIES\_H}}
-\DoxyCodeLine{13 \textcolor{preprocessor}{\#define QUANTAPLUS\_UTILITIES\_H}}
-\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <Eigen/Dense>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef QUANTAPLUS\_UTILITIES\_UTILITIES\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define QUANTAPLUS\_UTILITIES\_UTILITIES\_H}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include<Eigen/Dense>}}
 \DoxyCodeLine{15 \textcolor{preprocessor}{\#include<string>}}
 \DoxyCodeLine{16 \textcolor{preprocessor}{\#include<sstream>}}
 \DoxyCodeLine{17 \textcolor{comment}{//\#include <algorithm> // for using : str.find\_first\_not\_of( "{}string"{} ) == std::string::npos}}
-\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <complex>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include<complex>}}
 \DoxyCodeLine{19 \textcolor{preprocessor}{\#include<iostream>}}
 \DoxyCodeLine{20 \textcolor{preprocessor}{\#include<cmath>}}
 \DoxyCodeLine{21 \textcolor{preprocessor}{\#include<ctime>}}
 \DoxyCodeLine{22 \textcolor{preprocessor}{\#include<fstream>}}
-\DoxyCodeLine{23 \textcolor{preprocessor}{\#include <valarray>} }
+\DoxyCodeLine{23 }
 \DoxyCodeLine{24  }
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{comment}{/* colors */}}
-\DoxyCodeLine{27 \textcolor{comment}{/*}}
-\DoxyCodeLine{28 \textcolor{comment}{\#define RST  "{}\(\backslash\)x1B[0m"{}}}
-\DoxyCodeLine{29 \textcolor{comment}{\#define KRED  "{}\(\backslash\)x1B[31m"{}}}
-\DoxyCodeLine{30 \textcolor{comment}{\#define KGRN  "{}\(\backslash\)x1B[32m"{}}}
-\DoxyCodeLine{31 \textcolor{comment}{\#define KYEL  "{}\(\backslash\)x1B[33m"{}}}
-\DoxyCodeLine{32 \textcolor{comment}{\#define KBLU  "{}\(\backslash\)x1B[34m"{}}}
-\DoxyCodeLine{33 \textcolor{comment}{\#define KMAG  "{}\(\backslash\)x1B[35m"{}}}
-\DoxyCodeLine{34 \textcolor{comment}{\#define KCYN  "{}\(\backslash\)x1B[36m"{}}}
-\DoxyCodeLine{35 \textcolor{comment}{\#define KWHT  "{}\(\backslash\)x1B[37m"{}}}
-\DoxyCodeLine{36 \textcolor{comment}{}}
-\DoxyCodeLine{37 \textcolor{comment}{\#define FRED(x) KRED x RST}}
-\DoxyCodeLine{38 \textcolor{comment}{\#define FGRN(x) KGRN x RST}}
-\DoxyCodeLine{39 \textcolor{comment}{\#define FYEL(x) KYEL x RST}}
-\DoxyCodeLine{40 \textcolor{comment}{\#define FBLU(x) KBLU x RST}}
-\DoxyCodeLine{41 \textcolor{comment}{\#define FMAG(x) KMAG x RST}}
-\DoxyCodeLine{42 \textcolor{comment}{\#define FCYN(x) KCYN x RST}}
-\DoxyCodeLine{43 \textcolor{comment}{\#define FWHT(x) KWHT x RST}}
-\DoxyCodeLine{44 \textcolor{comment}{}}
-\DoxyCodeLine{45 \textcolor{comment}{\#define BOLD(x) "{}\(\backslash\)x1B[1m"{} x RST}}
-\DoxyCodeLine{46 \textcolor{comment}{\#define UNDL(x) "{}\(\backslash\)x1B[4m"{} x RST}}
-\DoxyCodeLine{47 \textcolor{comment}{*/}}
-\DoxyCodeLine{48 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{53 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1Output}{Output}}}
-\DoxyCodeLine{54 \{}
-\DoxyCodeLine{55     \textcolor{keyword}{public}:}
-\DoxyCodeLine{56      }
-\DoxyCodeLine{57     std::ofstream \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{takeData}}; }
-\DoxyCodeLine{58      }
-\DoxyCodeLine{63     \mbox{\hyperlink{classQuantaPlus_1_1Output_a51efc8cda101d198ab1531bd0ad08262}{Output}}(std::string fileName) }
-\DoxyCodeLine{64     \{}
-\DoxyCodeLine{65         \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{takeData}}.open(fileName + \textcolor{stringliteral}{"{}.dat"{}});}
-\DoxyCodeLine{66     \}}
-\DoxyCodeLine{67 }
-\DoxyCodeLine{68     }
-\DoxyCodeLine{69     \mbox{\hyperlink{classQuantaPlus_1_1Output_a2a5681dad4e6d2f6dc903fd5b6466c57}{\string~Output}}()}
-\DoxyCodeLine{70     \{}
-\DoxyCodeLine{71         \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{takeData}}.close();}
-\DoxyCodeLine{72     \} }
-\DoxyCodeLine{73 }
-\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1Output_a9570196f54f30980c1a5819e9d061577}{writeOutput}}(std::string output)}
-\DoxyCodeLine{78     \{}
-\DoxyCodeLine{79         \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{takeData}} << output << std::endl;}
-\DoxyCodeLine{80     \}}
-\DoxyCodeLine{81 \};}
-\DoxyCodeLine{82 }
-\DoxyCodeLine{86 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1ElapsedTime}{ElapsedTime}}\{}
-\DoxyCodeLine{87     \textcolor{keyword}{public}:}
-\DoxyCodeLine{88         \textcolor{keywordtype}{void} Start()\{}
-\DoxyCodeLine{89             start = std::clock();}
-\DoxyCodeLine{90         \}}
-\DoxyCodeLine{91         \textcolor{keywordtype}{void} End()}
-\DoxyCodeLine{92         \{}
-\DoxyCodeLine{93             std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
-\DoxyCodeLine{94             duration = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::clock() -\/ start) /\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>} CLOCKS\_PER\_SEC;}
-\DoxyCodeLine{95             }
-\DoxyCodeLine{96             \textcolor{keywordflow}{if} (duration < 60.0) \{}
-\DoxyCodeLine{97                 std::cout << \textcolor{stringliteral}{"{}Elapsed time: "{}} << duration << \textcolor{stringliteral}{"{} seconds !!"{}} << std::endl;}
-\DoxyCodeLine{98             \}}
-\DoxyCodeLine{99             \textcolor{keywordflow}{else} \{}
-\DoxyCodeLine{100                 std::cout << \textcolor{stringliteral}{"{}Elapsed time: "{}} << duration/60.0 << \textcolor{stringliteral}{"{} mins"{}} << std::endl;}
-\DoxyCodeLine{101             \}}
-\DoxyCodeLine{102         \}}
-\DoxyCodeLine{103     \textcolor{keyword}{private}:}
-\DoxyCodeLine{104         std::clock\_t start;}
-\DoxyCodeLine{105         \textcolor{keywordtype}{double} duration;}
-\DoxyCodeLine{106 \};}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{112 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{113 std::string \mbox{\hyperlink{namespaceQuantaPlus_ae7a722b8ec542bc1f936da3aaef55259}{ToString}}(\textcolor{keyword}{const} T\& numb)}
-\DoxyCodeLine{114 \{}
-\DoxyCodeLine{115     std::stringstream ss;}
-\DoxyCodeLine{116     ss << numb;}
-\DoxyCodeLine{117     \textcolor{keywordflow}{return} ss.str();}
-\DoxyCodeLine{118 \}}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{125 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T1, \textcolor{keyword}{typename} T2>}
-\DoxyCodeLine{126 std::string \mbox{\hyperlink{namespaceQuantaPlus_abf5a67030172f17f578c7be7c27577fd}{ToFraction}}(T1 numer, T2 denom)}
-\DoxyCodeLine{127 \{}
-\DoxyCodeLine{128     std::string res = ToString<T1>(numer);}
-\DoxyCodeLine{129     \textcolor{keywordflow}{if}(denom != 1)}
-\DoxyCodeLine{130     \{}
-\DoxyCodeLine{131         res += \textcolor{stringliteral}{"{}/"{}};}
-\DoxyCodeLine{132         res += ToString<T2>(denom);}
-\DoxyCodeLine{133     \}}
-\DoxyCodeLine{134     \textcolor{keywordflow}{return} res;}
-\DoxyCodeLine{135 \}}
-\DoxyCodeLine{136 }
-\DoxyCodeLine{141 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T>}
-\DoxyCodeLine{142 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceQuantaPlus_adaf9b9bebb4bfc4ee41c41b0dea84b3c}{MatrixToString}}(T \&mat)}
-\DoxyCodeLine{143 \{}
-\DoxyCodeLine{144     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i =0; i<mat.GetRow(); i++) \{}
-\DoxyCodeLine{145         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} j =0; j<mat.GetCol(); j++) \{}
-\DoxyCodeLine{146             decimalToFraction(mat.table[i][j]);}
-\DoxyCodeLine{147             std::cout<<\textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
-\DoxyCodeLine{148         \}}
-\DoxyCodeLine{149         std::cout<<std::endl;}
-\DoxyCodeLine{150     \}}
-\DoxyCodeLine{151 \}}
-\DoxyCodeLine{152 }
-\DoxyCodeLine{153 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceQuantaPlus_a1b830961ce855f2fbe47d1eab54c2a31}{ComplexNumPrint}}( std::complex<double> complex\_number, \textcolor{keywordtype}{bool} numerical\_flag); }
-\DoxyCodeLine{154 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceQuantaPlus_a1002abc85cb4fc5ceba7c81883ce25dd}{ResultPrint}}(\textcolor{keyword}{const} std::complex<double>\& complex\_num); }
-\DoxyCodeLine{155 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceQuantaPlus_a87942db7e68bba48516039f085744a5e}{NResultPrint}}(\textcolor{keyword}{const} std::complex<double>\& complex\_num); }
-\DoxyCodeLine{156 \textcolor{keywordtype}{void} DecimalToFraction(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& decimal\_number);\textcolor{comment}{//void DecimalToFraction(double number); ///< Convert decimal to fraction}}
-\DoxyCodeLine{157 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceQuantaPlus_a0bb78b439295e3b0683a3395f20cc915}{StringMatrix}}(\textcolor{keywordtype}{int} r, \textcolor{keywordtype}{int} c, \textcolor{keywordtype}{double} *array); }
-\DoxyCodeLine{158 }
-\DoxyCodeLine{159 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceQuantaPlus_a75bf13f84d2bb1469588603e8c450383}{IsNumber}}(\textcolor{keyword}{const} std::string\& str); }
-\DoxyCodeLine{160 \textcolor{keywordtype}{void} \mbox{\hyperlink{namespaceQuantaPlus_a41fddde6a1231212fec05777db36a26c}{Warning}}(\textcolor{keyword}{const} std::string \& str); }
-\DoxyCodeLine{161 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceQuantaPlus_ad6eb262dc23d879cb79c6ca28179a94a}{validInteger}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x); }
-\DoxyCodeLine{162 \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceQuantaPlus_a6210f298a3163e63970a7a0d33fda73f}{halfInteger}}(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x); }
-\DoxyCodeLine{163 }
-\DoxyCodeLine{164 \textcolor{comment}{//void TolaTex(std::string fname, std::string data);}}
-\DoxyCodeLine{165 }
-\DoxyCodeLine{166 \textcolor{preprocessor}{\#include"{}include/utilities.hpp"{}}}
-\DoxyCodeLine{167 \}\textcolor{comment}{//end of namespace QuantaPlus}}
-\DoxyCodeLine{168 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{25 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceQuantaPlus}{QuantaPlus}}\{}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{30 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1Output}{Output}}}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \textcolor{keyword}{public}:}
+\DoxyCodeLine{33      }
+\DoxyCodeLine{34     std::ofstream \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{takeData}}; }
+\DoxyCodeLine{35      }
+\DoxyCodeLine{40     \mbox{\hyperlink{classQuantaPlus_1_1Output_a51efc8cda101d198ab1531bd0ad08262}{Output}}(std::string fileName) }
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{takeData}}.open(fileName + \textcolor{stringliteral}{"{}.dat"{}});}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     }
+\DoxyCodeLine{46     \mbox{\hyperlink{classQuantaPlus_1_1Output_a2a5681dad4e6d2f6dc903fd5b6466c57}{\string~Output}}()}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{takeData}}.close();}
+\DoxyCodeLine{49     \} }
+\DoxyCodeLine{50 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{classQuantaPlus_1_1Output_a9570196f54f30980c1a5819e9d061577}{writeOutput}}(std::string output)}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         \mbox{\hyperlink{classQuantaPlus_1_1Output_a6c9c4c3ebd873ec5a2556e1809502484}{takeData}} << output << std::endl;}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 \};}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{63 \textcolor{keyword}{class }\mbox{\hyperlink{classQuantaPlus_1_1ElapsedTime}{ElapsedTime}}\{}
+\DoxyCodeLine{64     \textcolor{keyword}{public}:}
+\DoxyCodeLine{65         \textcolor{keywordtype}{void} Start()\{}
+\DoxyCodeLine{66             start = std::clock();}
+\DoxyCodeLine{67         \}}
+\DoxyCodeLine{68         \textcolor{keywordtype}{void} End()}
+\DoxyCodeLine{69         \{}
+\DoxyCodeLine{70             std::cout<<\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}}<<std::endl;}
+\DoxyCodeLine{71             duration = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>}(std::clock() -\/ start) /\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{double}\textcolor{keyword}{>} CLOCKS\_PER\_SEC;}
+\DoxyCodeLine{72             }
+\DoxyCodeLine{73             \textcolor{keywordflow}{if} (duration < 60.0) \{}
+\DoxyCodeLine{74                 std::cout << \textcolor{stringliteral}{"{}Elapsed time: "{}} << duration << \textcolor{stringliteral}{"{} seconds !!"{}} << std::endl;}
+\DoxyCodeLine{75             \}}
+\DoxyCodeLine{76             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{77                 std::cout << \textcolor{stringliteral}{"{}Elapsed time: "{}} << duration/60.0 << \textcolor{stringliteral}{"{} mins"{}} << std::endl;}
+\DoxyCodeLine{78             \}}
+\DoxyCodeLine{79         \}}
+\DoxyCodeLine{80     \textcolor{keyword}{private}:}
+\DoxyCodeLine{81         std::clock\_t start;}
+\DoxyCodeLine{82         \textcolor{keywordtype}{double} duration;}
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{87 \textcolor{comment}{//  Function to check if the input is an integer. }}
+\DoxyCodeLine{88 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{89 \textcolor{keywordtype}{bool} IsNumber(\textcolor{keyword}{const} std::string\& str) }
+\DoxyCodeLine{90 \{}
+\DoxyCodeLine{91     \textcolor{keywordflow}{return} str.find\_first\_not\_of( \textcolor{stringliteral}{"{}0123456789"{}} ) == std::string::npos;}
+\DoxyCodeLine{92 \}}
+\DoxyCodeLine{93 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{94 \textcolor{keywordtype}{bool} validInteger(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x)}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(x) -\/ x == 0;}
+\DoxyCodeLine{97 \}}
+\DoxyCodeLine{98 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{99 \textcolor{comment}{//  Function to check if the input is a half integer. }}
+\DoxyCodeLine{100 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{101 \textcolor{keywordtype}{bool} halfInteger(\textcolor{keyword}{const} \textcolor{keywordtype}{double}\& x)}
+\DoxyCodeLine{102 \{}
+\DoxyCodeLine{103     \textcolor{keywordflow}{return} !validInteger(x) \&\& validInteger(2*x);}
+\DoxyCodeLine{104 \}}
+\DoxyCodeLine{105 \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107  }
+\DoxyCodeLine{108 \}\textcolor{comment}{//end of namespace QuantaPlus}}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}
