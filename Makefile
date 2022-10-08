@@ -2,7 +2,7 @@
 
  
 # in both testing and library
-CC = g++ -O3  -I./include  #-I/home/mohammed/Downloads/eigen-3.4.0/ 
+CC = g++ -g3 -O3  -I./include  #-I/home/mohammed/Downloads/eigen-3.4.0/ 
 # added for the compilation of the libraries
 CFLAGS = -Wall -Wextra -Wconversion
 #added for the testing files
