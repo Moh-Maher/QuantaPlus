@@ -30,7 +30,7 @@ EXAMPLES = example1\
 
 #TESTS = gtest_braket\
 #	gtest_QM_operators
-TESTS =	test_angular-momentum_test \
+TESTS =	test_angular-momentum \
 		test_braket\
 		test_latex \
 		test_eigenvalue\
