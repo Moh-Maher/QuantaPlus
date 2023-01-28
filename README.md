@@ -24,11 +24,11 @@ This area should be added to the include search path (using the -I/usr/include/e
    - Open the command prompt and navigate to the directory where you copied the QuantaPlus folder.
    - Create a new file called "makefile" in the same directory.
    - In the makefile, add the following command to copy the QuantaPlus folder to the include directory:
-	```java
-	copy /Y quantaplus C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\
-        ```
+   ```java
+          copy /Y quantaplus C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\
+   ```
    - Then add these command to check if Eigen3 is installed and install it if it's not:
-       ```bash
+   ```bash
 	       if not exist "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\eigen3" (
 	    echo Eigen3 not found, installing...
 	    mkdir "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\eigen3"
@@ -36,8 +36,7 @@ This area should be added to the include search path (using the -I/usr/include/e
 	) else (
 	    echo Eigen3 found
 	)
-
-       ```
+   ```
    - Save the makefile, and open the command prompt and navigate to the directory where you copied the QuantaPlus folder.
    - Run the command "nmake" to execute the makefile.
    - Now the QuantaPlus library is installed and configured on your Windows system, you can include the library in your C++ projects by adding the following line to your source code:
