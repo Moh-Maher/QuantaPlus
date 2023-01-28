@@ -1,6 +1,5 @@
 # QuantaPlus
-QuantaPlus is a light C++ template library dedicated to solve and explore quantum mechanics problems. QuantaPlus uses the Eigen3 linear
-algebra library.
+QuantaPlus is a light C++ template library composed solely of header files and dedicated to solving and exploring quantum mechanics problems.  
 
 # Requirements
 Eigen 3 (https://eigen.tuxfamily.org/index.php?title=Main_Page).
