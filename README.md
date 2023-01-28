@@ -25,7 +25,7 @@ This area should be added to the include search path (using the -I/usr/include/e
    - Create a new file called "makefile" in the same directory.
    - In the makefile, add the following command to copy the QuantaPlus folder to the include directory:
    ```java
-          copy /Y quantaplus C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\
+	copy /Y quantaplus C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.28.29910\include\
    ```
    - Then add these command to check if Eigen3 is installed and install it if it's not:
    ```bash
