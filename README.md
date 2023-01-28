@@ -29,4 +29,4 @@ This area should be added to the include search path (using the -I/usr/include/e
    
    ```cpp
    	#include <quantaplus.h>
-   '''
+   ```
