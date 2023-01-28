@@ -43,5 +43,5 @@ This area should be added to the include search path (using the -I/usr/include/e
    - Now the QuantaPlus library is installed and configured on your Windows system, you can include the library in your C++ projects by adding the following line to your source code:
    
    ```cpp
-   	#include <quantaplus.h>
+   	#include "quantaplus.h"
    ```
