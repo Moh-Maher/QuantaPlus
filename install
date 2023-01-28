@@ -1,0 +1,14 @@
+# Makefile for installing QuantaPlus
+
+# Check for Eigen3 library
+EIGEN3_INSTALLED := $(shell pkg-config --exists eigen3 && echo 1 || echo 0)
+
+# Install Eigen3 if not found
+ifeq ($(EIGEN3_INSTALLED), 0)
+    $(shell sudo apt-get install libeigen3-dev)
+endif
+
+# Copy QuantaPlus folder to /usr/include
+install:
+	sudo cp -r quantaplus /usr/include/
+

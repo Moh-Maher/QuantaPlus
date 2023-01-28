@@ -1,8 +1,20 @@
 # This is a Make file to build and run QUANTAPLUS package files  
+# Makefile for installing QuantaPlus
 
+# Check for Eigen3 library
+EIGEN3_INSTALLED := $(shell pkg-config --exists eigen3 && echo 1 || echo 0)
+
+# Install Eigen3 if not found
+ifeq ($(EIGEN3_INSTALLED), 0)
+    $(shell sudo apt-get install libeigen3-dev)
+endif
+
+# Copy QuantaPlus folder to /usr/include
+install:
+	sudo cp -r quantaplus /usr/include/
  
 # in both testing and library
-CC = g++ -g3 -O3  -I./include  #-I/home/mohammed/Downloads/eigen-3.4.0/ 
+CC = g++ -g3 -O3  -I./usr/include/
 # added for the compilation of the libraries
 CFLAGS = -Wall -Wextra -Wconversion
 #added for the testing files
@@ -44,7 +56,7 @@ OUTPUT = genLatex
 # making examples
 
 $(EXAMPLES): %: examples/%.cpp 
-	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/usr/include/eigen3 #-I/home/mohammed/Downloads/eigen-3.4.0/ 
+	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/usr/include/eigen3  
 
 $(OUTPUT): %: output/%.cpp  
 	$(CC) $(CFLAGSTEST)  -o latex.out $< #-I/usr/include/python3.10 -lpython3.10

@@ -191,9 +191,10 @@ T ExpectValue(const  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mat, const
     bra = ket.conjugate();
     Ket<T> toright((int)ket.rows());
     toright << mat * ket;
+    T demo = bra*ket;
     T nomr = bra*toright; 
     //T nomr = ket.conjugate()*toright;
-    return nomr;//dnomr; 
+    return nomr/demo;//dnomr; 
 }
 
 } //end of namespace QuantaPlus
