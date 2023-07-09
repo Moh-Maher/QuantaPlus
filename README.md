@@ -1,6 +1,18 @@
 # QuantaPlus
 QuantaPlus is a light C++ template library composed solely of header files and dedicated to solving and exploring quantum mechanics problems.  
 
+QuantaPlus is a light C++ template library composed solely of header files and dedicated to solving and exploring problems in quantum mechanics. It provides a set of classes, functions, and utilities that facilitate quantum-related calculations and simulations.
+
+The library is designed to be lightweight and easy to use. Being composed solely of header files means that you don't need to link any external libraries or perform separate compilation steps. Simply including the necessary header files in your C++ code allows you to access the functionality provided by QuantaPlus.
+
+QuantaPlus offers a range of modules that cover various aspects of quantum mechanics. These modules include utilities, operators, eigenvectors, brakets, and more. Each module provides specific classes and functions tailored to its area of focus, allowing you to perform calculations, manipulate quantum objects, and explore quantum phenomena.
+
+By leveraging the power of C++ templates, QuantaPlus offers flexibility and efficiency in handling different data types and mathematical operations. It allows you to work with complex numbers, matrices, vectors, and other mathematical entities commonly used in quantum mechanics.
+
+The library is intended to assist researchers, students, and developers working in the field of quantum mechanics. It aims to simplify the implementation of quantum algorithms, simulations, and calculations, enabling users to focus on the core aspects of their work without worrying about low-level details.
+
+Whether you need to perform calculations involving angular momentum, calculate Clebsch-Gordan coefficients, compute eigenvalues and eigenvectors, or simulate quantum systems, QuantaPlus provides the necessary tools to facilitate these tasks.
+
 # Requirements
 Eigen 3 (https://eigen.tuxfamily.org/index.php?title=Main_Page).
 
