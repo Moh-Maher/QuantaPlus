@@ -187,14 +187,14 @@ void Ket<T>::NPrint()
 template <typename T>
 T ExpectValue(const  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mat, const Ket<T> &ket)
 {    
-    Bra<T> bra;
-    bra = ket.conjugate();
-    Ket<T> toright((int)ket.rows());
-    toright << mat * ket;
-    T demo = bra*ket;
-    T nomr = bra*toright; 
-    //T nomr = ket.conjugate()*toright;
-    return nomr/demo;//dnomr; 
+	Bra<T> bra;
+	bra = ket.conjugate();
+	Ket<T> toright((int)ket.rows());
+	toright << mat * ket;
+	T demo = bra*ket;
+	T nomr = bra*toright; 
+	//T nomr = ket.conjugate()*toright;
+	return nomr/demo;//dnomr; 
 }
 
 } //end of namespace QuantaPlus
