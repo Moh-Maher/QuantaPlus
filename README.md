@@ -1,5 +1,4 @@
 # QuantaPlus
-QuantaPlus is a light C++ template library composed solely of header files and dedicated to solving and exploring quantum mechanics problems.  
 
 QuantaPlus is a light C++ template library composed solely of header files and dedicated to solving and exploring problems in quantum mechanics. It provides a set of classes, functions, and utilities that facilitate quantum-related calculations and simulations.
 
