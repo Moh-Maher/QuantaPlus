@@ -53,7 +53,7 @@ namespace QuantaPlus {
 * where the Ket vectors are matrices with one column and Dynamic-size rows.
 * Kets belong to the Hilbert (vector) space H, or, in short, to the ket-space..
 */
-template <class T>
+template <class T = std::complex<double>>
 class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1> 
 {
   public:
@@ -113,7 +113,7 @@ class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1>
 //*************************************************************************************************
 /*!\brief the Default constructor.
 */
-template <class T>
+template <class T >
 Ket<T>::Ket():Eigen::Matrix<T,Eigen::Dynamic,1>()
 {}
 //*************************************************************************************************
@@ -141,7 +141,7 @@ A.Print(); // print the content of |A>.
 \endverbatim
 
 */
-template <class T>
+template <class T >
 Ket<T>::Ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1)
 {}
 //*************************************************************************************************
@@ -152,7 +152,7 @@ Ket<T>::Ket(int row):Eigen::Matrix<T,Eigen::Dynamic,1>(row,1)
 * Print \f$|ket>\f$ elements in fractional symbolic form 
 * \f$z =\frac{A}{B} + i\frac{C}{D}\f$, where \f$i = \sqrt{-1}\f$;
 */
-template <class T>
+template <class T >
 void Ket<T>::Print()
 {
 	for(int row_count = 0; row_count < this->rows(); row_count++)
@@ -184,7 +184,7 @@ void Ket<T>::NPrint()
 /*!***********************************************************************************
 * \brief Compute the expectation value of given operator and normalized quantum state  
 **************************************************************************************/
-template <typename T>
+template <typename T >
 T ExpectValue(const  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mat, const Ket<T> &ket)
 {    
 	Bra<T> bra;

@@ -55,7 +55,7 @@ namespace QuantaPlus {
 * \note While Kets belong to the Hilbert space \f$H\f$, 
 * the corresponding Bras belong to its dual (Hilbert) space\f$H_d\f$.
 */
-template <class T>
+template <class T = std::complex<double>>
 class Bra : public Eigen::Matrix<T,1, Eigen::Dynamic> 
 {
   public:	 

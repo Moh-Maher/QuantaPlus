@@ -38,7 +38,8 @@ EXAMPLES = example1\
 		Double_Well\
 		Rb87_hyperfine_structure\
 		oscillating_magnetic_field\
-		shift
+		shift\
+		states
 
 #TESTS = gtest_braket\
 #	gtest_QM_operators
@@ -47,7 +48,7 @@ TESTS =	test_angular-momentum \
 		test_latex \
 		test_eigenvalue\
 		test_operators\
-		test_clebschGordon	
+		test_clebschGordon\]	
 OUTPUT = genLatex
 	 #ploting_wavefunctions
 

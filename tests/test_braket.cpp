@@ -10,15 +10,7 @@ by:  Mohammed Maher Abdelrahim Mohammed
 
 #include"../quantaplus/quantaplus.h"
 
-/*
-#include"../quantaplus/utilities/utilities.h"
-#include"../quantaplus/braket/ket.h"
-#include"../quantaplus/braket/bra.h"
-*/
- 
- 
 using namespace QuantaPlus;
-typedef std::complex<double>  complex;
 using std::cout;
 using std::endl;
 
@@ -26,20 +18,20 @@ int main()
 { 
 	ElapsedTime time_count;
 	
-	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = sqrt(-1)] 
+	//using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = sqrt(-1)] 
   	/*Remember that you have to set the size before you can use the comma initializer.*/
-	Ket<complex> ktA(3); // deceleration of |A> with fixed space for three elements. 
-	Ket<complex> ktB;    // deceleration of |B> with unspecified (Dynamic) space for its elements. 
-	Bra<complex> brB(3); // deceleration of <B| with fixed space for three elements. 
-	Bra<complex> brA;    // deceleration of <A| with unspecified (Dynamic) space for its elements.
+	Ket ketA(3); // deceleration of |A> with fixed space for three elements. 
+	Ket ketB;    // deceleration of |B> with unspecified (Dynamic) space for its elements. 
+	Bra braB(3); // deceleration of <B| with fixed space for three elements. 
+	Bra braA;    // deceleration of <A| with unspecified (Dynamic) space for its elements.
  
         complex BraKetAB{};  // to hold the value of <A|B>
         complex BraKetBA{};  // to hold the value of <B|A>
         complex BraKetAA{};  // to hold the value of <A|A>
         complex BraKetBB{};  // to hold the value of <B|B>
 	
-	brB << 6., 3.-1i, 5.;  // <B| = (6, 3-i, 5)  it's a row vector.
-	ktA <<1.-2i, 1i,-1i;   // |A> = (1-i, i, -i) it's a column vector.
+	braB << 6., 3.-1i, 5.;  // <B| = (6, 3-i, 5)  it's a row vector.
+	ketA <<1.-2i, 1i,-1i;   // |A> = (1-i, i, -i) it's a column vector.
 	
 	 
 	time_count.Start(); //<--clock stuff
@@ -47,34 +39,34 @@ int main()
 	//-----------------------------------------------------------------
 	cout<<"--------|A>------------"<<endl;
     	
-    	ktA.Print();
+    	ketA.Print();
     	cout<<"--------<B|------------"<<endl;
     	
-    	brB.Print();
+    	braB.Print();
     	
     	cout<<"--------|B>------------"<<endl;
-    	ktB = brB.conjugate(); // |B> = (<B|)^Dagger. (see any QM textbook).
+    	ketB = braB.conjugate(); // |B> = (<B|)^Dagger. (see any QM textbook).
  
-	ktB.Print();
+	ketB.Print();
 	cout<<"--------<A|------------"<<endl;
-    	brA =  ktA.conjugate();  // <A| = (|A>)^Dagger. (see any QM textbook).
+    	braA =  ketA.conjugate();  // <A| = (|A>)^Dagger. (see any QM textbook).
  
-    	brA.Print();
+    	braA.Print();
     	cout<<"--------<A|B>----------"<<endl;
-    	BraKetAB =  brA*ktB;
+    	BraKetAB =  braA*ketB;
     	ResultPrint( BraKetAB);
     	
     	cout<<"--------<B|A>----------"<<endl;
     	//BraKetBA = BraKet(brB,ktA);
-    	BraKetBA = brB*ktA;
+    	BraKetBA = braB*ketA;
     	ResultPrint( BraKetBA);  	
     	
     	cout<<"--------<A|A>--------"<<endl;
-    	BraKetAA =  brA*ktA;
+    	BraKetAA =  braA*ketA;
     	ResultPrint( BraKetAA);   	 
     	
     	cout<<"--------<B|B>--------"<<endl;
-    	BraKetBB =  brB*ktB;
+    	BraKetBB =  braB*ketB;
     	ResultPrint( BraKetBB);
 	//-----------------------------------------------------------------
    

@@ -50,7 +50,10 @@
 
 //*************************************************************************************************
 //! Namespace of the \b QuantaPlus C++ library.
-namespace QuantaPlus {}
+namespace QuantaPlus {
+	using namespace std::complex_literals; //needed to use the literal imaginary unit [ 1i = sqrt(-1)] 
+	typedef std::complex<double>  complex;
+}
 //*************************************************************************************************
 
 #endif
