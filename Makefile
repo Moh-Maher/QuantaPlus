@@ -52,7 +52,7 @@ TESTS =	test_angular-momentum \
 OUTPUT = genLatex
 	 #ploting_wavefunctions
 
-#PLOTS = plotting_wavefunctions
+PLOTS = plotting_wavefunctions
           
 # making examples
 
@@ -62,8 +62,8 @@ $(EXAMPLES): %: examples/%.cpp
 $(OUTPUT): %: output/%.cpp  
 	$(CC) $(CFLAGSTEST)  -o latex.out $< #-I/usr/include/python3.10 -lpython3.10
 	
-#$(PLOTS): %: output/plots/%.cpp  
-#	$(CC) $(CFLAGSTEST)  -o plot.out $< -I/usr/include/python3.10 -lpython3.10
+$(PLOTS): %: output/plots/%.cpp  
+	$(CC) $(CFLAGSTEST)  -o plot.out $< -I/usr/include/python3.10 -lpython3.10
 
 	
 #$(TESTS): %: tests/%.cpp
