@@ -44,5 +44,15 @@ QuantumEigenValue(const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic>  &mat)
 	return eigensolver.eigenvalues();
 }
 
+
+template<typename T>
+T QuantumEigenValue(const Ket<T> &mat,const int& i)
+{
+	Eigen::SelfAdjointEigenSolver<Ket<T> > eigensolver(mat);
+   
+	if (eigensolver.info() != Eigen::Success) abort();
+   
+	return eigensolver.eigenvalues()[i];
+}
 } //end of namespace QuantaPlus
 #endif

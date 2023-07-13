@@ -33,7 +33,7 @@
 //*************************************************************************************************
 #include <Eigen/Dense>
 #include"../utilities/print.h"
-#include"bra.h"
+#include<random>
 
 /*!
  *  \addtogroup QuantaPlus
@@ -93,7 +93,9 @@ class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1>
 	
 	void Print(); ///< print |Ket> elements  fractional symbolic form.
 	void NPrint(); ///< print |Ket> elements in fractional numeric form.
-
+	//Ket<T> Normalize();
+	//T NormFactor();
+	//int Measure() const;
 	//**Destructor******************************************************************
 	/*!\name Destructor */
    	//@{
@@ -187,7 +189,7 @@ void Ket<T>::NPrint()
 template <typename T >
 T ExpectValue(const  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mat, const Ket<T> &ket)
 {    
-	Bra<T> bra;
+	Eigen::Matrix<T,1, Eigen::Dynamic>  bra;
 	bra = ket.conjugate();
 	Ket<T> toright((int)ket.rows());
 	toright << mat * ket;
@@ -196,7 +198,50 @@ T ExpectValue(const  Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & mat, const
 	//T nomr = ket.conjugate()*toright;
 	return nomr/demo;//dnomr; 
 }
+/*
+template <typename T >
+int Ket<T>::Measure() const
+{
+        // Calculate the probabilities for each state
+        Ket<T> ket = *this;
+        std::vector<double> probabilities;
+        double norm = ket.norm();
+        for (int row_count = 0; row_count < ket.rows(); row_count++)
+        {
+            probabilities.push_back(std::norm(ket(row_count)) / (norm * norm));
+        }
+	
+        // Perform the measurement
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::discrete_distribution<int> dist(probabilities.begin(), probabilities.end());
+        int measurement = dist(gen);
 
+        return measurement;
+}
+*/
+
+//--------------------------------------------------------------------------
+//#############	normalization factor		#########################
+//--------------------------------------------------------------------------
+template <typename T> 
+T NormFactor(const Ket<T> &kt )
+{   
+    Eigen::Matrix<T,1, Eigen::Dynamic>  br((int)kt.rows());
+    br = kt.adjoint();
+    T sum = br*kt; 
+    return 1./sqrt(sum);   
+}
+//------------------------------------------------------------------------------
+//#############	normalized ket	#########################
+//--------------------------------------------------------------------------
+template <typename T>
+Ket<T> Normalize(const Ket<T> &kt)
+{    
+    Ket<T> res;
+    res = NormFactor(kt) * kt;
+    return res;   
+}
 } //end of namespace QuantaPlus
 /*! @} End of Doxygen Groups*/
 #endif

@@ -40,10 +40,13 @@ int main()
 	cout<<"--------|A>------------"<<endl;
     	
     	ketA.Print();
+    	//ketA=Normalize(ketA);
+    	//ketA.Print();
+    	//cout<<"The selected state index after measurement: "<<ketA.Measure()<<endl;
     	cout<<"--------<B|------------"<<endl;
     	
     	braB.Print();
-    	
+
     	cout<<"--------|B>------------"<<endl;
     	ketB = braB.conjugate(); // |B> = (<B|)^Dagger. (see any QM textbook).
  

@@ -16,7 +16,7 @@ int main()
 	
 	DoubleWellplot_phi01();
 	DoubleWellplot_phi23();	
-	Shiftplot_phi0();
+	
 	
 	//TODO not working...   
 	/*Plot p("phi0","x","$\\phi$","output/phi0.dat", "-8:8", "0:1");

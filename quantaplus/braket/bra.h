@@ -183,6 +183,27 @@ void Bra<T>::NPrint()
 	}
 }
 
+//------------------------------------------------------------------------------
+//#############	normalization factor		#########################
+//--------------------------------------------------------------------------
+template <typename T>
+T NormFactor(const Bra<T> &bra)
+{    
+    Eigen::Matrix<T,Eigen::Dynamic,1>  ket(bra.cols());
+    ket = bra.adjoint();
+    T sum = bra*ket; 
+    return 1./sqrt(sum);   
+}
+//------------------------------------------------------------------------------
+//#############	normalized bra		#########################
+//--------------------------------------------------------------------------
+template <typename T>
+Bra<T> Normalize(const Bra<T> &bra)
+{    
+    Bra<T> res;
+    res = NormFactor(bra) * bra;
+    return res;   
+}
 
 } //end of namespace QuantaPlus
 /*! @} End of Doxygen Groups*/
