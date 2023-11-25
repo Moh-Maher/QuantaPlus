@@ -35,6 +35,7 @@
 #include"utilities/utilities.h"
 #include"braket/ket.h"
 #include"braket/bra.h"
+#include"braket/qubit.h"
 #include"utilities/latex.h"
 #include"utilities/constants.h"
 #include"operators/operators.h"
@@ -43,6 +44,7 @@
 #include"operators/cgc.h"
 #include"eigenvectors/eigenvec.h"
 #include"eigenvectors/eigenval.h"
+
  
 //-------------------------------------------------------------------------------------------------
 //  DOXYGEN DOCUMENTATION

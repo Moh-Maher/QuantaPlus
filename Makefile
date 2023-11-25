@@ -48,7 +48,8 @@ TESTS =	test_angular-momentum \
 		test_latex \
 		test_eigenvalue\
 		test_operators\
-		test_clebschGordon\]	
+		test_clebschGordon\
+		qtest	
 OUTPUT = genLatex
 	 #ploting_wavefunctions
 
