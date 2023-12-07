@@ -64,7 +64,7 @@ class QuantumRegister: public EmatXd
         */
 	QuantumRegister(const int& d)
 	{
-		int N = std::pow(2,d);
+		int N = (int)std::pow(2,d);
 		_dim=N;
 		_qBasis=EmatXd::Identity(N,N);
 		qBasis= _qBasis;

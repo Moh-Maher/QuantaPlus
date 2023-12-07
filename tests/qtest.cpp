@@ -16,6 +16,9 @@ void sperator(const char &c, const int &width){
 int main(){
 
 
+
+cout<<"Quanta Plus version: "<<QuantaPlus::getVersion()<<endl;
+
 QuantaPlus::QuantumRegister qr(1);
 
 cout<<qr.qBasis<<endl;

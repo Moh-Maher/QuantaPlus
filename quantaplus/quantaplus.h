@@ -32,6 +32,7 @@
 // Includes
 //-------------------------------------------------------------------------------------------------
 
+#include"utilities/quantaplus_version.h"
 #include"utilities/utilities.h"
 #include"braket/ket.h"
 #include"braket/bra.h"
@@ -56,6 +57,20 @@ namespace QuantaPlus {
 	//needed to use the literal imaginary unit [ 1i = sqrt(-1)] 
 	using namespace std::complex_literals; 
 	typedef std::complex<double>  complex;
+	
+ 	inline std::string getVersion() {
+	    	
+	    	std::ostringstream ss;
+	    	unsigned int MJ =QUANTAPLUS_VERSION_MAJOR;
+	    	unsigned int MN =QUANTAPLUS_VERSION_MINOR;
+	    	unsigned int PT =QUANTAPLUS_VERSION_PATCH;
+		
+		ss<< "QuantaPlus version " 
+		    << MJ << "."
+		    << MN << "."
+		    << PT;
+		return ss.str();
+	}
 }
 //*************************************************************************************************
 
