@@ -96,27 +96,34 @@ class QuantumRegister: public EmatXd
 	~QuantumRegister(){} ///< Destructor
 };
 
-
+//==================================================================
+//
+//==================================================================
 QM_operator<double> xGate(){
 	QM_operator<double> sigmaX(2,2);
  	sigmaX << 0.,1.,1.,0.;
 	return sigmaX;
 }
-
+//==================================================================
+//
+//==================================================================
 QM_operator<std::complex<double>> yGate(){
 	using namespace std::complex_literals; 
 	QM_operator<std::complex<double>> sigmaY(2,2);
  	sigmaY << 0., 1.0i, -1.0i, 0.;
 	return sigmaY;
 }
-
+//==================================================================
+//
+//==================================================================
 QM_operator<double> zGate(){
 	QM_operator<double> sigmaz(2,2);
  	sigmaz << 1.,0.,0.,-1.;
 	return sigmaz;
 }
-
-
+//==================================================================
+//
+//==================================================================
 EmatXd controledGate(const EmatXd& uGateType){
 	const auto size = 2*uGateType.rows();
 	EmatXd cGate(size,size);	

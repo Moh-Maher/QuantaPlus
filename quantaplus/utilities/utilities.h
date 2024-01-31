@@ -95,15 +95,44 @@ bool validInteger(const double& x)
 {
 	return static_cast<int>(x) - x == 0;
 }
-//--------------------------------------------------------------------------
-//	Function to check if the input is a half integer. 
-//--------------------------------------------------------------------------
+
 bool halfInteger(const double& x)
 {
 	return !validInteger(x) && validInteger(2*x);
 }
 //--------------------------------------------------------------------------
 
- 
+
+//--------------------------------------------------------------------------
+//	Function to facrorize out a subblock of any squared Matrix
+//-------------------------------------------------------------------------- 
+typedef Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> DiynamicMatrixD;
+DiynamicMatrixD subMatrix(const DiynamicMatrixD& composite_matrix, const std::string& block_postion){
+	if(composite_matrix.rows() != composite_matrix.cols()){
+		throw std::domain_error("The composite matrix was not square!");
+	}
+	DiynamicMatrixD subBlock(composite_matrix.rows()/2,composite_matrix.cols()/2);	
+	const auto block_postion_index = composite_matrix.rows()/2;
+
+	for(int i=0; i<subBlock.rows(); i++){
+		for(int j=0; j<subBlock.cols(); j++){
+			if(block_postion == "ur"){
+				subBlock(i,j) = std::real(composite_matrix(i,j)); // uper right block
+			}
+			if(block_postion == "ul"){  
+				subBlock(i,j) = std::real(composite_matrix(i,j+block_postion_index)); // uper left block
+			}
+			if(block_postion == "dr"){
+				subBlock(i,j) = std::real(composite_matrix(i+block_postion_index,j)); // down right block
+
+			}
+
+			if(block_postion == "dl"){
+				subBlock(i,j) = std::real(composite_matrix(i+block_postion_index,j+block_postion_index)); // down left block
+			}
+		}
+	}
+	return subBlock;
+}
 }//end of namespace QuantaPlus
 #endif
