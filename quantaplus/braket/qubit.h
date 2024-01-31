@@ -115,4 +115,18 @@ QM_operator<double> zGate(){
  	sigmaz << 1.,0.,0.,-1.;
 	return sigmaz;
 }
+
+
+EmatXd controledGate(const EmatXd& uGateType){
+	const auto size = 2*uGateType.rows();
+	EmatXd cGate(size,size);	
+	const auto uGate_postion_index = uGateType.rows();
+	cGate = EmatXd::Identity(size, size);
+	for(int i=0; i<uGateType.rows(); i++){
+		for(int j=0; j<uGateType.cols(); j++){
+			cGate(i+uGate_postion_index,j+uGate_postion_index) =  uGateType(i,j);	
+		}
+	}
+	return cGate;
+}
 } //end of namespace QuantaPlus
