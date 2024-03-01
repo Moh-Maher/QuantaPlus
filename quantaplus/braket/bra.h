@@ -100,7 +100,16 @@ class Bra : public Eigen::Matrix<T,1, Eigen::Dynamic>
 	
 	void Print(); ///< Print <Bra| elements in fractional symbolic form
 	void NPrint(); ///< Print <Bra| elements in fractional fractional numeric form
-	
+	// Overload << operator as a friend function
+	friend std::ostream& operator<<(std::ostream& os, const Bra<T>& bra) {
+		for (int row_count = 0; row_count < bra.rows(); row_count++) {
+			for (int col_count = 0; col_count < bra.cols(); col_count++) {
+				ComplexNumPrint(bra(row_count, col_count),0);
+		    	}
+			os << std::endl;
+		}
+			return os;
+	}
 	//**Destructor***************************************************************************** 
 	/*!\name Destructor */
    	//@{

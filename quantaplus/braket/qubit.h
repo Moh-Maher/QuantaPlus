@@ -17,6 +17,7 @@
 namespace QuantaPlus{
 
 typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> EmatXd;
+
 //class Qregister;
 //--------------------------------------------------------------------------
 // general rules
@@ -100,29 +101,37 @@ class QuantumRegister: public EmatXd
 //
 //==================================================================
 QM_operator<double> xGate(){
-	QM_operator<double> sigmaX(2,2);
- 	sigmaX << 0.,1.,1.,0.;
-	return sigmaX;
+	//QM_operator<double> sigmaX(2,2);
+ 	//sigmaX << 0.,1.,1.,0.;
+	return PauliMatrices::sigma_x().real();//sigmaX;
 }
 //==================================================================
 //
 //==================================================================
 QM_operator<std::complex<double>> yGate(){
-	using namespace std::complex_literals; 
-	QM_operator<std::complex<double>> sigmaY(2,2);
- 	sigmaY << 0., 1.0i, -1.0i, 0.;
-	return sigmaY;
+	//using namespace std::complex_literals; 
+	//QM_operator<std::complex<double>> sigmaY(2,2);
+ 	//sigmaY << 0., 1.0i, -1.0i, 0.;
+	return PauliMatrices::sigma_y();//sigmaY;
 }
 //==================================================================
 //
 //==================================================================
 QM_operator<double> zGate(){
-	QM_operator<double> sigmaz(2,2);
- 	sigmaz << 1.,0.,0.,-1.;
-	return sigmaz;
+	//QM_operator<double> sigmaz(2,2);
+ 	//sigmaz << 1.,0.,0.,-1.;
+	return PauliMatrices::sigma_z().real();//sigmaz;
 }
 //==================================================================
 //
+//==================================================================
+QM_operator<double> hadmardGate(){
+	QM_operator<double> H(2,2);
+ 	H <<1.,1.,1.,-1.;
+	return H/std::sqrt(2);
+}
+//==================================================================
+// universal Control gate
 //==================================================================
 EmatXd controledGate(const EmatXd& uGateType){
 	const auto size = 2*uGateType.rows();

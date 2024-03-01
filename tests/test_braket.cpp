@@ -40,21 +40,24 @@ int main()
 	cout<<"--------|A>------------"<<endl;
     	
     	ketA.Print();
+    	//cout<<ketA;
     	//ketA=Normalize(ketA);
     	//ketA.Print();
     	//cout<<"The selected state index after measurement: "<<ketA.Measure()<<endl;
     	cout<<"--------<B|------------"<<endl;
     	
-    	braB.Print();
-
+    	//braB.Print();
+	cout<<braB;
     	cout<<"--------|B>------------"<<endl;
     	ketB = braB.conjugate(); // |B> = (<B|)^Dagger. (see any QM textbook).
  
-	ketB.Print();
+	//ketB.Print();
+	cout<<ketB;
 	cout<<"--------<A|------------"<<endl;
     	braA =  ketA.conjugate();  // <A| = (|A>)^Dagger. (see any QM textbook).
  
-    	braA.Print();
+    	//braA.Print();
+    	cout<<braA;
     	cout<<"--------<A|B>----------"<<endl;
     	BraKetAB =  braA*ketB;
     	ResultPrint( BraKetAB);

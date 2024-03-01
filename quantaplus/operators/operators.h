@@ -135,7 +135,7 @@ void QM_operator<T>::NPrint()
     	{
         	for(int col_count = 0; col_count < mat.cols(); col_count++)
         	{
-			ComplexNumPrint( mat(row_count, col_count),0 );
+			ComplexNumPrint( mat(row_count, col_count),1 );
         	}
         	std::cout<<std::endl;
     	}
@@ -241,6 +241,34 @@ Eigen::Matrix<double,Eigen::Dynamic,Eigen::Dynamic> CtoRMateix(Eigen::Matrix<U,E
     	}
     	return realres;
 }
+//===============================================================
+// 
+//===============================================================
+class PauliMatrices {
+public:
+    // Get Pauli matrix σx
+    static Eigen::Matrix2cd sigma_x() {
+        Eigen::Matrix2cd sigma_x;
+        sigma_x << 0, 1,
+                   1, 0;
+        return sigma_x;
+    }
 
+    // Get Pauli matrix σy
+    static Eigen::Matrix2cd sigma_y() {
+        Eigen::Matrix2cd sigma_y;
+        sigma_y << std::complex<double>(0, -1), 0,
+                   0, std::complex<double>(0, 1);
+        return sigma_y;
+    }
+
+    // Get Pauli matrix σz
+    static Eigen::Matrix2cd sigma_z() {
+        Eigen::Matrix2cd sigma_z;
+        sigma_z << 1, 0,
+                   0, -1;
+        return sigma_z;
+    }
+};
 } //end of namespace QuantaPlus
 #endif

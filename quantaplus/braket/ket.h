@@ -93,6 +93,16 @@ class Ket : public Eigen::Matrix<T,Eigen::Dynamic,1>
 	
 	void Print(); ///< print |Ket> elements  fractional symbolic form.
 	void NPrint(); ///< print |Ket> elements in fractional numeric form.
+	// Overload << operator as a friend function
+	friend std::ostream& operator<<(std::ostream& os, const Ket<T>& ket) {
+		for (int row_count = 0; row_count < ket.rows(); row_count++) {
+			for (int col_count = 0; col_count < ket.cols(); col_count++) {
+				ComplexNumPrint(ket(row_count, col_count),0);
+		    	}
+			os << std::endl;
+		}
+			return os;
+	}
 	//Ket<T> Normalize();
 	//T NormFactor();
 	//int Measure() const;

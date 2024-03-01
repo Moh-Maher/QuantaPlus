@@ -65,4 +65,19 @@ cout<<controledGate(zGate())<<endl;
 
 info("Toffoli (CCNOT) gate");
 cout<<controledGate(controledGate(xGate()))<<endl;
+sperator('=',100);
+QuantaPlus::QuantumRegister Q2(2); // double qubit case
+info("State |10> ");
+cout<<Q2.getqState(2)<<endl;
+sperator('=',50);
+info("CNot Gate |11> = |10>");
+cout<<controledGate(xGate())*Q2.getqState(3)<<endl;
+
+info("test Hadmard gate: H |1> =1/√2(|0>-|1>)");
+//cout<<hadmardGate()*qr.getqState(1)<<endl;
+Ket<double> k = hadmardGate()*qr.getqState(1); 
+cout<<k;
+
+sperator('=',100);
+cout<<controledGate(xGate())*KroneckerProduct(hadmardGate(),Id<double>(0.5))*Q2.getqState(0)<<endl;
 }
