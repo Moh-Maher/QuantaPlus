@@ -79,5 +79,14 @@ Ket<double> k = hadmardGate()*qr.getqState(1);
 cout<<k;
 
 sperator('=',100);
-cout<<controledGate(xGate())*KroneckerProduct(hadmardGate(),Id<double>(0.5))*Q2.getqState(0)<<endl;
+//cout<<controledGate(xGate())*KroneckerProduct(hadmardGate(),Id<double>(0.5))*Q2.getqState(0)<<endl;
+
+//cout<<Q2.getDim()<<endl;
+
+QuantumCircuit qc(2);
+
+qc.operate(hadmardGate(),Q2.getqState(0));
+qc.operate(controledGate(xGate()),qc.getqState());
+qc.operate(hadmardGate(),qc.getqState());
+cout<<qc.getOutcome()<<endl;
 }

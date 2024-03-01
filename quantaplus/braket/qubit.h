@@ -83,6 +83,10 @@ class QuantumRegister: public EmatXd
 		return *this;
 	}
 	
+	int getDim() const{
+		return _dim;
+	}
+	
 	Ket<double> getqState(const int& n){
  
 		Ket<double> temp(_dim);
@@ -96,7 +100,79 @@ class QuantumRegister: public EmatXd
 	
 	~QuantumRegister(){} ///< Destructor
 };
+class QuantumCircuit: public EmatXd
+{
+  private: 
+	int _dim;
+	EmatXd _qGate1;
+	EmatXd _qGate2;
+	Ket<double> _qState;
+	Ket<double> _outcome;
+	//_outcome = EmatXd::Zero(_dim,1)
+  public:
+  	EmatXd qGate1, qGate2;
+ 
+	QuantumCircuit(): EmatXd(){} ///<Default constructor.
+ 
+	QuantumCircuit(const int& d)
+	{
+		int N = (int)std::pow(2,d);
+		_dim=N;
+		_qGate1=EmatXd::Identity(N,N);
+		_qGate2=EmatXd::Identity(N,N);
+	}
+	
+	QuantumCircuit(const QuantumRegister& qr){
+		int N = qr.getDim();//(int)std::pow(2, qr.getDim());
+		_dim=N;
+		_qGate1=EmatXd::Identity(N,N);
+		_qGate2=EmatXd::Identity(N,N);
+	
+	}
+	template<typename Derived> 
+	QuantumCircuit(const Eigen::MatrixBase<Derived>& other)
+	:EmatXd(other){ } ///< construct QuantumCircuit from Eigen expressions.
+ 
+    	/*!Assign Eigen expressions to QuantumRegister*/
+	template<typename Derived>
+	QuantumCircuit& operator=(const Eigen::MatrixBase <Derived>& other)
+	{
+		this->EmatXd::operator=(other);
+		return *this;
+	}
+	void operate( const EmatXd& opr,const Ket<double>& target){
+		Ket<double> temp(_dim);
+		//EmatXd temp_target(target.rows(),1);
+		//temp_target = target;
+		if(opr.rows()< _dim){
+			temp = KroneckerProduct(opr,Id<double>(0.5))*target;//KroneckerProduct(temp_target,Id<double>(0.5));
+					_qState = temp;
+		}
+		
+		else{
+			temp = opr*target;
+					_qState = temp;
+		}
+		_outcome = _qState+EmatXd::Zero(_dim,1);
 
+	}
+	Ket<double> getqState(){
+ 
+		/*Ket<double> temp(_dim);
+		for(int i=0; i<_dim; i++){
+			temp[i] = _qState(i);
+		}
+		_qState = temp;*/
+		//std::cout<< _qState<<std::endl;
+		return _qState;
+	}
+	Ket<double> getOutcome(){
+		//std::cout<<_outcome<<std::endl;
+		return _outcome;
+	}
+	
+	~QuantumCircuit(){} ///< Destructor
+};
 //==================================================================
 //
 //==================================================================
