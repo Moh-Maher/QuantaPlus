@@ -32,13 +32,13 @@ int main()
 	//-----------------------------------------------------------------
 	cout<<"[ RisingOperator: ]"<<endl;
  
-	plus.Print();
+	plus.NPrint();
 
 	cout<<"-------------------"<<endl;
 	
 	cout<<"[ LoweringOperator: ]"<<endl;
  
-	minus.Print();
+	minus.NPrint();
 	cout<<"-------------------"<<endl;
 	
 	cout<<"[ Id matrix operator for spin = 3/2: ]"<<endl;

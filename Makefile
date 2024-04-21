@@ -12,7 +12,7 @@ endif
 # Copy QuantaPlus folder to /usr/include
 install:
 	sudo cp -r quantaplus /usr/include/
- 
+	
 # in both testing and library
 CC = g++ -g3 -O3  -I./usr/include/
 # added for the compilation of the libraries
@@ -55,13 +55,14 @@ OUTPUT = genLatex
 
 PLOTS = plotting_wavefunctions
           
+
 # making examples
 
 $(EXAMPLES): %: examples/%.cpp 
-	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/usr/include/eigen3  
+	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< 
 
 $(OUTPUT): %: output/%.cpp  
-	$(CC) $(CFLAGSTEST)  -o latex.out $< #-I/usr/include/python3.10 -lpython3.10
+	$(CC) $(CFLAGSTEST)  -o latex.out $< 
 	
 $(PLOTS): %: output/plots/%.cpp  
 	$(CC) $(CFLAGSTEST)  -o plot.out $< -I/usr/include/python3.10 -lpython3.10
@@ -70,6 +71,6 @@ $(PLOTS): %: output/plots/%.cpp
 #$(TESTS): %: tests/%.cpp
 #	$(CC) $(CFLAGSTEST)  -o RunTests.out $< -lgtest -lgtest_main -pthread -I/usr/include/eigen3 
 $(TESTS): %: tests/%.cpp
-	$(CC) $(CFLAGSTEST)  -o QUANTA.out $< -I/usr/include/eigen3 
+	$(CC) $(CFLAGSTEST)  -o QUANTA.out $<  
 clean:
 	rm *.out      	

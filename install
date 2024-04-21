@@ -8,7 +8,7 @@ ifeq ($(EIGEN3_INSTALLED), 0)
     $(shell sudo apt-get install libeigen3-dev)
 endif
 
-# Copy QuantaPlus folder to /usr/include
+# Copy "quantaplus" folder to /usr/include
 install:
 	sudo cp -r quantaplus /usr/include/
 
